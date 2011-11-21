@@ -7,18 +7,18 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the RIIGI_ADMIN_YKSUSE_LIIK database table.
+ * The persistent class for the PIIRIPUNKTI_ORG_YKSUS database table.
  * 
  */
 @Entity
-@Table(name="RIIGI_ADMIN_YKSUSE_LIIK")
-public class RiigiAdminYksuseLiik implements Serializable {
+@Table(name="PIIRIPUNKTI_ORG_YKSUS")
+public class PiiripunktiOrgYksus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="RIIGI_ADMIN_YKSUSE_LIK_ID")
-	private int riigiAdminYksuseLikId;
+	@Column(name="PIIRIPUNKTI_ORG_YKSUS_ID")
+	private int piiripunktiOrgYksusId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -27,6 +27,8 @@ public class RiigiAdminYksuseLiik implements Serializable {
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
+
+	private String kommentaar;
 
 	private String kood;
 
@@ -45,27 +47,32 @@ public class RiigiAdminYksuseLiik implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to RiigiAdminYksus
-	@OneToMany(mappedBy="riigiAdminYksuseLiik")
-	private Set<RiigiAdminYksus> riigiAdminYksuses;
+	@Column(name="VAEOSA_ID_ID")
+	private int vaeosaIdId;
 
-	//bi-directional many-to-one association to VoimalikAlluvus
-	@OneToMany(mappedBy="riigiAdminYksuseLiik1")
-	private Set<VoimalikAlluvus> voimalikAlluvuses1;
+	//bi-directional many-to-one association to Piiripunkt
+    @ManyToOne
+	@JoinColumn(name="PIIRIPUNKT_ID")
+	private Piiripunkt piiripunkt;
 
-	//bi-directional many-to-one association to VoimalikAlluvus
-	@OneToMany(mappedBy="riigiAdminYksuseLiik2")
-	private Set<VoimalikAlluvus> voimalikAlluvuses2;
+	//bi-directional many-to-one association to PiiripunktiOrgYksus
+    @ManyToOne
+	@JoinColumn(name="YLEM_ORG_YKSUS_ID")
+	private PiiripunktiOrgYksus piiripunktiOrgYksus;
 
-    public RiigiAdminYksuseLiik() {
+	//bi-directional many-to-one association to PiiripunktiOrgYksus
+	@OneToMany(mappedBy="piiripunktiOrgYksus")
+	private Set<PiiripunktiOrgYksus> piiripunktiOrgYksuses;
+
+    public PiiripunktiOrgYksus() {
     }
 
-	public int getRiigiAdminYksuseLikId() {
-		return this.riigiAdminYksuseLikId;
+	public int getPiiripunktiOrgYksusId() {
+		return this.piiripunktiOrgYksusId;
 	}
 
-	public void setRiigiAdminYksuseLikId(int riigiAdminYksuseLikId) {
-		this.riigiAdminYksuseLikId = riigiAdminYksuseLikId;
+	public void setPiiripunktiOrgYksusId(int piiripunktiOrgYksusId) {
+		this.piiripunktiOrgYksusId = piiripunktiOrgYksusId;
 	}
 
 	public Date getAlates() {
@@ -90,6 +97,14 @@ public class RiigiAdminYksuseLiik implements Serializable {
 
 	public void setAvatud(Date avatud) {
 		this.avatud = avatud;
+	}
+
+	public String getKommentaar() {
+		return this.kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public String getKood() {
@@ -148,28 +163,36 @@ public class RiigiAdminYksuseLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<RiigiAdminYksus> getRiigiAdminYksuses() {
-		return this.riigiAdminYksuses;
+	public int getVaeosaIdId() {
+		return this.vaeosaIdId;
 	}
 
-	public void setRiigiAdminYksuses(Set<RiigiAdminYksus> riigiAdminYksuses) {
-		this.riigiAdminYksuses = riigiAdminYksuses;
+	public void setVaeosaIdId(int vaeosaIdId) {
+		this.vaeosaIdId = vaeosaIdId;
+	}
+
+	public Piiripunkt getPiiripunkt() {
+		return this.piiripunkt;
+	}
+
+	public void setPiiripunkt(Piiripunkt piiripunkt) {
+		this.piiripunkt = piiripunkt;
 	}
 	
-	public Set<VoimalikAlluvus> getVoimalikAlluvuses1() {
-		return this.voimalikAlluvuses1;
+	public PiiripunktiOrgYksus getPiiripunktiOrgYksus() {
+		return this.piiripunktiOrgYksus;
 	}
 
-	public void setVoimalikAlluvuses1(Set<VoimalikAlluvus> voimalikAlluvuses1) {
-		this.voimalikAlluvuses1 = voimalikAlluvuses1;
+	public void setPiiripunktiOrgYksus(PiiripunktiOrgYksus piiripunktiOrgYksus) {
+		this.piiripunktiOrgYksus = piiripunktiOrgYksus;
 	}
 	
-	public Set<VoimalikAlluvus> getVoimalikAlluvuses2() {
-		return this.voimalikAlluvuses2;
+	public Set<PiiripunktiOrgYksus> getPiiripunktiOrgYksuses() {
+		return this.piiripunktiOrgYksuses;
 	}
 
-	public void setVoimalikAlluvuses2(Set<VoimalikAlluvus> voimalikAlluvuses2) {
-		this.voimalikAlluvuses2 = voimalikAlluvuses2;
+	public void setPiiripunktiOrgYksuses(Set<PiiripunktiOrgYksus> piiripunktiOrgYksuses) {
+		this.piiripunktiOrgYksuses = piiripunktiOrgYksuses;
 	}
 	
 }

@@ -2,22 +2,23 @@ package ee.itcollege.team11;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
 
 /**
- * The persistent class for the VAEOSA database table.
+ * The persistent class for the PIIRIPUNKT database table.
  * 
  */
 @Entity
-public class Vaeosa implements Serializable {
+public class Piiripunkt implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="VAEOSA_ID_ID")
-	private int vaeosaIdId;
+	@Column(name="PIIRIPUNKT_ID")
+	private int piiripunktId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -27,7 +28,18 @@ public class Vaeosa implements Serializable {
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
+	@Column(name="GPS_LATITUDE")
+	private BigDecimal gpsLatitude;
+
+	@Column(name="GPS_LONGITUIDE")
+	private BigDecimal gpsLongituide;
+
+	private String kommentaar;
+
 	private String kood;
+
+	@Column(name="KORGUS_MEREPINNAST")
+	private BigDecimal korgusMerepinnast;
 
     @Temporal( TemporalType.DATE)
 	private Date kuni;
@@ -44,48 +56,35 @@ public class Vaeosa implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to RiigiAdminYksus
-    @ManyToOne
-	@JoinColumn(name="RIIGI_ADMIN_YKSUS_ID")
-	private RiigiAdminYksus riigiAdminYksus;
-
-	//bi-directional many-to-one association to AmetVaeosa
-	@OneToMany(mappedBy="vaeosa")
-	private Set<AmetVaeosa> ametVaeosas;
-
-	//bi-directional many-to-one association to OrgYksus
-	@OneToMany(mappedBy="vaeosa")
-	private Set<OrgYksus> orgYksuses;
+	//bi-directional many-to-one association to AmetPiiripunkti
+	@OneToMany(mappedBy="piiripunkt")
+	private Set<AmetPiiripunkti> ametPiiripunktis;
 
 	//bi-directional many-to-one association to PiiriloiguHaldaja
-	@OneToMany(mappedBy="vaeosa")
+	@OneToMany(mappedBy="piiripunkt")
 	private Set<PiiriloiguHaldaja> piiriloiguHaldajas;
 
 	//bi-directional many-to-one association to PiiripunktiAlluvus
-	@OneToMany(mappedBy="vaeosa")
+	@OneToMany(mappedBy="piiripunkt")
 	private Set<PiiripunktiAlluvus> piiripunktiAlluvuses;
 
-	//bi-directional many-to-one association to VaeosaAlluvus
-	@OneToMany(mappedBy="vaeosa1")
-	private Set<VaeosaAlluvus> vaeosaAlluvuses1;
-
-	//bi-directional many-to-one association to VaeosaAlluvus
-	@OneToMany(mappedBy="vaeosa2")
-	private Set<VaeosaAlluvus> vaeosaAlluvuses2;
+	//bi-directional many-to-one association to PiiripunktiOrgYksus
+	@OneToMany(mappedBy="piiripunkt")
+	private Set<PiiripunktiOrgYksus> piiripunktiOrgYksuses;
 
 	//bi-directional many-to-one association to Vahtkond
-	@OneToMany(mappedBy="vaeosa")
+	@OneToMany(mappedBy="piiripunkt")
 	private Set<Vahtkond> vahtkonds;
 
-    public Vaeosa() {
+    public Piiripunkt() {
     }
 
-	public int getVaeosaIdId() {
-		return this.vaeosaIdId;
+	public int getPiiripunktId() {
+		return this.piiripunktId;
 	}
 
-	public void setVaeosaIdId(int vaeosaIdId) {
-		this.vaeosaIdId = vaeosaIdId;
+	public void setPiiripunktId(int piiripunktId) {
+		this.piiripunktId = piiripunktId;
 	}
 
 	public Date getAlates() {
@@ -112,12 +111,44 @@ public class Vaeosa implements Serializable {
 		this.avatud = avatud;
 	}
 
+	public BigDecimal getGpsLatitude() {
+		return this.gpsLatitude;
+	}
+
+	public void setGpsLatitude(BigDecimal gpsLatitude) {
+		this.gpsLatitude = gpsLatitude;
+	}
+
+	public BigDecimal getGpsLongituide() {
+		return this.gpsLongituide;
+	}
+
+	public void setGpsLongituide(BigDecimal gpsLongituide) {
+		this.gpsLongituide = gpsLongituide;
+	}
+
+	public String getKommentaar() {
+		return this.kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
+	}
+
 	public String getKood() {
 		return this.kood;
 	}
 
 	public void setKood(String kood) {
 		this.kood = kood;
+	}
+
+	public BigDecimal getKorgusMerepinnast() {
+		return this.korgusMerepinnast;
+	}
+
+	public void setKorgusMerepinnast(BigDecimal korgusMerepinnast) {
+		this.korgusMerepinnast = korgusMerepinnast;
 	}
 
 	public Date getKuni() {
@@ -168,28 +199,12 @@ public class Vaeosa implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public RiigiAdminYksus getRiigiAdminYksus() {
-		return this.riigiAdminYksus;
+	public Set<AmetPiiripunkti> getAmetPiiripunktis() {
+		return this.ametPiiripunktis;
 	}
 
-	public void setRiigiAdminYksus(RiigiAdminYksus riigiAdminYksus) {
-		this.riigiAdminYksus = riigiAdminYksus;
-	}
-	
-	public Set<AmetVaeosa> getAmetVaeosas() {
-		return this.ametVaeosas;
-	}
-
-	public void setAmetVaeosas(Set<AmetVaeosa> ametVaeosas) {
-		this.ametVaeosas = ametVaeosas;
-	}
-	
-	public Set<OrgYksus> getOrgYksuses() {
-		return this.orgYksuses;
-	}
-
-	public void setOrgYksuses(Set<OrgYksus> orgYksuses) {
-		this.orgYksuses = orgYksuses;
+	public void setAmetPiiripunktis(Set<AmetPiiripunkti> ametPiiripunktis) {
+		this.ametPiiripunktis = ametPiiripunktis;
 	}
 	
 	public Set<PiiriloiguHaldaja> getPiiriloiguHaldajas() {
@@ -208,20 +223,12 @@ public class Vaeosa implements Serializable {
 		this.piiripunktiAlluvuses = piiripunktiAlluvuses;
 	}
 	
-	public Set<VaeosaAlluvus> getVaeosaAlluvuses1() {
-		return this.vaeosaAlluvuses1;
+	public Set<PiiripunktiOrgYksus> getPiiripunktiOrgYksuses() {
+		return this.piiripunktiOrgYksuses;
 	}
 
-	public void setVaeosaAlluvuses1(Set<VaeosaAlluvus> vaeosaAlluvuses1) {
-		this.vaeosaAlluvuses1 = vaeosaAlluvuses1;
-	}
-	
-	public Set<VaeosaAlluvus> getVaeosaAlluvuses2() {
-		return this.vaeosaAlluvuses2;
-	}
-
-	public void setVaeosaAlluvuses2(Set<VaeosaAlluvus> vaeosaAlluvuses2) {
-		this.vaeosaAlluvuses2 = vaeosaAlluvuses2;
+	public void setPiiripunktiOrgYksuses(Set<PiiripunktiOrgYksus> piiripunktiOrgYksuses) {
+		this.piiripunktiOrgYksuses = piiripunktiOrgYksuses;
 	}
 	
 	public Set<Vahtkond> getVahtkonds() {

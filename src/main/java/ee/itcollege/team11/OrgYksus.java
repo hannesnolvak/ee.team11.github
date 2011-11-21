@@ -7,18 +7,18 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the RIIGI_ADMIN_YKSUSE_LIIK database table.
+ * The persistent class for the ORG_YKSUS database table.
  * 
  */
 @Entity
-@Table(name="RIIGI_ADMIN_YKSUSE_LIIK")
-public class RiigiAdminYksuseLiik implements Serializable {
+@Table(name="ORG_YKSUS")
+public class OrgYksus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="RIIGI_ADMIN_YKSUSE_LIK_ID")
-	private int riigiAdminYksuseLikId;
+	@Column(name="ORG_YKSUS_ID")
+	private int orgYksusId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -27,6 +27,8 @@ public class RiigiAdminYksuseLiik implements Serializable {
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
+
+	private String kommentaar;
 
 	private String kood;
 
@@ -45,27 +47,29 @@ public class RiigiAdminYksuseLiik implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to RiigiAdminYksus
-	@OneToMany(mappedBy="riigiAdminYksuseLiik")
-	private Set<RiigiAdminYksus> riigiAdminYksuses;
+	//bi-directional many-to-one association to OrgYksus
+    @ManyToOne
+	@JoinColumn(name="YLEM_ORG_YKSUS_ID")
+	private OrgYksus orgYksus;
 
-	//bi-directional many-to-one association to VoimalikAlluvus
-	@OneToMany(mappedBy="riigiAdminYksuseLiik1")
-	private Set<VoimalikAlluvus> voimalikAlluvuses1;
+	//bi-directional many-to-one association to OrgYksus
+	@OneToMany(mappedBy="orgYksus")
+	private Set<OrgYksus> orgYksuses;
 
-	//bi-directional many-to-one association to VoimalikAlluvus
-	@OneToMany(mappedBy="riigiAdminYksuseLiik2")
-	private Set<VoimalikAlluvus> voimalikAlluvuses2;
+	//bi-directional many-to-one association to Vaeosa
+    @ManyToOne
+	@JoinColumn(name="VAEOSA_ID_ID")
+	private Vaeosa vaeosa;
 
-    public RiigiAdminYksuseLiik() {
+    public OrgYksus() {
     }
 
-	public int getRiigiAdminYksuseLikId() {
-		return this.riigiAdminYksuseLikId;
+	public int getOrgYksusId() {
+		return this.orgYksusId;
 	}
 
-	public void setRiigiAdminYksuseLikId(int riigiAdminYksuseLikId) {
-		this.riigiAdminYksuseLikId = riigiAdminYksuseLikId;
+	public void setOrgYksusId(int orgYksusId) {
+		this.orgYksusId = orgYksusId;
 	}
 
 	public Date getAlates() {
@@ -90,6 +94,14 @@ public class RiigiAdminYksuseLiik implements Serializable {
 
 	public void setAvatud(Date avatud) {
 		this.avatud = avatud;
+	}
+
+	public String getKommentaar() {
+		return this.kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public String getKood() {
@@ -148,28 +160,28 @@ public class RiigiAdminYksuseLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<RiigiAdminYksus> getRiigiAdminYksuses() {
-		return this.riigiAdminYksuses;
+	public OrgYksus getOrgYksus() {
+		return this.orgYksus;
 	}
 
-	public void setRiigiAdminYksuses(Set<RiigiAdminYksus> riigiAdminYksuses) {
-		this.riigiAdminYksuses = riigiAdminYksuses;
+	public void setOrgYksus(OrgYksus orgYksus) {
+		this.orgYksus = orgYksus;
 	}
 	
-	public Set<VoimalikAlluvus> getVoimalikAlluvuses1() {
-		return this.voimalikAlluvuses1;
+	public Set<OrgYksus> getOrgYksuses() {
+		return this.orgYksuses;
 	}
 
-	public void setVoimalikAlluvuses1(Set<VoimalikAlluvus> voimalikAlluvuses1) {
-		this.voimalikAlluvuses1 = voimalikAlluvuses1;
+	public void setOrgYksuses(Set<OrgYksus> orgYksuses) {
+		this.orgYksuses = orgYksuses;
 	}
 	
-	public Set<VoimalikAlluvus> getVoimalikAlluvuses2() {
-		return this.voimalikAlluvuses2;
+	public Vaeosa getVaeosa() {
+		return this.vaeosa;
 	}
 
-	public void setVoimalikAlluvuses2(Set<VoimalikAlluvus> voimalikAlluvuses2) {
-		this.voimalikAlluvuses2 = voimalikAlluvuses2;
+	public void setVaeosa(Vaeosa vaeosa) {
+		this.vaeosa = vaeosa;
 	}
 	
 }

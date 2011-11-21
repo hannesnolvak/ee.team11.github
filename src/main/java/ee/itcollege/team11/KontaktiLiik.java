@@ -7,25 +7,25 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the INTSIDENDI_LIIK database table.
+ * The persistent class for the KONTAKTI_LIIK database table.
  * 
  */
 @Entity
-@Table(name="INTSIDENDI_LIIK")
-public class IntsidendiLiik implements Serializable {
+@Table(name="KONTAKTI_LIIK")
+public class KontaktiLiik implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="INTSIDENDI_LIIK_ID")
-	private int intsidendiLiikId;
+	@Column(name="KONTAKTI_LIIK_ID")
+	private int kontaktiLiikId;
 
 	private String avaja;
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
-	private String kood;
+	private String kommentaar;
 
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
@@ -39,19 +39,22 @@ public class IntsidendiLiik implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to Intsident
-	@OneToMany(mappedBy="intsidendiLiik")
-	private Set<Intsident> intsidents;
+	@Column(name="XML_KIRJELDUS")
+	private String xmlKirjeldus;
 
-    public IntsidendiLiik() {
+	//bi-directional many-to-one association to PiirivalvuriKontakt
+	@OneToMany(mappedBy="kontaktiLiik")
+	private Set<PiirivalvuriKontakt> piirivalvuriKontakts;
+
+    public KontaktiLiik() {
     }
 
-	public int getIntsidendiLiikId() {
-		return this.intsidendiLiikId;
+	public int getKontaktiLiikId() {
+		return this.kontaktiLiikId;
 	}
 
-	public void setIntsidendiLiikId(int intsidendiLiikId) {
-		this.intsidendiLiikId = intsidendiLiikId;
+	public void setKontaktiLiikId(int kontaktiLiikId) {
+		this.kontaktiLiikId = kontaktiLiikId;
 	}
 
 	public String getAvaja() {
@@ -70,12 +73,12 @@ public class IntsidendiLiik implements Serializable {
 		this.avatud = avatud;
 	}
 
-	public String getKood() {
-		return this.kood;
+	public String getKommentaar() {
+		return this.kommentaar;
 	}
 
-	public void setKood(String kood) {
-		this.kood = kood;
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public Date getMuudetud() {
@@ -118,12 +121,20 @@ public class IntsidendiLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<Intsident> getIntsidents() {
-		return this.intsidents;
+	public String getXmlKirjeldus() {
+		return this.xmlKirjeldus;
 	}
 
-	public void setIntsidents(Set<Intsident> intsidents) {
-		this.intsidents = intsidents;
+	public void setXmlKirjeldus(String xmlKirjeldus) {
+		this.xmlKirjeldus = xmlKirjeldus;
+	}
+
+	public Set<PiirivalvuriKontakt> getPiirivalvuriKontakts() {
+		return this.piirivalvuriKontakts;
+	}
+
+	public void setPiirivalvuriKontakts(Set<PiirivalvuriKontakt> piirivalvuriKontakts) {
+		this.piirivalvuriKontakts = piirivalvuriKontakts;
 	}
 	
 }

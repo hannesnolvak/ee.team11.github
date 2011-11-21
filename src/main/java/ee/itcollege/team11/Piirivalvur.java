@@ -3,6 +3,7 @@ package ee.itcollege.team11;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 
 /**
@@ -43,6 +44,38 @@ public class Piirivalvur implements Serializable {
 	private Date suletud;
 
 	private String sulgeja;
+
+	//bi-directional many-to-one association to AuastmeMuutumine
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<AuastmeMuutumine> auastmeMuutumines;
+
+	//bi-directional many-to-one association to PiirivalvuriKontakt
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<PiirivalvuriKontakt> piirivalvuriKontakts;
+
+	//bi-directional many-to-one association to PiirivalvurIntsidendi
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<PiirivalvurIntsidendi> piirivalvurIntsidendis;
+
+	//bi-directional many-to-one association to PiirivalvurPiiripunkti
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<PiirivalvurPiiripunkti> piirivalvurPiiripunktis;
+
+	//bi-directional many-to-one association to PiirivalvurVaeosa
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<PiirivalvurVaeosa> piirivalvurVaeosas;
+
+	//bi-directional many-to-one association to PiirivalvurVodikohal
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<PiirivalvurVodikohal> piirivalvurVodikohals;
+
+	//bi-directional many-to-one association to SeotudKontaktisik
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<SeotudKontaktisik> seotudKontaktisiks;
+
+	//bi-directional many-to-one association to VahtkonnaLiige
+	@OneToMany(mappedBy="piirivalvur")
+	private Set<VahtkonnaLiige> vahtkonnaLiiges;
 
     public Piirivalvur() {
     }
@@ -143,4 +176,68 @@ public class Piirivalvur implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
+	public Set<AuastmeMuutumine> getAuastmeMuutumines() {
+		return this.auastmeMuutumines;
+	}
+
+	public void setAuastmeMuutumines(Set<AuastmeMuutumine> auastmeMuutumines) {
+		this.auastmeMuutumines = auastmeMuutumines;
+	}
+	
+	public Set<PiirivalvuriKontakt> getPiirivalvuriKontakts() {
+		return this.piirivalvuriKontakts;
+	}
+
+	public void setPiirivalvuriKontakts(Set<PiirivalvuriKontakt> piirivalvuriKontakts) {
+		this.piirivalvuriKontakts = piirivalvuriKontakts;
+	}
+	
+	public Set<PiirivalvurIntsidendi> getPiirivalvurIntsidendis() {
+		return this.piirivalvurIntsidendis;
+	}
+
+	public void setPiirivalvurIntsidendis(Set<PiirivalvurIntsidendi> piirivalvurIntsidendis) {
+		this.piirivalvurIntsidendis = piirivalvurIntsidendis;
+	}
+	
+	public Set<PiirivalvurPiiripunkti> getPiirivalvurPiiripunktis() {
+		return this.piirivalvurPiiripunktis;
+	}
+
+	public void setPiirivalvurPiiripunktis(Set<PiirivalvurPiiripunkti> piirivalvurPiiripunktis) {
+		this.piirivalvurPiiripunktis = piirivalvurPiiripunktis;
+	}
+	
+	public Set<PiirivalvurVaeosa> getPiirivalvurVaeosas() {
+		return this.piirivalvurVaeosas;
+	}
+
+	public void setPiirivalvurVaeosas(Set<PiirivalvurVaeosa> piirivalvurVaeosas) {
+		this.piirivalvurVaeosas = piirivalvurVaeosas;
+	}
+	
+	public Set<PiirivalvurVodikohal> getPiirivalvurVodikohals() {
+		return this.piirivalvurVodikohals;
+	}
+
+	public void setPiirivalvurVodikohals(Set<PiirivalvurVodikohal> piirivalvurVodikohals) {
+		this.piirivalvurVodikohals = piirivalvurVodikohals;
+	}
+	
+	public Set<SeotudKontaktisik> getSeotudKontaktisiks() {
+		return this.seotudKontaktisiks;
+	}
+
+	public void setSeotudKontaktisiks(Set<SeotudKontaktisik> seotudKontaktisiks) {
+		this.seotudKontaktisiks = seotudKontaktisiks;
+	}
+	
+	public Set<VahtkonnaLiige> getVahtkonnaLiiges() {
+		return this.vahtkonnaLiiges;
+	}
+
+	public void setVahtkonnaLiiges(Set<VahtkonnaLiige> vahtkonnaLiiges) {
+		this.vahtkonnaLiiges = vahtkonnaLiiges;
+	}
+	
 }

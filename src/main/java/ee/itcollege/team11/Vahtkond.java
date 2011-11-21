@@ -7,18 +7,17 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the RIIGI_ADMIN_YKSUS database table.
+ * The persistent class for the VAHTKOND database table.
  * 
  */
 @Entity
-@Table(name="RIIGI_ADMIN_YKSUS")
-public class RiigiAdminYksus implements Serializable {
+public class Vahtkond implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="RIIGI_ADMIN_YKSUS_ID")
-	private int riigiAdminYksusId;
+	@Column(name="VAHTKOND_ID")
+	private int vahtkondId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -27,6 +26,8 @@ public class RiigiAdminYksus implements Serializable {
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
+
+	private String kommentaar;
 
 	private String kood;
 
@@ -45,36 +46,37 @@ public class RiigiAdminYksus implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to AdminAlluvus
-	@OneToMany(mappedBy="riigiAdminYksus1")
-	private Set<AdminAlluvus> adminAlluvuses1;
-
-	//bi-directional many-to-one association to AdminAlluvus
-	@OneToMany(mappedBy="riigiAdminYksus2")
-	private Set<AdminAlluvus> adminAlluvuses2;
-
-	//bi-directional many-to-one association to RiigiAdminYksuseLiik
+	//bi-directional many-to-one association to Piiripunkt
     @ManyToOne
-	@JoinColumn(name="RIIGI_ADMIN_YKSUSE_LIK_ID")
-	private RiigiAdminYksuseLiik riigiAdminYksuseLiik;
+	@JoinColumn(name="PIIRIPUNKT_ID")
+	private Piiripunkt piiripunkt;
 
 	//bi-directional many-to-one association to Vaeosa
-	@OneToMany(mappedBy="riigiAdminYksus")
-	private Set<Vaeosa> vaeosas;
+    @ManyToOne
+	@JoinColumn(name="VAEOSA_ID_ID")
+	private Vaeosa vaeosa;
 
-	//bi-directional many-to-one association to Ruumiyksus
-	@OneToMany(mappedBy="riigiAdminYksus")
-	private Set<Ruumiyksus> ruumiyksuses;
+	//bi-directional many-to-one association to VahtkondIntsidendi
+	@OneToMany(mappedBy="vahtkond")
+	private Set<VahtkondIntsidendi> vahtkondIntsidendis;
 
-    public RiigiAdminYksus() {
+	//bi-directional many-to-one association to VahtkonnaLiige
+	@OneToMany(mappedBy="vahtkond")
+	private Set<VahtkonnaLiige> vahtkonnaLiiges;
+
+	//bi-directional many-to-one association to VahtkonndPiiriloigul
+	@OneToMany(mappedBy="vahtkond")
+	private Set<VahtkonndPiiriloigul> vahtkonndPiiriloiguls;
+
+    public Vahtkond() {
     }
 
-	public int getRiigiAdminYksusId() {
-		return this.riigiAdminYksusId;
+	public int getVahtkondId() {
+		return this.vahtkondId;
 	}
 
-	public void setRiigiAdminYksusId(int riigiAdminYksusId) {
-		this.riigiAdminYksusId = riigiAdminYksusId;
+	public void setVahtkondId(int vahtkondId) {
+		this.vahtkondId = vahtkondId;
 	}
 
 	public Date getAlates() {
@@ -99,6 +101,14 @@ public class RiigiAdminYksus implements Serializable {
 
 	public void setAvatud(Date avatud) {
 		this.avatud = avatud;
+	}
+
+	public String getKommentaar() {
+		return this.kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public String getKood() {
@@ -157,44 +167,44 @@ public class RiigiAdminYksus implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<AdminAlluvus> getAdminAlluvuses1() {
-		return this.adminAlluvuses1;
+	public Piiripunkt getPiiripunkt() {
+		return this.piiripunkt;
 	}
 
-	public void setAdminAlluvuses1(Set<AdminAlluvus> adminAlluvuses1) {
-		this.adminAlluvuses1 = adminAlluvuses1;
+	public void setPiiripunkt(Piiripunkt piiripunkt) {
+		this.piiripunkt = piiripunkt;
 	}
 	
-	public Set<AdminAlluvus> getAdminAlluvuses2() {
-		return this.adminAlluvuses2;
+	public Vaeosa getVaeosa() {
+		return this.vaeosa;
 	}
 
-	public void setAdminAlluvuses2(Set<AdminAlluvus> adminAlluvuses2) {
-		this.adminAlluvuses2 = adminAlluvuses2;
+	public void setVaeosa(Vaeosa vaeosa) {
+		this.vaeosa = vaeosa;
 	}
 	
-	public RiigiAdminYksuseLiik getRiigiAdminYksuseLiik() {
-		return this.riigiAdminYksuseLiik;
+	public Set<VahtkondIntsidendi> getVahtkondIntsidendis() {
+		return this.vahtkondIntsidendis;
 	}
 
-	public void setRiigiAdminYksuseLiik(RiigiAdminYksuseLiik riigiAdminYksuseLiik) {
-		this.riigiAdminYksuseLiik = riigiAdminYksuseLiik;
+	public void setVahtkondIntsidendis(Set<VahtkondIntsidendi> vahtkondIntsidendis) {
+		this.vahtkondIntsidendis = vahtkondIntsidendis;
 	}
 	
-	public Set<Vaeosa> getVaeosas() {
-		return this.vaeosas;
+	public Set<VahtkonnaLiige> getVahtkonnaLiiges() {
+		return this.vahtkonnaLiiges;
 	}
 
-	public void setVaeosas(Set<Vaeosa> vaeosas) {
-		this.vaeosas = vaeosas;
+	public void setVahtkonnaLiiges(Set<VahtkonnaLiige> vahtkonnaLiiges) {
+		this.vahtkonnaLiiges = vahtkonnaLiiges;
 	}
 	
-	public Set<Ruumiyksus> getRuumiyksuses() {
-		return this.ruumiyksuses;
+	public Set<VahtkonndPiiriloigul> getVahtkonndPiiriloiguls() {
+		return this.vahtkonndPiiriloiguls;
 	}
 
-	public void setRuumiyksuses(Set<Ruumiyksus> ruumiyksuses) {
-		this.ruumiyksuses = ruumiyksuses;
+	public void setVahtkonndPiiriloiguls(Set<VahtkonndPiiriloigul> vahtkonndPiiriloiguls) {
+		this.vahtkonndPiiriloiguls = vahtkonndPiiriloiguls;
 	}
 	
 }

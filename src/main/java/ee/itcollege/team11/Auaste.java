@@ -7,23 +7,24 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the INTSIDENDI_LIIK database table.
+ * The persistent class for the AUASTE database table.
  * 
  */
 @Entity
-@Table(name="INTSIDENDI_LIIK")
-public class IntsidendiLiik implements Serializable {
+public class Auaste implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="INTSIDENDI_LIIK_ID")
-	private int intsidendiLiikId;
+	@Column(name="AUASTE_ID")
+	private int auasteId;
 
 	private String avaja;
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
+
+	private String kommentaar;
 
 	private String kood;
 
@@ -39,19 +40,19 @@ public class IntsidendiLiik implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to Intsident
-	@OneToMany(mappedBy="intsidendiLiik")
-	private Set<Intsident> intsidents;
+	//bi-directional many-to-one association to AuastmeMuutumine
+	@OneToMany(mappedBy="auaste")
+	private Set<AuastmeMuutumine> auastmeMuutumines;
 
-    public IntsidendiLiik() {
+    public Auaste() {
     }
 
-	public int getIntsidendiLiikId() {
-		return this.intsidendiLiikId;
+	public int getAuasteId() {
+		return this.auasteId;
 	}
 
-	public void setIntsidendiLiikId(int intsidendiLiikId) {
-		this.intsidendiLiikId = intsidendiLiikId;
+	public void setAuasteId(int auasteId) {
+		this.auasteId = auasteId;
 	}
 
 	public String getAvaja() {
@@ -68,6 +69,14 @@ public class IntsidendiLiik implements Serializable {
 
 	public void setAvatud(Date avatud) {
 		this.avatud = avatud;
+	}
+
+	public String getKommentaar() {
+		return this.kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public String getKood() {
@@ -118,12 +127,12 @@ public class IntsidendiLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<Intsident> getIntsidents() {
-		return this.intsidents;
+	public Set<AuastmeMuutumine> getAuastmeMuutumines() {
+		return this.auastmeMuutumines;
 	}
 
-	public void setIntsidents(Set<Intsident> intsidents) {
-		this.intsidents = intsidents;
+	public void setAuastmeMuutumines(Set<AuastmeMuutumine> auastmeMuutumines) {
+		this.auastmeMuutumines = auastmeMuutumines;
 	}
 	
 }

@@ -63,6 +63,18 @@ public class SeadusePunkt implements Serializable {
 	@OneToMany(mappedBy="seadusePunkt")
 	private Set<SeadusePunkt> seadusePunkts;
 
+	//bi-directional many-to-one association to IsikuSeadusIntsidendi
+	@OneToMany(mappedBy="seadusePunkt")
+	private Set<IsikuSeadusIntsidendi> isikuSeadusIntsidendis;
+
+	//bi-directional many-to-one association to ObjektiSeadusIntsidendi
+	@OneToMany(mappedBy="seadusePunkt")
+	private Set<ObjektiSeadusIntsidendi> objektiSeadusIntsidendis;
+
+	//bi-directional many-to-one association to PiirivalvuriSeadusIntsidendi
+	@OneToMany(mappedBy="seadusePunkt")
+	private Set<PiirivalvuriSeadusIntsidendi> piirivalvuriSeadusIntsidendis;
+
     public SeadusePunkt() {
     }
 
@@ -192,6 +204,30 @@ public class SeadusePunkt implements Serializable {
 
 	public void setSeadusePunkts(Set<SeadusePunkt> seadusePunkts) {
 		this.seadusePunkts = seadusePunkts;
+	}
+	
+	public Set<IsikuSeadusIntsidendi> getIsikuSeadusIntsidendis() {
+		return this.isikuSeadusIntsidendis;
+	}
+
+	public void setIsikuSeadusIntsidendis(Set<IsikuSeadusIntsidendi> isikuSeadusIntsidendis) {
+		this.isikuSeadusIntsidendis = isikuSeadusIntsidendis;
+	}
+	
+	public Set<ObjektiSeadusIntsidendi> getObjektiSeadusIntsidendis() {
+		return this.objektiSeadusIntsidendis;
+	}
+
+	public void setObjektiSeadusIntsidendis(Set<ObjektiSeadusIntsidendi> objektiSeadusIntsidendis) {
+		this.objektiSeadusIntsidendis = objektiSeadusIntsidendis;
+	}
+	
+	public Set<PiirivalvuriSeadusIntsidendi> getPiirivalvuriSeadusIntsidendis() {
+		return this.piirivalvuriSeadusIntsidendis;
+	}
+
+	public void setPiirivalvuriSeadusIntsidendis(Set<PiirivalvuriSeadusIntsidendi> piirivalvuriSeadusIntsidendis) {
+		this.piirivalvuriSeadusIntsidendis = piirivalvuriSeadusIntsidendis;
 	}
 	
 }

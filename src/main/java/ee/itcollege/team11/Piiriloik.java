@@ -3,6 +3,7 @@ package ee.itcollege.team11;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 
 /**
@@ -36,6 +37,18 @@ public class Piiriloik implements Serializable {
 	private Date suletud;
 
 	private String sulgeja;
+
+	//bi-directional many-to-one association to Intsident
+	@OneToMany(mappedBy="piiriloik")
+	private Set<Intsident> intsidents;
+
+	//bi-directional many-to-one association to PiiriloiguHaldaja
+	@OneToMany(mappedBy="piiriloik")
+	private Set<PiiriloiguHaldaja> piiriloiguHaldajas;
+
+	//bi-directional many-to-one association to VahtkonndPiiriloigul
+	@OneToMany(mappedBy="piiriloik")
+	private Set<VahtkonndPiiriloigul> vahtkonndPiiriloiguls;
 
     public Piiriloik() {
     }
@@ -112,4 +125,28 @@ public class Piiriloik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
+	public Set<Intsident> getIntsidents() {
+		return this.intsidents;
+	}
+
+	public void setIntsidents(Set<Intsident> intsidents) {
+		this.intsidents = intsidents;
+	}
+	
+	public Set<PiiriloiguHaldaja> getPiiriloiguHaldajas() {
+		return this.piiriloiguHaldajas;
+	}
+
+	public void setPiiriloiguHaldajas(Set<PiiriloiguHaldaja> piiriloiguHaldajas) {
+		this.piiriloiguHaldajas = piiriloiguHaldajas;
+	}
+	
+	public Set<VahtkonndPiiriloigul> getVahtkonndPiiriloiguls() {
+		return this.vahtkonndPiiriloiguls;
+	}
+
+	public void setVahtkonndPiiriloiguls(Set<VahtkonndPiiriloigul> vahtkonndPiiriloiguls) {
+		this.vahtkonndPiiriloiguls = vahtkonndPiiriloiguls;
+	}
+	
 }

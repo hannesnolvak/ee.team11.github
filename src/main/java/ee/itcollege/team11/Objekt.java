@@ -7,25 +7,24 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the INTSIDENDI_LIIK database table.
+ * The persistent class for the OBJEKT database table.
  * 
  */
 @Entity
-@Table(name="INTSIDENDI_LIIK")
-public class IntsidendiLiik implements Serializable {
+public class Objekt implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="INTSIDENDI_LIIK_ID")
-	private int intsidendiLiikId;
+	@Column(name="OBJEKT_ID")
+	private int objektId;
 
 	private String avaja;
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
-	private String kood;
+	private String kommentaar;
 
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
@@ -39,19 +38,28 @@ public class IntsidendiLiik implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to Intsident
-	@OneToMany(mappedBy="intsidendiLiik")
-	private Set<Intsident> intsidents;
+	//bi-directional many-to-one association to ObjektiLiik
+    @ManyToOne
+	@JoinColumn(name="OBJEKT_LIIK_ID")
+	private ObjektiLiik objektiLiik;
 
-    public IntsidendiLiik() {
+	//bi-directional many-to-one association to ObjektIntsidendi
+	@OneToMany(mappedBy="objekt")
+	private Set<ObjektIntsidendi> objektIntsidendis;
+
+	//bi-directional many-to-one association to Piiririkkuja
+	@OneToMany(mappedBy="objekt")
+	private Set<Piiririkkuja> piiririkkujas;
+
+    public Objekt() {
     }
 
-	public int getIntsidendiLiikId() {
-		return this.intsidendiLiikId;
+	public int getObjektId() {
+		return this.objektId;
 	}
 
-	public void setIntsidendiLiikId(int intsidendiLiikId) {
-		this.intsidendiLiikId = intsidendiLiikId;
+	public void setObjektId(int objektId) {
+		this.objektId = objektId;
 	}
 
 	public String getAvaja() {
@@ -70,12 +78,12 @@ public class IntsidendiLiik implements Serializable {
 		this.avatud = avatud;
 	}
 
-	public String getKood() {
-		return this.kood;
+	public String getKommentaar() {
+		return this.kommentaar;
 	}
 
-	public void setKood(String kood) {
-		this.kood = kood;
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public Date getMuudetud() {
@@ -118,12 +126,28 @@ public class IntsidendiLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<Intsident> getIntsidents() {
-		return this.intsidents;
+	public ObjektiLiik getObjektiLiik() {
+		return this.objektiLiik;
 	}
 
-	public void setIntsidents(Set<Intsident> intsidents) {
-		this.intsidents = intsidents;
+	public void setObjektiLiik(ObjektiLiik objektiLiik) {
+		this.objektiLiik = objektiLiik;
+	}
+	
+	public Set<ObjektIntsidendi> getObjektIntsidendis() {
+		return this.objektIntsidendis;
+	}
+
+	public void setObjektIntsidendis(Set<ObjektIntsidendi> objektIntsidendis) {
+		this.objektIntsidendis = objektIntsidendis;
+	}
+	
+	public Set<Piiririkkuja> getPiiririkkujas() {
+		return this.piiririkkujas;
+	}
+
+	public void setPiiririkkujas(Set<Piiririkkuja> piiririkkujas) {
+		this.piiririkkujas = piiririkkujas;
 	}
 	
 }

@@ -7,51 +7,62 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the INTSIDENDI_LIIK database table.
+ * The persistent class for the RIIK database table.
  * 
  */
 @Entity
-@Table(name="INTSIDENDI_LIIK")
-public class IntsidendiLiik implements Serializable {
+public class Riik implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="INTSIDENDI_LIIK_ID")
-	private int intsidendiLiikId;
+	@Column(name="RIIK_ID")
+	private int riikId;
+
+	@Column(name="ANSI_KOOD")
+	private String ansiKood;
 
 	private String avaja;
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
-	private String kood;
+	@Column(name="ISO_KOOD")
+	private String isoKood;
+
+	private String kommentaar;
 
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
 	private String muutja;
 
-	private String nimetus;
-
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to Intsident
-	@OneToMany(mappedBy="intsidendiLiik")
-	private Set<Intsident> intsidents;
+	//bi-directional many-to-one association to Kodakondsus
+	@OneToMany(mappedBy="riik")
+	private Set<Kodakondsus> kodakondsuses;
 
-    public IntsidendiLiik() {
+    public Riik() {
     }
 
-	public int getIntsidendiLiikId() {
-		return this.intsidendiLiikId;
+	public int getRiikId() {
+		return this.riikId;
 	}
 
-	public void setIntsidendiLiikId(int intsidendiLiikId) {
-		this.intsidendiLiikId = intsidendiLiikId;
+	public void setRiikId(int riikId) {
+		this.riikId = riikId;
+	}
+
+	public String getAnsiKood() {
+		return this.ansiKood;
+	}
+
+	public void setAnsiKood(String ansiKood) {
+		this.ansiKood = ansiKood;
 	}
 
 	public String getAvaja() {
@@ -70,12 +81,20 @@ public class IntsidendiLiik implements Serializable {
 		this.avatud = avatud;
 	}
 
-	public String getKood() {
-		return this.kood;
+	public String getIsoKood() {
+		return this.isoKood;
 	}
 
-	public void setKood(String kood) {
-		this.kood = kood;
+	public void setIsoKood(String isoKood) {
+		this.isoKood = isoKood;
+	}
+
+	public String getKommentaar() {
+		return this.kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public Date getMuudetud() {
@@ -94,14 +113,6 @@ public class IntsidendiLiik implements Serializable {
 		this.muutja = muutja;
 	}
 
-	public String getNimetus() {
-		return this.nimetus;
-	}
-
-	public void setNimetus(String nimetus) {
-		this.nimetus = nimetus;
-	}
-
 	public Date getSuletud() {
 		return this.suletud;
 	}
@@ -118,12 +129,12 @@ public class IntsidendiLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<Intsident> getIntsidents() {
-		return this.intsidents;
+	public Set<Kodakondsus> getKodakondsuses() {
+		return this.kodakondsuses;
 	}
 
-	public void setIntsidents(Set<Intsident> intsidents) {
-		this.intsidents = intsidents;
+	public void setKodakondsuses(Set<Kodakondsus> kodakondsuses) {
+		this.kodakondsuses = kodakondsuses;
 	}
 	
 }

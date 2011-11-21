@@ -7,23 +7,25 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the INTSIDENDI_LIIK database table.
+ * The persistent class for the OBJEKTI_LIIK database table.
  * 
  */
 @Entity
-@Table(name="INTSIDENDI_LIIK")
-public class IntsidendiLiik implements Serializable {
+@Table(name="OBJEKTI_LIIK")
+public class ObjektiLiik implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="INTSIDENDI_LIIK_ID")
-	private int intsidendiLiikId;
+	@Column(name="OBJEKT_LIIK_ID")
+	private int objektLiikId;
 
 	private String avaja;
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
+
+	private String kommentaar;
 
 	private String kood;
 
@@ -39,19 +41,19 @@ public class IntsidendiLiik implements Serializable {
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to Intsident
-	@OneToMany(mappedBy="intsidendiLiik")
-	private Set<Intsident> intsidents;
+	//bi-directional many-to-one association to Objekt
+	@OneToMany(mappedBy="objektiLiik")
+	private Set<Objekt> objekts;
 
-    public IntsidendiLiik() {
+    public ObjektiLiik() {
     }
 
-	public int getIntsidendiLiikId() {
-		return this.intsidendiLiikId;
+	public int getObjektLiikId() {
+		return this.objektLiikId;
 	}
 
-	public void setIntsidendiLiikId(int intsidendiLiikId) {
-		this.intsidendiLiikId = intsidendiLiikId;
+	public void setObjektLiikId(int objektLiikId) {
+		this.objektLiikId = objektLiikId;
 	}
 
 	public String getAvaja() {
@@ -68,6 +70,14 @@ public class IntsidendiLiik implements Serializable {
 
 	public void setAvatud(Date avatud) {
 		this.avatud = avatud;
+	}
+
+	public String getKommentaar() {
+		return this.kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public String getKood() {
@@ -118,12 +128,12 @@ public class IntsidendiLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<Intsident> getIntsidents() {
-		return this.intsidents;
+	public Set<Objekt> getObjekts() {
+		return this.objekts;
 	}
 
-	public void setIntsidents(Set<Intsident> intsidents) {
-		this.intsidents = intsidents;
+	public void setObjekts(Set<Objekt> objekts) {
+		this.objekts = objekts;
 	}
 	
 }

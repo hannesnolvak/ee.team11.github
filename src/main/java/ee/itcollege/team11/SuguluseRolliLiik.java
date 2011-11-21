@@ -7,25 +7,25 @@ import java.util.Set;
 
 
 /**
- * The persistent class for the INTSIDENDI_LIIK database table.
+ * The persistent class for the SUGULUSE_ROLLI_LIIK database table.
  * 
  */
 @Entity
-@Table(name="INTSIDENDI_LIIK")
-public class IntsidendiLiik implements Serializable {
+@Table(name="SUGULUSE_ROLLI_LIIK")
+public class SuguluseRolliLiik implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="INTSIDENDI_LIIK_ID")
-	private int intsidendiLiikId;
+	@Column(name="SUGULUSE_ROLLI_LIIK_ID")
+	private int suguluseRolliLiikId;
 
 	private String avaja;
 
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
-	private String kood;
+	private String kommentaar;
 
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
@@ -34,24 +34,27 @@ public class IntsidendiLiik implements Serializable {
 
 	private String nimetus;
 
+	@Column(name="SUGULANE_VOI_MITTE")
+	private String sugulaneVoiMitte;
+
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 
 	private String sulgeja;
 
-	//bi-directional many-to-one association to Intsident
-	@OneToMany(mappedBy="intsidendiLiik")
-	private Set<Intsident> intsidents;
+	//bi-directional many-to-one association to SeotudKontaktisik
+	@OneToMany(mappedBy="suguluseRolliLiik")
+	private Set<SeotudKontaktisik> seotudKontaktisiks;
 
-    public IntsidendiLiik() {
+    public SuguluseRolliLiik() {
     }
 
-	public int getIntsidendiLiikId() {
-		return this.intsidendiLiikId;
+	public int getSuguluseRolliLiikId() {
+		return this.suguluseRolliLiikId;
 	}
 
-	public void setIntsidendiLiikId(int intsidendiLiikId) {
-		this.intsidendiLiikId = intsidendiLiikId;
+	public void setSuguluseRolliLiikId(int suguluseRolliLiikId) {
+		this.suguluseRolliLiikId = suguluseRolliLiikId;
 	}
 
 	public String getAvaja() {
@@ -70,12 +73,12 @@ public class IntsidendiLiik implements Serializable {
 		this.avatud = avatud;
 	}
 
-	public String getKood() {
-		return this.kood;
+	public String getKommentaar() {
+		return this.kommentaar;
 	}
 
-	public void setKood(String kood) {
-		this.kood = kood;
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public Date getMuudetud() {
@@ -102,6 +105,14 @@ public class IntsidendiLiik implements Serializable {
 		this.nimetus = nimetus;
 	}
 
+	public String getSugulaneVoiMitte() {
+		return this.sugulaneVoiMitte;
+	}
+
+	public void setSugulaneVoiMitte(String sugulaneVoiMitte) {
+		this.sugulaneVoiMitte = sugulaneVoiMitte;
+	}
+
 	public Date getSuletud() {
 		return this.suletud;
 	}
@@ -118,12 +129,12 @@ public class IntsidendiLiik implements Serializable {
 		this.sulgeja = sulgeja;
 	}
 
-	public Set<Intsident> getIntsidents() {
-		return this.intsidents;
+	public Set<SeotudKontaktisik> getSeotudKontaktisiks() {
+		return this.seotudKontaktisiks;
 	}
 
-	public void setIntsidents(Set<Intsident> intsidents) {
-		this.intsidents = intsidents;
+	public void setSeotudKontaktisiks(Set<SeotudKontaktisik> seotudKontaktisiks) {
+		this.seotudKontaktisiks = seotudKontaktisiks;
 	}
 	
 }

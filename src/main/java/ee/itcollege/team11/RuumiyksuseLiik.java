@@ -2,6 +2,10 @@ package ee.itcollege.team11;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.roo.addon.tostring.RooToString;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -10,7 +14,8 @@ import java.util.Set;
  * The persistent class for the RUUMIYKSUSE_LIIK database table.
  * 
  */
-@Entity
+@RooToString
+@RooEntity
 @Table(name="RUUMIYKSUSE_LIIK")
 public class RuumiyksuseLiik implements Serializable {
 	private static final long serialVersionUID = 1L;

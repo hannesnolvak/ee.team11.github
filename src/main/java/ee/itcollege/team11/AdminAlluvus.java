@@ -2,6 +2,10 @@ package ee.itcollege.team11;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.roo.addon.tostring.RooToString;
+
 import java.util.Date;
 
 
@@ -9,7 +13,9 @@ import java.util.Date;
  * The persistent class for the ADMIN_ALLUVUS database table.
  * 
  */
-@Entity
+
+@RooToString
+@RooEntity
 @Table(name="ADMIN_ALLUVUS")
 public class AdminAlluvus implements Serializable {
 	private static final long serialVersionUID = 1L;

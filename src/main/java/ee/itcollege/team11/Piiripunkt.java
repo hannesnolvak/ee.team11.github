@@ -2,6 +2,10 @@ package ee.itcollege.team11;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.roo.addon.tostring.RooToString;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
@@ -11,7 +15,8 @@ import java.util.Set;
  * The persistent class for the PIIRIPUNKT database table.
  * 
  */
-@Entity
+@RooToString
+@RooEntity
 public class Piiripunkt implements Serializable {
 	private static final long serialVersionUID = 1L;
 

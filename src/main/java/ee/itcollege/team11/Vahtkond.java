@@ -1,19 +1,29 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the VAHTKOND database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Vahtkond implements Serializable {
@@ -22,7 +32,7 @@ public class Vahtkond implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="VAHTKOND_ID")
-	private int vahtkondId;
+	private Long vahtkondId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -76,11 +86,11 @@ public class Vahtkond implements Serializable {
     public Vahtkond() {
     }
 
-	public int getVahtkondId() {
+	public Long getVahtkondId() {
 		return this.vahtkondId;
 	}
 
-	public void setVahtkondId(int vahtkondId) {
+	public void setVahtkondId(Long vahtkondId) {
 		this.vahtkondId = vahtkondId;
 	}
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_PiiriloiguHaldaja" idField="piiriloiguHaldajaId" modelAttribute="piiriloiguHaldaja" path="/piiriloiguhaldajas" versionField="Version" z="nNyL36fqCPN4Nt5gTRRIomsvvSA=">
+        <field:datetime dateTimePattern="${piiriloiguHaldaja_alates_date_format}" field="alates" id="c_ee_itcollege_team11_PiiriloiguHaldaja_alates" z="qRzjSap5WcioL8350shl7HvcN3k="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_PiiriloiguHaldaja_avaja" z="ZVdh9XMuh7jcoDJ0kigu8dNxVSs="/>
+        <field:datetime dateTimePattern="${piiriloiguHaldaja_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_PiiriloiguHaldaja_avatud" z="tcgZUEN1azMO+j0QYbc2JhtnKJA="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_PiiriloiguHaldaja_kommentaar" z="qS7gnvjZoDQZasm7p1xn91OmKcA="/>
+        <field:datetime dateTimePattern="${piiriloiguHaldaja_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_PiiriloiguHaldaja_kuni" z="huztrUMFCcxFncgfh7QP1XfCGm4="/>
+        <field:datetime dateTimePattern="${piiriloiguHaldaja_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_PiiriloiguHaldaja_muudetud" z="GngaTeTs/ielEnmL4u/AXc+v5Go="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_PiiriloiguHaldaja_muutja" z="KV4zqs4f6YTo41DHUdfZRFAF6gA="/>
+        <field:datetime dateTimePattern="${piiriloiguHaldaja_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiiriloiguHaldaja_suletud" z="X4GYYonR9dFhA7V67STm2XBg56k="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_PiiriloiguHaldaja_sulgeja" z="T44m8AQwl+2uGgbszKWquPyR8sQ="/>
+        <field:select field="piiriloik" id="c_ee_itcollege_team11_PiiriloiguHaldaja_piiriloik" itemValue="id" items="${piiriloiks}" path="/piiriloiks" z="XXXJ19QteiKRqnreR2V03qwWRjQ="/>
+        <field:select field="piiripunkt" id="c_ee_itcollege_team11_PiiriloiguHaldaja_piiripunkt" itemValue="id" items="${piiripunkts}" path="/piiripunkts" z="O05k8vcR/+FhHI4FxuPMxSnB6Yg="/>
+        <field:select field="vaeosa" id="c_ee_itcollege_team11_PiiriloiguHaldaja_vaeosa" itemValue="id" items="${vaeosas}" path="/vaeosas" z="P7QFyEfU75nZ8AC4icoD8f8CAeU="/>
+    </form:update>
+</div>

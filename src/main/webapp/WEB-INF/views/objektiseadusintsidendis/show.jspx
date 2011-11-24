@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_ObjektiSeadusIntsidendi" object="${objektiseadusintsidendi}" path="/objektiseadusintsidendis" z="+POasWHu0qMxV9seEGQj2mjWo9Q=">
+        <field:display date="true" dateTimePattern="${objektiSeadusIntsidendi_alates_date_format}" field="alates" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_alates" object="${objektiseadusintsidendi}" z="pGhoMOzrpS6sRX9WY48hs9sdj3g="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_avaja" object="${objektiseadusintsidendi}" z="oHp17Pjfih41TFm3qaP0N36Zxts="/>
+        <field:display date="true" dateTimePattern="${objektiSeadusIntsidendi_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_avatud" object="${objektiseadusintsidendi}" z="FdVrhOTj0QMh/tf/B0lx5g3vpgw="/>
+        <field:display field="kirjeldus" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_kirjeldus" object="${objektiseadusintsidendi}" z="JEi+yNtx8tsdfBUCJYZYunkC2+8="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_kommentaar" object="${objektiseadusintsidendi}" z="fhRBYuE7HSKA/vYESat1EblpOF8="/>
+        <field:display date="true" dateTimePattern="${objektiSeadusIntsidendi_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_kuni" object="${objektiseadusintsidendi}" z="t0mUrDSc+dzWZPO/whSbkok++uI="/>
+        <field:display date="true" dateTimePattern="${objektiSeadusIntsidendi_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_muudetud" object="${objektiseadusintsidendi}" z="WMoCPy3NAV99lF8FZIjCg3bzIC8="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_muutja" object="${objektiseadusintsidendi}" z="aHr52/K2PVEXGnRMesYjkY/Y7MQ="/>
+        <field:display date="true" dateTimePattern="${objektiSeadusIntsidendi_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_suletud" object="${objektiseadusintsidendi}" z="6O5zJ95g/P5QebpBdS+xEeZPHvU="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_sulgeja" object="${objektiseadusintsidendi}" z="qM4XQoxV6o9O8bMzd9ZqkwiKmPU="/>
+        <field:display field="objektIntsidendi" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_objektIntsidendi" object="${objektiseadusintsidendi}" z="f3kvIhFt7jL/OoTyYnbGbZLuqb8="/>
+        <field:display field="seadusePunkt" id="s_ee_itcollege_team11_ObjektiSeadusIntsidendi_seadusePunkt" object="${objektiseadusintsidendi}" z="2quKzUvQCVvBuKPbaXDvI4E+s2k="/>
+    </page:show>
+</div>

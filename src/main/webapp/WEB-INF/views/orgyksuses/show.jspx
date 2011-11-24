@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_OrgYksus" object="${orgyksus}" path="/orgyksuses" z="5jGuPDP7N5Jt3iv4rXso1I774oQ=">
+        <field:display date="true" dateTimePattern="${orgYksus_alates_date_format}" field="alates" id="s_ee_itcollege_team11_OrgYksus_alates" object="${orgyksus}" z="dhmv7gNrc9q+wj0icjaHCC2hApo="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_OrgYksus_avaja" object="${orgyksus}" z="Ek2wUH2DKBM3TeAXml5JgNa5SGU="/>
+        <field:display date="true" dateTimePattern="${orgYksus_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_OrgYksus_avatud" object="${orgyksus}" z="weeN3Mv+/dTu8iAFMUoQdAU6vhc="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_OrgYksus_kommentaar" object="${orgyksus}" z="TKULa22yuLEPShxbCwnW6QBrNIE="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_OrgYksus_kood" object="${orgyksus}" z="uWrLO724A76nsFEAAfgkkh6ih0o="/>
+        <field:display date="true" dateTimePattern="${orgYksus_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_OrgYksus_kuni" object="${orgyksus}" z="FsQBdiWkRGg7a5ncL//N1o3pB+Y="/>
+        <field:display date="true" dateTimePattern="${orgYksus_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_OrgYksus_muudetud" object="${orgyksus}" z="Z3457OC5cjptO+PlEk55pku4/WI="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_OrgYksus_muutja" object="${orgyksus}" z="71uL0CwRtM0Ht714vdP7cQNjNq4="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_OrgYksus_nimetus" object="${orgyksus}" z="+M+HG1TUi9S6HL+4Y40hv2LmZ50="/>
+        <field:display date="true" dateTimePattern="${orgYksus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_OrgYksus_suletud" object="${orgyksus}" z="ctcH/Ysyg8Tds6knAx06YoNYsUE="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_OrgYksus_sulgeja" object="${orgyksus}" z="4N5XZMkXM1NcaTJGjYzVEz3AgiI="/>
+        <field:display field="orgYksus" id="s_ee_itcollege_team11_OrgYksus_orgYksus" object="${orgyksus}" z="u+HYK5nCsdk0vO5yQiEj8eI0sJ8="/>
+        <field:display field="vaeosa" id="s_ee_itcollege_team11_OrgYksus_vaeosa" object="${orgyksus}" z="JM0MtEcizIsl7GztJpB11J0/5c4="/>
+    </page:show>
+</div>

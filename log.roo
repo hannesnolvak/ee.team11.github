@@ -7,3 +7,50 @@ project --topLevelPackage projekt --projectName team11 --java 6
 persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-20 21:23:11
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-20 21:51:01
+web mvc setup 
+web mvc all --package ee.itcollege.team11
+web mvc all --package ee.itcollege.team11.web
+web mvc all --package ~.web
+web mvc all --package ~.web
+web mvc all --package team11.web
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+web mvc all --package ~.web
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+web mvc all --package ~.web
+web mvc all --package ee.itcollege.team11
+web mvc all --package ee.itcollege.team11
+web mvc all --package team11
+web mvc all --package ee.itcollege.team11.web
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+web mvc all --package ~.web
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-21 19:45:14
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-21 21:21:39
+web mvc all --package ~.web
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+web mvc all --package ~.web
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-22 00:04:33
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-23 19:52:11
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+web mvc setup
+web mvc controller --class ee.itcollege.team11.Amet.web
+web mvc scaffold --class ee.itcollege.team11.Amet --backingType ee
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+exit 
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-23 23:19:10
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-23 23:19:35
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-23 23:20:02
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-23 23:41:53
+web mvc all --package ~.web
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-24 12:44:36
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-24 22:03:13
+// [failed] persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+entity --class ee.itcollege.team11.Bear
+field string --fieldName name --notNull
+// [failed] field string --fieldName name --notNull
+field number --fieldName weight --type int
+web mvc all --package ~.web
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT
+web mvc all --package ~.web
+web mvc all --package ~.web
+persistence setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT

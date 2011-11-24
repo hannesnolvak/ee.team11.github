@@ -1,19 +1,29 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.math.BigDecimal;
-import java.util.Date;
 
 
 /**
  * The persistent class for the PIIRIVALVUR_VAEOSAS database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="PIIRIVALVUR_VAEOSAS")
@@ -23,7 +33,7 @@ public class PiirivalvurVaeosa implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="PIIRIVALVUR_VAEOSAS_ID")
-	private int piirivalvurVaeosasId;
+	private Long piirivalvurVaeosasId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -63,11 +73,11 @@ public class PiirivalvurVaeosa implements Serializable {
     public PiirivalvurVaeosa() {
     }
 
-	public int getPiirivalvurVaeosasId() {
+	public Long getPiirivalvurVaeosasId() {
 		return this.piirivalvurVaeosasId;
 	}
 
-	public void setPiirivalvurVaeosasId(int piirivalvurVaeosasId) {
+	public void setPiirivalvurVaeosasId(Long piirivalvurVaeosasId) {
 		this.piirivalvurVaeosasId = piirivalvurVaeosasId;
 	}
 

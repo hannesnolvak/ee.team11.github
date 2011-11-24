@@ -1,19 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the SUGULUSE_ROLLI_LIIK database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="SUGULUSE_ROLLI_LIIK")
@@ -23,7 +32,7 @@ public class SuguluseRolliLiik implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="SUGULUSE_ROLLI_LIIK_ID")
-	private int suguluseRolliLiikId;
+	private Long suguluseRolliLiikId;
 
 	private String avaja;
 
@@ -54,11 +63,11 @@ public class SuguluseRolliLiik implements Serializable {
     public SuguluseRolliLiik() {
     }
 
-	public int getSuguluseRolliLiikId() {
+	public Long getSuguluseRolliLiikId() {
 		return this.suguluseRolliLiikId;
 	}
 
-	public void setSuguluseRolliLiikId(int suguluseRolliLiikId) {
+	public void setSuguluseRolliLiikId(Long suguluseRolliLiikId) {
 		this.suguluseRolliLiikId = suguluseRolliLiikId;
 	}
 

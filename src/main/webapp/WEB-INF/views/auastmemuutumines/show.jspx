@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_AuastmeMuutumine" object="${auastmemuutumine}" path="/auastmemuutumines" z="twzZ6w9REVTKGm/RCSrWxNfwyVo=">
+        <field:display date="true" dateTimePattern="${auastmeMuutumine_alates_date_format}" field="alates" id="s_ee_itcollege_team11_AuastmeMuutumine_alates" object="${auastmemuutumine}" z="g0j3LIfUEe22lPAhTQEJ8MNc+eY="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_AuastmeMuutumine_avaja" object="${auastmemuutumine}" z="ZLPRb/YYDN5eTrPxzo/g+pNs49I="/>
+        <field:display date="true" dateTimePattern="${auastmeMuutumine_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_AuastmeMuutumine_avatud" object="${auastmemuutumine}" z="ZX5JugQq27VHq4KLru0Er5WOs54="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_AuastmeMuutumine_kommentaar" object="${auastmemuutumine}" z="gAcq9KIaFuGEFc5PBMqpkab81Us="/>
+        <field:display date="true" dateTimePattern="${auastmeMuutumine_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_AuastmeMuutumine_kuni" object="${auastmemuutumine}" z="UkTRp2FAvs7o7gbl9Hs1kXgamdA="/>
+        <field:display date="true" dateTimePattern="${auastmeMuutumine_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_AuastmeMuutumine_muudetud" object="${auastmemuutumine}" z="ay9Keo9IPULUTgwla/A67h1Kf5E="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_AuastmeMuutumine_muutja" object="${auastmemuutumine}" z="FE+/Yv1RkN7zX5S8IjqhbLjB7T4="/>
+        <field:display date="true" dateTimePattern="${auastmeMuutumine_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_AuastmeMuutumine_suletud" object="${auastmemuutumine}" z="mIzgghTKc71Trd96scLzxc/NNx8="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_AuastmeMuutumine_sulgeja" object="${auastmemuutumine}" z="+b9pUcjaIjF0oSvO4VJU7dD35t0="/>
+        <field:display field="auaste" id="s_ee_itcollege_team11_AuastmeMuutumine_auaste" object="${auastmemuutumine}" z="80UfJ7Ouzym4HogoJATzqqgB8IM="/>
+        <field:display field="piirivalvur" id="s_ee_itcollege_team11_AuastmeMuutumine_piirivalvur" object="${auastmemuutumine}" z="+WhMyRCWWyadyMYfurnb0+qgcuo="/>
+    </page:show>
+</div>

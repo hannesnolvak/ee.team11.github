@@ -1,19 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the INTSIDENDI_LIIK database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="INTSIDENDI_LIIK")
@@ -23,7 +32,7 @@ public class IntsidendiLiik implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="INTSIDENDI_LIIK_ID")
-	private int intsidendiLiikId;
+	private Long intsidendiLiikId;
 
 	private String avaja;
 
@@ -51,11 +60,11 @@ public class IntsidendiLiik implements Serializable {
     public IntsidendiLiik() {
     }
 
-	public int getIntsidendiLiikId() {
+	public Long getIntsidendiLiikId() {
 		return this.intsidendiLiikId;
 	}
 
-	public void setIntsidendiLiikId(int intsidendiLiikId) {
+	public void setIntsidendiLiikId(Long intsidendiLiikId) {
 		this.intsidendiLiikId = intsidendiLiikId;
 	}
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team11_RiigiAdminYksus" items="${riigiadminyksuses}" z="DVQbYF6ZtGHJHbAy+cB/Kr9ypFs=">
+        <table:table data="${riigiadminyksuses}" id="l_ee_itcollege_team11_RiigiAdminYksus" path="/riigiadminyksuses" typeIdFieldName="riigiAdminYksusId" z="S7L7lOSQusZcgcJtOf9gt40q88w=">
+            <table:column date="true" dateTimePattern="${riigiAdminYksus_alates_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" property="alates" z="nKgE/rblDTvR79qv+Wm/Zej773Y="/>
+            <table:column id="c_ee_itcollege_team11_RiigiAdminYksus_avaja" property="avaja" z="fsvTcyJpJNPqeTR7uL8uLYskb8s="/>
+            <table:column date="true" dateTimePattern="${riigiAdminYksus_avatud_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_avatud" property="avatud" z="WQfQFXq+Bnvthj3hhEGZ+Wcdf8k="/>
+            <table:column id="c_ee_itcollege_team11_RiigiAdminYksus_kood" property="kood" z="S+gSfJji04xwukyDbRWD7MMo3z0="/>
+            <table:column date="true" dateTimePattern="${riigiAdminYksus_kuni_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_kuni" property="kuni" z="PjxogbGb6hNy4o3UIEINZ6sjAFM="/>
+            <table:column date="true" dateTimePattern="${riigiAdminYksus_muudetud_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_muudetud" property="muudetud" z="+aXg2Orx+Wz8rhxHksRRLDac3BM="/>
+        </table:table>
+    </page:list>
+</div>

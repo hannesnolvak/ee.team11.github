@@ -1,19 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
 
 
 /**
  * The persistent class for the ADMIN_ALLUVUS database table.
  * 
  */
-
+@Entity
 @RooToString
 @RooEntity
 @Table(name="ADMIN_ALLUVUS")
@@ -23,7 +32,7 @@ public class AdminAlluvus implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ADMIN_ALLUVUS_ID")
-	private int adminAlluvusId;
+	private Long adminAlluvusId;
 
 	private String alates;
 
@@ -59,11 +68,11 @@ public class AdminAlluvus implements Serializable {
     public AdminAlluvus() {
     }
 
-	public int getAdminAlluvusId() {
+	public Long getAdminAlluvusId() {
 		return this.adminAlluvusId;
 	}
 
-	public void setAdminAlluvusId(int adminAlluvusId) {
+	public void setAdminAlluvusId(Long adminAlluvusId) {
 		this.adminAlluvusId = adminAlluvusId;
 	}
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_PiirivalvurVodikohal" modelAttribute="piirivalvurVodikohal" path="/piirivalvurvodikohals" render="${empty dependencies}" z="LgpsFsmZR3k1UktvL6A+Rhj1c9w=">
+        <field:datetime dateTimePattern="${piirivalvurVodikohal_alates_date_format}" field="alates" id="c_ee_itcollege_team11_PiirivalvurVodikohal_alates" z="srleVqMyiZI8KXoglrc0tzirUg8="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_PiirivalvurVodikohal_avaja" z="Pfs3QuKFGHKLJVEZxGQKUVpsJKs="/>
+        <field:datetime dateTimePattern="${piirivalvurVodikohal_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_PiirivalvurVodikohal_avatud" z="uIJtiwYd9q3Q00plctsQT6i3YJE="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_PiirivalvurVodikohal_kommentaar" z="iNLKDBXLX/NJctIpjpLYcUSnLgs="/>
+        <field:datetime dateTimePattern="${piirivalvurVodikohal_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_PiirivalvurVodikohal_kuni" z="xU+ocHtnGfD2nnh72Ltn5NEXQj0="/>
+        <field:datetime dateTimePattern="${piirivalvurVodikohal_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_PiirivalvurVodikohal_muudetud" z="U9TiGNBSf2DNwCoBLJJ1/xkn1R8="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_PiirivalvurVodikohal_muutja" z="2OXvbyWEB54+qKl+l81dvSSMGYo="/>
+        <field:datetime dateTimePattern="${piirivalvurVodikohal_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiirivalvurVodikohal_suletud" z="IEqnNWXPNzKAf/GxcdMI2WzvQIk="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_PiirivalvurVodikohal_sulgeja" z="FIqSDR8SUNF+Drz4TKGGxPtX2b8="/>
+        <field:select field="piirivalvur" id="c_ee_itcollege_team11_PiirivalvurVodikohal_piirivalvur" itemValue="piirivalvurId" items="${piirivalvurs}" path="/piirivalvurs" z="IEnJj6hKdUvTyuMw91EPrMsHoDY="/>
+        <field:select field="voodikoht" id="c_ee_itcollege_team11_PiirivalvurVodikohal_voodikoht" itemValue="id" items="${voodikohts}" path="/voodikohts" z="d69NUwpvFqAIHPelKqytwCm3dos="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_PiirivalvurVodikohal" render="${not empty dependencies}" z="WtirZECxd+olCMxGlRn1QVP1T8U="/>
+</div>

@@ -2,53 +2,6 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>ee.itcollege.team11.AdminAlluvus</class>
-        <class>ee.itcollege.team11.IntsidendiLiik</class>
-        <class>ee.itcollege.team11.Piiriloik</class>
-        <class>ee.itcollege.team11.Piirivalvur</class>
-        <class>ee.itcollege.team11.RiigiAdminYksus</class>
-        <class>ee.itcollege.team11.RiigiAdminYksuseLiik</class>
-        <class>ee.itcollege.team11.Seadus</class>
-        <class>ee.itcollege.team11.SeadusePunkt</class>
-        <class>ee.itcollege.team11.Vaeosa</class>
-        <class>ee.itcollege.team11.Amet</class>
-        <class>ee.itcollege.team11.AmetPiiripunkti</class>
-        <class>ee.itcollege.team11.AmetVaeosa</class>
-        <class>ee.itcollege.team11.Auaste</class>
-        <class>ee.itcollege.team11.AuastmeMuutumine</class>
-        <class>ee.itcollege.team11.Intsident</class>
-        <class>ee.itcollege.team11.IsikuSeadusIntsidendi</class>
-        <class>ee.itcollege.team11.IsikIntsidendi</class>
-        <class>ee.itcollege.team11.Kodakondsus</class>
-        <class>ee.itcollege.team11.KontaktiLiik</class>
-        <class>ee.itcollege.team11.Objekt</class>
-        <class>ee.itcollege.team11.ObjektiLiik</class>
-        <class>ee.itcollege.team11.ObjektiSeadusIntsidendi</class>
-        <class>ee.itcollege.team11.ObjektIntsidendi</class>
-        <class>ee.itcollege.team11.OrgYksus</class>
-        <class>ee.itcollege.team11.PiiriloiguHaldaja</class>
-        <class>ee.itcollege.team11.Piiripunkt</class>
-        <class>ee.itcollege.team11.PiiripunktiAlluvus</class>
-        <class>ee.itcollege.team11.PiiripunktiOrgYksus</class>
-        <class>ee.itcollege.team11.Piiririkkuja</class>
-        <class>ee.itcollege.team11.PiirivalvuriKontakt</class>
-        <class>ee.itcollege.team11.PiirivalvuriSeadusIntsidendi</class>
-        <class>ee.itcollege.team11.PiirivalvurIntsidendi</class>
-        <class>ee.itcollege.team11.PiirivalvurPiiripunkti</class>
-        <class>ee.itcollege.team11.PiirivalvurVaeosa</class>
-        <class>ee.itcollege.team11.PiirivalvurVodikohal</class>
-        <class>ee.itcollege.team11.Riik</class>
-        <class>ee.itcollege.team11.Ruumiyksus</class>
-        <class>ee.itcollege.team11.RuumiyksuseLiik</class>
-        <class>ee.itcollege.team11.SeotudKontaktisik</class>
-        <class>ee.itcollege.team11.SuguluseRolliLiik</class>
-        <class>ee.itcollege.team11.VaeosaAlluvus</class>
-        <class>ee.itcollege.team11.Vahtkond</class>
-        <class>ee.itcollege.team11.VahtkondIntsidendi</class>
-        <class>ee.itcollege.team11.VahtkonnaLiige</class>
-        <class>ee.itcollege.team11.VahtkonndPiiriloigul</class>
-        <class>ee.itcollege.team11.VoimalikAlluvus</class>
-        <class>ee.itcollege.team11.Voodikoht</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
             <!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->

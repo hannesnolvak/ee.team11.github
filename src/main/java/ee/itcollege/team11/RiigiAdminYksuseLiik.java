@@ -1,19 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the RIIGI_ADMIN_YKSUSE_LIIK database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="RIIGI_ADMIN_YKSUSE_LIIK")
@@ -23,7 +32,7 @@ public class RiigiAdminYksuseLiik implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="RIIGI_ADMIN_YKSUSE_LIK_ID")
-	private int riigiAdminYksuseLikId;
+	private Long riigiAdminYksuseLikId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -65,11 +74,11 @@ public class RiigiAdminYksuseLiik implements Serializable {
     public RiigiAdminYksuseLiik() {
     }
 
-	public int getRiigiAdminYksuseLikId() {
+	public Long getRiigiAdminYksuseLikId() {
 		return this.riigiAdminYksuseLikId;
 	}
 
-	public void setRiigiAdminYksuseLikId(int riigiAdminYksuseLikId) {
+	public void setRiigiAdminYksuseLikId(Long riigiAdminYksuseLikId) {
 		this.riigiAdminYksuseLikId = riigiAdminYksuseLikId;
 	}
 

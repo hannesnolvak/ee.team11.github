@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_VahtkonnaLiige" object="${vahtkonnaliige}" path="/vahtkonnaliiges" z="YMwR8vE8xiBM0QSho+OZvdMk15w=">
+        <field:display field="alates" id="s_ee_itcollege_team11_VahtkonnaLiige_alates" object="${vahtkonnaliige}" z="C9DeNx1lWKoLONe4HhAYRcG6d/I="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_VahtkonnaLiige_avaja" object="${vahtkonnaliige}" z="jyJ6/Sv3zqftvBtu0it1ZleHgOo="/>
+        <field:display date="true" dateTimePattern="${vahtkonnaLiige_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_VahtkonnaLiige_avatud" object="${vahtkonnaliige}" z="czQP2U6X8TQt5skS6oGr4POaRWM="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_VahtkonnaLiige_kommentaar" object="${vahtkonnaliige}" z="tSHPHtMzKc/IvLYdHiYfOD1rMpA="/>
+        <field:display field="kuni" id="s_ee_itcollege_team11_VahtkonnaLiige_kuni" object="${vahtkonnaliige}" z="yOlReB8z8jnAS0pEh5W2nOSI0o4="/>
+        <field:display date="true" dateTimePattern="${vahtkonnaLiige_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_VahtkonnaLiige_muudetud" object="${vahtkonnaliige}" z="mgXPgNTkGtvwzUas77FXj7QggwU="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_VahtkonnaLiige_muutja" object="${vahtkonnaliige}" z="M+9XBrOj533dhCCSXEfd3Hk+cZs="/>
+        <field:display date="true" dateTimePattern="${vahtkonnaLiige_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_VahtkonnaLiige_suletud" object="${vahtkonnaliige}" z="CG01GPnXPezvCJPmMVYqnN0AC/g="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_VahtkonnaLiige_sulgeja" object="${vahtkonnaliige}" z="IjXKE01EFXlhre41XijrDp6ZwMI="/>
+        <field:display field="piirivalvur" id="s_ee_itcollege_team11_VahtkonnaLiige_piirivalvur" object="${vahtkonnaliige}" z="hkutKWvFkHf0KNakYJLQ+vuq/XQ="/>
+        <field:display field="vahtkond" id="s_ee_itcollege_team11_VahtkonnaLiige_vahtkond" object="${vahtkonnaliige}" z="YjIuESVvj13zWn4QQKeEa9BFwfs="/>
+    </page:show>
+</div>

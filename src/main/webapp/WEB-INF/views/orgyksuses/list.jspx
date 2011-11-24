@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team11_OrgYksus" items="${orgyksuses}" z="dnpjQk3tL/1BMhYAh9iNHyBYR9M=">
+        <table:table data="${orgyksuses}" id="l_ee_itcollege_team11_OrgYksus" path="/orgyksuses" typeIdFieldName="orgYksusId" z="QXsyryxRBlG3p9tsTERv9r5Xs7E=">
+            <table:column date="true" dateTimePattern="${orgYksus_alates_date_format}" id="c_ee_itcollege_team11_OrgYksus_alates" property="alates" z="x2oNJNEJRcRE5sOpsPeprKEIyYk="/>
+            <table:column id="c_ee_itcollege_team11_OrgYksus_avaja" property="avaja" z="HMc3q8857sTrqsIphz4reY797p8="/>
+            <table:column date="true" dateTimePattern="${orgYksus_avatud_date_format}" id="c_ee_itcollege_team11_OrgYksus_avatud" property="avatud" z="ZNGnILooUqWaxjqXF0KIYDtE3x0="/>
+            <table:column id="c_ee_itcollege_team11_OrgYksus_kommentaar" property="kommentaar" z="aN4mKCDlNnhpinuIU990i3waPMU="/>
+            <table:column id="c_ee_itcollege_team11_OrgYksus_kood" property="kood" z="3kjAJWuYexA77nzMkdMZ+Y8MITk="/>
+            <table:column date="true" dateTimePattern="${orgYksus_kuni_date_format}" id="c_ee_itcollege_team11_OrgYksus_kuni" property="kuni" z="hbOAwRAIT4KuA1ryS3Arg1X+ujM="/>
+        </table:table>
+    </page:list>
+</div>

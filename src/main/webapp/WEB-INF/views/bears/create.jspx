@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_Bear" modelAttribute="bear" path="/bears" render="${empty dependencies}" z="LZaztevgQMX/AUR5kaFRntW7zGk=">
+        <field:input field="name" id="c_ee_itcollege_team11_Bear_name" required="true" z="qRh16uRoSrn4V56n7j7cLBA8vUQ="/>
+        <field:input field="weight" id="c_ee_itcollege_team11_Bear_weight" z="kxuJiOe6ekabH7lyJxaZRaykZLU="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_Bear" render="${not empty dependencies}" z="Ss5DWnbKKTbdfo+yYznnlKd5vOo="/>
+</div>

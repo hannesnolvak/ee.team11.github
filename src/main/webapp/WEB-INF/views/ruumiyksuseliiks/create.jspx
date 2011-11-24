@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_RuumiyksuseLiik" modelAttribute="ruumiyksuseLiik" path="/ruumiyksuseliiks" render="${empty dependencies}" z="RbQxBKczCpiaENTJ5nQ+qKQRTK4=">
+        <field:input field="avaja" id="c_ee_itcollege_team11_RuumiyksuseLiik_avaja" z="I7lUveVM/4921Fcp3+JAOMQ8HtA="/>
+        <field:datetime dateTimePattern="${ruumiyksuseLiik_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_RuumiyksuseLiik_avatud" z="+mb+oO07A43Wa09tsEhLyG+motk="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_RuumiyksuseLiik_kommentaar" z="W1vOmuu0D7qQaF3btsd90nrwHjQ="/>
+        <field:input field="kood" id="c_ee_itcollege_team11_RuumiyksuseLiik_kood" z="ZuaWrij5LoZ8/gqn9nSakLkWYSk="/>
+        <field:datetime dateTimePattern="${ruumiyksuseLiik_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_RuumiyksuseLiik_muudetud" z="TfolR6FIYdYC0Qsq7gQQPnLhrXs="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_RuumiyksuseLiik_muutja" z="Er6valpzfldrL9OrrJoYSw5vd0s="/>
+        <field:input field="nimetus" id="c_ee_itcollege_team11_RuumiyksuseLiik_nimetus" z="CsXCe2vTTY1sK9V7HEp4Txj9Hms="/>
+        <field:datetime dateTimePattern="${ruumiyksuseLiik_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_RuumiyksuseLiik_suletud" z="n7qWeaaMO89/yJlmjmGapD55rGQ="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_RuumiyksuseLiik_sulgeja" z="bkdUsd4kUoTTp42whH9ykPN8xpU="/>
+        <field:simple field="ruumiyksuses" id="c_ee_itcollege_team11_RuumiyksuseLiik_ruumiyksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Ruumiyksus" z="ZhoAraaYx9TJ+6YpMmKkERXXt4U="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_RuumiyksuseLiik" render="${not empty dependencies}" z="YSPzpEhPFv2k3eydJNyQscUDars="/>
+</div>

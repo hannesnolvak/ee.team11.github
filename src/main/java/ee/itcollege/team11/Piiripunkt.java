@@ -1,20 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
-
-import org.springframework.roo.addon.entity.RooEntity;
-import org.springframework.roo.addon.tostring.RooToString;
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.roo.addon.tostring.RooToString;
 
 
 /**
  * The persistent class for the PIIRIPUNKT database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Piiripunkt implements Serializable {
@@ -23,7 +31,7 @@ public class Piiripunkt implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="PIIRIPUNKT_ID")
-	private int piiripunktId;
+	private Long piiripunktId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -84,11 +92,11 @@ public class Piiripunkt implements Serializable {
     public Piiripunkt() {
     }
 
-	public int getPiiripunktId() {
+	public Long getPiiripunktId() {
 		return this.piiripunktId;
 	}
 
-	public void setPiiripunktId(int piiripunktId) {
+	public void setPiiripunktId(Long piiripunktId) {
 		this.piiripunktId = piiripunktId;
 	}
 

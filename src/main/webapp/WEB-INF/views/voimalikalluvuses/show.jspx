@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_VoimalikAlluvus" object="${voimalikalluvus}" path="/voimalikalluvuses" z="z5oxgEDOBjRY6GeoVS4Fl7Vbi14=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_VoimalikAlluvus_avaja" object="${voimalikalluvus}" z="N595+WF2dEzcbKhRdfWqCSqLMj8="/>
+        <field:display date="true" dateTimePattern="${voimalikAlluvus_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_VoimalikAlluvus_avatud" object="${voimalikalluvus}" z="xnjP80c6rOGr++RYOtEIBFnINqA="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_VoimalikAlluvus_kommentaar" object="${voimalikalluvus}" z="+qhgNG2yUE9pGYeAUN9lEWZpEf4="/>
+        <field:display date="true" dateTimePattern="${voimalikAlluvus_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_VoimalikAlluvus_muudetud" object="${voimalikalluvus}" z="ikwNGmXtroy/SRfu5YVmyDVVoJI="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_VoimalikAlluvus_muutja" object="${voimalikalluvus}" z="hdYpqI0Rkl+7gF5q1vB1zf2SC1k="/>
+        <field:display date="true" dateTimePattern="${voimalikAlluvus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_VoimalikAlluvus_suletud" object="${voimalikalluvus}" z="xs3QNGpdB8soT3zvpRC+eaLShdk="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_VoimalikAlluvus_sulgeja" object="${voimalikalluvus}" z="lU4sfrdoNuCM/TN4DkhWB9E3N5c="/>
+        <field:display field="riigiAdminYksuseLiik1" id="s_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik1" object="${voimalikalluvus}" z="c/oWhrBKxtwonG9N21IsYSJOIJs="/>
+        <field:display field="riigiAdminYksuseLiik2" id="s_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik2" object="${voimalikalluvus}" z="diQkWGaLeeoyXV3vnRwqxJpxQRg="/>
+    </page:show>
+</div>

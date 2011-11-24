@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Ruumiyksus" object="${ruumiyksus}" path="/ruumiyksuses" z="cq5XyH+ykLYyp+nHCmJDb5VBxBs=">
+        <field:display field="aadress" id="s_ee_itcollege_team11_Ruumiyksus_aadress" object="${ruumiyksus}" z="3f9XMd8QJIC6IR+NeO1OQ2BOL8s="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_Ruumiyksus_avaja" object="${ruumiyksus}" z="8mIaIcXQ2vG2WkzfhATh6+rKU6s="/>
+        <field:display date="true" dateTimePattern="${ruumiyksus_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Ruumiyksus_avatud" object="${ruumiyksus}" z="J1qg58rv2l+KXp2OIswwtfQNbqE="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_Ruumiyksus_kommentaar" object="${ruumiyksus}" z="3Iaybbc7u0Y0tw3INhe20Ck9ED4="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_Ruumiyksus_kood" object="${ruumiyksus}" z="RdQMAWllUTXDeE6elU6ZPjh/nMc="/>
+        <field:display date="true" dateTimePattern="${ruumiyksus_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Ruumiyksus_muudetud" object="${ruumiyksus}" z="NF8vcvwh3+Ah2h9flxrLhAOLJK4="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Ruumiyksus_muutja" object="${ruumiyksus}" z="f6P9uUywqCTo3/5RxcaVIGfT49g="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_Ruumiyksus_nimetus" object="${ruumiyksus}" z="eCiHb6VttPjgbw0ttbWjaBUHvZA="/>
+        <field:display date="true" dateTimePattern="${ruumiyksus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Ruumiyksus_suletud" object="${ruumiyksus}" z="GEOFZizmO+6DrQwNI89RveGdFes="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Ruumiyksus_sulgeja" object="${ruumiyksus}" z="b2KzZob9GaVg346SBgo6+ADQw/0="/>
+        <field:display field="riigiAdminYksus" id="s_ee_itcollege_team11_Ruumiyksus_riigiAdminYksus" object="${ruumiyksus}" z="4UAe6Vkwcx6UxypKwSJVmUH/Dvw="/>
+        <field:display field="ruumiyksus" id="s_ee_itcollege_team11_Ruumiyksus_ruumiyksus" object="${ruumiyksus}" z="Gf+EgeLhRfbqrCNb5psCvxPY2HA="/>
+        <field:display field="ruumiyksuseLiik" id="s_ee_itcollege_team11_Ruumiyksus_ruumiyksuseLiik" object="${ruumiyksus}" z="VvZMNlt2nq4P9Nm/jjNd420Blpw="/>
+    </page:show>
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi" modelAttribute="piirivalvuriSeadusIntsidendi" path="/piirivalvuriseadusintsidendis" render="${empty dependencies}" z="nXzNe46+qS23Rtf5o5ylVFfBTkU=">
+        <field:datetime dateTimePattern="${piirivalvuriSeadusIntsidendi_alates_date_format}" field="alates" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_alates" z="vXfzviFQDcjtuvHqBrT8fa/QXuM="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_avaja" z="Xy+bvpJYred4y1zftqp4FY5Ryuk="/>
+        <field:datetime dateTimePattern="${piirivalvuriSeadusIntsidendi_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_avatud" z="xUglWOhiqtSCnGc+dowvx/ERZFs="/>
+        <field:input field="kirjeldus" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_kirjeldus" z="axCNvOzVf9Wea4RIVYBhNdMyl98="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_kommentaar" z="Dq4UksJvvu0x4twRaQY/HKZLorc="/>
+        <field:datetime dateTimePattern="${piirivalvuriSeadusIntsidendi_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_kuni" z="TQcfRXxAKw6o+e1hq5tByCj7bm4="/>
+        <field:datetime dateTimePattern="${piirivalvuriSeadusIntsidendi_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_muudetud" z="uyqWnwFwIlZtTwiGHyJ1J1byPyU="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_muutja" z="CzKD39joMbhVEn3MKqHTnvGknDM="/>
+        <field:datetime dateTimePattern="${piirivalvuriSeadusIntsidendi_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_suletud" z="T6OneVpQkfVScO/aZD20q0OakjU="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_sulgeja" z="GUcGswCPDmvNXfcXXrJrjIfGfOw="/>
+        <field:select field="piirivalvurIntsidendi" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_piirivalvurIntsidendi" itemValue="piirivalvurIntsidendisId" items="${piirivalvurintsidendis}" path="/piirivalvurintsidendis" z="3LPGryFwiaIyWYlmpLGshAMZ6Bk="/>
+        <field:select field="seadusePunkt" id="c_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi_seadusePunkt" itemValue="id" items="${seadusepunkts}" path="/seadusepunkts" z="znw+XRqoNGG3tng/N4iUj8QvCCQ="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_PiirivalvuriSeadusIntsidendi" render="${not empty dependencies}" z="TSqP41icgNCbmarN4xUh2mEtbL4="/>
+</div>

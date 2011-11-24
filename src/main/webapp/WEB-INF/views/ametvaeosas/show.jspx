@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_AmetVaeosa" object="${ametvaeosa}" path="/ametvaeosas" z="VJv64JLb7pc0akml1SBL4tO9foE=">
+        <field:display date="true" dateTimePattern="${ametVaeosa_alates_date_format}" field="alates" id="s_ee_itcollege_team11_AmetVaeosa_alates" object="${ametvaeosa}" z="mpcVZZf3CqmL897fqNhsX+B4Vc8="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_AmetVaeosa_avaja" object="${ametvaeosa}" z="puNy2QLCV8v9m9ZTsgJY+oCIE80="/>
+        <field:display date="true" dateTimePattern="${ametVaeosa_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_AmetVaeosa_avatud" object="${ametvaeosa}" z="ty9R3MxDm6JWGxzvYlrRc96Vb2I="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_AmetVaeosa_kommentaar" object="${ametvaeosa}" z="Mnw9rLFJso9AoItWlfgSk8gg95o="/>
+        <field:display date="true" dateTimePattern="${ametVaeosa_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_AmetVaeosa_kuni" object="${ametvaeosa}" z="DJ5mnOO7KMfa4qbP3MA0H07zY3o="/>
+        <field:display date="true" dateTimePattern="${ametVaeosa_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_AmetVaeosa_muudetud" object="${ametvaeosa}" z="hDVryZvXcAxmSTzFrl4nkdCsmhg="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_AmetVaeosa_muutja" object="${ametvaeosa}" z="RETkNWfyxtx9W4xYDQUb02ZCCUQ="/>
+        <field:display date="true" dateTimePattern="${ametVaeosa_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_AmetVaeosa_suletud" object="${ametvaeosa}" z="9yvJpv3XQsWHf6/vqfY6fo/uSYI="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_AmetVaeosa_sulgeja" object="${ametvaeosa}" z="XcjMDicTrrCg5md/bOExpG5F9QE="/>
+        <field:display field="amet" id="s_ee_itcollege_team11_AmetVaeosa_amet" object="${ametvaeosa}" z="ylR3q9yxvx6ihRGWSGQVPCG2Fq4="/>
+        <field:display field="vaeosa" id="s_ee_itcollege_team11_AmetVaeosa_vaeosa" object="${ametvaeosa}" z="i+blSXEeovLCrBt9UngXxo2bhgw="/>
+    </page:show>
+</div>

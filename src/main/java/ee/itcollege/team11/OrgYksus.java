@@ -1,19 +1,30 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the ORG_YKSUS database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="ORG_YKSUS")
@@ -23,7 +34,7 @@ public class OrgYksus implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ORG_YKSUS_ID")
-	private int orgYksusId;
+	private Long orgYksusId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -69,11 +80,11 @@ public class OrgYksus implements Serializable {
     public OrgYksus() {
     }
 
-	public int getOrgYksusId() {
+	public Long getOrgYksusId() {
 		return this.orgYksusId;
 	}
 
-	public void setOrgYksusId(int orgYksusId) {
+	public void setOrgYksusId(Long orgYksusId) {
 		this.orgYksusId = orgYksusId;
 	}
 

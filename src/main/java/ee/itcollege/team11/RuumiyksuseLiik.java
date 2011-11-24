@@ -1,19 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the RUUMIYKSUSE_LIIK database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="RUUMIYKSUSE_LIIK")
@@ -23,7 +32,7 @@ public class RuumiyksuseLiik implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="RUUMIYKSUSE_LIIK_ID")
-	private int ruumiyksuseLiikId;
+	private Long ruumiyksuseLiikId;
 
 	private String avaja;
 
@@ -53,11 +62,11 @@ public class RuumiyksuseLiik implements Serializable {
     public RuumiyksuseLiik() {
     }
 
-	public int getRuumiyksuseLiikId() {
+	public Long getRuumiyksuseLiikId() {
 		return this.ruumiyksuseLiikId;
 	}
 
-	public void setRuumiyksuseLiikId(int ruumiyksuseLiikId) {
+	public void setRuumiyksuseLiikId(Long ruumiyksuseLiikId) {
 		this.ruumiyksuseLiikId = ruumiyksuseLiikId;
 	}
 

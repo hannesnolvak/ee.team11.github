@@ -1,19 +1,27 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the RIIK database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Riik implements Serializable {
@@ -22,7 +30,7 @@ public class Riik implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="RIIK_ID")
-	private int riikId;
+	private Long riikId;
 
 	@Column(name="ANSI_KOOD")
 	private String ansiKood;
@@ -54,11 +62,11 @@ public class Riik implements Serializable {
     public Riik() {
     }
 
-	public int getRiikId() {
+	public Long getRiikId() {
 		return this.riikId;
 	}
 
-	public void setRiikId(int riikId) {
+	public void setRiikId(Long riikId) {
 		this.riikId = riikId;
 	}
 

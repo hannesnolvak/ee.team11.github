@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team11_PiirivalvuriKontakt" items="${piirivalvurikontakts}" z="7C//4nkesJdnSVN5bXwxsqoBF1E=">
+        <table:table data="${piirivalvurikontakts}" id="l_ee_itcollege_team11_PiirivalvuriKontakt" path="/piirivalvurikontakts" typeIdFieldName="piirivalvuriKontaktId" z="4ujsBKEAT8UjIzkIOiZbeEpNf+c=">
+            <table:column date="true" dateTimePattern="${piirivalvuriKontakt_alates_date_format}" id="c_ee_itcollege_team11_PiirivalvuriKontakt_alates" property="alates" z="qrhgqoTt2sbDz33uI3csWeQ/gvU="/>
+            <table:column id="c_ee_itcollege_team11_PiirivalvuriKontakt_avaja" property="avaja" z="iGTXA9RmfNWaNgp3eUIjerpANYA="/>
+            <table:column date="true" dateTimePattern="${piirivalvuriKontakt_avatud_date_format}" id="c_ee_itcollege_team11_PiirivalvuriKontakt_avatud" property="avatud" z="LPu8Iv4nepetxB8zwoeLB+AYDZ0="/>
+            <table:column id="c_ee_itcollege_team11_PiirivalvuriKontakt_kommentaar" property="kommentaar" z="M5M14AGSixU8ra5ZgnLS3uCPfXg="/>
+            <table:column id="c_ee_itcollege_team11_PiirivalvuriKontakt_kontakt" property="kontakt" z="a5gYmE9G2CRFjUzXcM/QjEmtdTI="/>
+            <table:column date="true" dateTimePattern="${piirivalvuriKontakt_kuni_date_format}" id="c_ee_itcollege_team11_PiirivalvuriKontakt_kuni" property="kuni" z="pTkEDGjrbx7ridaFNF9JNTZB604="/>
+        </table:table>
+    </page:list>
+</div>

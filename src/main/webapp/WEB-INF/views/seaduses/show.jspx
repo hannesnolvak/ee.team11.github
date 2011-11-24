@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Seadus" object="${seadus}" path="/seaduses" z="hoSBrM/q+8kYF9oRWEZnBznB3Os=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_Seadus_avaja" object="${seadus}" z="2nmKNzViK8LJP5kmX6X6MTF7Ol8="/>
+        <field:display date="true" dateTimePattern="${seadus_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Seadus_avatud" object="${seadus}" z="N8pqJQSa70YlAEkP2cQYmQ+Oe1Y="/>
+        <field:display field="kehtivAlates" id="s_ee_itcollege_team11_Seadus_kehtivAlates" object="${seadus}" z="ly7rSC/aT+setOBoJ6oHK1VDOM0="/>
+        <field:display field="kehtivKuni" id="s_ee_itcollege_team11_Seadus_kehtivKuni" object="${seadus}" z="8aCm6/cTybWPf2EzhN0fT3x1zeo="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_Seadus_kommentaar" object="${seadus}" z="p7HdzqZ2EYWozzEBFN2249r3+7c="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_Seadus_kood" object="${seadus}" z="PdZ5oiUj/kj7EyMIUUYKBNGX/Vg="/>
+        <field:display date="true" dateTimePattern="${seadus_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Seadus_muudetud" object="${seadus}" z="MXP73wsz5NiQXc5o0TRuWNn9aAo="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Seadus_muutja" object="${seadus}" z="tQT20jBlWGYsYhm9s1eytwx4cgw="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_Seadus_nimetus" object="${seadus}" z="UZcAFtet1UfSDQUkbEvRfnheOng="/>
+        <field:display date="true" dateTimePattern="${seadus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Seadus_suletud" object="${seadus}" z="XN7aFexMqinksAdO3c0ZEu5Rgyw="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Seadus_sulgeja" object="${seadus}" z="5/8G2C6QoKURGuolm9ECgKQ/iDQ="/>
+    </page:show>
+</div>

@@ -1,19 +1,27 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the AUASTE database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Auaste implements Serializable {
@@ -22,7 +30,7 @@ public class Auaste implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="AUASTE_ID")
-	private int auasteId;
+	private Long auasteId;
 
 	private String avaja;
 
@@ -52,11 +60,11 @@ public class Auaste implements Serializable {
     public Auaste() {
     }
 
-	public int getAuasteId() {
+	public Long getAuasteId() {
 		return this.auasteId;
 	}
 
-	public void setAuasteId(int auasteId) {
+	public void setAuasteId(Long auasteId) {
 		this.auasteId = auasteId;
 	}
 

@@ -1,19 +1,29 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the RUUMIYKSUS database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Ruumiyksus implements Serializable {
@@ -22,7 +32,7 @@ public class Ruumiyksus implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="RUUMIYKSUS_ID")
-	private int ruumiyksusId;
+	private Long ruumiyksusId;
 
 	private String aadress;
 
@@ -73,11 +83,11 @@ public class Ruumiyksus implements Serializable {
     public Ruumiyksus() {
     }
 
-	public int getRuumiyksusId() {
+	public Long getRuumiyksusId() {
 		return this.ruumiyksusId;
 	}
 
-	public void setRuumiyksusId(int ruumiyksusId) {
+	public void setRuumiyksusId(Long ruumiyksusId) {
 		this.ruumiyksusId = ruumiyksusId;
 	}
 

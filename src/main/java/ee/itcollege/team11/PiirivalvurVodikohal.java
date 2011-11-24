@@ -1,18 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
 
 
 /**
  * The persistent class for the PIIRIVALVUR_VODIKOHAL database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="PIIRIVALVUR_VODIKOHAL")
@@ -22,7 +32,7 @@ public class PiirivalvurVodikohal implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="\"_ID\"")
-	private int id;
+	private Long id;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -60,11 +70,11 @@ public class PiirivalvurVodikohal implements Serializable {
     public PiirivalvurVodikohal() {
     }
 
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

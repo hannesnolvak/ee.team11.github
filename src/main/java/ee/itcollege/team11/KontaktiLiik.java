@@ -1,19 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the KONTAKTI_LIIK database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="KONTAKTI_LIIK")
@@ -23,7 +32,7 @@ public class KontaktiLiik implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="KONTAKTI_LIIK_ID")
-	private int kontaktiLiikId;
+	private Long kontaktiLiikId;
 
 	private String avaja;
 
@@ -54,11 +63,11 @@ public class KontaktiLiik implements Serializable {
     public KontaktiLiik() {
     }
 
-	public int getKontaktiLiikId() {
+	public Long getKontaktiLiikId() {
 		return this.kontaktiLiikId;
 	}
 
-	public void setKontaktiLiikId(int kontaktiLiikId) {
+	public void setKontaktiLiikId(Long kontaktiLiikId) {
 		this.kontaktiLiikId = kontaktiLiikId;
 	}
 

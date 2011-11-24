@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team11_VahtkonnaLiige" items="${vahtkonnaliiges}" z="LxJFlFj/ocjVxoJSWnlxmUpfF5s=">
+        <table:table data="${vahtkonnaliiges}" id="l_ee_itcollege_team11_VahtkonnaLiige" path="/vahtkonnaliiges" typeIdFieldName="vahtkonnaLiigeId" z="sTgQNWxWHwCNhd0c/oJgr/+NnG0=">
+            <table:column id="c_ee_itcollege_team11_VahtkonnaLiige_alates" property="alates" z="L0h404Mcdz2CUWUgd9l+QOaLSJE="/>
+            <table:column id="c_ee_itcollege_team11_VahtkonnaLiige_avaja" property="avaja" z="+pniL94ADHTd+lUolYPWLCoRaog="/>
+            <table:column date="true" dateTimePattern="${vahtkonnaLiige_avatud_date_format}" id="c_ee_itcollege_team11_VahtkonnaLiige_avatud" property="avatud" z="aKMBUvsS0HVEVUJblubdlsaYZ8U="/>
+            <table:column id="c_ee_itcollege_team11_VahtkonnaLiige_kommentaar" property="kommentaar" z="jF+8RCfP0PS8HH9tfzUEHTmB0nA="/>
+            <table:column id="c_ee_itcollege_team11_VahtkonnaLiige_kuni" property="kuni" z="wz+Paem83uNZNkAGvTKSIad8YQA="/>
+            <table:column date="true" dateTimePattern="${vahtkonnaLiige_muudetud_date_format}" id="c_ee_itcollege_team11_VahtkonnaLiige_muudetud" property="muudetud" z="kQMvTO+oEzLW8uP6V8nnsz0DkOg="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_Amet" idField="ametId" modelAttribute="amet" path="/amets" versionField="Version" z="p7uRkFJI9N4jxJNjOUWg3V/KbGw=">
+        <field:input field="avaja" id="c_ee_itcollege_team11_Amet_avaja" z="O2Y94vXlB/s9rbHYRkX3C+4Om/Q="/>
+        <field:datetime dateTimePattern="${amet_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_Amet_avatud" z="T7axTbkAThd7UthFVf1mdGh7btI="/>
+        <field:input field="iscoKood" id="c_ee_itcollege_team11_Amet_iscoKood" z="wFh2AJsDt4dLCC7rCgzI2bSIt+w="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_Amet_kommentaar" z="31APc+TCSoe4ZnDtlZyYR7Kwy7E="/>
+        <field:datetime dateTimePattern="${amet_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_Amet_muudetud" z="GNWuJDNd5J7ILdvFsVk2weUdZyY="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_Amet_muutja" z="XhsrGidcyEi3GQtAI7B9llvMx9A="/>
+        <field:input field="nimetus" id="c_ee_itcollege_team11_Amet_nimetus" z="i/hZNvT8rBcW03ufwrYy/b+8QmY="/>
+        <field:datetime dateTimePattern="${amet_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Amet_suletud" z="RJUwmZ/VLtrYQZ0nqkMSCTdgvcc="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_Amet_sulgeja" z="HtBKrhPV1zrqp6OJgszj4d0N8IQ="/>
+        <field:simple field="ametPiiripunktis" id="c_ee_itcollege_team11_Amet_ametPiiripunktis" messageCode="entity_reference_not_managed" messageCodeAttribute="Amet Piiripunkti" z="K3Pz1uGZkAhION6rnU9kUrhyEKg="/>
+        <field:simple field="ametVaeosas" id="c_ee_itcollege_team11_Amet_ametVaeosas" messageCode="entity_reference_not_managed" messageCodeAttribute="Amet Vaeosa" z="QGq+rz5isWixwZdAAr6444rfleE="/>
+    </form:update>
+</div>

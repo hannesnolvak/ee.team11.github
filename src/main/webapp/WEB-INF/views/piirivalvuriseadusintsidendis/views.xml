@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="piirivalvuriseadusintsidendis/list">
+        <put-attribute name="body" value="/WEB-INF/views/piirivalvuriseadusintsidendis/list.jspx"/>
+    </definition>
+<definition extends="default" name="piirivalvuriseadusintsidendis/show">
+        <put-attribute name="body" value="/WEB-INF/views/piirivalvuriseadusintsidendis/show.jspx"/>
+    </definition>
+<definition extends="default" name="piirivalvuriseadusintsidendis/create">
+        <put-attribute name="body" value="/WEB-INF/views/piirivalvuriseadusintsidendis/create.jspx"/>
+    </definition>
+<definition extends="default" name="piirivalvuriseadusintsidendis/update">
+        <put-attribute name="body" value="/WEB-INF/views/piirivalvuriseadusintsidendis/update.jspx"/>
+    </definition>
+</tiles-definitions>

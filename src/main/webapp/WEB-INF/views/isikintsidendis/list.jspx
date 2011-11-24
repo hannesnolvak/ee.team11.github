@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team11_IsikIntsidendi" items="${isikintsidendis}" z="Rxd6TUKDmu9aGFbCDYC1ww27fEg=">
+        <table:table data="${isikintsidendis}" id="l_ee_itcollege_team11_IsikIntsidendi" path="/isikintsidendis" typeIdFieldName="isikIntsidendisId" z="rm4vqwGrZnpUSgEOYvx0NzDPNC4=">
+            <table:column date="true" dateTimePattern="${isikIntsidendi_alates_date_format}" id="c_ee_itcollege_team11_IsikIntsidendi_alates" property="alates" z="6+mjGe1yJKFI9MlfYeO11PE1QdU="/>
+            <table:column id="c_ee_itcollege_team11_IsikIntsidendi_avaja" property="avaja" z="sH4DrqhdYswCrParDgBifkhCJTk="/>
+            <table:column date="true" dateTimePattern="${isikIntsidendi_avatud_date_format}" id="c_ee_itcollege_team11_IsikIntsidendi_avatud" property="avatud" z="uyjZAvUrFyJAjmCbCmk1LzX6l3I="/>
+            <table:column id="c_ee_itcollege_team11_IsikIntsidendi_kirjeldus" property="kirjeldus" z="gGP5HMnV0G2WDrQxXyJ7dHJZm40="/>
+            <table:column id="c_ee_itcollege_team11_IsikIntsidendi_kommentaar" property="kommentaar" z="brMAPKHu5DwmzS3FazT+bOYB8Is="/>
+            <table:column date="true" dateTimePattern="${isikIntsidendi_kuni_date_format}" id="c_ee_itcollege_team11_IsikIntsidendi_kuni" property="kuni" z="EhZV6X0Bif7RPl7seg8TpbtikVE="/>
+        </table:table>
+    </page:list>
+</div>

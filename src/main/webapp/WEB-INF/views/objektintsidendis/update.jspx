@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_ObjektIntsidendi" idField="objektIntsidendisId" modelAttribute="objektIntsidendi" path="/objektintsidendis" versionField="Version" z="TwEAYDJD4rB78fq8Lr/lBn2TEr0=">
+        <field:datetime dateTimePattern="${objektIntsidendi_alates_date_format}" field="alates" id="c_ee_itcollege_team11_ObjektIntsidendi_alates" z="U6FMfb/UkrMnL77dgzykh0Jm/58="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_ObjektIntsidendi_avaja" z="5iqrGEBkJNu8/WqObJ7krc3w1qo="/>
+        <field:datetime dateTimePattern="${objektIntsidendi_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_ObjektIntsidendi_avatud" z="Smi3cMaZD78nxubG+AgkbrLWdUw="/>
+        <field:input field="kirjeldus" id="c_ee_itcollege_team11_ObjektIntsidendi_kirjeldus" z="bVAcs8xJu6d+3buI4zdrr34A1FM="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_ObjektIntsidendi_kommentaar" z="qGcpsWEwNK+5zzwxQIaY71mlpDk="/>
+        <field:datetime dateTimePattern="${objektIntsidendi_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_ObjektIntsidendi_kuni" z="j7XFZpIRYjaWan+4bTMP0DxZEek="/>
+        <field:datetime dateTimePattern="${objektIntsidendi_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_ObjektIntsidendi_muudetud" z="hn/sioft4slMsHrRL1YvsigdZZY="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_ObjektIntsidendi_muutja" z="NQ0R7F86Zxhy85ZnI6swbm37S+E="/>
+        <field:datetime dateTimePattern="${objektIntsidendi_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_ObjektIntsidendi_suletud" z="n6ZRq8MUf/lwQDN37usgYwD8aHs="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_ObjektIntsidendi_sulgeja" z="bgxEm+6mEfH8gYHKE7NY9ZeL6zU="/>
+        <field:simple field="objektiSeadusIntsidendis" id="c_ee_itcollege_team11_ObjektIntsidendi_objektiSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekti Seadus Intsidendi" z="TtGS+ax4CkgU3Lo/eBdD6BChuQg="/>
+        <field:select field="intsident" id="c_ee_itcollege_team11_ObjektIntsidendi_intsident" itemValue="intsidentId" items="${intsidents}" path="/intsidents" z="AiGiXTG6DmrFC0HQmD4JXLMc1F4="/>
+        <field:select field="objekt" id="c_ee_itcollege_team11_ObjektIntsidendi_objekt" itemValue="objektId" items="${objekts}" path="/objekts" z="G1JY5Tne8zMP/oielKVqc/baSAs="/>
+    </form:update>
+</div>

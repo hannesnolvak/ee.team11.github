@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_SeadusePunkt" idField="seadusePunktId" modelAttribute="seadusePunkt" path="/seadusepunkts" versionField="Version" z="FKD3il+x8xewwO0Ne8DKG6r/fW8=">
+        <field:input field="avaja" id="c_ee_itcollege_team11_SeadusePunkt_avaja" z="4pv2YZ0zL6aGzk36XwzrzQ5P0LI="/>
+        <field:datetime dateTimePattern="${seadusePunkt_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_SeadusePunkt_avatud" z="p4wH1fYhv/HX8vcO4G2WhUn4mvY="/>
+        <field:input field="kehtivAlates" id="c_ee_itcollege_team11_SeadusePunkt_kehtivAlates" z="caETXeh4sVZ4sAMDqOEO+2M0SNE="/>
+        <field:input field="kehtivKuni" id="c_ee_itcollege_team11_SeadusePunkt_kehtivKuni" z="InD70v2ZwwU/hPK4o/QP4Gk8Wvw="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_SeadusePunkt_kommentaar" z="pcFOPUvakLA8u8pzdYN+KsfRcFM="/>
+        <field:datetime dateTimePattern="${seadusePunkt_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_SeadusePunkt_muudetud" z="kao6MIa3srMN+JWg/hUxp5Ez8nY="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_SeadusePunkt_muutja" z="VaZErvNyXKBs92hJ6rMNp2S7rMg="/>
+        <field:input field="pais" id="c_ee_itcollege_team11_SeadusePunkt_pais" z="tAY0SxrNQmSLsGA+zq4oOiCZb2s="/>
+        <field:input field="paragrahv" id="c_ee_itcollege_team11_SeadusePunkt_paragrahv" z="V2BvjO/7HE15V2Cmmr8oIa5hdro="/>
+        <field:datetime dateTimePattern="${seadusePunkt_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_SeadusePunkt_suletud" z="hCveYSyFiUnq4o567ycO69kMA80="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_SeadusePunkt_sulgeja" z="9A+6DZhkzRJn9fsOoaTU0xCMk+U="/>
+        <field:input field="tekst" id="c_ee_itcollege_team11_SeadusePunkt_tekst" z="jZXFZnU47DTz8UcRh+HfgRdRaUE="/>
+        <field:select field="seadus" id="c_ee_itcollege_team11_SeadusePunkt_seadus" itemValue="seaduseId" items="${seaduses}" path="/seaduses" z="dV8VtoVqmkm4ZIcQxWfwyZxb0ms="/>
+        <field:select field="seadusePunkt" id="c_ee_itcollege_team11_SeadusePunkt_seadusePunkt" itemValue="seadusePunktId" items="${seadusepunkts}" path="/seadusepunkts" z="1TRVhIDS8Llc6wb9jy0j7+vnOJA="/>
+        <field:simple field="seadusePunkts" id="c_ee_itcollege_team11_SeadusePunkt_seadusePunkts" messageCode="entity_reference_not_managed" messageCodeAttribute="Seaduse Punkt" z="l4mJ09eot/NXMNXxXtyoZG+F5gM="/>
+        <field:simple field="isikuSeadusIntsidendis" id="c_ee_itcollege_team11_SeadusePunkt_isikuSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Isiku Seadus Intsidendi" z="qVBxljdqnlYpqn3J5jJ13zN8o5c="/>
+        <field:simple field="objektiSeadusIntsidendis" id="c_ee_itcollege_team11_SeadusePunkt_objektiSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekti Seadus Intsidendi" z="x1x1sql8ykuRgzGhCfHn7lsd380="/>
+        <field:simple field="piirivalvuriSeadusIntsidendis" id="c_ee_itcollege_team11_SeadusePunkt_piirivalvuriSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvuri Seadus Intsidendi" z="eDaCeTHFWxNvAxu8SeJWBs1tRnw="/>
+    </form:update>
+</div>

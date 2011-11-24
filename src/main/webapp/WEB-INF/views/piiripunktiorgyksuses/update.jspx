@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_PiiripunktiOrgYksus" idField="piiripunktiOrgYksusId" modelAttribute="piiripunktiOrgYksus" path="/piiripunktiorgyksuses" versionField="Version" z="ICsmwtE4zXCuQSmYEsxJS2aoLRs=">
+        <field:datetime dateTimePattern="${piiripunktiOrgYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_alates" z="KuZGNuphVQvVTAyvB5duU+iZWn0="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_avaja" z="SDEcqaP6PwrtLeFx6JcYUOTOQg4="/>
+        <field:datetime dateTimePattern="${piiripunktiOrgYksus_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_avatud" z="drymym9433P/2VMASEXmQMgzSfc="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_kommentaar" z="cEKckHkbficcmImcstJ1IztsZMc="/>
+        <field:input field="kood" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_kood" z="bujfd1dBrtFOI8IpF1ZJJnsPBQE="/>
+        <field:datetime dateTimePattern="${piiripunktiOrgYksus_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_kuni" z="qogxnaBekOy5JL8F11/PDS1zbb8="/>
+        <field:datetime dateTimePattern="${piiripunktiOrgYksus_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_muudetud" z="JYJaLxGniCDzTdEIwVqp0n/GwZ0="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_muutja" z="dOlwmY4V2MnYf0F5PLSSUcpp6UA="/>
+        <field:input field="nimetus" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_nimetus" z="o+ahpYcJopffC9RnBMWUDJhpFps="/>
+        <field:datetime dateTimePattern="${piiripunktiOrgYksus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_suletud" z="Isaums0i3mdOQ6LYKPDUWBqLyg8="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_sulgeja" z="aqqF+Vez1pEmBDzML0bbzf66UO8="/>
+        <field:input field="vaeosaIdId" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_vaeosaIdId" z="SUhY7FHUtUh0QIcbAcgUXr87GBw="/>
+        <field:select field="piiripunkt" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_piiripunkt" itemValue="piiripunktId" items="${piiripunkts}" path="/piiripunkts" z="xTLFLga31SJnFa0+f2I292PdCsQ="/>
+        <field:select field="piiripunktiOrgYksus" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_piiripunktiOrgYksus" itemValue="piiripunktiOrgYksusId" items="${piiripunktiorgyksuses}" path="/piiripunktiorgyksuses" z="e5ZSUm/K+Gv44y1vITx3cRtzN/E="/>
+        <field:simple field="piiripunktiOrgYksuses" id="c_ee_itcollege_team11_PiiripunktiOrgYksus_piiripunktiOrgYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiripunkti Org Yksus" z="jehxdiCwQ2VSI2GSXWXJLk1SGeo="/>
+    </form:update>
+</div>

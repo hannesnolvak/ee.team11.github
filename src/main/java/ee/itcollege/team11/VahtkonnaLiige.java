@@ -1,18 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
 
 
 /**
  * The persistent class for the VAHTKONNA_LIIGE database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="VAHTKONNA_LIIGE")
@@ -22,7 +32,7 @@ public class VahtkonnaLiige implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="VAHTKONNA_LIIGE_ID")
-	private int vahtkonnaLiigeId;
+	private Long vahtkonnaLiigeId;
 
 	private String alates;
 
@@ -58,11 +68,11 @@ public class VahtkonnaLiige implements Serializable {
     public VahtkonnaLiige() {
     }
 
-	public int getVahtkonnaLiigeId() {
+	public Long getVahtkonnaLiigeId() {
 		return this.vahtkonnaLiigeId;
 	}
 
-	public void setVahtkonnaLiigeId(int vahtkonnaLiigeId) {
+	public void setVahtkonnaLiigeId(Long vahtkonnaLiigeId) {
 		this.vahtkonnaLiigeId = vahtkonnaLiigeId;
 	}
 

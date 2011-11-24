@@ -1,19 +1,27 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the PIIRIVALVUR database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Piirivalvur implements Serializable {
@@ -22,7 +30,7 @@ public class Piirivalvur implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="PIIRIVALVUR_ID")
-	private int piirivalvurId;
+	private Long piirivalvurId;
 
 	private String avaja;
 
@@ -85,11 +93,11 @@ public class Piirivalvur implements Serializable {
     public Piirivalvur() {
     }
 
-	public int getPiirivalvurId() {
+	public Long getPiirivalvurId() {
 		return this.piirivalvurId;
 	}
 
-	public void setPiirivalvurId(int piirivalvurId) {
+	public void setPiirivalvurId(Long piirivalvurId) {
 		this.piirivalvurId = piirivalvurId;
 	}
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_PiirivalvurPiiripunkti" object="${piirivalvurpiiripunkti}" path="/piirivalvurpiiripunktis" z="YI2a+3vholjkVpQma2wyR8JjTzE=">
+        <field:display date="true" dateTimePattern="${piirivalvurPiiripunkti_alates_date_format}" field="alates" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_alates" object="${piirivalvurpiiripunkti}" z="tzke0ixQv1hSgqC2QjRPRHQoOSE="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_avaja" object="${piirivalvurpiiripunkti}" z="U2roQJxzkUif5QkVbxPvXulY1nw="/>
+        <field:display date="true" dateTimePattern="${piirivalvurPiiripunkti_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_avatud" object="${piirivalvurpiiripunkti}" z="Mgzd6WVFdpI1GDiL+CYz3ElR7/g="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_kommentaar" object="${piirivalvurpiiripunkti}" z="hOBxewHYCoTFUTh/g44ZkdHXwgk="/>
+        <field:display field="koormus" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_koormus" object="${piirivalvurpiiripunkti}" z="lF5uCp494kRz7RjCV7DEvA/DFrU="/>
+        <field:display date="true" dateTimePattern="${piirivalvurPiiripunkti_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_kuni" object="${piirivalvurpiiripunkti}" z="S5fcTyNOWUJEN7qiRrTouR63C6Q="/>
+        <field:display date="true" dateTimePattern="${piirivalvurPiiripunkti_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_muudetud" object="${piirivalvurpiiripunkti}" z="ud8IWfiugLKSlpm1wVCWv5y8A4o="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_muutja" object="${piirivalvurpiiripunkti}" z="1DyuRu27/NoB0zL4dn0XsWbsGt0="/>
+        <field:display date="true" dateTimePattern="${piirivalvurPiiripunkti_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_suletud" object="${piirivalvurpiiripunkti}" z="4pgSQEgYwH+kSROamvA5q6pnx4c="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_sulgeja" object="${piirivalvurpiiripunkti}" z="nxQMkKybpoqcCNrG43C9V/V0oAU="/>
+        <field:display field="ametPiiripunkti" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_ametPiiripunkti" object="${piirivalvurpiiripunkti}" z="6MFJGH0paHKOK4bbcaJlO4Q739s="/>
+        <field:display field="piirivalvur" id="s_ee_itcollege_team11_PiirivalvurPiiripunkti_piirivalvur" object="${piirivalvurpiiripunkti}" z="XHLDWn6+VFf9S17vOysRUk7zbHQ="/>
+    </page:show>
+</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_RiigiAdminYksus" object="${riigiadminyksus}" path="/riigiadminyksuses" z="QbfwipMv5MCqTVOubJNNGvtfmM0=">
+        <field:display date="true" dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="s_ee_itcollege_team11_RiigiAdminYksus_alates" object="${riigiadminyksus}" z="QKpMJHBKIrQQ4NTwidRFVE0CZtY="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_RiigiAdminYksus_avaja" object="${riigiadminyksus}" z="mqP99kLv4D+aE77bxPR6HIwUGB8="/>
+        <field:display date="true" dateTimePattern="${riigiAdminYksus_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_RiigiAdminYksus_avatud" object="${riigiadminyksus}" z="/TLxXRCcmBB5ROn2faXdtPIA06M="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_RiigiAdminYksus_kood" object="${riigiadminyksus}" z="+0O9pHrN05dJJq5bb+gh4jfgCv8="/>
+        <field:display date="true" dateTimePattern="${riigiAdminYksus_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_RiigiAdminYksus_kuni" object="${riigiadminyksus}" z="3lplz9oehaexL2rc10ns/2xX3gg="/>
+        <field:display date="true" dateTimePattern="${riigiAdminYksus_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_RiigiAdminYksus_muudetud" object="${riigiadminyksus}" z="xm/aRxNypd3jL3I2xsUB3IBo81s="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_RiigiAdminYksus_muutja" object="${riigiadminyksus}" z="LRzU2PWoXNS9mKHoaWWVDF+yU+c="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_RiigiAdminYksus_nimetus" object="${riigiadminyksus}" z="W4TBeR513Ab2zaUk9Jbwvk29E40="/>
+        <field:display date="true" dateTimePattern="${riigiAdminYksus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_RiigiAdminYksus_suletud" object="${riigiadminyksus}" z="g4WRs0rIeh+pCaqaDtuk8XRS2Q4="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_RiigiAdminYksus_sulgeja" object="${riigiadminyksus}" z="WN1YILUP1g3MPPEz1h3UDLBvb1Q="/>
+        <field:display field="riigiAdminYksuseLiik" id="s_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" object="${riigiadminyksus}" z="Z6/rAdzFO+53vthuE95egNsqiF8="/>
+    </page:show>
+</div>

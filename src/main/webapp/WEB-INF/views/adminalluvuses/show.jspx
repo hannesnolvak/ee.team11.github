@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_AdminAlluvus" object="${adminalluvus}" path="/adminalluvuses" z="aW90kCiW63Y20Scnx+w58DvaD3I=">
+        <field:display field="alates" id="s_ee_itcollege_team11_AdminAlluvus_alates" object="${adminalluvus}" z="CvAMQvqcn3qk9+rsZmDhmLKoZIw="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_AdminAlluvus_avaja" object="${adminalluvus}" z="Li0MicXE3mu09pmIn0tH/QzImd4="/>
+        <field:display date="true" dateTimePattern="${adminAlluvus_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_AdminAlluvus_avatud" object="${adminalluvus}" z="CtIwxqVemCTxe//Gap1NWSLW1UM="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_AdminAlluvus_kommentaar" object="${adminalluvus}" z="OCDtVBmAusL4V/bGeosUqtKBVaA="/>
+        <field:display field="kuni" id="s_ee_itcollege_team11_AdminAlluvus_kuni" object="${adminalluvus}" z="lcgb3cfoYWi5qWRD+USU1LB41+0="/>
+        <field:display date="true" dateTimePattern="${adminAlluvus_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_AdminAlluvus_muudetud" object="${adminalluvus}" z="RRjpRkc+zUa7rI0QPZKAPENklis="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_AdminAlluvus_muutja" object="${adminalluvus}" z="Vzd18XdjfOANlfBlHyOUx6KVI0Y="/>
+        <field:display date="true" dateTimePattern="${adminAlluvus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_AdminAlluvus_suletud" object="${adminalluvus}" z="2oTrsCe8YQwR9a2aYeYj7QmOjMs="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_AdminAlluvus_sulgeja" object="${adminalluvus}" z="WLYutVvUI+xb3AjyLC/oqDlnavI="/>
+        <field:display field="riigiAdminYksus1" id="s_ee_itcollege_team11_AdminAlluvus_riigiAdminYksus1" object="${adminalluvus}" z="gmz8y8ma0dhFdx4sHHpDFrGirI4="/>
+        <field:display field="riigiAdminYksus2" id="s_ee_itcollege_team11_AdminAlluvus_riigiAdminYksus2" object="${adminalluvus}" z="xcGIWitnjE/+Udbu6fy3Kv08cRg="/>
+    </page:show>
+</div>

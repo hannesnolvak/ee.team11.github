@@ -1,18 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
 
 
 /**
  * The persistent class for the PIIRILOIGU_HALDAJA database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="PIIRILOIGU_HALDAJA")
@@ -22,7 +32,7 @@ public class PiiriloiguHaldaja implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="PIIRILOIGU_HALDAJA_ID")
-	private int piiriloiguHaldajaId;
+	private Long piiriloiguHaldajaId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -65,11 +75,11 @@ public class PiiriloiguHaldaja implements Serializable {
     public PiiriloiguHaldaja() {
     }
 
-	public int getPiiriloiguHaldajaId() {
+	public Long getPiiriloiguHaldajaId() {
 		return this.piiriloiguHaldajaId;
 	}
 
-	public void setPiiriloiguHaldajaId(int piiriloiguHaldajaId) {
+	public void setPiiriloiguHaldajaId(Long piiriloiguHaldajaId) {
 		this.piiriloiguHaldajaId = piiriloiguHaldajaId;
 	}
 

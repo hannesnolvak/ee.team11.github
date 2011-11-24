@@ -1,19 +1,30 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the OBJEKT_INTSIDENDIS database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="OBJEKT_INTSIDENDIS")
@@ -23,7 +34,7 @@ public class ObjektIntsidendi implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="OBJEKT_INTSIDENDIS_ID")
-	private int objektIntsidendisId;
+	private Long objektIntsidendisId;
 
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -67,11 +78,11 @@ public class ObjektIntsidendi implements Serializable {
     public ObjektIntsidendi() {
     }
 
-	public int getObjektIntsidendisId() {
+	public Long getObjektIntsidendisId() {
 		return this.objektIntsidendisId;
 	}
 
-	public void setObjektIntsidendisId(int objektIntsidendisId) {
+	public void setObjektIntsidendisId(Long objektIntsidendisId) {
 		this.objektIntsidendisId = objektIntsidendisId;
 	}
 

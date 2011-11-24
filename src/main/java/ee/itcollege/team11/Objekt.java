@@ -1,19 +1,29 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the OBJEKT database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Objekt implements Serializable {
@@ -22,7 +32,7 @@ public class Objekt implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="OBJEKT_ID")
-	private int objektId;
+	private Long objektId;
 
 	private String avaja;
 
@@ -59,11 +69,11 @@ public class Objekt implements Serializable {
     public Objekt() {
     }
 
-	public int getObjektId() {
+	public Long getObjektId() {
 		return this.objektId;
 	}
 
-	public void setObjektId(int objektId) {
+	public void setObjektId(Long objektId) {
 		this.objektId = objektId;
 	}
 

@@ -1,19 +1,27 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the SEADUS database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Seadus implements Serializable {
@@ -22,7 +30,7 @@ public class Seadus implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="SEADUSE_ID")
-	private int seaduseId;
+	private Long seaduseId;
 
 	private String avaja;
 
@@ -58,11 +66,11 @@ public class Seadus implements Serializable {
     public Seadus() {
     }
 
-	public int getSeaduseId() {
+	public Long getSeaduseId() {
 		return this.seaduseId;
 	}
 
-	public void setSeaduseId(int seaduseId) {
+	public void setSeaduseId(Long seaduseId) {
 		this.seaduseId = seaduseId;
 	}
 

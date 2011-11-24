@@ -1,18 +1,28 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
 
 
 /**
  * The persistent class for the PIIRIPUNKTI_ALLUVUS database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 @Table(name="PIIRIPUNKTI_ALLUVUS")
@@ -22,7 +32,7 @@ public class PiiripunktiAlluvus implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="PIIRIPUNKTI_ALLUVUS_ID")
-	private int piiripunktiAlluvusId;
+	private Long piiripunktiAlluvusId;
 
 	private String alates;
 
@@ -58,11 +68,11 @@ public class PiiripunktiAlluvus implements Serializable {
     public PiiripunktiAlluvus() {
     }
 
-	public int getPiiripunktiAlluvusId() {
+	public Long getPiiripunktiAlluvusId() {
 		return this.piiripunktiAlluvusId;
 	}
 
-	public void setPiiripunktiAlluvusId(int piiripunktiAlluvusId) {
+	public void setPiiripunktiAlluvusId(Long piiripunktiAlluvusId) {
 		this.piiripunktiAlluvusId = piiripunktiAlluvusId;
 	}
 

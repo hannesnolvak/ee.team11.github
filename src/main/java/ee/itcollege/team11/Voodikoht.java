@@ -1,19 +1,29 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import java.util.Date;
-import java.util.Set;
 
 
 /**
  * The persistent class for the VOODIKOHT database table.
  * 
  */
+@Entity
 @RooToString
 @RooEntity
 public class Voodikoht implements Serializable {
@@ -22,7 +32,7 @@ public class Voodikoht implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="VOODIKOHT_ID")
-	private int voodikohtId;
+	private Long voodikohtId;
 
 	private String avaja;
 
@@ -59,11 +69,11 @@ public class Voodikoht implements Serializable {
     public Voodikoht() {
     }
 
-	public int getVoodikohtId() {
+	public Long getVoodikohtId() {
 		return this.voodikohtId;
 	}
 
-	public void setVoodikohtId(int voodikohtId) {
+	public void setVoodikohtId(Long voodikohtId) {
 		this.voodikohtId = voodikohtId;
 	}
 

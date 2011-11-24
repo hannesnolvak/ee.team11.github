@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Vahtkond" object="${vahtkond}" path="/vahtkonds" z="n6vN320Hc5wYS4lMrmAtv6mc6Gk=">
+        <field:display date="true" dateTimePattern="${vahtkond_alates_date_format}" field="alates" id="s_ee_itcollege_team11_Vahtkond_alates" object="${vahtkond}" z="H62guIU7HybbIl+lscSB+OL0PvM="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_Vahtkond_avaja" object="${vahtkond}" z="E/Bw+tU2mjU9eL1aWuPuh0yrcvU="/>
+        <field:display date="true" dateTimePattern="${vahtkond_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Vahtkond_avatud" object="${vahtkond}" z="EnlyJBo1+aw6Qo8jtrpzde5m5fw="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_Vahtkond_kommentaar" object="${vahtkond}" z="kAUSO7B5+sZvllHh7YjgfTooXlQ="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_Vahtkond_kood" object="${vahtkond}" z="yWvh6kpilyPezVdHX37A4XDhiZw="/>
+        <field:display date="true" dateTimePattern="${vahtkond_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_Vahtkond_kuni" object="${vahtkond}" z="uT1uchnGqYRqOTPjwbN8+khnPsw="/>
+        <field:display date="true" dateTimePattern="${vahtkond_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Vahtkond_muudetud" object="${vahtkond}" z="FsoiPnJ1/uHLWeh4hOgOKalDCTI="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Vahtkond_muutja" object="${vahtkond}" z="Q6PEAWP9RU6rgFhUch424kb3UdY="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_Vahtkond_nimetus" object="${vahtkond}" z="6/xxlfufSJjYzcR04nsxgYgeYpA="/>
+        <field:display date="true" dateTimePattern="${vahtkond_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Vahtkond_suletud" object="${vahtkond}" z="b4MfgzsvxG3hqg5YH8ifHTy5/DE="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Vahtkond_sulgeja" object="${vahtkond}" z="Y6YziRUKT6ZtCAFIY5jPlOgMWZ8="/>
+        <field:display field="piiripunkt" id="s_ee_itcollege_team11_Vahtkond_piiripunkt" object="${vahtkond}" z="/kzO5LDWf5BDLjfm3X7L1y+F4Xc="/>
+        <field:display field="vaeosa" id="s_ee_itcollege_team11_Vahtkond_vaeosa" object="${vahtkond}" z="vvjpdGZ0lTzukV0elUoFjPxBnRc="/>
+    </page:show>
+</div>

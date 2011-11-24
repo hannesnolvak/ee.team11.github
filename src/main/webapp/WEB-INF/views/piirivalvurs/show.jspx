@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Piirivalvur" object="${piirivalvur}" path="/piirivalvurs" z="BGBFGn77Ifqai+Y8b2MRqtdHU9c=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_Piirivalvur_avaja" object="${piirivalvur}" z="wFlZ1M+uOMLCbSC6Heus2eRFeUo="/>
+        <field:display date="true" dateTimePattern="${piirivalvur_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Piirivalvur_avatud" object="${piirivalvur}" z="aTZblbC94TEe4inaLmBNQ0Y7yjQ="/>
+        <field:display field="eesnimed" id="s_ee_itcollege_team11_Piirivalvur_eesnimed" object="${piirivalvur}" z="9rXY3t8Gnj0RUN3oYqEMzZGHj3c="/>
+        <field:display field="isikukood" id="s_ee_itcollege_team11_Piirivalvur_isikukood" object="${piirivalvur}" z="4dBInzcJIaNPMWOeiYLzotHh9Eg="/>
+        <field:display date="true" dateTimePattern="${piirivalvur_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Piirivalvur_muudetud" object="${piirivalvur}" z="0WxMqCKT85tUryptcdO5Jl4MVK8="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Piirivalvur_muutja" object="${piirivalvur}" z="7626B1oewir93MAeG3SO7Yg901s="/>
+        <field:display field="perekonnanimi" id="s_ee_itcollege_team11_Piirivalvur_perekonnanimi" object="${piirivalvur}" z="hkZHqeQs6wfG4+zSIETAx54pioA="/>
+        <field:display field="soduriKood" id="s_ee_itcollege_team11_Piirivalvur_soduriKood" object="${piirivalvur}" z="gyk7vNbp/LmqnNVZ9Yy00k7lcdc="/>
+        <field:display field="sugu" id="s_ee_itcollege_team11_Piirivalvur_sugu" object="${piirivalvur}" z="lGyccoQwIhY3j2DI9TpPsuEr2qo="/>
+        <field:display date="true" dateTimePattern="${piirivalvur_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Piirivalvur_suletud" object="${piirivalvur}" z="bXjVEJQISKQMhcNOh/pe8lwIexs="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Piirivalvur_sulgeja" object="${piirivalvur}" z="qLYNvzQp2pyv9KYANEYydTh5dPc="/>
+    </page:show>
+</div>

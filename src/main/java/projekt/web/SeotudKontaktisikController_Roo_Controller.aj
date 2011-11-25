@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect SeotudKontaktisikController_Roo_Controller {
     public String SeotudKontaktisikController.create(@Valid SeotudKontaktisik seotudKontaktisik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("seotudKontaktisik", seotudKontaktisik);
+            addDateTimeFormatPatterns(uiModel);
             return "seotudkontaktisiks/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect SeotudKontaktisikController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String SeotudKontaktisikController.createForm(Model uiModel) {
         uiModel.addAttribute("seotudKontaktisik", new SeotudKontaktisik());
+        addDateTimeFormatPatterns(uiModel);
         return "seotudkontaktisiks/create";
     }
     
     @RequestMapping(value = "/{piirivalvuriKontaktId}", method = RequestMethod.GET)
     public String SeotudKontaktisikController.show(@PathVariable("piirivalvuriKontaktId") Long piirivalvuriKontaktId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("seotudkontaktisik", SeotudKontaktisik.findSeotudKontaktisik(piirivalvuriKontaktId));
         uiModel.addAttribute("itemId", piirivalvuriKontaktId);
         return "seotudkontaktisiks/show";
@@ -59,6 +64,7 @@ privileged aspect SeotudKontaktisikController_Roo_Controller {
         } else {
             uiModel.addAttribute("seotudkontaktisiks", SeotudKontaktisik.findAllSeotudKontaktisiks());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "seotudkontaktisiks/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect SeotudKontaktisikController_Roo_Controller {
     public String SeotudKontaktisikController.update(@Valid SeotudKontaktisik seotudKontaktisik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("seotudKontaktisik", seotudKontaktisik);
+            addDateTimeFormatPatterns(uiModel);
             return "seotudkontaktisiks/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect SeotudKontaktisikController_Roo_Controller {
     @RequestMapping(value = "/{piirivalvuriKontaktId}", params = "form", method = RequestMethod.GET)
     public String SeotudKontaktisikController.updateForm(@PathVariable("piirivalvuriKontaktId") Long piirivalvuriKontaktId, Model uiModel) {
         uiModel.addAttribute("seotudKontaktisik", SeotudKontaktisik.findSeotudKontaktisik(piirivalvuriKontaktId));
+        addDateTimeFormatPatterns(uiModel);
         return "seotudkontaktisiks/update";
     }
     
@@ -101,6 +109,14 @@ privileged aspect SeotudKontaktisikController_Roo_Controller {
     @ModelAttribute("suguluserolliliiks")
     public Collection<SuguluseRolliLiik> SeotudKontaktisikController.populateSuguluseRolliLiiks() {
         return SuguluseRolliLiik.findAllSuguluseRolliLiiks();
+    }
+    
+    void SeotudKontaktisikController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("seotudKontaktisik_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("seotudKontaktisik_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("seotudKontaktisik_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("seotudKontaktisik_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("seotudKontaktisik_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String SeotudKontaktisikController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

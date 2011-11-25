@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect ObjektiLiikController_Roo_Controller {
     public String ObjektiLiikController.create(@Valid ObjektiLiik objektiLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("objektiLiik", objektiLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "objektiliiks/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect ObjektiLiikController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String ObjektiLiikController.createForm(Model uiModel) {
         uiModel.addAttribute("objektiLiik", new ObjektiLiik());
+        addDateTimeFormatPatterns(uiModel);
         return "objektiliiks/create";
     }
     
     @RequestMapping(value = "/{objektLiikId}", method = RequestMethod.GET)
     public String ObjektiLiikController.show(@PathVariable("objektLiikId") Long objektLiikId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("objektiliik", ObjektiLiik.findObjektiLiik(objektLiikId));
         uiModel.addAttribute("itemId", objektLiikId);
         return "objektiliiks/show";
@@ -58,6 +63,7 @@ privileged aspect ObjektiLiikController_Roo_Controller {
         } else {
             uiModel.addAttribute("objektiliiks", ObjektiLiik.findAllObjektiLiiks());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "objektiliiks/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect ObjektiLiikController_Roo_Controller {
     public String ObjektiLiikController.update(@Valid ObjektiLiik objektiLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("objektiLiik", objektiLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "objektiliiks/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect ObjektiLiikController_Roo_Controller {
     @RequestMapping(value = "/{objektLiikId}", params = "form", method = RequestMethod.GET)
     public String ObjektiLiikController.updateForm(@PathVariable("objektLiikId") Long objektLiikId, Model uiModel) {
         uiModel.addAttribute("objektiLiik", ObjektiLiik.findObjektiLiik(objektLiikId));
+        addDateTimeFormatPatterns(uiModel);
         return "objektiliiks/update";
     }
     
@@ -95,6 +103,12 @@ privileged aspect ObjektiLiikController_Roo_Controller {
     @ModelAttribute("objektiliiks")
     public Collection<ObjektiLiik> ObjektiLiikController.populateObjektiLiiks() {
         return ObjektiLiik.findAllObjektiLiiks();
+    }
+    
+    void ObjektiLiikController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("objektiLiik_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("objektiLiik_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("objektiLiik_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String ObjektiLiikController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

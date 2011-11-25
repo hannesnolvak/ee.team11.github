@@ -18,9 +18,9 @@
         <field:datetime dateTimePattern="${piiripunkt_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Piiripunkt_suletud" z="jiK25eLvdz5dwGFJpl98BwJlJJs="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_Piiripunkt_sulgeja" z="zzvQJ3jZcRiTrW830YmaX+cfJag="/>
         <field:simple field="ametPiiripunktis" id="c_ee_itcollege_team11_Piiripunkt_ametPiiripunktis" messageCode="entity_reference_not_managed" messageCodeAttribute="Amet Piiripunkti" z="fNfzl9VuTqltJvXNICtNs28HMSM="/>
-        <field:simple field="piiriloiguHaldajas" id="c_ee_itcollege_team11_Piiripunkt_piiriloiguHaldajas" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiriloigu Haldaja" z="atHMOO+SAry3bkcwt14zuqLFXqM="/>
         <field:simple field="piiripunktiAlluvuses" id="c_ee_itcollege_team11_Piiripunkt_piiripunktiAlluvuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiripunkti Alluvus" z="lwVr+oQJggutxe9dw7KcSaTb8M4="/>
         <field:simple field="piiripunktiOrgYksuses" id="c_ee_itcollege_team11_Piiripunkt_piiripunktiOrgYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiripunkti Org Yksus" z="EOxwcXUHXYDmN1Q1Ykro3ZrScIg="/>
+        <field:simple field="piiriloiguHaldajas" id="c_ee_itcollege_team11_Piiripunkt_piiriloiguHaldajas" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiriloigu Haldaja" z="atHMOO+SAry3bkcwt14zuqLFXqM="/>
         <field:simple field="vahtkonds" id="c_ee_itcollege_team11_Piiripunkt_vahtkonds" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkond" z="frAzqVN2R6cLGoI/8xMyaSrM/A8="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_Piiripunkt" render="${not empty dependencies}" z="+MjlJdf1S/wOo692y1jZr8yMoWA="/>

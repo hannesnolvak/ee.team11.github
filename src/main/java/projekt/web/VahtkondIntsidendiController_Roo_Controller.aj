@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect VahtkondIntsidendiController_Roo_Controller {
     public String VahtkondIntsidendiController.create(@Valid VahtkondIntsidendi vahtkondIntsidendi, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vahtkondIntsidendi", vahtkondIntsidendi);
+            addDateTimeFormatPatterns(uiModel);
             return "vahtkondintsidendis/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect VahtkondIntsidendiController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String VahtkondIntsidendiController.createForm(Model uiModel) {
         uiModel.addAttribute("vahtkondIntsidendi", new VahtkondIntsidendi());
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkondintsidendis/create";
     }
     
     @RequestMapping(value = "/{vahtkondIntsidendisId}", method = RequestMethod.GET)
     public String VahtkondIntsidendiController.show(@PathVariable("vahtkondIntsidendisId") Long vahtkondIntsidendisId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("vahtkondintsidendi", VahtkondIntsidendi.findVahtkondIntsidendi(vahtkondIntsidendisId));
         uiModel.addAttribute("itemId", vahtkondIntsidendisId);
         return "vahtkondintsidendis/show";
@@ -60,6 +65,7 @@ privileged aspect VahtkondIntsidendiController_Roo_Controller {
         } else {
             uiModel.addAttribute("vahtkondintsidendis", VahtkondIntsidendi.findAllVahtkondIntsidendis());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkondintsidendis/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect VahtkondIntsidendiController_Roo_Controller {
     public String VahtkondIntsidendiController.update(@Valid VahtkondIntsidendi vahtkondIntsidendi, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vahtkondIntsidendi", vahtkondIntsidendi);
+            addDateTimeFormatPatterns(uiModel);
             return "vahtkondintsidendis/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect VahtkondIntsidendiController_Roo_Controller {
     @RequestMapping(value = "/{vahtkondIntsidendisId}", params = "form", method = RequestMethod.GET)
     public String VahtkondIntsidendiController.updateForm(@PathVariable("vahtkondIntsidendisId") Long vahtkondIntsidendisId, Model uiModel) {
         uiModel.addAttribute("vahtkondIntsidendi", VahtkondIntsidendi.findVahtkondIntsidendi(vahtkondIntsidendisId));
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkondintsidendis/update";
     }
     
@@ -107,6 +115,14 @@ privileged aspect VahtkondIntsidendiController_Roo_Controller {
     @ModelAttribute("vahtkondintsidendis")
     public Collection<VahtkondIntsidendi> VahtkondIntsidendiController.populateVahtkondIntsidendis() {
         return VahtkondIntsidendi.findAllVahtkondIntsidendis();
+    }
+    
+    void VahtkondIntsidendiController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("vahtkondIntsidendi_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkondIntsidendi_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkondIntsidendi_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkondIntsidendi_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkondIntsidendi_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String VahtkondIntsidendiController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

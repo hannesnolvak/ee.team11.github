@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect PiiriloiguHaldajaController_Roo_Controller {
     public String PiiriloiguHaldajaController.create(@Valid PiiriloiguHaldaja piiriloiguHaldaja, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiriloiguHaldaja", piiriloiguHaldaja);
+            addDateTimeFormatPatterns(uiModel);
             return "piiriloiguhaldajas/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect PiiriloiguHaldajaController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String PiiriloiguHaldajaController.createForm(Model uiModel) {
         uiModel.addAttribute("piiriloiguHaldaja", new PiiriloiguHaldaja());
+        addDateTimeFormatPatterns(uiModel);
         return "piiriloiguhaldajas/create";
     }
     
     @RequestMapping(value = "/{piiriloiguHaldajaId}", method = RequestMethod.GET)
     public String PiiriloiguHaldajaController.show(@PathVariable("piiriloiguHaldajaId") Long piiriloiguHaldajaId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("piiriloiguhaldaja", PiiriloiguHaldaja.findPiiriloiguHaldaja(piiriloiguHaldajaId));
         uiModel.addAttribute("itemId", piiriloiguHaldajaId);
         return "piiriloiguhaldajas/show";
@@ -60,6 +65,7 @@ privileged aspect PiiriloiguHaldajaController_Roo_Controller {
         } else {
             uiModel.addAttribute("piiriloiguhaldajas", PiiriloiguHaldaja.findAllPiiriloiguHaldajas());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "piiriloiguhaldajas/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect PiiriloiguHaldajaController_Roo_Controller {
     public String PiiriloiguHaldajaController.update(@Valid PiiriloiguHaldaja piiriloiguHaldaja, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiriloiguHaldaja", piiriloiguHaldaja);
+            addDateTimeFormatPatterns(uiModel);
             return "piiriloiguhaldajas/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect PiiriloiguHaldajaController_Roo_Controller {
     @RequestMapping(value = "/{piiriloiguHaldajaId}", params = "form", method = RequestMethod.GET)
     public String PiiriloiguHaldajaController.updateForm(@PathVariable("piiriloiguHaldajaId") Long piiriloiguHaldajaId, Model uiModel) {
         uiModel.addAttribute("piiriloiguHaldaja", PiiriloiguHaldaja.findPiiriloiguHaldaja(piiriloiguHaldajaId));
+        addDateTimeFormatPatterns(uiModel);
         return "piiriloiguhaldajas/update";
     }
     
@@ -107,6 +115,14 @@ privileged aspect PiiriloiguHaldajaController_Roo_Controller {
     @ModelAttribute("vaeosas")
     public Collection<Vaeosa> PiiriloiguHaldajaController.populateVaeosas() {
         return Vaeosa.findAllVaeosas();
+    }
+    
+    void PiiriloiguHaldajaController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("piiriloiguHaldaja_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiriloiguHaldaja_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiriloiguHaldaja_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiriloiguHaldaja_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiriloiguHaldaja_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String PiiriloiguHaldajaController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

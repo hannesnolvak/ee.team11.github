@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
@@ -36,11 +37,13 @@ public class SuguluseRolliLiik implements Serializable {
 
 	private String avaja;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
 	private String kommentaar;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
@@ -51,6 +54,7 @@ public class SuguluseRolliLiik implements Serializable {
 	@Column(name="SUGULANE_VOI_MITTE")
 	private String sugulaneVoiMitte;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 

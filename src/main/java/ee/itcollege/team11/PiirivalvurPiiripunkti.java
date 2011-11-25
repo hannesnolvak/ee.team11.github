@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
@@ -35,11 +36,13 @@ public class PiirivalvurPiiripunkti implements Serializable {
 	@Column(name="PIIRIVALVUR_PIIRIPUNKTIS_ID")
 	private Long piirivalvurPiiripunktisId;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date alates;
 
 	private String avaja;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
@@ -47,14 +50,17 @@ public class PiirivalvurPiiripunkti implements Serializable {
 
 	private BigDecimal koormus;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date kuni;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
 	private String muutja;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 

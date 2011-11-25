@@ -15,6 +15,6 @@
         <field:datetime dateTimePattern="${piirivalvuriKontakt_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiirivalvuriKontakt_suletud" z="+pD8ui4/z9hTriYB/XMIiebucQs="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_PiirivalvuriKontakt_sulgeja" z="+Ni+U7RVA+3DIEDWQm1ehkJEc5o="/>
         <field:select field="kontaktiLiik" id="c_ee_itcollege_team11_PiirivalvuriKontakt_kontaktiLiik" itemValue="kontaktiLiikId" items="${kontaktiliiks}" path="/kontaktiliiks" z="cWfMJ4cEll+K6qKQAqGKK3YrhH4="/>
-        <field:select field="piirivalvur" id="c_ee_itcollege_team11_PiirivalvuriKontakt_piirivalvur" itemValue="id" items="${piirivalvurs}" path="/piirivalvurs" z="uZNYxwFJRwHk3YURRkCLqpSM40A="/>
+        <field:select field="piirivalvur" id="c_ee_itcollege_team11_PiirivalvuriKontakt_piirivalvur" itemValue="piirivalvurId" items="${piirivalvurs}" path="/piirivalvurs" z="Sw0Yh/zM1SyyJpvMgyliJCx2x3I="/>
     </form:update>
 </div>

@@ -15,7 +15,7 @@
         <field:datetime dateTimePattern="${vahtkond_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Vahtkond_suletud" z="LJvBAx9NCmTMO80IEEMJQCYLs1o="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_Vahtkond_sulgeja" z="qJWZrpiUkNi0qbnj4AAZcem9ybs="/>
         <field:select field="piiripunkt" id="c_ee_itcollege_team11_Vahtkond_piiripunkt" itemValue="piiripunktId" items="${piiripunkts}" path="/piiripunkts" z="6j4MzihkZdHn+mqH6m0kRz0RQU0="/>
-        <field:select field="vaeosa" id="c_ee_itcollege_team11_Vahtkond_vaeosa" itemValue="id" items="${vaeosas}" path="/vaeosas" z="Gk4yS2qXq7irywyFDIJaIXEUZWc="/>
+        <field:select field="vaeosa" id="c_ee_itcollege_team11_Vahtkond_vaeosa" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="misk/sIg8q62n212GxcnAI2OvZE="/>
         <field:simple field="vahtkondIntsidendis" id="c_ee_itcollege_team11_Vahtkond_vahtkondIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkond Intsidendi" z="CIyOTw8cQeDPNW9faQTWENYVIqY="/>
         <field:simple field="vahtkonnaLiiges" id="c_ee_itcollege_team11_Vahtkond_vahtkonnaLiiges" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkonna Liige" z="WLJ5EjoNb+F6VWxgFWeFUXotq8w="/>
         <field:simple field="vahtkonndPiiriloiguls" id="c_ee_itcollege_team11_Vahtkond_vahtkonndPiiriloiguls" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkonnd Piiriloigul" z="yhQ7AEeZnrV5GFTEu4wghi15mQI="/>

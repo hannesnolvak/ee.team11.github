@@ -13,8 +13,8 @@
         <field:input field="muutja" id="c_ee_itcollege_team11_ObjektIntsidendi_muutja" z="NQ0R7F86Zxhy85ZnI6swbm37S+E="/>
         <field:datetime dateTimePattern="${objektIntsidendi_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_ObjektIntsidendi_suletud" z="n6ZRq8MUf/lwQDN37usgYwD8aHs="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_ObjektIntsidendi_sulgeja" z="bgxEm+6mEfH8gYHKE7NY9ZeL6zU="/>
-        <field:simple field="objektiSeadusIntsidendis" id="c_ee_itcollege_team11_ObjektIntsidendi_objektiSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekti Seadus Intsidendi" z="TtGS+ax4CkgU3Lo/eBdD6BChuQg="/>
         <field:select field="intsident" id="c_ee_itcollege_team11_ObjektIntsidendi_intsident" itemValue="intsidentId" items="${intsidents}" path="/intsidents" z="AiGiXTG6DmrFC0HQmD4JXLMc1F4="/>
         <field:select field="objekt" id="c_ee_itcollege_team11_ObjektIntsidendi_objekt" itemValue="objektId" items="${objekts}" path="/objekts" z="G1JY5Tne8zMP/oielKVqc/baSAs="/>
+        <field:simple field="objektiSeadusIntsidendis" id="c_ee_itcollege_team11_ObjektIntsidendi_objektiSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekti Seadus Intsidendi" z="TtGS+ax4CkgU3Lo/eBdD6BChuQg="/>
     </form:update>
 </div>

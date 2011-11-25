@@ -16,7 +16,7 @@
         <field:select field="riigiAdminYksus" id="c_ee_itcollege_team11_Ruumiyksus_riigiAdminYksus" itemValue="riigiAdminYksusId" items="${riigiadminyksuses}" path="/riigiadminyksuses" z="I4jn2sKihcwI+VQHWGGyNW4JDp4="/>
         <field:select field="ruumiyksus" id="c_ee_itcollege_team11_Ruumiyksus_ruumiyksus" itemValue="ruumiyksusId" items="${ruumiyksuses}" path="/ruumiyksuses" z="jmQ0VGv+cpwL4QzlIDVjcwk1lSg="/>
         <field:simple field="ruumiyksuses" id="c_ee_itcollege_team11_Ruumiyksus_ruumiyksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Ruumiyksus" z="cHLJS+4x3fvDTOHOnn/yQG9+yWo="/>
-        <field:select field="ruumiyksuseLiik" id="c_ee_itcollege_team11_Ruumiyksus_ruumiyksuseLiik" itemValue="id" items="${ruumiyksuseliiks}" path="/ruumiyksuseliiks" z="V3Z/a53the5YYy2XS+1aI9fozEY="/>
+        <field:select field="ruumiyksuseLiik" id="c_ee_itcollege_team11_Ruumiyksus_ruumiyksuseLiik" itemValue="ruumiyksuseLiikId" items="${ruumiyksuseliiks}" path="/ruumiyksuseliiks" z="AZd8PkufkCBcYrsWOoI1Pbh/iMg="/>
         <field:simple field="voodikohts" id="c_ee_itcollege_team11_Ruumiyksus_voodikohts" messageCode="entity_reference_not_managed" messageCodeAttribute="Voodikoht" z="/b4AJ9HUGznafsLGquk3sx/SWzU="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_Ruumiyksus" render="${not empty dependencies}" z="Jlv0C4qWXwQCB35mDxAOveGDCFo="/>

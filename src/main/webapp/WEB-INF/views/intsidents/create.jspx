@@ -18,11 +18,11 @@
         <field:datetime dateTimePattern="${intsident_toimumisealgus_date_format}" field="toimumiseAlgus" id="c_ee_itcollege_team11_Intsident_toimumiseAlgus" z="jSEbsv4AiE9TWbfWpsXbTnOHPp4="/>
         <field:datetime dateTimePattern="${intsident_toimumiselopp_date_format}" field="toimumiseLopp" id="c_ee_itcollege_team11_Intsident_toimumiseLopp" z="GTrHwQjDjrYdS2Hvmahbabo4TXg="/>
         <field:select field="intsidendiLiik" id="c_ee_itcollege_team11_Intsident_intsidendiLiik" itemValue="intsidendiLiikId" items="${intsidendiliiks}" path="/intsidendiliiks" z="eI5+XqtEcrEbpBTIGxlHMhVMglM="/>
-        <field:select field="piiriloik" id="c_ee_itcollege_team11_Intsident_piiriloik" itemValue="id" items="${piiriloiks}" path="/piiriloiks" z="/kgcfuANqrKqw0UEKiBFmiJjNdU="/>
+        <field:select field="piiriloik" id="c_ee_itcollege_team11_Intsident_piiriloik" itemValue="piiriloikId" items="${piiriloiks}" path="/piiriloiks" z="VVrtuZrunVn78meODn3mBKn+iTI="/>
+        <field:simple field="vahtkondIntsidendis" id="c_ee_itcollege_team11_Intsident_vahtkondIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkond Intsidendi" z="/D+rXXDY21nRjb0H9Xbve/hv5RQ="/>
         <field:simple field="isikIntsidendis" id="c_ee_itcollege_team11_Intsident_isikIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Isik Intsidendi" z="mpsC2vasc7dso1cDz0yGTG4NllQ="/>
         <field:simple field="objektIntsidendis" id="c_ee_itcollege_team11_Intsident_objektIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekt Intsidendi" z="8uAktjq+VoNQ0+BkA+mcSXYWTXc="/>
         <field:simple field="piirivalvurIntsidendis" id="c_ee_itcollege_team11_Intsident_piirivalvurIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvur Intsidendi" z="81JzxYnyhHnujpT2Hdy6awzIiHQ="/>
-        <field:simple field="vahtkondIntsidendis" id="c_ee_itcollege_team11_Intsident_vahtkondIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkond Intsidendi" z="/D+rXXDY21nRjb0H9Xbve/hv5RQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_Intsident" render="${not empty dependencies}" z="453sVW4oUIZl3eNMjhn1xozlteA="/>
 </div>

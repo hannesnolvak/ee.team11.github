@@ -18,6 +18,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,6 +36,7 @@ privileged aspect VaeosaController_Roo_Controller {
     public String VaeosaController.create(@Valid Vaeosa vaeosa, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vaeosa", vaeosa);
+            addDateTimeFormatPatterns(uiModel);
             return "vaeosas/create";
         }
         uiModel.asMap().clear();
@@ -44,11 +47,13 @@ privileged aspect VaeosaController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String VaeosaController.createForm(Model uiModel) {
         uiModel.addAttribute("vaeosa", new Vaeosa());
+        addDateTimeFormatPatterns(uiModel);
         return "vaeosas/create";
     }
     
     @RequestMapping(value = "/{vaeosaIdId}", method = RequestMethod.GET)
     public String VaeosaController.show(@PathVariable("vaeosaIdId") Long vaeosaIdId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("vaeosa", Vaeosa.findVaeosa(vaeosaIdId));
         uiModel.addAttribute("itemId", vaeosaIdId);
         return "vaeosas/show";
@@ -64,6 +69,7 @@ privileged aspect VaeosaController_Roo_Controller {
         } else {
             uiModel.addAttribute("vaeosas", Vaeosa.findAllVaeosas());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "vaeosas/list";
     }
     
@@ -71,6 +77,7 @@ privileged aspect VaeosaController_Roo_Controller {
     public String VaeosaController.update(@Valid Vaeosa vaeosa, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vaeosa", vaeosa);
+            addDateTimeFormatPatterns(uiModel);
             return "vaeosas/update";
         }
         uiModel.asMap().clear();
@@ -81,6 +88,7 @@ privileged aspect VaeosaController_Roo_Controller {
     @RequestMapping(value = "/{vaeosaIdId}", params = "form", method = RequestMethod.GET)
     public String VaeosaController.updateForm(@PathVariable("vaeosaIdId") Long vaeosaIdId, Model uiModel) {
         uiModel.addAttribute("vaeosa", Vaeosa.findVaeosa(vaeosaIdId));
+        addDateTimeFormatPatterns(uiModel);
         return "vaeosas/update";
     }
     
@@ -131,6 +139,14 @@ privileged aspect VaeosaController_Roo_Controller {
     @ModelAttribute("vahtkonds")
     public Collection<Vahtkond> VaeosaController.populateVahtkonds() {
         return Vahtkond.findAllVahtkonds();
+    }
+    
+    void VaeosaController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("vaeosa_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosa_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosa_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosa_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosa_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String VaeosaController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

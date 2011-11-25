@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect SuguluseRolliLiikController_Roo_Controller {
     public String SuguluseRolliLiikController.create(@Valid SuguluseRolliLiik suguluseRolliLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("suguluseRolliLiik", suguluseRolliLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "suguluserolliliiks/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect SuguluseRolliLiikController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String SuguluseRolliLiikController.createForm(Model uiModel) {
         uiModel.addAttribute("suguluseRolliLiik", new SuguluseRolliLiik());
+        addDateTimeFormatPatterns(uiModel);
         return "suguluserolliliiks/create";
     }
     
     @RequestMapping(value = "/{suguluseRolliLiikId}", method = RequestMethod.GET)
     public String SuguluseRolliLiikController.show(@PathVariable("suguluseRolliLiikId") Long suguluseRolliLiikId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("suguluserolliliik", SuguluseRolliLiik.findSuguluseRolliLiik(suguluseRolliLiikId));
         uiModel.addAttribute("itemId", suguluseRolliLiikId);
         return "suguluserolliliiks/show";
@@ -58,6 +63,7 @@ privileged aspect SuguluseRolliLiikController_Roo_Controller {
         } else {
             uiModel.addAttribute("suguluserolliliiks", SuguluseRolliLiik.findAllSuguluseRolliLiiks());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "suguluserolliliiks/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect SuguluseRolliLiikController_Roo_Controller {
     public String SuguluseRolliLiikController.update(@Valid SuguluseRolliLiik suguluseRolliLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("suguluseRolliLiik", suguluseRolliLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "suguluserolliliiks/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect SuguluseRolliLiikController_Roo_Controller {
     @RequestMapping(value = "/{suguluseRolliLiikId}", params = "form", method = RequestMethod.GET)
     public String SuguluseRolliLiikController.updateForm(@PathVariable("suguluseRolliLiikId") Long suguluseRolliLiikId, Model uiModel) {
         uiModel.addAttribute("suguluseRolliLiik", SuguluseRolliLiik.findSuguluseRolliLiik(suguluseRolliLiikId));
+        addDateTimeFormatPatterns(uiModel);
         return "suguluserolliliiks/update";
     }
     
@@ -95,6 +103,12 @@ privileged aspect SuguluseRolliLiikController_Roo_Controller {
     @ModelAttribute("suguluserolliliiks")
     public Collection<SuguluseRolliLiik> SuguluseRolliLiikController.populateSuguluseRolliLiiks() {
         return SuguluseRolliLiik.findAllSuguluseRolliLiiks();
+    }
+    
+    void SuguluseRolliLiikController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("suguluseRolliLiik_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("suguluseRolliLiik_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("suguluseRolliLiik_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String SuguluseRolliLiikController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

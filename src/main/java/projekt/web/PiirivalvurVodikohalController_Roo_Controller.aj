@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect PiirivalvurVodikohalController_Roo_Controller {
     public String PiirivalvurVodikohalController.create(@Valid PiirivalvurVodikohal piirivalvurVodikohal, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piirivalvurVodikohal", piirivalvurVodikohal);
+            addDateTimeFormatPatterns(uiModel);
             return "piirivalvurvodikohals/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect PiirivalvurVodikohalController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String PiirivalvurVodikohalController.createForm(Model uiModel) {
         uiModel.addAttribute("piirivalvurVodikohal", new PiirivalvurVodikohal());
+        addDateTimeFormatPatterns(uiModel);
         return "piirivalvurvodikohals/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String PiirivalvurVodikohalController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("piirivalvurvodikohal", PiirivalvurVodikohal.findPiirivalvurVodikohal(id));
         uiModel.addAttribute("itemId", id);
         return "piirivalvurvodikohals/show";
@@ -59,6 +64,7 @@ privileged aspect PiirivalvurVodikohalController_Roo_Controller {
         } else {
             uiModel.addAttribute("piirivalvurvodikohals", PiirivalvurVodikohal.findAllPiirivalvurVodikohals());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "piirivalvurvodikohals/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect PiirivalvurVodikohalController_Roo_Controller {
     public String PiirivalvurVodikohalController.update(@Valid PiirivalvurVodikohal piirivalvurVodikohal, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piirivalvurVodikohal", piirivalvurVodikohal);
+            addDateTimeFormatPatterns(uiModel);
             return "piirivalvurvodikohals/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect PiirivalvurVodikohalController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String PiirivalvurVodikohalController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("piirivalvurVodikohal", PiirivalvurVodikohal.findPiirivalvurVodikohal(id));
+        addDateTimeFormatPatterns(uiModel);
         return "piirivalvurvodikohals/update";
     }
     
@@ -101,6 +109,14 @@ privileged aspect PiirivalvurVodikohalController_Roo_Controller {
     @ModelAttribute("voodikohts")
     public Collection<Voodikoht> PiirivalvurVodikohalController.populateVoodikohts() {
         return Voodikoht.findAllVoodikohts();
+    }
+    
+    void PiirivalvurVodikohalController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("piirivalvurVodikohal_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piirivalvurVodikohal_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piirivalvurVodikohal_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piirivalvurVodikohal_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piirivalvurVodikohal_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String PiirivalvurVodikohalController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect PiiririkkujaController_Roo_Controller {
     public String PiiririkkujaController.create(@Valid Piiririkkuja piiririkkuja, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiririkkuja", piiririkkuja);
+            addDateTimeFormatPatterns(uiModel);
             return "piiririkkujas/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect PiiririkkujaController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String PiiririkkujaController.createForm(Model uiModel) {
         uiModel.addAttribute("piiririkkuja", new Piiririkkuja());
+        addDateTimeFormatPatterns(uiModel);
         return "piiririkkujas/create";
     }
     
     @RequestMapping(value = "/{piiririkkujaId}", method = RequestMethod.GET)
     public String PiiririkkujaController.show(@PathVariable("piiririkkujaId") Long piiririkkujaId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("piiririkkuja", Piiririkkuja.findPiiririkkuja(piiririkkujaId));
         uiModel.addAttribute("itemId", piiririkkujaId);
         return "piiririkkujas/show";
@@ -60,6 +65,7 @@ privileged aspect PiiririkkujaController_Roo_Controller {
         } else {
             uiModel.addAttribute("piiririkkujas", Piiririkkuja.findAllPiiririkkujas());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "piiririkkujas/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect PiiririkkujaController_Roo_Controller {
     public String PiiririkkujaController.update(@Valid Piiririkkuja piiririkkuja, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiririkkuja", piiririkkuja);
+            addDateTimeFormatPatterns(uiModel);
             return "piiririkkujas/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect PiiririkkujaController_Roo_Controller {
     @RequestMapping(value = "/{piiririkkujaId}", params = "form", method = RequestMethod.GET)
     public String PiiririkkujaController.updateForm(@PathVariable("piiririkkujaId") Long piiririkkujaId, Model uiModel) {
         uiModel.addAttribute("piiririkkuja", Piiririkkuja.findPiiririkkuja(piiririkkujaId));
+        addDateTimeFormatPatterns(uiModel);
         return "piiririkkujas/update";
     }
     
@@ -107,6 +115,13 @@ privileged aspect PiiririkkujaController_Roo_Controller {
     @ModelAttribute("piiririkkujas")
     public Collection<Piiririkkuja> PiiririkkujaController.populatePiiririkkujas() {
         return Piiririkkuja.findAllPiiririkkujas();
+    }
+    
+    void PiiririkkujaController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("piiririkkuja_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiririkkuja_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiririkkuja_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiririkkuja_synniaeg_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String PiiririkkujaController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

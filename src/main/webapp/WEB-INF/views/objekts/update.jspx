@@ -11,7 +11,7 @@
         <field:input field="nimetus" id="c_ee_itcollege_team11_Objekt_nimetus" z="4F0eYjujWHeOpCC9WxiHToBdBJA="/>
         <field:datetime dateTimePattern="${objekt_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Objekt_suletud" z="sbPVPxpKlZOYMAJ6lO+j2e5bhMI="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_Objekt_sulgeja" z="HX5EMorhSZLtfk5HYOXsylzbZSM="/>
-        <field:select field="objektiLiik" id="c_ee_itcollege_team11_Objekt_objektiLiik" itemValue="id" items="${objektiliiks}" path="/objektiliiks" z="wFYTpq89eNupM13x8dzC1jZXLOc="/>
+        <field:select field="objektiLiik" id="c_ee_itcollege_team11_Objekt_objektiLiik" itemValue="objektLiikId" items="${objektiliiks}" path="/objektiliiks" z="jjwK+4h7tHpjdgCWzG9GAGcRhOQ="/>
         <field:simple field="objektIntsidendis" id="c_ee_itcollege_team11_Objekt_objektIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekt Intsidendi" z="RygQlrgI2A+B+hyqkxSgOIgT29Q="/>
         <field:simple field="piiririkkujas" id="c_ee_itcollege_team11_Objekt_piiririkkujas" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiririkkuja" z="8Muy/GUR/dro0hvcZkadEh18VUQ="/>
     </form:update>

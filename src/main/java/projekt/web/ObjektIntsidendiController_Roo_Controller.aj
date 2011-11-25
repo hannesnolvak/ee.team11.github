@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect ObjektIntsidendiController_Roo_Controller {
     public String ObjektIntsidendiController.create(@Valid ObjektIntsidendi objektIntsidendi, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("objektIntsidendi", objektIntsidendi);
+            addDateTimeFormatPatterns(uiModel);
             return "objektintsidendis/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect ObjektIntsidendiController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String ObjektIntsidendiController.createForm(Model uiModel) {
         uiModel.addAttribute("objektIntsidendi", new ObjektIntsidendi());
+        addDateTimeFormatPatterns(uiModel);
         return "objektintsidendis/create";
     }
     
     @RequestMapping(value = "/{objektIntsidendisId}", method = RequestMethod.GET)
     public String ObjektIntsidendiController.show(@PathVariable("objektIntsidendisId") Long objektIntsidendisId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("objektintsidendi", ObjektIntsidendi.findObjektIntsidendi(objektIntsidendisId));
         uiModel.addAttribute("itemId", objektIntsidendisId);
         return "objektintsidendis/show";
@@ -60,6 +65,7 @@ privileged aspect ObjektIntsidendiController_Roo_Controller {
         } else {
             uiModel.addAttribute("objektintsidendis", ObjektIntsidendi.findAllObjektIntsidendis());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "objektintsidendis/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect ObjektIntsidendiController_Roo_Controller {
     public String ObjektIntsidendiController.update(@Valid ObjektIntsidendi objektIntsidendi, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("objektIntsidendi", objektIntsidendi);
+            addDateTimeFormatPatterns(uiModel);
             return "objektintsidendis/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect ObjektIntsidendiController_Roo_Controller {
     @RequestMapping(value = "/{objektIntsidendisId}", params = "form", method = RequestMethod.GET)
     public String ObjektIntsidendiController.updateForm(@PathVariable("objektIntsidendisId") Long objektIntsidendisId, Model uiModel) {
         uiModel.addAttribute("objektIntsidendi", ObjektIntsidendi.findObjektIntsidendi(objektIntsidendisId));
+        addDateTimeFormatPatterns(uiModel);
         return "objektintsidendis/update";
     }
     
@@ -107,6 +115,14 @@ privileged aspect ObjektIntsidendiController_Roo_Controller {
     @ModelAttribute("objektiseadusintsidendis")
     public Collection<ObjektiSeadusIntsidendi> ObjektIntsidendiController.populateObjektiSeadusIntsidendis() {
         return ObjektiSeadusIntsidendi.findAllObjektiSeadusIntsidendis();
+    }
+    
+    void ObjektIntsidendiController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("objektIntsidendi_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("objektIntsidendi_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("objektIntsidendi_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("objektIntsidendi_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("objektIntsidendi_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String ObjektIntsidendiController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

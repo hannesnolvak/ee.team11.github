@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
@@ -34,6 +35,7 @@ public class Piirivalvur implements Serializable {
 
 	private String avaja;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
@@ -41,6 +43,7 @@ public class Piirivalvur implements Serializable {
 
 	private String isikukood;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
@@ -53,6 +56,7 @@ public class Piirivalvur implements Serializable {
 
 	private String sugu;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 

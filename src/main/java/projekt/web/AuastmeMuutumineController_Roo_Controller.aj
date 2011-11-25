@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect AuastmeMuutumineController_Roo_Controller {
     public String AuastmeMuutumineController.create(@Valid AuastmeMuutumine auastmeMuutumine, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("auastmeMuutumine", auastmeMuutumine);
+            addDateTimeFormatPatterns(uiModel);
             return "auastmemuutumines/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect AuastmeMuutumineController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String AuastmeMuutumineController.createForm(Model uiModel) {
         uiModel.addAttribute("auastmeMuutumine", new AuastmeMuutumine());
+        addDateTimeFormatPatterns(uiModel);
         return "auastmemuutumines/create";
     }
     
     @RequestMapping(value = "/{auastmeMuutumineId}", method = RequestMethod.GET)
     public String AuastmeMuutumineController.show(@PathVariable("auastmeMuutumineId") Long auastmeMuutumineId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("auastmemuutumine", AuastmeMuutumine.findAuastmeMuutumine(auastmeMuutumineId));
         uiModel.addAttribute("itemId", auastmeMuutumineId);
         return "auastmemuutumines/show";
@@ -59,6 +64,7 @@ privileged aspect AuastmeMuutumineController_Roo_Controller {
         } else {
             uiModel.addAttribute("auastmemuutumines", AuastmeMuutumine.findAllAuastmeMuutumines());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "auastmemuutumines/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect AuastmeMuutumineController_Roo_Controller {
     public String AuastmeMuutumineController.update(@Valid AuastmeMuutumine auastmeMuutumine, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("auastmeMuutumine", auastmeMuutumine);
+            addDateTimeFormatPatterns(uiModel);
             return "auastmemuutumines/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect AuastmeMuutumineController_Roo_Controller {
     @RequestMapping(value = "/{auastmeMuutumineId}", params = "form", method = RequestMethod.GET)
     public String AuastmeMuutumineController.updateForm(@PathVariable("auastmeMuutumineId") Long auastmeMuutumineId, Model uiModel) {
         uiModel.addAttribute("auastmeMuutumine", AuastmeMuutumine.findAuastmeMuutumine(auastmeMuutumineId));
+        addDateTimeFormatPatterns(uiModel);
         return "auastmemuutumines/update";
     }
     
@@ -101,6 +109,14 @@ privileged aspect AuastmeMuutumineController_Roo_Controller {
     @ModelAttribute("piirivalvurs")
     public Collection<Piirivalvur> AuastmeMuutumineController.populatePiirivalvurs() {
         return Piirivalvur.findAllPiirivalvurs();
+    }
+    
+    void AuastmeMuutumineController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("auastmeMuutumine_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("auastmeMuutumine_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("auastmeMuutumine_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("auastmeMuutumine_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("auastmeMuutumine_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String AuastmeMuutumineController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

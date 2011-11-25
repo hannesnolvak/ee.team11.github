@@ -13,9 +13,9 @@
         <field:input field="muutja" id="c_ee_itcollege_team11_VahtkondIntsidendi_muutja" z="7i7EztKB3WxMXwbXgTIFsE8IdQc="/>
         <field:datetime dateTimePattern="${vahtkondIntsidendi_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_VahtkondIntsidendi_suletud" z="/pfH9f8eXDog1gHiRvFF7kwSryw="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_VahtkondIntsidendi_sulgeja" z="9F3+oIx+6Py0YPxUKvAIXQXNsBI="/>
-        <field:simple field="piirivalvurIntsidendis" id="c_ee_itcollege_team11_VahtkondIntsidendi_piirivalvurIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvur Intsidendi" z="T2cvBpSQPXv1H7X+hebGbSLIMAA="/>
         <field:select field="intsident" id="c_ee_itcollege_team11_VahtkondIntsidendi_intsident" itemValue="intsidentId" items="${intsidents}" path="/intsidents" z="9/LeNdW0r2mVXveFC3XEy/yMXUk="/>
-        <field:select field="vahtkond" id="c_ee_itcollege_team11_VahtkondIntsidendi_vahtkond" itemValue="id" items="${vahtkonds}" path="/vahtkonds" z="DKs7Xs1Ckv45BCvG2NK05ipzEM8="/>
+        <field:select field="vahtkond" id="c_ee_itcollege_team11_VahtkondIntsidendi_vahtkond" itemValue="vahtkondId" items="${vahtkonds}" path="/vahtkonds" z="hs8U/LTQ63dl8s6SStAY/u/OTKY="/>
+        <field:simple field="piirivalvurIntsidendis" id="c_ee_itcollege_team11_VahtkondIntsidendi_piirivalvurIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvur Intsidendi" z="T2cvBpSQPXv1H7X+hebGbSLIMAA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_VahtkondIntsidendi" render="${not empty dependencies}" z="sRpZXnZfvWoyxMcXo5Oo5ue/JZ4="/>
 </div>

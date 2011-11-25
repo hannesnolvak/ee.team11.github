@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect VaeosaAlluvusController_Roo_Controller {
     public String VaeosaAlluvusController.create(@Valid VaeosaAlluvus vaeosaAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vaeosaAlluvus", vaeosaAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "vaeosaalluvuses/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect VaeosaAlluvusController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String VaeosaAlluvusController.createForm(Model uiModel) {
         uiModel.addAttribute("vaeosaAlluvus", new VaeosaAlluvus());
+        addDateTimeFormatPatterns(uiModel);
         return "vaeosaalluvuses/create";
     }
     
     @RequestMapping(value = "/{vaeosaAlluvusId}", method = RequestMethod.GET)
     public String VaeosaAlluvusController.show(@PathVariable("vaeosaAlluvusId") Long vaeosaAlluvusId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("vaeosaalluvus", VaeosaAlluvus.findVaeosaAlluvus(vaeosaAlluvusId));
         uiModel.addAttribute("itemId", vaeosaAlluvusId);
         return "vaeosaalluvuses/show";
@@ -58,6 +63,7 @@ privileged aspect VaeosaAlluvusController_Roo_Controller {
         } else {
             uiModel.addAttribute("vaeosaalluvuses", VaeosaAlluvus.findAllVaeosaAlluvuses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "vaeosaalluvuses/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect VaeosaAlluvusController_Roo_Controller {
     public String VaeosaAlluvusController.update(@Valid VaeosaAlluvus vaeosaAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vaeosaAlluvus", vaeosaAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "vaeosaalluvuses/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect VaeosaAlluvusController_Roo_Controller {
     @RequestMapping(value = "/{vaeosaAlluvusId}", params = "form", method = RequestMethod.GET)
     public String VaeosaAlluvusController.updateForm(@PathVariable("vaeosaAlluvusId") Long vaeosaAlluvusId, Model uiModel) {
         uiModel.addAttribute("vaeosaAlluvus", VaeosaAlluvus.findVaeosaAlluvus(vaeosaAlluvusId));
+        addDateTimeFormatPatterns(uiModel);
         return "vaeosaalluvuses/update";
     }
     
@@ -95,6 +103,14 @@ privileged aspect VaeosaAlluvusController_Roo_Controller {
     @ModelAttribute("vaeosaalluvuses")
     public Collection<VaeosaAlluvus> VaeosaAlluvusController.populateVaeosaAlluvuses() {
         return VaeosaAlluvus.findAllVaeosaAlluvuses();
+    }
+    
+    void VaeosaAlluvusController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("vaeosaAlluvus_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosaAlluvus_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosaAlluvus_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosaAlluvus_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vaeosaAlluvus_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String VaeosaAlluvusController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

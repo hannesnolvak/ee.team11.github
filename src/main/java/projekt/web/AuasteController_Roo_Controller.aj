@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect AuasteController_Roo_Controller {
     public String AuasteController.create(@Valid Auaste auaste, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("auaste", auaste);
+            addDateTimeFormatPatterns(uiModel);
             return "auastes/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect AuasteController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String AuasteController.createForm(Model uiModel) {
         uiModel.addAttribute("auaste", new Auaste());
+        addDateTimeFormatPatterns(uiModel);
         return "auastes/create";
     }
     
     @RequestMapping(value = "/{auasteId}", method = RequestMethod.GET)
     public String AuasteController.show(@PathVariable("auasteId") Long auasteId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("auaste", Auaste.findAuaste(auasteId));
         uiModel.addAttribute("itemId", auasteId);
         return "auastes/show";
@@ -58,6 +63,7 @@ privileged aspect AuasteController_Roo_Controller {
         } else {
             uiModel.addAttribute("auastes", Auaste.findAllAuastes());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "auastes/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect AuasteController_Roo_Controller {
     public String AuasteController.update(@Valid Auaste auaste, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("auaste", auaste);
+            addDateTimeFormatPatterns(uiModel);
             return "auastes/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect AuasteController_Roo_Controller {
     @RequestMapping(value = "/{auasteId}", params = "form", method = RequestMethod.GET)
     public String AuasteController.updateForm(@PathVariable("auasteId") Long auasteId, Model uiModel) {
         uiModel.addAttribute("auaste", Auaste.findAuaste(auasteId));
+        addDateTimeFormatPatterns(uiModel);
         return "auastes/update";
     }
     
@@ -95,6 +103,12 @@ privileged aspect AuasteController_Roo_Controller {
     @ModelAttribute("auastmemuutumines")
     public Collection<AuastmeMuutumine> AuasteController.populateAuastmeMuutumines() {
         return AuastmeMuutumine.findAllAuastmeMuutumines();
+    }
+    
+    void AuasteController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("auaste_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("auaste_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("auaste_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String AuasteController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

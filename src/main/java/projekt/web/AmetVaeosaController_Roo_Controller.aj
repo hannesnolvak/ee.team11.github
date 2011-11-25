@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect AmetVaeosaController_Roo_Controller {
     public String AmetVaeosaController.create(@Valid AmetVaeosa ametVaeosa, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("ametVaeosa", ametVaeosa);
+            addDateTimeFormatPatterns(uiModel);
             return "ametvaeosas/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect AmetVaeosaController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String AmetVaeosaController.createForm(Model uiModel) {
         uiModel.addAttribute("ametVaeosa", new AmetVaeosa());
+        addDateTimeFormatPatterns(uiModel);
         return "ametvaeosas/create";
     }
     
     @RequestMapping(value = "/{ametVaeosasId}", method = RequestMethod.GET)
     public String AmetVaeosaController.show(@PathVariable("ametVaeosasId") Long ametVaeosasId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("ametvaeosa", AmetVaeosa.findAmetVaeosa(ametVaeosasId));
         uiModel.addAttribute("itemId", ametVaeosasId);
         return "ametvaeosas/show";
@@ -60,6 +65,7 @@ privileged aspect AmetVaeosaController_Roo_Controller {
         } else {
             uiModel.addAttribute("ametvaeosas", AmetVaeosa.findAllAmetVaeosas());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "ametvaeosas/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect AmetVaeosaController_Roo_Controller {
     public String AmetVaeosaController.update(@Valid AmetVaeosa ametVaeosa, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("ametVaeosa", ametVaeosa);
+            addDateTimeFormatPatterns(uiModel);
             return "ametvaeosas/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect AmetVaeosaController_Roo_Controller {
     @RequestMapping(value = "/{ametVaeosasId}", params = "form", method = RequestMethod.GET)
     public String AmetVaeosaController.updateForm(@PathVariable("ametVaeosasId") Long ametVaeosasId, Model uiModel) {
         uiModel.addAttribute("ametVaeosa", AmetVaeosa.findAmetVaeosa(ametVaeosasId));
+        addDateTimeFormatPatterns(uiModel);
         return "ametvaeosas/update";
     }
     
@@ -107,6 +115,14 @@ privileged aspect AmetVaeosaController_Roo_Controller {
     @ModelAttribute("vaeosas")
     public Collection<Vaeosa> AmetVaeosaController.populateVaeosas() {
         return Vaeosa.findAllVaeosas();
+    }
+    
+    void AmetVaeosaController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("ametVaeosa_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametVaeosa_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametVaeosa_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametVaeosa_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametVaeosa_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String AmetVaeosaController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

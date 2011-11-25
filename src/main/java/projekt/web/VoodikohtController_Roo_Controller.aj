@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect VoodikohtController_Roo_Controller {
     public String VoodikohtController.create(@Valid Voodikoht voodikoht, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("voodikoht", voodikoht);
+            addDateTimeFormatPatterns(uiModel);
             return "voodikohts/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect VoodikohtController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String VoodikohtController.createForm(Model uiModel) {
         uiModel.addAttribute("voodikoht", new Voodikoht());
+        addDateTimeFormatPatterns(uiModel);
         return "voodikohts/create";
     }
     
     @RequestMapping(value = "/{voodikohtId}", method = RequestMethod.GET)
     public String VoodikohtController.show(@PathVariable("voodikohtId") Long voodikohtId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("voodikoht", Voodikoht.findVoodikoht(voodikohtId));
         uiModel.addAttribute("itemId", voodikohtId);
         return "voodikohts/show";
@@ -59,6 +64,7 @@ privileged aspect VoodikohtController_Roo_Controller {
         } else {
             uiModel.addAttribute("voodikohts", Voodikoht.findAllVoodikohts());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "voodikohts/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect VoodikohtController_Roo_Controller {
     public String VoodikohtController.update(@Valid Voodikoht voodikoht, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("voodikoht", voodikoht);
+            addDateTimeFormatPatterns(uiModel);
             return "voodikohts/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect VoodikohtController_Roo_Controller {
     @RequestMapping(value = "/{voodikohtId}", params = "form", method = RequestMethod.GET)
     public String VoodikohtController.updateForm(@PathVariable("voodikohtId") Long voodikohtId, Model uiModel) {
         uiModel.addAttribute("voodikoht", Voodikoht.findVoodikoht(voodikohtId));
+        addDateTimeFormatPatterns(uiModel);
         return "voodikohts/update";
     }
     
@@ -101,6 +109,12 @@ privileged aspect VoodikohtController_Roo_Controller {
     @ModelAttribute("voodikohts")
     public Collection<Voodikoht> VoodikohtController.populateVoodikohts() {
         return Voodikoht.findAllVoodikohts();
+    }
+    
+    void VoodikohtController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("voodikoht_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("voodikoht_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("voodikoht_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String VoodikohtController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

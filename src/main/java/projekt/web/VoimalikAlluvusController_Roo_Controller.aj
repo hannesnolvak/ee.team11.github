@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect VoimalikAlluvusController_Roo_Controller {
     public String VoimalikAlluvusController.create(@Valid VoimalikAlluvus voimalikAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("voimalikAlluvus", voimalikAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "voimalikalluvuses/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect VoimalikAlluvusController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String VoimalikAlluvusController.createForm(Model uiModel) {
         uiModel.addAttribute("voimalikAlluvus", new VoimalikAlluvus());
+        addDateTimeFormatPatterns(uiModel);
         return "voimalikalluvuses/create";
     }
     
     @RequestMapping(value = "/{voimalikAlluvusId}", method = RequestMethod.GET)
     public String VoimalikAlluvusController.show(@PathVariable("voimalikAlluvusId") Long voimalikAlluvusId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("voimalikalluvus", VoimalikAlluvus.findVoimalikAlluvus(voimalikAlluvusId));
         uiModel.addAttribute("itemId", voimalikAlluvusId);
         return "voimalikalluvuses/show";
@@ -58,6 +63,7 @@ privileged aspect VoimalikAlluvusController_Roo_Controller {
         } else {
             uiModel.addAttribute("voimalikalluvuses", VoimalikAlluvus.findAllVoimalikAlluvuses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "voimalikalluvuses/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect VoimalikAlluvusController_Roo_Controller {
     public String VoimalikAlluvusController.update(@Valid VoimalikAlluvus voimalikAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("voimalikAlluvus", voimalikAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "voimalikalluvuses/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect VoimalikAlluvusController_Roo_Controller {
     @RequestMapping(value = "/{voimalikAlluvusId}", params = "form", method = RequestMethod.GET)
     public String VoimalikAlluvusController.updateForm(@PathVariable("voimalikAlluvusId") Long voimalikAlluvusId, Model uiModel) {
         uiModel.addAttribute("voimalikAlluvus", VoimalikAlluvus.findVoimalikAlluvus(voimalikAlluvusId));
+        addDateTimeFormatPatterns(uiModel);
         return "voimalikalluvuses/update";
     }
     
@@ -95,6 +103,12 @@ privileged aspect VoimalikAlluvusController_Roo_Controller {
     @ModelAttribute("voimalikalluvuses")
     public Collection<VoimalikAlluvus> VoimalikAlluvusController.populateVoimalikAlluvuses() {
         return VoimalikAlluvus.findAllVoimalikAlluvuses();
+    }
+    
+    void VoimalikAlluvusController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("voimalikAlluvus_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("voimalikAlluvus_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("voimalikAlluvus_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String VoimalikAlluvusController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

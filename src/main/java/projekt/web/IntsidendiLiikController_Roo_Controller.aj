@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect IntsidendiLiikController_Roo_Controller {
     public String IntsidendiLiikController.create(@Valid IntsidendiLiik intsidendiLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("intsidendiLiik", intsidendiLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "intsidendiliiks/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect IntsidendiLiikController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String IntsidendiLiikController.createForm(Model uiModel) {
         uiModel.addAttribute("intsidendiLiik", new IntsidendiLiik());
+        addDateTimeFormatPatterns(uiModel);
         return "intsidendiliiks/create";
     }
     
     @RequestMapping(value = "/{intsidendiLiikId}", method = RequestMethod.GET)
     public String IntsidendiLiikController.show(@PathVariable("intsidendiLiikId") Long intsidendiLiikId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("intsidendiliik", IntsidendiLiik.findIntsidendiLiik(intsidendiLiikId));
         uiModel.addAttribute("itemId", intsidendiLiikId);
         return "intsidendiliiks/show";
@@ -58,6 +63,7 @@ privileged aspect IntsidendiLiikController_Roo_Controller {
         } else {
             uiModel.addAttribute("intsidendiliiks", IntsidendiLiik.findAllIntsidendiLiiks());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "intsidendiliiks/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect IntsidendiLiikController_Roo_Controller {
     public String IntsidendiLiikController.update(@Valid IntsidendiLiik intsidendiLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("intsidendiLiik", intsidendiLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "intsidendiliiks/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect IntsidendiLiikController_Roo_Controller {
     @RequestMapping(value = "/{intsidendiLiikId}", params = "form", method = RequestMethod.GET)
     public String IntsidendiLiikController.updateForm(@PathVariable("intsidendiLiikId") Long intsidendiLiikId, Model uiModel) {
         uiModel.addAttribute("intsidendiLiik", IntsidendiLiik.findIntsidendiLiik(intsidendiLiikId));
+        addDateTimeFormatPatterns(uiModel);
         return "intsidendiliiks/update";
     }
     
@@ -95,6 +103,12 @@ privileged aspect IntsidendiLiikController_Roo_Controller {
     @ModelAttribute("intsidents")
     public Collection<Intsident> IntsidendiLiikController.populateIntsidents() {
         return Intsident.findAllIntsidents();
+    }
+    
+    void IntsidendiLiikController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("intsidendiLiik_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("intsidendiLiik_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("intsidendiLiik_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String IntsidendiLiikController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

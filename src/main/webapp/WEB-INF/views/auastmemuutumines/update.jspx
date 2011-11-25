@@ -13,6 +13,6 @@
         <field:datetime dateTimePattern="${auastmeMuutumine_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_AuastmeMuutumine_suletud" z="hY/yhlDjrtqJjqN2k59fmIiVd9k="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_AuastmeMuutumine_sulgeja" z="gPCAWG8uN645nazbvrUH32rBjJY="/>
         <field:select field="auaste" id="c_ee_itcollege_team11_AuastmeMuutumine_auaste" itemValue="auasteId" items="${auastes}" path="/auastes" z="FuEtG0O3Hp4xzGoUPCDow/k7CMI="/>
-        <field:select field="piirivalvur" id="c_ee_itcollege_team11_AuastmeMuutumine_piirivalvur" itemValue="id" items="${piirivalvurs}" path="/piirivalvurs" z="b1A5fGIr+amgFv6L4MBEJhtEyKY="/>
+        <field:select field="piirivalvur" id="c_ee_itcollege_team11_AuastmeMuutumine_piirivalvur" itemValue="piirivalvurId" items="${piirivalvurs}" path="/piirivalvurs" z="y+TTrTwMPVcp0ikTonOf+aqu6g4="/>
     </form:update>
 </div>

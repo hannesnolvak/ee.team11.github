@@ -13,7 +13,7 @@
         <field:datetime dateTimePattern="${ametPiiripunkti_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_AmetPiiripunkti_suletud" z="EtC7BUpVg9vMeedHtfWQkoCQrds="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_AmetPiiripunkti_sulgeja" z="coS0TBhUB0H0EymcHt5PEk958+A="/>
         <field:select field="amet" id="c_ee_itcollege_team11_AmetPiiripunkti_amet" itemValue="ametId" items="${amets}" path="/amets" z="UhGxcNrcnhiQUwT+WsITGu8ckBI="/>
-        <field:select field="piiripunkt" id="c_ee_itcollege_team11_AmetPiiripunkti_piiripunkt" itemValue="id" items="${piiripunkts}" path="/piiripunkts" z="UJi9pXYRJQbBtYrn1TMo29VrG24="/>
+        <field:select field="piiripunkt" id="c_ee_itcollege_team11_AmetPiiripunkti_piiripunkt" itemValue="piiripunktId" items="${piiripunkts}" path="/piiripunkts" z="fE+fkMU2eVmUvfIsQbcdY1kJS3g="/>
         <field:simple field="piirivalvurPiiripunktis" id="c_ee_itcollege_team11_AmetPiiripunkti_piirivalvurPiiripunktis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvur Piiripunkti" z="TK5Mxloiffk6OVMqoIsogjGoVCs="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_AmetPiiripunkti" render="${not empty dependencies}" z="/p0kXJPZgzXCgT6FV/RGwhgp+QA="/>

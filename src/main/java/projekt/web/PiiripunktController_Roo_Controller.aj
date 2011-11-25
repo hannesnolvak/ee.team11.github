@@ -16,6 +16,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,6 +34,7 @@ privileged aspect PiiripunktController_Roo_Controller {
     public String PiiripunktController.create(@Valid Piiripunkt piiripunkt, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiripunkt", piiripunkt);
+            addDateTimeFormatPatterns(uiModel);
             return "piiripunkts/create";
         }
         uiModel.asMap().clear();
@@ -42,11 +45,13 @@ privileged aspect PiiripunktController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String PiiripunktController.createForm(Model uiModel) {
         uiModel.addAttribute("piiripunkt", new Piiripunkt());
+        addDateTimeFormatPatterns(uiModel);
         return "piiripunkts/create";
     }
     
     @RequestMapping(value = "/{piiripunktId}", method = RequestMethod.GET)
     public String PiiripunktController.show(@PathVariable("piiripunktId") Long piiripunktId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("piiripunkt", Piiripunkt.findPiiripunkt(piiripunktId));
         uiModel.addAttribute("itemId", piiripunktId);
         return "piiripunkts/show";
@@ -62,6 +67,7 @@ privileged aspect PiiripunktController_Roo_Controller {
         } else {
             uiModel.addAttribute("piiripunkts", Piiripunkt.findAllPiiripunkts());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "piiripunkts/list";
     }
     
@@ -69,6 +75,7 @@ privileged aspect PiiripunktController_Roo_Controller {
     public String PiiripunktController.update(@Valid Piiripunkt piiripunkt, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiripunkt", piiripunkt);
+            addDateTimeFormatPatterns(uiModel);
             return "piiripunkts/update";
         }
         uiModel.asMap().clear();
@@ -79,6 +86,7 @@ privileged aspect PiiripunktController_Roo_Controller {
     @RequestMapping(value = "/{piiripunktId}", params = "form", method = RequestMethod.GET)
     public String PiiripunktController.updateForm(@PathVariable("piiripunktId") Long piiripunktId, Model uiModel) {
         uiModel.addAttribute("piiripunkt", Piiripunkt.findPiiripunkt(piiripunktId));
+        addDateTimeFormatPatterns(uiModel);
         return "piiripunkts/update";
     }
     
@@ -119,6 +127,14 @@ privileged aspect PiiripunktController_Roo_Controller {
     @ModelAttribute("vahtkonds")
     public Collection<Vahtkond> PiiripunktController.populateVahtkonds() {
         return Vahtkond.findAllVahtkonds();
+    }
+    
+    void PiiripunktController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("piiripunkt_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiripunkt_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiripunkt_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiripunkt_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiripunkt_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String PiiripunktController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect VahtkonndPiiriloigulController_Roo_Controller {
     public String VahtkonndPiiriloigulController.create(@Valid VahtkonndPiiriloigul vahtkonndPiiriloigul, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vahtkonndPiiriloigul", vahtkonndPiiriloigul);
+            addDateTimeFormatPatterns(uiModel);
             return "vahtkonndpiiriloiguls/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect VahtkonndPiiriloigulController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String VahtkonndPiiriloigulController.createForm(Model uiModel) {
         uiModel.addAttribute("vahtkonndPiiriloigul", new VahtkonndPiiriloigul());
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkonndpiiriloiguls/create";
     }
     
     @RequestMapping(value = "/{vahtkondPiiriloiulId}", method = RequestMethod.GET)
     public String VahtkonndPiiriloigulController.show(@PathVariable("vahtkondPiiriloiulId") Long vahtkondPiiriloiulId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("vahtkonndpiiriloigul", VahtkonndPiiriloigul.findVahtkonndPiiriloigul(vahtkondPiiriloiulId));
         uiModel.addAttribute("itemId", vahtkondPiiriloiulId);
         return "vahtkonndpiiriloiguls/show";
@@ -59,6 +64,7 @@ privileged aspect VahtkonndPiiriloigulController_Roo_Controller {
         } else {
             uiModel.addAttribute("vahtkonndpiiriloiguls", VahtkonndPiiriloigul.findAllVahtkonndPiiriloiguls());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkonndpiiriloiguls/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect VahtkonndPiiriloigulController_Roo_Controller {
     public String VahtkonndPiiriloigulController.update(@Valid VahtkonndPiiriloigul vahtkonndPiiriloigul, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vahtkonndPiiriloigul", vahtkonndPiiriloigul);
+            addDateTimeFormatPatterns(uiModel);
             return "vahtkonndpiiriloiguls/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect VahtkonndPiiriloigulController_Roo_Controller {
     @RequestMapping(value = "/{vahtkondPiiriloiulId}", params = "form", method = RequestMethod.GET)
     public String VahtkonndPiiriloigulController.updateForm(@PathVariable("vahtkondPiiriloiulId") Long vahtkondPiiriloiulId, Model uiModel) {
         uiModel.addAttribute("vahtkonndPiiriloigul", VahtkonndPiiriloigul.findVahtkonndPiiriloigul(vahtkondPiiriloiulId));
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkonndpiiriloiguls/update";
     }
     
@@ -101,6 +109,14 @@ privileged aspect VahtkonndPiiriloigulController_Roo_Controller {
     @ModelAttribute("vahtkonndpiiriloiguls")
     public Collection<VahtkonndPiiriloigul> VahtkonndPiiriloigulController.populateVahtkonndPiiriloiguls() {
         return VahtkonndPiiriloigul.findAllVahtkonndPiiriloiguls();
+    }
+    
+    void VahtkonndPiiriloigulController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("vahtkonndPiiriloigul_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkonndPiiriloigul_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkonndPiiriloigul_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkonndPiiriloigul_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkonndPiiriloigul_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String VahtkonndPiiriloigulController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

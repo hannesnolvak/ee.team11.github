@@ -12,9 +12,9 @@
         <field:input field="muutja" id="c_ee_itcollege_team11_PiiriloiguHaldaja_muutja" z="KV4zqs4f6YTo41DHUdfZRFAF6gA="/>
         <field:datetime dateTimePattern="${piiriloiguHaldaja_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiiriloiguHaldaja_suletud" z="X4GYYonR9dFhA7V67STm2XBg56k="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_PiiriloiguHaldaja_sulgeja" z="T44m8AQwl+2uGgbszKWquPyR8sQ="/>
-        <field:select field="piiriloik" id="c_ee_itcollege_team11_PiiriloiguHaldaja_piiriloik" itemValue="id" items="${piiriloiks}" path="/piiriloiks" z="XXXJ19QteiKRqnreR2V03qwWRjQ="/>
-        <field:select field="piiripunkt" id="c_ee_itcollege_team11_PiiriloiguHaldaja_piiripunkt" itemValue="id" items="${piiripunkts}" path="/piiripunkts" z="O05k8vcR/+FhHI4FxuPMxSnB6Yg="/>
-        <field:select field="vaeosa" id="c_ee_itcollege_team11_PiiriloiguHaldaja_vaeosa" itemValue="id" items="${vaeosas}" path="/vaeosas" z="P7QFyEfU75nZ8AC4icoD8f8CAeU="/>
+        <field:select field="piiriloik" id="c_ee_itcollege_team11_PiiriloiguHaldaja_piiriloik" itemValue="piiriloikId" items="${piiriloiks}" path="/piiriloiks" z="0es25Joqr2+qShnYRnLKvoAu0TQ="/>
+        <field:select field="piiripunkt" id="c_ee_itcollege_team11_PiiriloiguHaldaja_piiripunkt" itemValue="piiripunktId" items="${piiripunkts}" path="/piiripunkts" z="QUshcTD+tzWqkjwSpEZwmxdusyk="/>
+        <field:select field="vaeosa" id="c_ee_itcollege_team11_PiiriloiguHaldaja_vaeosa" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="DvpDVy1vhSul2NnTy7tia99MwMU="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_PiiriloiguHaldaja" render="${not empty dependencies}" z="z1hQ337z8/9K4GeGPbsqP3sI2ak="/>
 </div>

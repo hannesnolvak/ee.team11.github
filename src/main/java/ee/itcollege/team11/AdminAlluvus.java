@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
@@ -29,6 +30,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 public class AdminAlluvus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ADMIN_ALLUVUS_ID")
@@ -37,19 +39,22 @@ public class AdminAlluvus implements Serializable {
 	private String alates;
 
 	private String avaja;
-
+	
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
 	private String kommentaar;
 
 	private String kuni;
-
+	
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
 	private String muutja;
-
+	
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 

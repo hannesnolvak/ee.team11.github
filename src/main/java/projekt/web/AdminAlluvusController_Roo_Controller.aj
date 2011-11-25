@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect AdminAlluvusController_Roo_Controller {
     public String AdminAlluvusController.create(@Valid AdminAlluvus adminAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("adminAlluvus", adminAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "adminalluvuses/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect AdminAlluvusController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String AdminAlluvusController.createForm(Model uiModel) {
         uiModel.addAttribute("adminAlluvus", new AdminAlluvus());
+        addDateTimeFormatPatterns(uiModel);
         return "adminalluvuses/create";
     }
     
     @RequestMapping(value = "/{adminAlluvusId}", method = RequestMethod.GET)
     public String AdminAlluvusController.show(@PathVariable("adminAlluvusId") Long adminAlluvusId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("adminalluvus", AdminAlluvus.findAdminAlluvus(adminAlluvusId));
         uiModel.addAttribute("itemId", adminAlluvusId);
         return "adminalluvuses/show";
@@ -58,6 +63,7 @@ privileged aspect AdminAlluvusController_Roo_Controller {
         } else {
             uiModel.addAttribute("adminalluvuses", AdminAlluvus.findAllAdminAlluvuses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "adminalluvuses/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect AdminAlluvusController_Roo_Controller {
     public String AdminAlluvusController.update(@Valid AdminAlluvus adminAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("adminAlluvus", adminAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "adminalluvuses/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect AdminAlluvusController_Roo_Controller {
     @RequestMapping(value = "/{adminAlluvusId}", params = "form", method = RequestMethod.GET)
     public String AdminAlluvusController.updateForm(@PathVariable("adminAlluvusId") Long adminAlluvusId, Model uiModel) {
         uiModel.addAttribute("adminAlluvus", AdminAlluvus.findAdminAlluvus(adminAlluvusId));
+        addDateTimeFormatPatterns(uiModel);
         return "adminalluvuses/update";
     }
     
@@ -95,6 +103,12 @@ privileged aspect AdminAlluvusController_Roo_Controller {
     @ModelAttribute("riigiadminyksuses")
     public Collection<RiigiAdminYksus> AdminAlluvusController.populateRiigiAdminYksuses() {
         return RiigiAdminYksus.findAllRiigiAdminYksuses();
+    }
+    
+    void AdminAlluvusController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("adminAlluvus_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("adminAlluvus_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("adminAlluvus_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String AdminAlluvusController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

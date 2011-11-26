@@ -13,7 +13,7 @@
         <field:datetime dateTimePattern="${vahtkonndPiiriloigul_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_VahtkonndPiiriloigul_suletud" z="sHWUoUmu2ttA68Hsy1M7Orq1nh4="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_VahtkonndPiiriloigul_sulgeja" z="MAwgRHXGB0nOtHwipY8RUm0ub7U="/>
         <field:select field="piiriloik" id="c_ee_itcollege_team11_VahtkonndPiiriloigul_piiriloik" itemValue="piiriloikId" items="${piiriloiks}" path="/piiriloiks" z="Rcy85IhDw7XS1OLqftjMbZ6PUq4="/>
-        <field:select field="vahtkond" id="c_ee_itcollege_team11_VahtkonndPiiriloigul_vahtkond" itemValue="id" items="${vahtkonds}" path="/vahtkonds" z="CxKB8zPIvvh0HJ7ie7RIT/Gyg3M="/>
+        <field:select field="vahtkond" id="c_ee_itcollege_team11_VahtkonndPiiriloigul_vahtkond" itemValue="vahtkondId" items="${vahtkonds}" path="/vahtkonds" z="T9Ml1fnItwQYsN6zGtNgWBPB88w="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_VahtkonndPiiriloigul" render="${not empty dependencies}" z="oYOceZlFpUrKEQ4ghbYpb0dxypg="/>
 </div>

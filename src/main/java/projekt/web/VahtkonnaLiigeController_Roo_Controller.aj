@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect VahtkonnaLiigeController_Roo_Controller {
     public String VahtkonnaLiigeController.create(@Valid VahtkonnaLiige vahtkonnaLiige, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vahtkonnaLiige", vahtkonnaLiige);
+            addDateTimeFormatPatterns(uiModel);
             return "vahtkonnaliiges/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect VahtkonnaLiigeController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String VahtkonnaLiigeController.createForm(Model uiModel) {
         uiModel.addAttribute("vahtkonnaLiige", new VahtkonnaLiige());
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkonnaliiges/create";
     }
     
     @RequestMapping(value = "/{vahtkonnaLiigeId}", method = RequestMethod.GET)
     public String VahtkonnaLiigeController.show(@PathVariable("vahtkonnaLiigeId") Long vahtkonnaLiigeId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("vahtkonnaliige", VahtkonnaLiige.findVahtkonnaLiige(vahtkonnaLiigeId));
         uiModel.addAttribute("itemId", vahtkonnaLiigeId);
         return "vahtkonnaliiges/show";
@@ -59,6 +64,7 @@ privileged aspect VahtkonnaLiigeController_Roo_Controller {
         } else {
             uiModel.addAttribute("vahtkonnaliiges", VahtkonnaLiige.findAllVahtkonnaLiiges());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkonnaliiges/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect VahtkonnaLiigeController_Roo_Controller {
     public String VahtkonnaLiigeController.update(@Valid VahtkonnaLiige vahtkonnaLiige, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("vahtkonnaLiige", vahtkonnaLiige);
+            addDateTimeFormatPatterns(uiModel);
             return "vahtkonnaliiges/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect VahtkonnaLiigeController_Roo_Controller {
     @RequestMapping(value = "/{vahtkonnaLiigeId}", params = "form", method = RequestMethod.GET)
     public String VahtkonnaLiigeController.updateForm(@PathVariable("vahtkonnaLiigeId") Long vahtkonnaLiigeId, Model uiModel) {
         uiModel.addAttribute("vahtkonnaLiige", VahtkonnaLiige.findVahtkonnaLiige(vahtkonnaLiigeId));
+        addDateTimeFormatPatterns(uiModel);
         return "vahtkonnaliiges/update";
     }
     
@@ -101,6 +109,12 @@ privileged aspect VahtkonnaLiigeController_Roo_Controller {
     @ModelAttribute("vahtkonnaliiges")
     public Collection<VahtkonnaLiige> VahtkonnaLiigeController.populateVahtkonnaLiiges() {
         return VahtkonnaLiige.findAllVahtkonnaLiiges();
+    }
+    
+    void VahtkonnaLiigeController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("vahtkonnaLiige_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkonnaLiige_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("vahtkonnaLiige_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String VahtkonnaLiigeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

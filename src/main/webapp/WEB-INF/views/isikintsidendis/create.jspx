@@ -15,7 +15,7 @@
         <field:input field="sulgeja" id="c_ee_itcollege_team11_IsikIntsidendi_sulgeja" z="QlGHquX3AbTGf7yPhSLps+tWjoM="/>
         <field:simple field="isikuSeadusIntsidendis" id="c_ee_itcollege_team11_IsikIntsidendi_isikuSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Isiku Seadus Intsidendi" z="dL+2NjIa9bZ3rGMJlXn9VDm8xPQ="/>
         <field:select field="intsident" id="c_ee_itcollege_team11_IsikIntsidendi_intsident" itemValue="intsidentId" items="${intsidents}" path="/intsidents" z="a5QDDk6AFVf+e4bfg3E3/5cD07w="/>
-        <field:select field="piiririkkuja" id="c_ee_itcollege_team11_IsikIntsidendi_piiririkkuja" itemValue="id" items="${piiririkkujas}" path="/piiririkkujas" z="eIoilrDTI5kuIr4HHQuwc4lNTLs="/>
+        <field:select field="piiririkkuja" id="c_ee_itcollege_team11_IsikIntsidendi_piiririkkuja" itemValue="piiririkkujaId" items="${piiririkkujas}" path="/piiririkkujas" z="T3Rgu2yEklRTD9+5HU5rsuW3N8M="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_IsikIntsidendi" render="${not empty dependencies}" z="hgpadJNt/u3l/26stnkQ6XOgrTI="/>
 </div>

@@ -13,8 +13,8 @@
         <field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_nimetus" z="fj/M4UtjQo3uR/vXxKD+4Cce/BE="/>
         <field:datetime dateTimePattern="${riigiAdminYksuseLiik_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_suletud" z="gwy96i8NN2lf/bEYsdCiuNpK20E="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_sulgeja" z="znJhYMz8MfkxObu6kmpMeB4HjpA="/>
-        <field:simple field="riigiAdminYksuses" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_riigiAdminYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Riigi Admin Yksus" z="FkvjIEg46lKh+DN2FQMYHkPC32k="/>
         <field:simple field="voimalikAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_voimalikAlluvuses1" messageCode="entity_reference_not_managed" messageCodeAttribute="Voimalik Alluvus" z="PDuBtFiVXVptIVfRnPHjdIlWbSI="/>
         <field:simple field="voimalikAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_voimalikAlluvuses2" messageCode="entity_reference_not_managed" messageCodeAttribute="Voimalik Alluvus" z="O7S/VMpdLzlIKGi0/qIL7C+Wfdc="/>
+        <field:simple field="riigiAdminYksuses" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_riigiAdminYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Riigi Admin Yksus" z="FkvjIEg46lKh+DN2FQMYHkPC32k="/>
     </form:update>
 </div>

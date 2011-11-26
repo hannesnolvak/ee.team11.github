@@ -13,8 +13,8 @@
         <field:input field="muutja" id="c_ee_itcollege_team11_Kodakondsus_muutja" z="0rLKKLIDqbibFLt2Q6eGPXgzc2g="/>
         <field:datetime dateTimePattern="${kodakondsus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Kodakondsus_suletud" z="koA5j+QV8T5qjuZOQO+LVR9i3cM="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_Kodakondsus_sulgeja" z="I5UCQSHjjtWIUBOcb7zCrCy22fM="/>
-        <field:select field="piiririkkuja" id="c_ee_itcollege_team11_Kodakondsus_piiririkkuja" itemValue="id" items="${piiririkkujas}" path="/piiririkkujas" z="tsBKhOBBCEBuURU/kkFmZqPHvKo="/>
-        <field:select field="riik" id="c_ee_itcollege_team11_Kodakondsus_riik" itemValue="id" items="${riiks}" path="/riiks" z="zW38c/0BeX2FvANengahiX5P2Sk="/>
+        <field:select field="piiririkkuja" id="c_ee_itcollege_team11_Kodakondsus_piiririkkuja" itemValue="piiririkkujaId" items="${piiririkkujas}" path="/piiririkkujas" z="WH5kyNH2FSkQAtK4t0vnCTuEoMo="/>
+        <field:select field="riik" id="c_ee_itcollege_team11_Kodakondsus_riik" itemValue="riikId" items="${riiks}" path="/riiks" z="21ACkOPzzel+3BA2CPhC/O2FcJo="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_Kodakondsus" render="${not empty dependencies}" z="oDHUtcC/kdXnowb7u6rPDdxgHp8="/>
 </div>

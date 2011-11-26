@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect OrgYksusController_Roo_Controller {
     public String OrgYksusController.create(@Valid OrgYksus orgYksus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("orgYksus", orgYksus);
+            addDateTimeFormatPatterns(uiModel);
             return "orgyksuses/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect OrgYksusController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String OrgYksusController.createForm(Model uiModel) {
         uiModel.addAttribute("orgYksus", new OrgYksus());
+        addDateTimeFormatPatterns(uiModel);
         return "orgyksuses/create";
     }
     
     @RequestMapping(value = "/{orgYksusId}", method = RequestMethod.GET)
     public String OrgYksusController.show(@PathVariable("orgYksusId") Long orgYksusId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("orgyksus", OrgYksus.findOrgYksus(orgYksusId));
         uiModel.addAttribute("itemId", orgYksusId);
         return "orgyksuses/show";
@@ -58,6 +63,7 @@ privileged aspect OrgYksusController_Roo_Controller {
         } else {
             uiModel.addAttribute("orgyksuses", OrgYksus.findAllOrgYksuses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "orgyksuses/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect OrgYksusController_Roo_Controller {
     public String OrgYksusController.update(@Valid OrgYksus orgYksus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("orgYksus", orgYksus);
+            addDateTimeFormatPatterns(uiModel);
             return "orgyksuses/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect OrgYksusController_Roo_Controller {
     @RequestMapping(value = "/{orgYksusId}", params = "form", method = RequestMethod.GET)
     public String OrgYksusController.updateForm(@PathVariable("orgYksusId") Long orgYksusId, Model uiModel) {
         uiModel.addAttribute("orgYksus", OrgYksus.findOrgYksus(orgYksusId));
+        addDateTimeFormatPatterns(uiModel);
         return "orgyksuses/update";
     }
     
@@ -95,6 +103,14 @@ privileged aspect OrgYksusController_Roo_Controller {
     @ModelAttribute("vaeosas")
     public Collection<Vaeosa> OrgYksusController.populateVaeosas() {
         return Vaeosa.findAllVaeosas();
+    }
+    
+    void OrgYksusController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("orgYksus_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("orgYksus_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("orgYksus_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("orgYksus_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("orgYksus_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String OrgYksusController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

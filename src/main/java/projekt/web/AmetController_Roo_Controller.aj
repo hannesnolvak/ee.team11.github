@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect AmetController_Roo_Controller {
     public String AmetController.create(@Valid Amet amet, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("amet", amet);
+            addDateTimeFormatPatterns(uiModel);
             return "amets/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect AmetController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String AmetController.createForm(Model uiModel) {
         uiModel.addAttribute("amet", new Amet());
+        addDateTimeFormatPatterns(uiModel);
         return "amets/create";
     }
     
     @RequestMapping(value = "/{ametId}", method = RequestMethod.GET)
     public String AmetController.show(@PathVariable("ametId") Long ametId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("amet", Amet.findAmet(ametId));
         uiModel.addAttribute("itemId", ametId);
         return "amets/show";
@@ -59,6 +64,7 @@ privileged aspect AmetController_Roo_Controller {
         } else {
             uiModel.addAttribute("amets", Amet.findAllAmets());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "amets/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect AmetController_Roo_Controller {
     public String AmetController.update(@Valid Amet amet, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("amet", amet);
+            addDateTimeFormatPatterns(uiModel);
             return "amets/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect AmetController_Roo_Controller {
     @RequestMapping(value = "/{ametId}", params = "form", method = RequestMethod.GET)
     public String AmetController.updateForm(@PathVariable("ametId") Long ametId, Model uiModel) {
         uiModel.addAttribute("amet", Amet.findAmet(ametId));
+        addDateTimeFormatPatterns(uiModel);
         return "amets/update";
     }
     
@@ -101,6 +109,12 @@ privileged aspect AmetController_Roo_Controller {
     @ModelAttribute("ametvaeosas")
     public Collection<AmetVaeosa> AmetController.populateAmetVaeosas() {
         return AmetVaeosa.findAllAmetVaeosas();
+    }
+    
+    void AmetController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("amet_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("amet_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("amet_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String AmetController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

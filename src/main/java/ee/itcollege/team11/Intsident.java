@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
@@ -37,6 +38,7 @@ public class Intsident implements Serializable {
 
 	private String avaja;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
@@ -52,6 +54,7 @@ public class Intsident implements Serializable {
 
 	private String kood;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
@@ -59,15 +62,18 @@ public class Intsident implements Serializable {
 
 	private String nimetus;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 
 	private String sulgeja;
 
+	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	@Column(name="TOIMUMISE_ALGUS")
 	private Date toimumiseAlgus;
 
+    @DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	@Column(name="TOIMUMISE_LOPP")
 	private Date toimumiseLopp;

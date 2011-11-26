@@ -13,7 +13,7 @@
         <field:datetime dateTimePattern="${piirivalvurVodikohal_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiirivalvurVodikohal_suletud" z="IEqnNWXPNzKAf/GxcdMI2WzvQIk="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_PiirivalvurVodikohal_sulgeja" z="FIqSDR8SUNF+Drz4TKGGxPtX2b8="/>
         <field:select field="piirivalvur" id="c_ee_itcollege_team11_PiirivalvurVodikohal_piirivalvur" itemValue="piirivalvurId" items="${piirivalvurs}" path="/piirivalvurs" z="IEnJj6hKdUvTyuMw91EPrMsHoDY="/>
-        <field:select field="voodikoht" id="c_ee_itcollege_team11_PiirivalvurVodikohal_voodikoht" itemValue="id" items="${voodikohts}" path="/voodikohts" z="d69NUwpvFqAIHPelKqytwCm3dos="/>
+        <field:select field="voodikoht" id="c_ee_itcollege_team11_PiirivalvurVodikohal_voodikoht" itemValue="voodikohtId" items="${voodikohts}" path="/voodikohts" z="LjFBNaTGAU6JEo7Y0LbTL8dxaXQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_PiirivalvurVodikohal" render="${not empty dependencies}" z="WtirZECxd+olCMxGlRn1QVP1T8U="/>
 </div>

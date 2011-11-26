@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect PiiripunktiAlluvusController_Roo_Controller {
     public String PiiripunktiAlluvusController.create(@Valid PiiripunktiAlluvus piiripunktiAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiripunktiAlluvus", piiripunktiAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "piiripunktialluvuses/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect PiiripunktiAlluvusController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String PiiripunktiAlluvusController.createForm(Model uiModel) {
         uiModel.addAttribute("piiripunktiAlluvus", new PiiripunktiAlluvus());
+        addDateTimeFormatPatterns(uiModel);
         return "piiripunktialluvuses/create";
     }
     
     @RequestMapping(value = "/{piiripunktiAlluvusId}", method = RequestMethod.GET)
     public String PiiripunktiAlluvusController.show(@PathVariable("piiripunktiAlluvusId") Long piiripunktiAlluvusId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("piiripunktialluvus", PiiripunktiAlluvus.findPiiripunktiAlluvus(piiripunktiAlluvusId));
         uiModel.addAttribute("itemId", piiripunktiAlluvusId);
         return "piiripunktialluvuses/show";
@@ -59,6 +64,7 @@ privileged aspect PiiripunktiAlluvusController_Roo_Controller {
         } else {
             uiModel.addAttribute("piiripunktialluvuses", PiiripunktiAlluvus.findAllPiiripunktiAlluvuses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "piiripunktialluvuses/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect PiiripunktiAlluvusController_Roo_Controller {
     public String PiiripunktiAlluvusController.update(@Valid PiiripunktiAlluvus piiripunktiAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("piiripunktiAlluvus", piiripunktiAlluvus);
+            addDateTimeFormatPatterns(uiModel);
             return "piiripunktialluvuses/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect PiiripunktiAlluvusController_Roo_Controller {
     @RequestMapping(value = "/{piiripunktiAlluvusId}", params = "form", method = RequestMethod.GET)
     public String PiiripunktiAlluvusController.updateForm(@PathVariable("piiripunktiAlluvusId") Long piiripunktiAlluvusId, Model uiModel) {
         uiModel.addAttribute("piiripunktiAlluvus", PiiripunktiAlluvus.findPiiripunktiAlluvus(piiripunktiAlluvusId));
+        addDateTimeFormatPatterns(uiModel);
         return "piiripunktialluvuses/update";
     }
     
@@ -101,6 +109,12 @@ privileged aspect PiiripunktiAlluvusController_Roo_Controller {
     @ModelAttribute("vaeosas")
     public Collection<Vaeosa> PiiripunktiAlluvusController.populateVaeosas() {
         return Vaeosa.findAllVaeosas();
+    }
+    
+    void PiiripunktiAlluvusController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("piiripunktiAlluvus_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiripunktiAlluvus_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("piiripunktiAlluvus_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String PiiripunktiAlluvusController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

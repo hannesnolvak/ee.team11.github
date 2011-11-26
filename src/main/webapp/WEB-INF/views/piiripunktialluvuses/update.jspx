@@ -13,6 +13,6 @@
         <field:datetime dateTimePattern="${piiripunktiAlluvus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_PiiripunktiAlluvus_suletud" z="N2cRJMthD7Y5nLn4sJXWiDTU38k="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_PiiripunktiAlluvus_sulgeja" z="esk2+eSHuzyAbTLqu3TDdeQYF0s="/>
         <field:select field="piiripunkt" id="c_ee_itcollege_team11_PiiripunktiAlluvus_piiripunkt" itemValue="piiripunktId" items="${piiripunkts}" path="/piiripunkts" z="D96Gep02/DD9CEN86Ysn+Orb8o0="/>
-        <field:select field="vaeosa" id="c_ee_itcollege_team11_PiiripunktiAlluvus_vaeosa" itemValue="id" items="${vaeosas}" path="/vaeosas" z="1y8AxSWw3eeKNxjMvN37zTYQ5uM="/>
+        <field:select field="vaeosa" id="c_ee_itcollege_team11_PiiripunktiAlluvus_vaeosa" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="0tvwG+cKiCXWxX7ahZ/oS7zwCwE="/>
     </form:update>
 </div>

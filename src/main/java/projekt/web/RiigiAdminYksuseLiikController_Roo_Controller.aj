@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
     public String RiigiAdminYksuseLiikController.create(@Valid RiigiAdminYksuseLiik riigiAdminYksuseLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("riigiAdminYksuseLiik", riigiAdminYksuseLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "riigiadminyksuseliiks/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String RiigiAdminYksuseLiikController.createForm(Model uiModel) {
         uiModel.addAttribute("riigiAdminYksuseLiik", new RiigiAdminYksuseLiik());
+        addDateTimeFormatPatterns(uiModel);
         return "riigiadminyksuseliiks/create";
     }
     
     @RequestMapping(value = "/{riigiAdminYksuseLikId}", method = RequestMethod.GET)
     public String RiigiAdminYksuseLiikController.show(@PathVariable("riigiAdminYksuseLikId") Long riigiAdminYksuseLikId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("riigiadminyksuseliik", RiigiAdminYksuseLiik.findRiigiAdminYksuseLiik(riigiAdminYksuseLikId));
         uiModel.addAttribute("itemId", riigiAdminYksuseLikId);
         return "riigiadminyksuseliiks/show";
@@ -59,6 +64,7 @@ privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
         } else {
             uiModel.addAttribute("riigiadminyksuseliiks", RiigiAdminYksuseLiik.findAllRiigiAdminYksuseLiiks());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "riigiadminyksuseliiks/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
     public String RiigiAdminYksuseLiikController.update(@Valid RiigiAdminYksuseLiik riigiAdminYksuseLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("riigiAdminYksuseLiik", riigiAdminYksuseLiik);
+            addDateTimeFormatPatterns(uiModel);
             return "riigiadminyksuseliiks/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
     @RequestMapping(value = "/{riigiAdminYksuseLikId}", params = "form", method = RequestMethod.GET)
     public String RiigiAdminYksuseLiikController.updateForm(@PathVariable("riigiAdminYksuseLikId") Long riigiAdminYksuseLikId, Model uiModel) {
         uiModel.addAttribute("riigiAdminYksuseLiik", RiigiAdminYksuseLiik.findRiigiAdminYksuseLiik(riigiAdminYksuseLikId));
+        addDateTimeFormatPatterns(uiModel);
         return "riigiadminyksuseliiks/update";
     }
     
@@ -101,6 +109,14 @@ privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
     @ModelAttribute("voimalikalluvuses")
     public Collection<VoimalikAlluvus> RiigiAdminYksuseLiikController.populateVoimalikAlluvuses() {
         return VoimalikAlluvus.findAllVoimalikAlluvuses();
+    }
+    
+    void RiigiAdminYksuseLiikController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("riigiAdminYksuseLiik_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("riigiAdminYksuseLiik_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("riigiAdminYksuseLiik_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("riigiAdminYksuseLiik_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("riigiAdminYksuseLiik_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String RiigiAdminYksuseLiikController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

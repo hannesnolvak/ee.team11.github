@@ -14,6 +14,6 @@
         <field:datetime dateTimePattern="${isikuSeadusIntsidendi_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_IsikuSeadusIntsidendi_suletud" z="brXgCNcI62p4GipbxlfzX6w9s5I="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_IsikuSeadusIntsidendi_sulgeja" z="fNGSdMqWXgQO/NrdUpCoywabaGQ="/>
         <field:select field="isikIntsidendi" id="c_ee_itcollege_team11_IsikuSeadusIntsidendi_isikIntsidendi" itemValue="isikIntsidendisId" items="${isikintsidendis}" path="/isikintsidendis" z="QyWZqg3S0Ik3xOmXzFChaYSIACw="/>
-        <field:select field="seadusePunkt" id="c_ee_itcollege_team11_IsikuSeadusIntsidendi_seadusePunkt" itemValue="id" items="${seadusepunkts}" path="/seadusepunkts" z="6Ik7mqvL10hplOVkwRnVlSRO11c="/>
+        <field:select field="seadusePunkt" id="c_ee_itcollege_team11_IsikuSeadusIntsidendi_seadusePunkt" itemValue="seadusePunktId" items="${seadusepunkts}" path="/seadusepunkts" z="kv8UU4Lp+V+Y7g6hsSoIKwXL9o8="/>
     </form:update>
 </div>

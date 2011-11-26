@@ -16,7 +16,7 @@
         <field:simple field="adminAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses1" messageCode="entity_reference_not_managed" messageCodeAttribute="Admin Alluvus" z="wHZXgPKnIsqso+DFTqF9pPoFKv8="/>
         <field:simple field="adminAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses2" messageCode="entity_reference_not_managed" messageCodeAttribute="Admin Alluvus" z="JG3PL9z7597IRpF58qJsi17ViHM="/>
         <field:select field="riigiAdminYksuseLiik" id="c_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" z="bS1I8tGAQO1VOThKBUWs+zTX+go="/>
-        <field:simple field="vaeosas" id="c_ee_itcollege_team11_RiigiAdminYksus_vaeosas" messageCode="entity_reference_not_managed" messageCodeAttribute="Vaeosa" z="8B4uiDoc6OW+U+/w+kT9QRwT6WA="/>
         <field:simple field="ruumiyksuses" id="c_ee_itcollege_team11_RiigiAdminYksus_ruumiyksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Ruumiyksus" z="IFctvixa+dNA8PlMDubMABruB6s="/>
+        <field:simple field="vaeosas" id="c_ee_itcollege_team11_RiigiAdminYksus_vaeosas" messageCode="entity_reference_not_managed" messageCodeAttribute="Vaeosa" z="8B4uiDoc6OW+U+/w+kT9QRwT6WA="/>
     </form:update>
 </div>

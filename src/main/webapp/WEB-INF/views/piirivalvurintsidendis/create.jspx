@@ -16,7 +16,7 @@
         <field:simple field="piirivalvuriSeadusIntsidendis" id="c_ee_itcollege_team11_PiirivalvurIntsidendi_piirivalvuriSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvuri Seadus Intsidendi" z="8GSNbAtc7/xl2myvW3v408l3rRQ="/>
         <field:select field="intsident" id="c_ee_itcollege_team11_PiirivalvurIntsidendi_intsident" itemValue="intsidentId" items="${intsidents}" path="/intsidents" z="BSxpCZPRVNOE1x7l7mk0l6dQEu4="/>
         <field:select field="piirivalvur" id="c_ee_itcollege_team11_PiirivalvurIntsidendi_piirivalvur" itemValue="piirivalvurId" items="${piirivalvurs}" path="/piirivalvurs" z="t9mMyRlIDuYz2RTtraSZzaiQBfc="/>
-        <field:select field="vahtkondIntsidendi" id="c_ee_itcollege_team11_PiirivalvurIntsidendi_vahtkondIntsidendi" itemValue="id" items="${vahtkondintsidendis}" path="/vahtkondintsidendis" z="N3rZjy3M2NymDlS9Zk44IDmvsys="/>
+        <field:select field="vahtkondIntsidendi" id="c_ee_itcollege_team11_PiirivalvurIntsidendi_vahtkondIntsidendi" itemValue="vahtkondIntsidendisId" items="${vahtkondintsidendis}" path="/vahtkondintsidendis" z="G63iqUJv72Gg5epLFIA+Hh/+keg="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_PiirivalvurIntsidendi" render="${not empty dependencies}" z="s4sj+0o9ZWgwhtAs0NMZff1oTrE="/>
 </div>

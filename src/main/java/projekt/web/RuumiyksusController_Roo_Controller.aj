@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect RuumiyksusController_Roo_Controller {
     public String RuumiyksusController.create(@Valid Ruumiyksus ruumiyksus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("ruumiyksus", ruumiyksus);
+            addDateTimeFormatPatterns(uiModel);
             return "ruumiyksuses/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect RuumiyksusController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String RuumiyksusController.createForm(Model uiModel) {
         uiModel.addAttribute("ruumiyksus", new Ruumiyksus());
+        addDateTimeFormatPatterns(uiModel);
         return "ruumiyksuses/create";
     }
     
     @RequestMapping(value = "/{ruumiyksusId}", method = RequestMethod.GET)
     public String RuumiyksusController.show(@PathVariable("ruumiyksusId") Long ruumiyksusId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("ruumiyksus", Ruumiyksus.findRuumiyksus(ruumiyksusId));
         uiModel.addAttribute("itemId", ruumiyksusId);
         return "ruumiyksuses/show";
@@ -60,6 +65,7 @@ privileged aspect RuumiyksusController_Roo_Controller {
         } else {
             uiModel.addAttribute("ruumiyksuses", Ruumiyksus.findAllRuumiyksuses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "ruumiyksuses/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect RuumiyksusController_Roo_Controller {
     public String RuumiyksusController.update(@Valid Ruumiyksus ruumiyksus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("ruumiyksus", ruumiyksus);
+            addDateTimeFormatPatterns(uiModel);
             return "ruumiyksuses/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect RuumiyksusController_Roo_Controller {
     @RequestMapping(value = "/{ruumiyksusId}", params = "form", method = RequestMethod.GET)
     public String RuumiyksusController.updateForm(@PathVariable("ruumiyksusId") Long ruumiyksusId, Model uiModel) {
         uiModel.addAttribute("ruumiyksus", Ruumiyksus.findRuumiyksus(ruumiyksusId));
+        addDateTimeFormatPatterns(uiModel);
         return "ruumiyksuses/update";
     }
     
@@ -107,6 +115,12 @@ privileged aspect RuumiyksusController_Roo_Controller {
     @ModelAttribute("voodikohts")
     public Collection<Voodikoht> RuumiyksusController.populateVoodikohts() {
         return Voodikoht.findAllVoodikohts();
+    }
+    
+    void RuumiyksusController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("ruumiyksus_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ruumiyksus_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ruumiyksus_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String RuumiyksusController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

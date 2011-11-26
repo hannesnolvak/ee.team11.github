@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect KodakondsusController_Roo_Controller {
     public String KodakondsusController.create(@Valid Kodakondsus kodakondsus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("kodakondsus", kodakondsus);
+            addDateTimeFormatPatterns(uiModel);
             return "kodakondsuses/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect KodakondsusController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String KodakondsusController.createForm(Model uiModel) {
         uiModel.addAttribute("kodakondsus", new Kodakondsus());
+        addDateTimeFormatPatterns(uiModel);
         return "kodakondsuses/create";
     }
     
     @RequestMapping(value = "/{kodakondsusId}", method = RequestMethod.GET)
     public String KodakondsusController.show(@PathVariable("kodakondsusId") Long kodakondsusId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("kodakondsus", Kodakondsus.findKodakondsus(kodakondsusId));
         uiModel.addAttribute("itemId", kodakondsusId);
         return "kodakondsuses/show";
@@ -59,6 +64,7 @@ privileged aspect KodakondsusController_Roo_Controller {
         } else {
             uiModel.addAttribute("kodakondsuses", Kodakondsus.findAllKodakondsuses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "kodakondsuses/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect KodakondsusController_Roo_Controller {
     public String KodakondsusController.update(@Valid Kodakondsus kodakondsus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("kodakondsus", kodakondsus);
+            addDateTimeFormatPatterns(uiModel);
             return "kodakondsuses/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect KodakondsusController_Roo_Controller {
     @RequestMapping(value = "/{kodakondsusId}", params = "form", method = RequestMethod.GET)
     public String KodakondsusController.updateForm(@PathVariable("kodakondsusId") Long kodakondsusId, Model uiModel) {
         uiModel.addAttribute("kodakondsus", Kodakondsus.findKodakondsus(kodakondsusId));
+        addDateTimeFormatPatterns(uiModel);
         return "kodakondsuses/update";
     }
     
@@ -101,6 +109,14 @@ privileged aspect KodakondsusController_Roo_Controller {
     @ModelAttribute("riiks")
     public Collection<Riik> KodakondsusController.populateRiiks() {
         return Riik.findAllRiiks();
+    }
+    
+    void KodakondsusController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("kodakondsus_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("kodakondsus_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("kodakondsus_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("kodakondsus_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("kodakondsus_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String KodakondsusController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

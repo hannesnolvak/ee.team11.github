@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect IsikIntsidendiController_Roo_Controller {
     public String IsikIntsidendiController.create(@Valid IsikIntsidendi isikIntsidendi, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("isikIntsidendi", isikIntsidendi);
+            addDateTimeFormatPatterns(uiModel);
             return "isikintsidendis/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect IsikIntsidendiController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String IsikIntsidendiController.createForm(Model uiModel) {
         uiModel.addAttribute("isikIntsidendi", new IsikIntsidendi());
+        addDateTimeFormatPatterns(uiModel);
         return "isikintsidendis/create";
     }
     
     @RequestMapping(value = "/{isikIntsidendisId}", method = RequestMethod.GET)
     public String IsikIntsidendiController.show(@PathVariable("isikIntsidendisId") Long isikIntsidendisId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("isikintsidendi", IsikIntsidendi.findIsikIntsidendi(isikIntsidendisId));
         uiModel.addAttribute("itemId", isikIntsidendisId);
         return "isikintsidendis/show";
@@ -60,6 +65,7 @@ privileged aspect IsikIntsidendiController_Roo_Controller {
         } else {
             uiModel.addAttribute("isikintsidendis", IsikIntsidendi.findAllIsikIntsidendis());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "isikintsidendis/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect IsikIntsidendiController_Roo_Controller {
     public String IsikIntsidendiController.update(@Valid IsikIntsidendi isikIntsidendi, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("isikIntsidendi", isikIntsidendi);
+            addDateTimeFormatPatterns(uiModel);
             return "isikintsidendis/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect IsikIntsidendiController_Roo_Controller {
     @RequestMapping(value = "/{isikIntsidendisId}", params = "form", method = RequestMethod.GET)
     public String IsikIntsidendiController.updateForm(@PathVariable("isikIntsidendisId") Long isikIntsidendisId, Model uiModel) {
         uiModel.addAttribute("isikIntsidendi", IsikIntsidendi.findIsikIntsidendi(isikIntsidendisId));
+        addDateTimeFormatPatterns(uiModel);
         return "isikintsidendis/update";
     }
     
@@ -107,6 +115,14 @@ privileged aspect IsikIntsidendiController_Roo_Controller {
     @ModelAttribute("piiririkkujas")
     public Collection<Piiririkkuja> IsikIntsidendiController.populatePiiririkkujas() {
         return Piiririkkuja.findAllPiiririkkujas();
+    }
+    
+    void IsikIntsidendiController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("isikIntsidendi_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("isikIntsidendi_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("isikIntsidendi_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("isikIntsidendi_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("isikIntsidendi_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String IsikIntsidendiController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

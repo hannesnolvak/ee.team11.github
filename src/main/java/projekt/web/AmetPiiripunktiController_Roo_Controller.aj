@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect AmetPiiripunktiController_Roo_Controller {
     public String AmetPiiripunktiController.create(@Valid AmetPiiripunkti ametPiiripunkti, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("ametPiiripunkti", ametPiiripunkti);
+            addDateTimeFormatPatterns(uiModel);
             return "ametpiiripunktis/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect AmetPiiripunktiController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String AmetPiiripunktiController.createForm(Model uiModel) {
         uiModel.addAttribute("ametPiiripunkti", new AmetPiiripunkti());
+        addDateTimeFormatPatterns(uiModel);
         return "ametpiiripunktis/create";
     }
     
     @RequestMapping(value = "/{ametPiiripunktisId}", method = RequestMethod.GET)
     public String AmetPiiripunktiController.show(@PathVariable("ametPiiripunktisId") Long ametPiiripunktisId, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("ametpiiripunkti", AmetPiiripunkti.findAmetPiiripunkti(ametPiiripunktisId));
         uiModel.addAttribute("itemId", ametPiiripunktisId);
         return "ametpiiripunktis/show";
@@ -60,6 +65,7 @@ privileged aspect AmetPiiripunktiController_Roo_Controller {
         } else {
             uiModel.addAttribute("ametpiiripunktis", AmetPiiripunkti.findAllAmetPiiripunktis());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "ametpiiripunktis/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect AmetPiiripunktiController_Roo_Controller {
     public String AmetPiiripunktiController.update(@Valid AmetPiiripunkti ametPiiripunkti, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("ametPiiripunkti", ametPiiripunkti);
+            addDateTimeFormatPatterns(uiModel);
             return "ametpiiripunktis/update";
         }
         uiModel.asMap().clear();
@@ -77,6 +84,7 @@ privileged aspect AmetPiiripunktiController_Roo_Controller {
     @RequestMapping(value = "/{ametPiiripunktisId}", params = "form", method = RequestMethod.GET)
     public String AmetPiiripunktiController.updateForm(@PathVariable("ametPiiripunktisId") Long ametPiiripunktisId, Model uiModel) {
         uiModel.addAttribute("ametPiiripunkti", AmetPiiripunkti.findAmetPiiripunkti(ametPiiripunktisId));
+        addDateTimeFormatPatterns(uiModel);
         return "ametpiiripunktis/update";
     }
     
@@ -107,6 +115,14 @@ privileged aspect AmetPiiripunktiController_Roo_Controller {
     @ModelAttribute("piirivalvurpiiripunktis")
     public Collection<PiirivalvurPiiripunkti> AmetPiiripunktiController.populatePiirivalvurPiiripunktis() {
         return PiirivalvurPiiripunkti.findAllPiirivalvurPiiripunktis();
+    }
+    
+    void AmetPiiripunktiController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("ametPiiripunkti_alates_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametPiiripunkti_avatud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametPiiripunkti_kuni_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametPiiripunkti_muudetud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("ametPiiripunkti_suletud_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String AmetPiiripunktiController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

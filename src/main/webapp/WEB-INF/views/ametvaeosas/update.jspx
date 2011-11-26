@@ -13,7 +13,7 @@
         <field:datetime dateTimePattern="${ametVaeosa_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_AmetVaeosa_suletud" z="ElRR4qt3nO3KlkUcfHt6DoHaaRE="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_AmetVaeosa_sulgeja" z="ctN6tekNqK1kePfcOkx+SP7tiLY="/>
         <field:select field="amet" id="c_ee_itcollege_team11_AmetVaeosa_amet" itemValue="ametId" items="${amets}" path="/amets" z="8uiKSKSMXYXdG6N25Eu1xClA4cg="/>
-        <field:select field="vaeosa" id="c_ee_itcollege_team11_AmetVaeosa_vaeosa" itemValue="id" items="${vaeosas}" path="/vaeosas" z="6mOmRrhvokWK2W4vizeMX4edXvU="/>
+        <field:select field="vaeosa" id="c_ee_itcollege_team11_AmetVaeosa_vaeosa" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="W6/+pebJhVHjPmMh/kRMh5H18xg="/>
         <field:simple field="piirivalvurVaeosas" id="c_ee_itcollege_team11_AmetVaeosa_piirivalvurVaeosas" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvur Vaeosa" z="V6FdldGVIHre0OI/nkXSXCNTVYk="/>
     </form:update>
 </div>

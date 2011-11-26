@@ -19,7 +19,7 @@
         <field:select field="seadusePunkt" id="c_ee_itcollege_team11_SeadusePunkt_seadusePunkt" itemValue="seadusePunktId" items="${seadusepunkts}" path="/seadusepunkts" z="1TRVhIDS8Llc6wb9jy0j7+vnOJA="/>
         <field:simple field="seadusePunkts" id="c_ee_itcollege_team11_SeadusePunkt_seadusePunkts" messageCode="entity_reference_not_managed" messageCodeAttribute="Seaduse Punkt" z="l4mJ09eot/NXMNXxXtyoZG+F5gM="/>
         <field:simple field="isikuSeadusIntsidendis" id="c_ee_itcollege_team11_SeadusePunkt_isikuSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Isiku Seadus Intsidendi" z="qVBxljdqnlYpqn3J5jJ13zN8o5c="/>
-        <field:simple field="objektiSeadusIntsidendis" id="c_ee_itcollege_team11_SeadusePunkt_objektiSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekti Seadus Intsidendi" z="x1x1sql8ykuRgzGhCfHn7lsd380="/>
         <field:simple field="piirivalvuriSeadusIntsidendis" id="c_ee_itcollege_team11_SeadusePunkt_piirivalvuriSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvuri Seadus Intsidendi" z="eDaCeTHFWxNvAxu8SeJWBs1tRnw="/>
+        <field:simple field="objektiSeadusIntsidendis" id="c_ee_itcollege_team11_SeadusePunkt_objektiSeadusIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekti Seadus Intsidendi" z="x1x1sql8ykuRgzGhCfHn7lsd380="/>
     </form:update>
 </div>

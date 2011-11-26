@@ -16,7 +16,7 @@
         <field:input field="sulgeja" id="c_ee_itcollege_team11_OrgYksus_sulgeja" z="bNLU7q//1L/l1DA9FYbkNqSDeg0="/>
         <field:select field="orgYksus" id="c_ee_itcollege_team11_OrgYksus_orgYksus" itemValue="orgYksusId" items="${orgyksuses}" path="/orgyksuses" z="VcYVBhngJ8WPjtHENzJlvZ2L720="/>
         <field:simple field="orgYksuses" id="c_ee_itcollege_team11_OrgYksus_orgYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Org Yksus" z="gasgx5hqI8Et19eHV2i2+ws/jcw="/>
-        <field:select field="vaeosa" id="c_ee_itcollege_team11_OrgYksus_vaeosa" itemValue="id" items="${vaeosas}" path="/vaeosas" z="XIS/kBRkv4v5z6tV6JKIESnVXok="/>
+        <field:select field="vaeosa" id="c_ee_itcollege_team11_OrgYksus_vaeosa" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="wEM/nvR6llhlwm9CoRXPrROQkKI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_OrgYksus" render="${not empty dependencies}" z="yMXSuHXffdUaB3Q9sAD/CawckKo="/>
 </div>

@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,8 +29,13 @@ import org.springframework.roo.addon.tostring.RooToString;
 @Entity
 @RooToString
 @RooEntity
+@EntityListeners({
+	LisatudListener.class,
+	MuudetudListener.class,
+	SuletudListener.class
+})
 @Table(name="RIIGI_ADMIN_YKSUS")
-public class RiigiAdminYksus implements Serializable {
+public class RiigiAdminYksus implements Serializable, Creatable, Updatable, Deletable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -52,9 +58,8 @@ public class RiigiAdminYksus implements Serializable {
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date kuni;
-	
+
 	@DateTimeFormat(style="M-")
-    @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
 	private String muutja;

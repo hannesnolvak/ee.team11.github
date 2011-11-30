@@ -13,10 +13,4 @@ public class MuudetudListener {
 		entity.setMuudetud(new Date());
 		entity.setMuutja("Mina");
 	}
-	/*
-	@PrePersist
-	@PreUpdate
-	public void setMuutja(final Updatable entity) {
-		entity.setMuutja("Mina");
-	}/**/
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +27,12 @@ import org.springframework.roo.addon.tostring.RooToString;
 @Entity
 @RooToString
 @RooEntity
+@EntityListeners({
+	LisatudListener.class,
+	MuudetudListener.class
+})
 @Table(name="VOIMALIK_ALLUVUS")
-public class VoimalikAlluvus implements Serializable {
+public class VoimalikAlluvus extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id

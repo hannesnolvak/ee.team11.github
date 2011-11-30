@@ -1,6 +1,5 @@
 package ee.itcollege.team11;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -32,10 +31,10 @@ import org.springframework.roo.addon.tostring.RooToString;
 @EntityListeners({
 	LisatudListener.class,
 	MuudetudListener.class,
-	SuletudListener.class
+//	SuletudListener.class
 })
 @Table(name="RIIGI_ADMIN_YKSUS")
-public class RiigiAdminYksus implements Serializable, Creatable, Updatable, Deletable {
+public class RiigiAdminYksus extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -48,6 +47,8 @@ public class RiigiAdminYksus implements Serializable, Creatable, Updatable, Dele
 	private Date alates;
 
 	private String avaja;
+	
+	private String kommentaar;
 	
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
@@ -222,6 +223,14 @@ public class RiigiAdminYksus implements Serializable, Creatable, Updatable, Dele
 
 	public void setRuumiyksuses(Set<Ruumiyksus> ruumiyksuses) {
 		this.ruumiyksuses = ruumiyksuses;
+	}
+
+	public String getKommentaar() {
+		return kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 	
 }

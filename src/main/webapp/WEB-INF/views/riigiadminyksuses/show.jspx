@@ -13,6 +13,8 @@
         <field:display field="nimetus" id="s_ee_itcollege_team11_RiigiAdminYksus_nimetus" object="${riigiadminyksus}" z="W4TBeR513Ab2zaUk9Jbwvk29E40="/>
         <field:display date="true" dateTimePattern="${riigiAdminYksus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_RiigiAdminYksus_suletud" object="${riigiadminyksus}" z="g4WRs0rIeh+pCaqaDtuk8XRS2Q4="/>
         <field:display field="sulgeja" id="s_ee_itcollege_team11_RiigiAdminYksus_sulgeja" object="${riigiadminyksus}" z="WN1YILUP1g3MPPEz1h3UDLBvb1Q="/>
+        <!-- 
         <field:display field="riigiAdminYksuseLiik" id="s_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" object="${riigiadminyksus}" z="Z6/rAdzFO+53vthuE95egNsqiF8="/>
+         -->
     </page:show>
 </div>

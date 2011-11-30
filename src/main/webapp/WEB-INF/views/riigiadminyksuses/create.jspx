@@ -11,9 +11,13 @@
         <field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksus_nimetus" z="nhPxFtXM7Bq4ZZRbOJj6k2meItc="/>
         <field:simple field="adminAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses1" messageCode="entity_reference_not_managed" messageCodeAttribute="Admin Alluvus" z="wHZXgPKnIsqso+DFTqF9pPoFKv8="/>
         <field:simple field="adminAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses2" messageCode="entity_reference_not_managed" messageCodeAttribute="Admin Alluvus" z="JG3PL9z7597IRpF58qJsi17ViHM="/>
-        <field:select field="riigiAdminYksuseLiik" id="c_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" z="bS1I8tGAQO1VOThKBUWs+zTX+go="/>
+        <field:select field="riigiAdminYksuseLiik" id="c_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" itemValue="riigiAdminYksuseLikId" itemLabel="nimetus" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" />
         <field:simple field="ruumiyksuses" id="c_ee_itcollege_team11_RiigiAdminYksus_ruumiyksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Ruumiyksus" z="IFctvixa+dNA8PlMDubMABruB6s="/>
         <field:simple field="vaeosas" id="c_ee_itcollege_team11_RiigiAdminYksus_vaeosas" messageCode="entity_reference_not_managed" messageCodeAttribute="Vaeosa" z="8B4uiDoc6OW+U+/w+kT9QRwT6WA="/>
+        <field:datetime dateTimePattern="${riigiAdminYksus_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_RiigiAdminYksus_muudetud" z="pZoUvKGBSluJaz5jlayNbyQiRbg="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_RiigiAdminYksus_muutja" z="5ja0hnJFwp8Iv2R4PBAK5kgijxI="/>
+        <field:datetime dateTimePattern="${riigiAdminYksus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_RiigiAdminYksus_suletud" z="k3Z1xbKO/EQtZmwXO2sFvHSrZ6E="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_RiigiAdminYksus_sulgeja" z="697wEO1+52tF0Ghv5W8SJa+qXJI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_RiigiAdminYksus" render="${not empty dependencies}" z="CHh4HzCvqgf4TzBSAGeePj93yz4="/>
 </div>

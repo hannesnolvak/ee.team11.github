@@ -1,11 +1,11 @@
 package ee.itcollege.team11;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +26,13 @@ import org.springframework.roo.addon.tostring.RooToString;
 @Entity
 @RooToString
 @RooEntity
+@EntityListeners({
+	LisatudListener.class,
+	MuudetudListener.class,
+//	SuletudListener.class
+})
 @Table(name="RIIGI_ADMIN_YKSUSE_LIIK")
-public class RiigiAdminYksuseLiik implements Serializable {
+public class RiigiAdminYksuseLiik extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id

@@ -13,14 +13,13 @@
     				<field:input field="kood" id="c_ee_itcollege_team11_RiigiAdminYksus_kood" z="8IOrXyWAoRr2W6BB2HErfwdEaqI="/>
     				<field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksus_nimetus" z="nhPxFtXM7Bq4ZZRbOJj6k2meItc="/>
     				
+    				<field:select field="riigiAdminYksuseLiik" itemLabel="nimetus" label="Liik" id="c_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" />
+    				<field:select field="adminAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses1" itemLabel="riigiAdminYksus2.nimetus" itemValue="AdminAlluvusId" label="Allub" items="${adminalluvuses}" path="/riigiadminyksuse" />
+    				
     				<field:datetime dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" z="urc/i9bKi1jWCc7HlkBWDebendE="/>
     				<field:datetime dateTimePattern="${riigiAdminYksus_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_RiigiAdminYksus_kuni" z="wVj6BEDv9QHgQ3ER+DTyZ3zicYA="/>
     			</td>
-    			<td>/
-    				<c:forEach items="${riigiAdminYksus.adminAlluvuses1}" var="b">
-    					<c:out value="${b}" />
-    				</c:forEach>
-    				/
+    			<td>
     			</td>
     		</tr>
     	</table>
@@ -34,9 +33,9 @@
         
         <field:datetime dateTimePattern="${riigiAdminYksus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_RiigiAdminYksus_suletud" z="k3Z1xbKO/EQtZmwXO2sFvHSrZ6E="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_RiigiAdminYksus_sulgeja" z="697wEO1+52tF0Ghv5W8SJa+qXJI="/>
-        <field:simple field="adminAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses1" messageCode="entity_reference_not_managed" messageCodeAttribute="Admin Alluvus" z="wHZXgPKnIsqso+DFTqF9pPoFKv8="/>
+        
         <field:simple field="adminAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses2" messageCode="entity_reference_not_managed" messageCodeAttribute="Admin Alluvus" z="JG3PL9z7597IRpF58qJsi17ViHM="/>
-        <field:select field="riigiAdminYksuseLiik" id="c_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" z="bS1I8tGAQO1VOThKBUWs+zTX+go="/>
+        
         <field:simple field="ruumiyksuses" id="c_ee_itcollege_team11_RiigiAdminYksus_ruumiyksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Ruumiyksus" z="IFctvixa+dNA8PlMDubMABruB6s="/>
         <field:simple field="vaeosas" id="c_ee_itcollege_team11_RiigiAdminYksus_vaeosas" messageCode="entity_reference_not_managed" messageCodeAttribute="Vaeosa" z="8B4uiDoc6OW+U+/w+kT9QRwT6WA="/>
         

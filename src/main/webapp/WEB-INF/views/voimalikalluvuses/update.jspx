@@ -10,7 +10,7 @@
         <field:input field="muutja" id="c_ee_itcollege_team11_VoimalikAlluvus_muutja" z="wHgG2M/i1JaN4+Gva4vX48rhbn0="/>
         <field:datetime dateTimePattern="${voimalikAlluvus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_VoimalikAlluvus_suletud" z="JX6CUKBJtnFacQFZg1RKXq+wvwA="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_VoimalikAlluvus_sulgeja" z="ZmV7w0Si4W1r9GRnHB5zo9yqpLA="/>
-        <field:select field="riigiAdminYksuseLiik1" id="c_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik1" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" z="YQ7K9B603HqAeVWmweyOwHXMWZk="/>
-        <field:select field="riigiAdminYksuseLiik2" id="c_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik2" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" z="BOybCVaBqX7/aGN1G9OKsaZRWkk="/>
+        <field:select field="riigiAdminYksuseLiik1" id="c_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik1" itemValue="riigiAdminYksuseLikId" itemLabel="nimetus" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" />
+        <field:select field="riigiAdminYksuseLiik2" id="c_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik2" itemValue="riigiAdminYksuseLikId" itemLabel="nimetus" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" />
     </form:update>
 </div>

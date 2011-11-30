@@ -13,9 +13,4 @@ public class LisatudListener {
 		entity.setMuudetud(new Date());
 		entity.setMuutja("Mina");
 	}
-	/*
-	@PrePersist
-	public void setMuutja(final Updatable entity) {
-		entity.setMuutja("Mina");
-	}/**/
 }

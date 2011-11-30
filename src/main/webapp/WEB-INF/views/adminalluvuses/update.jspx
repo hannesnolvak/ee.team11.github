@@ -12,7 +12,7 @@
         <field:input field="muutja" id="c_ee_itcollege_team11_AdminAlluvus_muutja" z="EzaDRvFiqMzMBAc4XIqJVV/h3kI="/>
         <field:datetime dateTimePattern="${adminAlluvus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_AdminAlluvus_suletud" z="GTyTOLxJ5WzyvByxgMrN/Mgcr60="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_AdminAlluvus_sulgeja" z="/dx3FO6lCEd5iilKQw3U/qgfjow="/>
-        <field:select field="riigiAdminYksus1" id="c_ee_itcollege_team11_AdminAlluvus_riigiAdminYksus1" itemValue="riigiAdminYksusId" items="${riigiadminyksuses}" path="/riigiadminyksuses" z="nLWNtFYXDQk62FgYs18fdQR/UU4="/>
-        <field:select field="riigiAdminYksus2" id="c_ee_itcollege_team11_AdminAlluvus_riigiAdminYksus2" itemValue="riigiAdminYksusId" items="${riigiadminyksuses}" path="/riigiadminyksuses" z="JcSqTV0bJ3GQqVQ5OXyPc+BgLYE="/>
+        <field:select field="riigiAdminYksus1" id="c_ee_itcollege_team11_AdminAlluvus_riigiAdminYksus1" itemValue="riigiAdminYksusId" itemLabel="nimetus" items="${riigiadminyksuses}" path="/riigiadminyksuses" />
+        <field:select field="riigiAdminYksus2" id="c_ee_itcollege_team11_AdminAlluvus_riigiAdminYksus2" itemValue="riigiAdminYksusId" itemLabel="nimetus" items="${riigiadminyksuses}" path="/riigiadminyksuses" />
     </form:update>
 </div>

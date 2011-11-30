@@ -11,9 +11,4 @@ public class SuletudListener {
 		entity.setSuletud(new Date());
 		entity.setSulgeja("Mina");
 	}
-	/*
-	@PreRemove
-	public void setSulgeja(final Deletable entity) {
-		entity.setSulgeja("Mina");
-	}/**/
 }

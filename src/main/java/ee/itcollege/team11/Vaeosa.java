@@ -1,7 +1,10 @@
 package ee.itcollege.team11;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -65,6 +68,9 @@ public class Vaeosa implements Serializable {
 
 	private String sulgeja;
 
+	private String kommentaar;
+
+	
 	//bi-directional many-to-one association to RiigiAdminYksus
     @ManyToOne
 	@JoinColumn(name="RIIGI_ADMIN_YKSUS_ID")
@@ -98,10 +104,34 @@ public class Vaeosa implements Serializable {
 	@OneToMany(mappedBy="vaeosa")
 	private Set<Vahtkond> vahtkonds;
 
+	
+	
+	
+	
     public Vaeosa() {
     }
 
-	public Long getVaeosaIdId() {
+	
+
+	
+	public static List<Vaeosa> findAlluvadVaeosadByVaeosa(Long vaeosaIdId) {
+		Vaeosa vaeosa = Vaeosa.findVaeosa(vaeosaIdId);
+		List<Vaeosa> alluvadVaeosad = new ArrayList<Vaeosa>(); 
+		
+		for (VaeosaAlluvus va : VaeosaAlluvus.findAllVaeosaAlluvuses())
+		{
+			if (va.getVaeosa1() == vaeosa)
+			{
+				alluvadVaeosad.add(va.getVaeosa2());
+			}
+			
+		}
+		return alluvadVaeosad;
+    }
+	
+	
+    
+    public Long getVaeosaIdId() {
 		return this.vaeosaIdId;
 	}
 
@@ -234,7 +264,30 @@ public class Vaeosa implements Serializable {
 	}
 
 	public void setVaeosaAlluvuses1(Set<VaeosaAlluvus> vaeosaAlluvuses1) {
-		this.vaeosaAlluvuses1 = vaeosaAlluvuses1;
+		
+		if (vaeosaAlluvuses1 == null)
+		{
+			this.vaeosaAlluvuses1 = new HashSet<VaeosaAlluvus>();
+		} else
+		{
+			this.vaeosaAlluvuses1 = vaeosaAlluvuses1;
+		}
+
+		System.out.println("Salvestatakse v2eosa: " + this.getNimetus());
+		
+		for (VaeosaAlluvus va : this.vaeosaAlluvuses1) {
+	
+			va.getVaeosa1();
+			System.out.println("this.alluvses1 l2bi k2imine v2eosa1: " + va.getVaeosa1().getNimetus());
+			System.out.println("this.alluvses1 l2bi k2imine v2eosa2: " + va.getVaeosa2().getNimetus());
+			
+			if (va.getVaeosa1() != this)
+			{
+				System.out.println("v2eosa2 ei olnud this - ta seatakse selleks");
+
+				va.setVaeosa1(this);
+			}
+		}	
 	}
 	
 	public Set<VaeosaAlluvus> getVaeosaAlluvuses2() {
@@ -242,7 +295,21 @@ public class Vaeosa implements Serializable {
 	}
 
 	public void setVaeosaAlluvuses2(Set<VaeosaAlluvus> vaeosaAlluvuses2) {
-		this.vaeosaAlluvuses2 = vaeosaAlluvuses2;
+		if (vaeosaAlluvuses2 == null)
+		{
+			this.vaeosaAlluvuses2 = new HashSet<VaeosaAlluvus>();
+		} else
+		{
+			this.vaeosaAlluvuses2 = vaeosaAlluvuses2;
+		}
+/*
+		for (VaeosaAlluvus v : this.vaeosaAlluvuses2) {
+			if (v.getVaeosa2() != this)
+			{
+				v.setVaeosa2(this);
+			}
+		}	
+*/		
 	}
 	
 	public Set<Vahtkond> getVahtkonds() {
@@ -251,6 +318,20 @@ public class Vaeosa implements Serializable {
 
 	public void setVahtkonds(Set<Vahtkond> vahtkonds) {
 		this.vahtkonds = vahtkonds;
+	}
+
+
+
+
+	public String getKommentaar() {
+		return kommentaar;
+	}
+
+
+
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 	
 }

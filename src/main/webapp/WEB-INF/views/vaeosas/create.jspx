@@ -3,24 +3,46 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ee_itcollege_team11_Vaeosa" modelAttribute="vaeosa" path="/vaeosas" render="${empty dependencies}" z="jLbU474eeANRojqpk3r42oVP1rI=">
-        <field:datetime dateTimePattern="${vaeosa_alates_date_format}" field="alates" id="c_ee_itcollege_team11_Vaeosa_alates" z="l2AFEhzj2PEn9dxZW9xffrfa74E="/>
-        <field:input field="avaja" id="c_ee_itcollege_team11_Vaeosa_avaja" z="k/NTKFUrwbLJuEfi/PcbWbRUMFo="/>
-        <field:datetime dateTimePattern="${vaeosa_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_Vaeosa_avatud" z="DdPabVnahV3vbft+fh9+OLzK4Eo="/>
-        <field:input field="kood" id="c_ee_itcollege_team11_Vaeosa_kood" z="Fra+XkkzfjDQZma7SyyhwrQFkig="/>
-        <field:datetime dateTimePattern="${vaeosa_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_Vaeosa_kuni" z="k0+LFCyPLv3GyCJuhA65NJn7Zg0="/>
-        <field:datetime dateTimePattern="${vaeosa_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_Vaeosa_muudetud" z="7JUh0hZ2BlyFauVyBM5tv9ScN+M="/>
-        <field:input field="muutja" id="c_ee_itcollege_team11_Vaeosa_muutja" z="B0ubMryuLn1+MAQiRimM04MoR+I="/>
+   <field:input field="kood" id="c_ee_itcollege_team11_Vaeosa_kood" z="Fra+XkkzfjDQZma7SyyhwrQFkig="/>
         <field:input field="nimetus" id="c_ee_itcollege_team11_Vaeosa_nimetus" z="w9iQAPZiPjUhhnjztx4xPU6UGyk="/>
-        <field:datetime dateTimePattern="${vaeosa_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Vaeosa_suletud" z="xF1WuHzZyA9KmNABXKXxWU6zsmk="/>
-        <field:input field="sulgeja" id="c_ee_itcollege_team11_Vaeosa_sulgeja" z="cV/g1exKxE3FHjrtbEu0u7v5xZY="/>
-        <field:select field="riigiAdminYksus" id="c_ee_itcollege_team11_Vaeosa_riigiAdminYksus" itemValue="riigiAdminYksusId" items="${riigiadminyksuses}" path="/riigiadminyksuses" z="T3QwydmcvSigQwzGREK1VKIaSsU="/>
-        <field:simple field="ametVaeosas" id="c_ee_itcollege_team11_Vaeosa_ametVaeosas" messageCode="entity_reference_not_managed" messageCodeAttribute="Amet Vaeosa" z="7rektRUczW9PDiozjMVTVmV+Vvc="/>
-        <field:simple field="orgYksuses" id="c_ee_itcollege_team11_Vaeosa_orgYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Org Yksus" z="kM6yC76VTmc8THsUGkLat0GEvgo="/>
-        <field:simple field="piiriloiguHaldajas" id="c_ee_itcollege_team11_Vaeosa_piiriloiguHaldajas" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiriloigu Haldaja" z="RL3fb7rIOK4LWv/4qREmVd2rphI="/>
-        <field:simple field="piiripunktiAlluvuses" id="c_ee_itcollege_team11_Vaeosa_piiripunktiAlluvuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiripunkti Alluvus" z="+T9SgTxpqGqrGwgZWbOhS3N3ecw="/>
-        <field:simple field="vaeosaAlluvuses1" id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses1" messageCode="entity_reference_not_managed" messageCodeAttribute="Vaeosa Alluvus" z="/FqDEMWqQ5RkU00G1G1HPk2wAd4="/>
-        <field:simple field="vaeosaAlluvuses2" id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses2" messageCode="entity_reference_not_managed" messageCodeAttribute="Vaeosa Alluvus" z="oAtFnzjwNvzu7Xk9HL6rPHWylS0="/>
-        <field:simple field="vahtkonds" id="c_ee_itcollege_team11_Vaeosa_vahtkonds" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkond" z="qYGGUq1OvfnNhntXVl/7ppUNhuE="/>
-    </form:create>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_Vaeosa_kommentaar" z="ujesOQaf7R2UE74nls44p6JTG3U="/>
+        <field:select field="riigiAdminYksus" id="c_ee_itcollege_team11_Vaeosa_riigiAdminYksus" itemLabel="nimetus" itemValue="riigiAdminYksusId" items="${riigiadminyksuses}" label="Paikneb" path="/riigiadminyksuses" z="user-managed"/>
+        <!-- 
+        <field:select field="vaeosaAlluvuses1" id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses1" itemLabel="nimetus" itemValue="vaeosaIdId" items="${vaeosas}" label="Allub" path="/vaeosas"/>
+         -->
+        
+        <field:select field="vaeosaAlluvuses1" 
+                      id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses1" 
+                      itemLabel="vaeosa1.nimetus" 
+                      itemValue="vaeosaAlluvusId" 
+                      items="${vaeosaalluvuses}" 
+                      label="Allub" 
+                      path="/vaeosaalluvuses"/>
+        
+        <field:datetime dateTimePattern="${vaeosa_alates_date_format}" field="alates" id="c_ee_itcollege_team11_Vaeosa_alates" z="l2AFEhzj2PEn9dxZW9xffrfa74E="/>
+        <field:datetime dateTimePattern="${vaeosa_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_Vaeosa_kuni" z="k0+LFCyPLv3GyCJuhA65NJn7Zg0="/>
+        <table>
+            <tr>
+                <th>
+        			Alluvad
+        		</th>
+                <th/>
+            </tr>
+            <c:forEach items="${alluvadVaeosad}" var="av">
+                <tr>
+                    <td>
+        				${av.nimetus}
+        			</td>
+                    <td>
+                        <input id="eemalda" name="eemaldaNupp" type="submit" value="Eemalda"/>
+                    </td>
+                </tr>
+            </c:forEach>
+            <tr>
+                <td>...</td>
+                <td/>
+            </tr>
+        </table>       <!-- siia j2rele teeb roo paska -->
+        </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_Vaeosa" render="${not empty dependencies}" z="VwQmO+6gnRYGTR7pFii94010sjw="/>
 </div>

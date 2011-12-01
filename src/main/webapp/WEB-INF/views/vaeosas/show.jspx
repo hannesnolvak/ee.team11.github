@@ -13,6 +13,6 @@
         <field:display field="nimetus" id="s_ee_itcollege_team11_Vaeosa_nimetus" object="${vaeosa}" z="2dfDNVRwpSCYnzkuPAk+aqW0G1M="/>
         <field:display date="true" dateTimePattern="${vaeosa_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Vaeosa_suletud" object="${vaeosa}" z="0shX2AcQuOr7oYu/hHPUPbc4pTM="/>
         <field:display field="sulgeja" id="s_ee_itcollege_team11_Vaeosa_sulgeja" object="${vaeosa}" z="kg9d0QbYG4A15xvBv395PxeZe7w="/>
-        <field:display field="riigiAdminYksus" id="s_ee_itcollege_team11_Vaeosa_riigiAdminYksus" object="${vaeosa}" z="WaT9KGJkpxvTaLwMj4tclRcD0y0="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_Vaeosa_kommentaar" object="${vaeosa}" z="p3N+f80xOGO77xQFPlggiEle/XY="/>
     </page:show>
 </div>

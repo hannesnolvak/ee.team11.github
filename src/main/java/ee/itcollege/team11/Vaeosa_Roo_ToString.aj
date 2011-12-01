@@ -13,6 +13,7 @@ privileged aspect Vaeosa_Roo_ToString {
         sb.append("AmetVaeosas: ").append(getAmetVaeosas() == null ? "null" : getAmetVaeosas().size()).append(", ");
         sb.append("Avaja: ").append(getAvaja()).append(", ");
         sb.append("Avatud: ").append(getAvatud()).append(", ");
+        sb.append("Kommentaar: ").append(getKommentaar()).append(", ");
         sb.append("Kood: ").append(getKood()).append(", ");
         sb.append("Kuni: ").append(getKuni()).append(", ");
         sb.append("Muudetud: ").append(getMuudetud()).append(", ");

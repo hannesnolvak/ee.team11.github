@@ -12,8 +12,11 @@
     			<td>
     				<field:input field="kood" id="c_ee_itcollege_team11_RiigiAdminYksus_kood" z="8IOrXyWAoRr2W6BB2HErfwdEaqI="/>
     				<field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksus_nimetus" z="nhPxFtXM7Bq4ZZRbOJj6k2meItc="/>
-    				
+    				<field:textarea field="kommentaar" id="c_ee_itcollege_team11_RiigiAdminYksus_kommentaar" />
+    				<!-- 
     				<field:select field="riigiAdminYksuseLiik" itemLabel="nimetus" label="Liik" id="c_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" />
+    				 -->
+    				<field:simple field="riigiAdminYksuseLiik" label="Liik" id="c_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" text="nimetus" />
     				<field:select field="adminAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses1" itemLabel="riigiAdminYksus2.nimetus" itemValue="AdminAlluvusId" label="Allub" items="${adminalluvuses}" path="/riigiadminyksuse" />
     				
     				<field:datetime dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" z="urc/i9bKi1jWCc7HlkBWDebendE="/>
@@ -27,10 +30,10 @@
         <field:input field="avaja" id="c_ee_itcollege_team11_RiigiAdminYksus_avaja" z="16iQavaEWq1JFXu3YhzsyAD1Lu0="/>
         <field:datetime dateTimePattern="${riigiAdminYksus_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_RiigiAdminYksus_avatud" z="X8Aw/aIF5S+jh6D6+6BY6ntUYFE="/>
         
-        
+        <!-- 
         <field:datetime dateTimePattern="${riigiAdminYksus_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_RiigiAdminYksus_muudetud" z="pZoUvKGBSluJaz5jlayNbyQiRbg="/>
         <field:input field="muutja" id="c_ee_itcollege_team11_RiigiAdminYksus_muutja" z="5ja0hnJFwp8Iv2R4PBAK5kgijxI="/>
-        
+         -->
         <field:datetime dateTimePattern="${riigiAdminYksus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_RiigiAdminYksus_suletud" z="k3Z1xbKO/EQtZmwXO2sFvHSrZ6E="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_RiigiAdminYksus_sulgeja" z="697wEO1+52tF0Ghv5W8SJa+qXJI="/>
         

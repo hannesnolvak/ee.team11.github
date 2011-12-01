@@ -8,8 +8,6 @@
         <field:datetime dateTimePattern="${riigiAdminYksuseLiik_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_avatud" z="gnK6bxibG1Znwg26AybgoPgL7bE="/>
         <field:input field="kood" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kood" z="BTXaI4zerCMf6UjdYUmmvCfiZak="/>
         <field:datetime dateTimePattern="${riigiAdminYksuseLiik_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kuni" z="jbNfA9Tdv3bKFOd9mGch9fivYkU="/>
-        <field:datetime dateTimePattern="${riigiAdminYksuseLiik_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_muudetud" z="8H+PCNG9MEI8Db0iDWgATw8PYx4="/>
-        <field:input field="muutja" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_muutja" z="3+ZcXEtPrOcPRBsEhohC7wErP+E="/>
         <field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_nimetus" z="fj/M4UtjQo3uR/vXxKD+4Cce/BE="/>
         <field:datetime dateTimePattern="${riigiAdminYksuseLiik_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_suletud" z="gwy96i8NN2lf/bEYsdCiuNpK20E="/>
         <field:input field="sulgeja" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_sulgeja" z="znJhYMz8MfkxObu6kmpMeB4HjpA="/>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Intsident" object="${intsident}" path="/intsidents" z="mP89XT5yHxOFTeGfEBR5rE3QKhg=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_Intsident_avaja" object="${intsident}" z="ftJcsHhogQE+2gOaPkFxzw+i7jE="/>
+        <field:display date="true" dateTimePattern="${intsident_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Intsident_avatud" object="${intsident}" z="BX7CbbwqiXC3EsY+4XZcLyCQyOU="/>
+        <field:display field="gpsLatituud" id="s_ee_itcollege_team11_Intsident_gpsLatituud" object="${intsident}" z="RseL8jogduGzcVgtlX9V7bu7bCE="/>
+        <field:display field="gpsLongituud" id="s_ee_itcollege_team11_Intsident_gpsLongituud" object="${intsident}" z="TRBnLR2lQ3VllEDSeQh0FwbU0AM="/>
+        <field:display field="kirjeldus" id="s_ee_itcollege_team11_Intsident_kirjeldus" object="${intsident}" z="Ey9hZVc4T8X+bhvc31X8yxgDZjQ="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_Intsident_kommentaar" object="${intsident}" z="fbJ2eSKW1EefzkEneILa+n43kTE="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_Intsident_kood" object="${intsident}" z="hJVffUtqlEIFKbxwb8x4mJR6jdk="/>
+        <field:display date="true" dateTimePattern="${intsident_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Intsident_muudetud" object="${intsident}" z="GKX8/THr3KPJHK0RCqNGG/C9+dg="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Intsident_muutja" object="${intsident}" z="BqbwlIfHumWVsZ9KRnsA3qajhrE="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_Intsident_nimetus" object="${intsident}" z="zEqHhsmTXi54zZhLGwqInTcQcgs="/>
+        <field:display date="true" dateTimePattern="${intsident_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Intsident_suletud" object="${intsident}" z="h8RYQ1C7HPP0OacDlKN5zu40+8w="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Intsident_sulgeja" object="${intsident}" z="KvGOAQt2G/+/O8FUsxII3xGsbZI="/>
+        <field:display date="true" dateTimePattern="${intsident_toimumisealgus_date_format}" field="toimumiseAlgus" id="s_ee_itcollege_team11_Intsident_toimumiseAlgus" object="${intsident}" z="3pqa9TyM1Ehu0ose7zHhsaDdvPc="/>
+        <field:display date="true" dateTimePattern="${intsident_toimumiselopp_date_format}" field="toimumiseLopp" id="s_ee_itcollege_team11_Intsident_toimumiseLopp" object="${intsident}" z="PkSFt2eIMIBYcTmfKxByx4KkB/A="/>
+        <field:display field="intsidendiLiik" id="s_ee_itcollege_team11_Intsident_intsidendiLiik" object="${intsident}" z="3V3iBlhWp7h8qkECmxArr24F494="/>
+        <field:display field="piiriloik" id="s_ee_itcollege_team11_Intsident_piiriloik" object="${intsident}" z="bv14FE0tMntP4eJ0xtUMWHlBuDU="/>
+    </page:show>
+</div>

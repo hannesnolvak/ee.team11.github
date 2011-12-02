@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_KontaktiLiik" object="${kontaktiliik}" path="/kontaktiliiks" z="tHdaBC2L0WqKitsVJYWbZAxb+7A=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_KontaktiLiik_avaja" object="${kontaktiliik}" z="Nub4Bfybz7fKlLoIerSxWCCWLlc="/>
+        <field:display date="true" dateTimePattern="${kontaktiLiik_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_KontaktiLiik_avatud" object="${kontaktiliik}" z="UXyMnxyOJK6BO/5XfTsZkUYpUFk="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_KontaktiLiik_kommentaar" object="${kontaktiliik}" z="1jf8vFq0I4b2Knsp5d3vJ+7fzQQ="/>
+        <field:display date="true" dateTimePattern="${kontaktiLiik_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_KontaktiLiik_muudetud" object="${kontaktiliik}" z="qmcZYlXwgRm8Z40PlikvBFjTb4E="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_KontaktiLiik_muutja" object="${kontaktiliik}" z="txZokALQrlGirjzdtKOv7VArCpU="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_KontaktiLiik_nimetus" object="${kontaktiliik}" z="nQtlkk3xvQJh+PPrfKMfk+2zgXw="/>
+        <field:display date="true" dateTimePattern="${kontaktiLiik_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_KontaktiLiik_suletud" object="${kontaktiliik}" z="wrozVpHuYVqlgDzla0eoRbdnWvc="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_KontaktiLiik_sulgeja" object="${kontaktiliik}" z="4eOCbhhMePDLKryx6+CfThMrYCg="/>
+        <field:display field="xmlKirjeldus" id="s_ee_itcollege_team11_KontaktiLiik_xmlKirjeldus" object="${kontaktiliik}" z="YxIVXVnNpAvIs3yd+he17JFqKCY="/>
+    </page:show>
+</div>

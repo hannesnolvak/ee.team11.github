@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_IsikuSeadusIntsidendi" object="${isikuseadusintsidendi}" path="/isikuseadusintsidendis" z="ZAxXqkxXvY3tpEC+lADBSl3Wf5Q=">
+        <field:display date="true" dateTimePattern="${isikuSeadusIntsidendi_alates_date_format}" field="alates" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_alates" object="${isikuseadusintsidendi}" z="cqX22xMQQQRL2jaIGYmEabFyT+E="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_avaja" object="${isikuseadusintsidendi}" z="A3ZiovDycwMykvCIlTXvM9Hc4MY="/>
+        <field:display date="true" dateTimePattern="${isikuSeadusIntsidendi_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_avatud" object="${isikuseadusintsidendi}" z="NHCybYu+mbXUm983aXKP2M2HRGU="/>
+        <field:display field="kirjeldus" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_kirjeldus" object="${isikuseadusintsidendi}" z="4/Siw2x+8lKRXKPDTvOGS8y/4MA="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_kommentaar" object="${isikuseadusintsidendi}" z="YMea3NhR64ignlBNoTIAE/iLZEE="/>
+        <field:display date="true" dateTimePattern="${isikuSeadusIntsidendi_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_kuni" object="${isikuseadusintsidendi}" z="1ZnP57UqSjDM/exCMAl5xLe7Ssw="/>
+        <field:display date="true" dateTimePattern="${isikuSeadusIntsidendi_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_muudetud" object="${isikuseadusintsidendi}" z="5SIRAaJvrpDy09JU2uj4wZidSPg="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_muutja" object="${isikuseadusintsidendi}" z="KqTc5zU/g9JPnpW7fSJG2OrFo4Q="/>
+        <field:display date="true" dateTimePattern="${isikuSeadusIntsidendi_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_suletud" object="${isikuseadusintsidendi}" z="Hxt7EqCyrZMbMiAM27fLwruxZag="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_sulgeja" object="${isikuseadusintsidendi}" z="LLZ2izRMMwcot5OENen6DG+Vvhw="/>
+        <field:display field="isikIntsidendi" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_isikIntsidendi" object="${isikuseadusintsidendi}" z="bJ2PPzJyG7w4a14hQehI5bgnvJA="/>
+        <field:display field="seadusePunkt" id="s_ee_itcollege_team11_IsikuSeadusIntsidendi_seadusePunkt" object="${isikuseadusintsidendi}" z="kUncWRfghEP8Qvz4O4bN1sABIqg="/>
+    </page:show>
+</div>

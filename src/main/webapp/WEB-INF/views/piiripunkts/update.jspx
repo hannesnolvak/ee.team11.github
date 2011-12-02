@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_Piiripunkt" idField="piiripunktId" modelAttribute="piiripunkt" path="/piiripunkts" versionField="Version" z="k+jGiBd6Rqq5NL1YWdmgAp7JIZc=">
+        <field:datetime dateTimePattern="${piiripunkt_alates_date_format}" field="alates" id="c_ee_itcollege_team11_Piiripunkt_alates" z="2wfrdXm/NICiZLIUeAmL1Qa9vts="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_Piiripunkt_avaja" z="EC8Cc8KkrHvR9KVziGroJoaA9ng="/>
+        <field:datetime dateTimePattern="${piiripunkt_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_Piiripunkt_avatud" z="9HnwYVEaIFiRHaBEJIZU0m/kF2U="/>
+        <field:input field="gpsLatitude" id="c_ee_itcollege_team11_Piiripunkt_gpsLatitude" validationMessageCode="field_invalid_number" z="w1le0sug25Ikso+q/qO7Rc4nhcg="/>
+        <field:input field="gpsLongituide" id="c_ee_itcollege_team11_Piiripunkt_gpsLongituide" validationMessageCode="field_invalid_number" z="etkTEVIx0Zk+z0maJ3qd0hC4V0w="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_Piiripunkt_kommentaar" z="kkaqi9mWGhjvAFzfiO3c7bH6IDA="/>
+        <field:input field="kood" id="c_ee_itcollege_team11_Piiripunkt_kood" z="gtcfBEfqc+DcdH0qjOABA/JzTQU="/>
+        <field:input field="korgusMerepinnast" id="c_ee_itcollege_team11_Piiripunkt_korgusMerepinnast" validationMessageCode="field_invalid_number" z="FXxFZfOcUH7oI3H4DZ1idDUG0UI="/>
+        <field:datetime dateTimePattern="${piiripunkt_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_Piiripunkt_kuni" z="Qf2CVkRuJViz5fwplmKC2iqxdps="/>
+        <field:datetime dateTimePattern="${piiripunkt_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_Piiripunkt_muudetud" z="b2MnPm7un0+7YZGXEJw7Nm2ME9A="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_Piiripunkt_muutja" z="8iQEmayyRCC0bZIN7W7f8OqFbJI="/>
+        <field:input field="nimetus" id="c_ee_itcollege_team11_Piiripunkt_nimetus" z="xpTX5ccBgR2P3/SuQnzhQzqVX+o="/>
+        <field:datetime dateTimePattern="${piiripunkt_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Piiripunkt_suletud" z="jiK25eLvdz5dwGFJpl98BwJlJJs="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_Piiripunkt_sulgeja" z="zzvQJ3jZcRiTrW830YmaX+cfJag="/>
+        <field:simple field="ametPiiripunktis" id="c_ee_itcollege_team11_Piiripunkt_ametPiiripunktis" messageCode="entity_reference_not_managed" messageCodeAttribute="Amet Piiripunkti" z="fNfzl9VuTqltJvXNICtNs28HMSM="/>
+        <field:simple field="piiripunktiAlluvuses" id="c_ee_itcollege_team11_Piiripunkt_piiripunktiAlluvuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiripunkti Alluvus" z="lwVr+oQJggutxe9dw7KcSaTb8M4="/>
+        <field:simple field="piiripunktiOrgYksuses" id="c_ee_itcollege_team11_Piiripunkt_piiripunktiOrgYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiripunkti Org Yksus" z="EOxwcXUHXYDmN1Q1Ykro3ZrScIg="/>
+        <field:simple field="piiriloiguHaldajas" id="c_ee_itcollege_team11_Piiripunkt_piiriloiguHaldajas" messageCode="entity_reference_not_managed" messageCodeAttribute="Piiriloigu Haldaja" z="atHMOO+SAry3bkcwt14zuqLFXqM="/>
+        <field:simple field="vahtkonds" id="c_ee_itcollege_team11_Piiripunkt_vahtkonds" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkond" z="frAzqVN2R6cLGoI/8xMyaSrM/A8="/>
+    </form:update>
+</div>

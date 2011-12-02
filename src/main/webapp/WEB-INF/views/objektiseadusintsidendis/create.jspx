@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_ObjektiSeadusIntsidendi" modelAttribute="objektiSeadusIntsidendi" path="/objektiseadusintsidendis" render="${empty dependencies}" z="Hi33AyqR+C04MeNtcJwd83M6kpw=">
+        <field:datetime dateTimePattern="${objektiSeadusIntsidendi_alates_date_format}" field="alates" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_alates" z="3rfm6U7u0LqgEqn4sOEuRrjrTFY="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_avaja" z="V4+8dias4pIEV4X9qRspTeEZ134="/>
+        <field:datetime dateTimePattern="${objektiSeadusIntsidendi_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_avatud" z="IKqREj04g5UUcZ5UU4WXrBrv8t4="/>
+        <field:input field="kirjeldus" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_kirjeldus" z="rFeKFW0ECw6uCEsFc2QJ+WhhuM4="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_kommentaar" z="olDG3bVlierHC5rct/aIKvNKB+w="/>
+        <field:datetime dateTimePattern="${objektiSeadusIntsidendi_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_kuni" z="wRhirwxA4P9/pBSWJaHKb46ZF/4="/>
+        <field:datetime dateTimePattern="${objektiSeadusIntsidendi_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_muudetud" z="Av6SWO2Th6mndNCbEgnIUX7DqtA="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_muutja" z="owx0KqodaiOiAPXgkuOMy5NS7NE="/>
+        <field:datetime dateTimePattern="${objektiSeadusIntsidendi_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_suletud" z="4NFuzfOmO3IppjljvASWolQm1gY="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_sulgeja" z="v7rGecrUrYGv4K88iUuDwr41DRE="/>
+        <field:select field="objektIntsidendi" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_objektIntsidendi" itemValue="objektIntsidendisId" items="${objektintsidendis}" path="/objektintsidendis" z="mskJMJEx07SC7tQjtgR6wuAocas="/>
+        <field:select field="seadusePunkt" id="c_ee_itcollege_team11_ObjektiSeadusIntsidendi_seadusePunkt" itemValue="seadusePunktId" items="${seadusepunkts}" path="/seadusepunkts" z="ReOX3KQ8tYhJOcJ2kTKynd91G84="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_ObjektiSeadusIntsidendi" render="${not empty dependencies}" z="Ry52ZXUwekNx3T0hjDarT3iKKpM="/>
+</div>

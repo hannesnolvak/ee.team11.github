@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_SeadusePunkt" object="${seadusepunkt}" path="/seadusepunkts" z="ulILurx+Ly8XdPWE3UwB47Ny5LQ=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_SeadusePunkt_avaja" object="${seadusepunkt}" z="wTuLraqm0KiFA2uWacVbB1sVCiY="/>
+        <field:display date="true" dateTimePattern="${seadusePunkt_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_SeadusePunkt_avatud" object="${seadusepunkt}" z="3dLXT7rfxKGsWDFRF3LPAoLWQyI="/>
+        <field:display field="kehtivAlates" id="s_ee_itcollege_team11_SeadusePunkt_kehtivAlates" object="${seadusepunkt}" z="+IqODW/PtMntNqSt6ZnQ8lhE6fc="/>
+        <field:display field="kehtivKuni" id="s_ee_itcollege_team11_SeadusePunkt_kehtivKuni" object="${seadusepunkt}" z="hs9fYSZigrLL23q5HCs/yPIThfk="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_SeadusePunkt_kommentaar" object="${seadusepunkt}" z="153ZiulmG6O2e0hBgrBk3UpjPns="/>
+        <field:display date="true" dateTimePattern="${seadusePunkt_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_SeadusePunkt_muudetud" object="${seadusepunkt}" z="kSClBeKoICYIt8jyZeaPbMEDnlQ="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_SeadusePunkt_muutja" object="${seadusepunkt}" z="Gb2saDwTT4Dgl62qM3ZKdinQioo="/>
+        <field:display field="pais" id="s_ee_itcollege_team11_SeadusePunkt_pais" object="${seadusepunkt}" z="FhWR6yitF7ziK/SoSS03409IhPk="/>
+        <field:display field="paragrahv" id="s_ee_itcollege_team11_SeadusePunkt_paragrahv" object="${seadusepunkt}" z="3UcZ6Ze3igdCLIGdt1GHZG+fr74="/>
+        <field:display date="true" dateTimePattern="${seadusePunkt_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_SeadusePunkt_suletud" object="${seadusepunkt}" z="Qm62qZnNU+dq/yoKjd/nXhEV3t0="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_SeadusePunkt_sulgeja" object="${seadusepunkt}" z="wvDt+wfhC7Zf1QHEpgmXshar8I0="/>
+        <field:display field="tekst" id="s_ee_itcollege_team11_SeadusePunkt_tekst" object="${seadusepunkt}" z="RdiY5WSuza2uJlJfpUmPOiOPBAk="/>
+        <field:display field="seadus" id="s_ee_itcollege_team11_SeadusePunkt_seadus" object="${seadusepunkt}" z="bKWwc3vvcW5qY6wDY1vOZGomStw="/>
+        <field:display field="seadusePunkt" id="s_ee_itcollege_team11_SeadusePunkt_seadusePunkt" object="${seadusepunkt}" z="92RbXFVZVHAZRwJ+hFfB87wD50Y="/>
+    </page:show>
+</div>

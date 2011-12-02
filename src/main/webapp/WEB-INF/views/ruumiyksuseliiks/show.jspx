@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_RuumiyksuseLiik" object="${ruumiyksuseliik}" path="/ruumiyksuseliiks" z="lIFCYRs8AymN44icwZ+DFc52DGY=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_RuumiyksuseLiik_avaja" object="${ruumiyksuseliik}" z="58IxctiRyoF4s+0vsVIX/eKUYNE="/>
+        <field:display date="true" dateTimePattern="${ruumiyksuseLiik_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_RuumiyksuseLiik_avatud" object="${ruumiyksuseliik}" z="QCMBK2DsFT4WguHMj7WYATfB2us="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_RuumiyksuseLiik_kommentaar" object="${ruumiyksuseliik}" z="/vjqRS023PvbKmuDqH/95vIdJIs="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_RuumiyksuseLiik_kood" object="${ruumiyksuseliik}" z="MA/e1XqUI0NgQCtqnbdz1z4B+rg="/>
+        <field:display date="true" dateTimePattern="${ruumiyksuseLiik_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_RuumiyksuseLiik_muudetud" object="${ruumiyksuseliik}" z="gGS1rjkNfJud/FzoUF0HuOEqMVk="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_RuumiyksuseLiik_muutja" object="${ruumiyksuseliik}" z="r+HkoIM2j6b2ya7er80+DkM53/E="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_RuumiyksuseLiik_nimetus" object="${ruumiyksuseliik}" z="f/4XNDVHumUTR2a0tZHijXOhBC4="/>
+        <field:display date="true" dateTimePattern="${ruumiyksuseLiik_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_RuumiyksuseLiik_suletud" object="${ruumiyksuseliik}" z="OtpnFTYWQ2RtFkWkM19P+0OyZ4U="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_RuumiyksuseLiik_sulgeja" object="${ruumiyksuseliik}" z="4ESOJYLlr4+nwuSw5eCUOB8eyCY="/>
+    </page:show>
+</div>

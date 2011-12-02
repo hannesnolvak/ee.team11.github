@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Vaeosa" object="${vaeosa}" path="/vaeosas" z="4ql34KcsRk1yobFIBj6BBjN3v3Q=">
+        <field:display date="true" dateTimePattern="${vaeosa_alates_date_format}" field="alates" id="s_ee_itcollege_team11_Vaeosa_alates" object="${vaeosa}" z="d/coL3ixp8QdQ2cZoLVh/a/lmfA="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_Vaeosa_avaja" object="${vaeosa}" z="EV4ycjbAMD1uY2yb8CUmZxgn7KU="/>
+        <field:display date="true" dateTimePattern="${vaeosa_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Vaeosa_avatud" object="${vaeosa}" z="uztlYtR24+Qj0b8RHkWW0aUK+kI="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_Vaeosa_kood" object="${vaeosa}" z="7291mzDRxu5rrxAW/L/AsYEgu78="/>
+        <field:display date="true" dateTimePattern="${vaeosa_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_Vaeosa_kuni" object="${vaeosa}" z="fUpT+k8P88uvmimFJ+0k5tvLskI="/>
+        <field:display date="true" dateTimePattern="${vaeosa_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Vaeosa_muudetud" object="${vaeosa}" z="AwjlUAtlJyWkl3eP3G/ZoBL9uuw="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Vaeosa_muutja" object="${vaeosa}" z="+hcJMi0Mql2TubgVvj6ku2UA9kg="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_Vaeosa_nimetus" object="${vaeosa}" z="2dfDNVRwpSCYnzkuPAk+aqW0G1M="/>
+        <field:display date="true" dateTimePattern="${vaeosa_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Vaeosa_suletud" object="${vaeosa}" z="0shX2AcQuOr7oYu/hHPUPbc4pTM="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Vaeosa_sulgeja" object="${vaeosa}" z="kg9d0QbYG4A15xvBv395PxeZe7w="/>
+        <field:display field="riigiAdminYksus" id="s_ee_itcollege_team11_Vaeosa_riigiAdminYksus" object="${vaeosa}" z="WaT9KGJkpxvTaLwMj4tclRcD0y0="/>
+    </page:show>
+</div>

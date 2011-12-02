@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_ObjektiLiik" object="${objektiliik}" path="/objektiliiks" z="MGTMPWIW43V2kTIG7hqpK2oVRCw=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_ObjektiLiik_avaja" object="${objektiliik}" z="80ERm5vDeQSXhDV09hJU7n2PCCY="/>
+        <field:display date="true" dateTimePattern="${objektiLiik_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_ObjektiLiik_avatud" object="${objektiliik}" z="EFac+JDuaSEtJBcwhdebLB64HpQ="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_ObjektiLiik_kommentaar" object="${objektiliik}" z="0FSo1oIg9DJqRQN8ZmQZbUPEuF8="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_ObjektiLiik_kood" object="${objektiliik}" z="SUhHsrJF7JKikVJDXy5hH1dBRW0="/>
+        <field:display date="true" dateTimePattern="${objektiLiik_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_ObjektiLiik_muudetud" object="${objektiliik}" z="n6dIwORmjaDXexENwqndDOGYwjU="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_ObjektiLiik_muutja" object="${objektiliik}" z="aVMIa7hXUOMecLcLbo5kqi5fsW8="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_ObjektiLiik_nimetus" object="${objektiliik}" z="erfUFCLvBPhSxWoJjZYFw3DK7Dk="/>
+        <field:display date="true" dateTimePattern="${objektiLiik_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_ObjektiLiik_suletud" object="${objektiliik}" z="gD6m+H4yIuxhYA0Rlgfu+TQ5koA="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_ObjektiLiik_sulgeja" object="${objektiliik}" z="t/dXVZId8j6QfewYu1E0Qtrytdk="/>
+    </page:show>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team11_Piiripunkt" items="${piiripunkts}" z="wW2c0CYLmEmYPJyOh9SOSvTMKjw=">
+        <table:table data="${piiripunkts}" id="l_ee_itcollege_team11_Piiripunkt" path="/piiripunkts" typeIdFieldName="piiripunktId" z="odaVPlSwDW+FC9xCBdSqrMaJdgg=">
+            <table:column date="true" dateTimePattern="${piiripunkt_alates_date_format}" id="c_ee_itcollege_team11_Piiripunkt_alates" property="alates" z="W0wGi9hPg+T9RjTmpzWDjIIoHEc="/>
+            <table:column id="c_ee_itcollege_team11_Piiripunkt_avaja" property="avaja" z="YDHjtaxBUfpe6YU1KxMjHWGQLds="/>
+            <table:column date="true" dateTimePattern="${piiripunkt_avatud_date_format}" id="c_ee_itcollege_team11_Piiripunkt_avatud" property="avatud" z="pqIStpqZ35FKuEGOnv2ZmbFUxog="/>
+            <table:column id="c_ee_itcollege_team11_Piiripunkt_gpsLatitude" property="gpsLatitude" z="B8S6+PCVQCG7F3yzDhqaRtW1ZL4="/>
+            <table:column id="c_ee_itcollege_team11_Piiripunkt_gpsLongituide" property="gpsLongituide" z="Bc1QSQzl4UEb3sMUu4y5pGalHRA="/>
+            <table:column id="c_ee_itcollege_team11_Piiripunkt_kommentaar" property="kommentaar" z="JICZm5d8H5qReBGRFU1XMWtdyxg="/>
+        </table:table>
+    </page:list>
+</div>

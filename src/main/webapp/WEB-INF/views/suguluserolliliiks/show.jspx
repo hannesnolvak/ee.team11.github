@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_SuguluseRolliLiik" object="${suguluserolliliik}" path="/suguluserolliliiks" z="XXDEdKBAW2+hjE/idIW73yZ9nlk=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_SuguluseRolliLiik_avaja" object="${suguluserolliliik}" z="b8T0LJRWOgjl+oQi9siFUKNZC0Q="/>
+        <field:display date="true" dateTimePattern="${suguluseRolliLiik_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_SuguluseRolliLiik_avatud" object="${suguluserolliliik}" z="FZEH9dBBcIjnQ2O8PTFPXYoHnhk="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_SuguluseRolliLiik_kommentaar" object="${suguluserolliliik}" z="yMWrl+IveGYKheo8AyyrUQ1fjKE="/>
+        <field:display date="true" dateTimePattern="${suguluseRolliLiik_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_SuguluseRolliLiik_muudetud" object="${suguluserolliliik}" z="bTAaan3rZ/lFKUDgsZSANp8oN0w="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_SuguluseRolliLiik_muutja" object="${suguluserolliliik}" z="6kZxRGKBdkBEvdnaCPdBYcpsMXk="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_SuguluseRolliLiik_nimetus" object="${suguluserolliliik}" z="/e8PJOm9HrNXgKjsBgMWKyAQsoU="/>
+        <field:display field="sugulaneVoiMitte" id="s_ee_itcollege_team11_SuguluseRolliLiik_sugulaneVoiMitte" object="${suguluserolliliik}" z="NeZ4kBcwegrWqFt4AtQJ2dv1QtQ="/>
+        <field:display date="true" dateTimePattern="${suguluseRolliLiik_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_SuguluseRolliLiik_suletud" object="${suguluserolliliik}" z="6GRbkmguBjSg1Qz9Aa11+wMdE54="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_SuguluseRolliLiik_sulgeja" object="${suguluserolliliik}" z="owBwheNeSUFHZBygijFoHd10sTc="/>
+    </page:show>
+</div>

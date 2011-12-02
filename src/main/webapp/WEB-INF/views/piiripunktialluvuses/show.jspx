@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_PiiripunktiAlluvus" object="${piiripunktialluvus}" path="/piiripunktialluvuses" z="Pyb1ae9L1Ro38DBTC8X3Kerza7c=">
+        <field:display field="alates" id="s_ee_itcollege_team11_PiiripunktiAlluvus_alates" object="${piiripunktialluvus}" z="16oV4ACefT8Z6zMtGdHMwtMP0f8="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_PiiripunktiAlluvus_avaja" object="${piiripunktialluvus}" z="RAE160TWT1X9UQ4vJtp/IQMmXmo="/>
+        <field:display date="true" dateTimePattern="${piiripunktiAlluvus_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_PiiripunktiAlluvus_avatud" object="${piiripunktialluvus}" z="rbCGxDuGHyaB+/YcsNSQ73TsOz8="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_PiiripunktiAlluvus_kommentaar" object="${piiripunktialluvus}" z="Q8EAiAHAZhWf7pDaBWUjMomy1k8="/>
+        <field:display field="kuni" id="s_ee_itcollege_team11_PiiripunktiAlluvus_kuni" object="${piiripunktialluvus}" z="ABP5xW2+RePE71wqTipsQFvy6cM="/>
+        <field:display date="true" dateTimePattern="${piiripunktiAlluvus_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_PiiripunktiAlluvus_muudetud" object="${piiripunktialluvus}" z="BvrTFUCRL6v5D8gHEyd/nPYi1d8="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_PiiripunktiAlluvus_muutja" object="${piiripunktialluvus}" z="vEZ8V1HVpzm7kHUFXNuJkKyKVfU="/>
+        <field:display date="true" dateTimePattern="${piiripunktiAlluvus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_PiiripunktiAlluvus_suletud" object="${piiripunktialluvus}" z="OnffEz96u+U6DfPAlBYufLcymjc="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_PiiripunktiAlluvus_sulgeja" object="${piiripunktialluvus}" z="T8NgYnWcCdr4r2mBStfF6lBIMYY="/>
+        <field:display field="piiripunkt" id="s_ee_itcollege_team11_PiiripunktiAlluvus_piiripunkt" object="${piiripunktialluvus}" z="OReSe3mP6Fkhnt6zNbPZDS140Fs="/>
+        <field:display field="vaeosa" id="s_ee_itcollege_team11_PiiripunktiAlluvus_vaeosa" object="${piiripunktialluvus}" z="7iKvGXlM2R4frl9zTzluwdxmMak="/>
+    </page:show>
+</div>

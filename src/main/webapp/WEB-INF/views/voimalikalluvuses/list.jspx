@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_itcollege_team11_VoimalikAlluvus" items="${voimalikalluvuses}" z="bQQJo4UUez8JbgSh7pmyFCFSlAk=">
+        <table:table data="${voimalikalluvuses}" id="l_ee_itcollege_team11_VoimalikAlluvus" path="/voimalikalluvuses" typeIdFieldName="voimalikAlluvusId" z="4MBDGw9+maVrCBlF6DBPUTsSuFA=">
+            <table:column id="c_ee_itcollege_team11_VoimalikAlluvus_avaja" property="avaja" z="WhvBlxE5bxk5Wwz7bqflGHixcx0="/>
+            <table:column date="true" dateTimePattern="${voimalikAlluvus_avatud_date_format}" id="c_ee_itcollege_team11_VoimalikAlluvus_avatud" property="avatud" z="QH7C9OunY4Gi+Obj0yZQdw5VtTs="/>
+            <table:column id="c_ee_itcollege_team11_VoimalikAlluvus_kommentaar" property="kommentaar" z="dNTeitIqLAxOJzvm8HFp01y4dj4="/>
+            <table:column date="true" dateTimePattern="${voimalikAlluvus_muudetud_date_format}" id="c_ee_itcollege_team11_VoimalikAlluvus_muudetud" property="muudetud" z="iplEK7mSkPb79wLjwXlrwjkqRHI="/>
+            <table:column id="c_ee_itcollege_team11_VoimalikAlluvus_muutja" property="muutja" z="ECICERJLBk1+vhgD+WBFGDNCU6g="/>
+            <table:column date="true" dateTimePattern="${voimalikAlluvus_suletud_date_format}" id="c_ee_itcollege_team11_VoimalikAlluvus_suletud" property="suletud" z="yEpww5B1dlyVdXr449OYZkmeZZw="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_Seadus" idField="seaduseId" modelAttribute="seadus" path="/seaduses" versionField="Version" z="sowLlHUbHbIclin+5iurhz5mnj0=">
+        <field:input field="avaja" id="c_ee_itcollege_team11_Seadus_avaja" z="tQQzL02yLEW3Npmx/3pLcrz2Lr4="/>
+        <field:datetime dateTimePattern="${seadus_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_Seadus_avatud" z="lsZzDAG/czLwijo9ySsOGJfxggk="/>
+        <field:input field="kehtivAlates" id="c_ee_itcollege_team11_Seadus_kehtivAlates" z="0utx/B6h6jKrK7SUXy3c9hK1BIU="/>
+        <field:input field="kehtivKuni" id="c_ee_itcollege_team11_Seadus_kehtivKuni" z="+u3a35nLYoS8IlGmGLOWrPFXIWQ="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_Seadus_kommentaar" z="/op6bD4AQz8g0pPbczVHb/lOBEA="/>
+        <field:input field="kood" id="c_ee_itcollege_team11_Seadus_kood" z="geZaG2GOzkyW9w1VmT9/77vICFg="/>
+        <field:datetime dateTimePattern="${seadus_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_Seadus_muudetud" z="PzSzv5hH6RN2cHPrWuB9uCG28ew="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_Seadus_muutja" z="UiDq9C6muOIfHO0gdQA2KGArlKM="/>
+        <field:input field="nimetus" id="c_ee_itcollege_team11_Seadus_nimetus" z="TYz0RcMYroi478NLbLrpXw+sH1w="/>
+        <field:datetime dateTimePattern="${seadus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Seadus_suletud" z="xwFTQqOcZtqomPTK/2qM3MBehrk="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_Seadus_sulgeja" z="nBNfrsQjDwAdwWPzhsJdjpI1PgY="/>
+        <field:simple field="seadusePunkts" id="c_ee_itcollege_team11_Seadus_seadusePunkts" messageCode="entity_reference_not_managed" messageCodeAttribute="Seaduse Punkt" z="uxFzc9D4uWwoAnu5Au6sLr7vLNg="/>
+    </form:update>
+</div>

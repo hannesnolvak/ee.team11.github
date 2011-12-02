@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Voodikoht" object="${voodikoht}" path="/voodikohts" z="9yzKXP5814VMgWucVHp0m/DFZXU=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_Voodikoht_avaja" object="${voodikoht}" z="QGijbw5klmaFqW967RMCiGxSECI="/>
+        <field:display date="true" dateTimePattern="${voodikoht_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Voodikoht_avatud" object="${voodikoht}" z="zRhf1VrZdEWmDugHkD4lZO+azQA="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_Voodikoht_kommentaar" object="${voodikoht}" z="aQ2fE0x8Lnik68cx67vwdtevuWY="/>
+        <field:display field="laius" id="s_ee_itcollege_team11_Voodikoht_laius" object="${voodikoht}" z="5LZ1G97jiZ6Q03/9EJh4RWkYWbQ="/>
+        <field:display date="true" dateTimePattern="${voodikoht_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Voodikoht_muudetud" object="${voodikoht}" z="n5jZ5W6m5kCp8kCIwIo+xIGZ6OE="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Voodikoht_muutja" object="${voodikoht}" z="QvHRjTi75al0haN90YMp4NuVkNY="/>
+        <field:display field="number" id="s_ee_itcollege_team11_Voodikoht_number" object="${voodikoht}" z="RkUxshYpLi9xKzLI9UfyMQO53W0="/>
+        <field:display field="pikkus" id="s_ee_itcollege_team11_Voodikoht_pikkus" object="${voodikoht}" z="JR9h9JL2B7XL1QhIR1SW9myCuZs="/>
+        <field:display date="true" dateTimePattern="${voodikoht_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Voodikoht_suletud" object="${voodikoht}" z="qIMf/8BLCg5OFsaa1L2Oj87+A1Y="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Voodikoht_sulgeja" object="${voodikoht}" z="HjrL/YeLKhysnEa6MYfdJelR/lI="/>
+        <field:display field="ruumiyksus" id="s_ee_itcollege_team11_Voodikoht_ruumiyksus" object="${voodikoht}" z="8gzI3LTqpRK5zgsjMMisuYtr1rQ="/>
+    </page:show>
+</div>

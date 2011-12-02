@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_Intsident" modelAttribute="intsident" path="/intsidents" render="${empty dependencies}" z="3l/Crzl1M/rF2M5dUXbxT6L+NEE=">
+        <field:input field="avaja" id="c_ee_itcollege_team11_Intsident_avaja" z="ZFsfQ/ApmblMf6yFBsyk/+9yLUo="/>
+        <field:datetime dateTimePattern="${intsident_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_Intsident_avatud" z="tJJUZc5KRYEsV+j4Q6HcVYulwzw="/>
+        <field:input field="gpsLatituud" id="c_ee_itcollege_team11_Intsident_gpsLatituud" validationMessageCode="field_invalid_number" z="6sh/Yy64l4VILS9axLEElPLxGU8="/>
+        <field:input field="gpsLongituud" id="c_ee_itcollege_team11_Intsident_gpsLongituud" validationMessageCode="field_invalid_number" z="oY8Mm08/PN2c60HS0DvcsZBAxvA="/>
+        <field:input field="kirjeldus" id="c_ee_itcollege_team11_Intsident_kirjeldus" z="Tb9DoGnkIZgoa/3nf8e11rjrMg0="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_Intsident_kommentaar" z="Xx0Y+jy+QMM1BSmcF/Dc6cBjl0I="/>
+        <field:input field="kood" id="c_ee_itcollege_team11_Intsident_kood" z="bbunJP4CH/efaOYplYvPPPVK5ic="/>
+        <field:datetime dateTimePattern="${intsident_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_Intsident_muudetud" z="0KV4z0dlcimCouuSCUNoAhNCyt4="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_Intsident_muutja" z="os4PF1+jC6tarw7jhalThEo39IU="/>
+        <field:input field="nimetus" id="c_ee_itcollege_team11_Intsident_nimetus" z="9nHRq5w5ecG17KgMZKmEAPtthcM="/>
+        <field:datetime dateTimePattern="${intsident_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Intsident_suletud" z="hSLvLsN9WqouqRFe9NRGSmJZArg="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_Intsident_sulgeja" z="5WOqnugYXO2f1D2801KAykS+/Ps="/>
+        <field:datetime dateTimePattern="${intsident_toimumisealgus_date_format}" field="toimumiseAlgus" id="c_ee_itcollege_team11_Intsident_toimumiseAlgus" z="jSEbsv4AiE9TWbfWpsXbTnOHPp4="/>
+        <field:datetime dateTimePattern="${intsident_toimumiselopp_date_format}" field="toimumiseLopp" id="c_ee_itcollege_team11_Intsident_toimumiseLopp" z="GTrHwQjDjrYdS2Hvmahbabo4TXg="/>
+        <field:select field="intsidendiLiik" id="c_ee_itcollege_team11_Intsident_intsidendiLiik" itemValue="intsidendiLiikId" items="${intsidendiliiks}" path="/intsidendiliiks" z="eI5+XqtEcrEbpBTIGxlHMhVMglM="/>
+        <field:select field="piiriloik" id="c_ee_itcollege_team11_Intsident_piiriloik" itemValue="piiriloikId" items="${piiriloiks}" path="/piiriloiks" z="VVrtuZrunVn78meODn3mBKn+iTI="/>
+        <field:simple field="vahtkondIntsidendis" id="c_ee_itcollege_team11_Intsident_vahtkondIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Vahtkond Intsidendi" z="/D+rXXDY21nRjb0H9Xbve/hv5RQ="/>
+        <field:simple field="isikIntsidendis" id="c_ee_itcollege_team11_Intsident_isikIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Isik Intsidendi" z="mpsC2vasc7dso1cDz0yGTG4NllQ="/>
+        <field:simple field="objektIntsidendis" id="c_ee_itcollege_team11_Intsident_objektIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Objekt Intsidendi" z="8uAktjq+VoNQ0+BkA+mcSXYWTXc="/>
+        <field:simple field="piirivalvurIntsidendis" id="c_ee_itcollege_team11_Intsident_piirivalvurIntsidendis" messageCode="entity_reference_not_managed" messageCodeAttribute="Piirivalvur Intsidendi" z="81JzxYnyhHnujpT2Hdy6awzIiHQ="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_Intsident" render="${not empty dependencies}" z="453sVW4oUIZl3eNMjhn1xozlteA="/>
+</div>

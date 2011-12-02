@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="orgyksuses/list">
+        <put-attribute name="body" value="/WEB-INF/views/orgyksuses/list.jspx"/>
+    </definition>
+<definition extends="default" name="orgyksuses/show">
+        <put-attribute name="body" value="/WEB-INF/views/orgyksuses/show.jspx"/>
+    </definition>
+<definition extends="default" name="orgyksuses/create">
+        <put-attribute name="body" value="/WEB-INF/views/orgyksuses/create.jspx"/>
+    </definition>
+<definition extends="default" name="orgyksuses/update">
+        <put-attribute name="body" value="/WEB-INF/views/orgyksuses/update.jspx"/>
+    </definition>
+</tiles-definitions>

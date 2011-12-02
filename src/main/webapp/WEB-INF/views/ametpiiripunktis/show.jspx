@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_AmetPiiripunkti" object="${ametpiiripunkti}" path="/ametpiiripunktis" z="ldgHrHziPCCQA++e2g+qXnlmTUs=">
+        <field:display date="true" dateTimePattern="${ametPiiripunkti_alates_date_format}" field="alates" id="s_ee_itcollege_team11_AmetPiiripunkti_alates" object="${ametpiiripunkti}" z="zJYN240UaZzk4PjsLyc0CEC3jnk="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_AmetPiiripunkti_avaja" object="${ametpiiripunkti}" z="EDaxwNhj9g9dsmCey36Gpd6+fiA="/>
+        <field:display date="true" dateTimePattern="${ametPiiripunkti_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_AmetPiiripunkti_avatud" object="${ametpiiripunkti}" z="SbOYg2p3iw8BwI1jHQamoFAAmeI="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_AmetPiiripunkti_kommentaar" object="${ametpiiripunkti}" z="Gxg+UZa5jkbzroA8kPoWcABircs="/>
+        <field:display date="true" dateTimePattern="${ametPiiripunkti_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_AmetPiiripunkti_kuni" object="${ametpiiripunkti}" z="tbEYSQTsvKXUbqKGzn8lXXGQIMY="/>
+        <field:display date="true" dateTimePattern="${ametPiiripunkti_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_AmetPiiripunkti_muudetud" object="${ametpiiripunkti}" z="Y2sfj6+LLvpuE/1izhAxwHQREOk="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_AmetPiiripunkti_muutja" object="${ametpiiripunkti}" z="lKIcKt90WOfbKhfUUXpLbMM17aU="/>
+        <field:display date="true" dateTimePattern="${ametPiiripunkti_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_AmetPiiripunkti_suletud" object="${ametpiiripunkti}" z="6YYSpUpXir8IxesR4dJGx/uEg/0="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_AmetPiiripunkti_sulgeja" object="${ametpiiripunkti}" z="YjApTsRNXO+VHeJyYSr+g7HMLiw="/>
+        <field:display field="amet" id="s_ee_itcollege_team11_AmetPiiripunkti_amet" object="${ametpiiripunkti}" z="beGSr3K3OvZiKW2DPzkX7ztqHag="/>
+        <field:display field="piiripunkt" id="s_ee_itcollege_team11_AmetPiiripunkti_piiripunkt" object="${ametpiiripunkti}" z="FoUzL3sHFogqunp0d+lZkZg6BD8="/>
+    </page:show>
+</div>

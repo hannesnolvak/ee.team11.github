@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_IntsidendiLiik" object="${intsidendiliik}" path="/intsidendiliiks" z="6THgU/fGKMwxiDST1VwVmEsJb1g=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_IntsidendiLiik_avaja" object="${intsidendiliik}" z="AxxbZSIvuoZa50E2dkZoSQo6Epo="/>
+        <field:display date="true" dateTimePattern="${intsidendiLiik_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_IntsidendiLiik_avatud" object="${intsidendiliik}" z="9NFHnqp5XMSOgXc/8EEU/l8nvuI="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_IntsidendiLiik_kood" object="${intsidendiliik}" z="0p2O5jSpjmxWbrrCfqQ55lq5bN8="/>
+        <field:display date="true" dateTimePattern="${intsidendiLiik_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_IntsidendiLiik_muudetud" object="${intsidendiliik}" z="MR1GAKpt+8NiEN0kntge+HIGqNQ="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_IntsidendiLiik_muutja" object="${intsidendiliik}" z="3+3RwlKqJEd1jsp6aFxxv6aTAZ8="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_IntsidendiLiik_nimetus" object="${intsidendiliik}" z="d1szlAFt05wqLqjCNBRggMQYw+c="/>
+        <field:display date="true" dateTimePattern="${intsidendiLiik_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_IntsidendiLiik_suletud" object="${intsidendiliik}" z="F2DcY+zPD8QIXEH6PNGTX4DWp5A="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_IntsidendiLiik_sulgeja" object="${intsidendiliik}" z="mciIKa92v/8P9/DYA51Rlwqwuwc="/>
+    </page:show>
+</div>

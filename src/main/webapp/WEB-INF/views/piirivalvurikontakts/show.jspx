@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_PiirivalvuriKontakt" object="${piirivalvurikontakt}" path="/piirivalvurikontakts" z="ZGTlWf0am0YsM79n0Sk9DA1U3r0=">
+        <field:display date="true" dateTimePattern="${piirivalvuriKontakt_alates_date_format}" field="alates" id="s_ee_itcollege_team11_PiirivalvuriKontakt_alates" object="${piirivalvurikontakt}" z="DzyvuSRlh/iBnMk7EWfYElZ2k60="/>
+        <field:display field="avaja" id="s_ee_itcollege_team11_PiirivalvuriKontakt_avaja" object="${piirivalvurikontakt}" z="V2jcIpUxAqqFIT2zcfBahSKthz4="/>
+        <field:display date="true" dateTimePattern="${piirivalvuriKontakt_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_PiirivalvuriKontakt_avatud" object="${piirivalvurikontakt}" z="ZKYBXFKOjfuNPSnyQI9B+sKs+vM="/>
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_PiirivalvuriKontakt_kommentaar" object="${piirivalvurikontakt}" z="0uvSAYVOUyPAdQ2FAEIV5YhQEuc="/>
+        <field:display field="kontakt" id="s_ee_itcollege_team11_PiirivalvuriKontakt_kontakt" object="${piirivalvurikontakt}" z="kEtsCx8NbthD8whIP8lE+CnSXms="/>
+        <field:display date="true" dateTimePattern="${piirivalvuriKontakt_kuni_date_format}" field="kuni" id="s_ee_itcollege_team11_PiirivalvuriKontakt_kuni" object="${piirivalvurikontakt}" z="IEvY7pYx0wySbsXf+zBZGZrO+R8="/>
+        <field:display date="true" dateTimePattern="${piirivalvuriKontakt_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_PiirivalvuriKontakt_muudetud" object="${piirivalvurikontakt}" z="bkV6aJ0y+YiQMB9exYETpX22TDw="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_PiirivalvuriKontakt_muutja" object="${piirivalvurikontakt}" z="P/sGYfeoGOt5qa+y7Rm2Ax+YVL8="/>
+        <field:display field="peamineKontakt" id="s_ee_itcollege_team11_PiirivalvuriKontakt_peamineKontakt" object="${piirivalvurikontakt}" z="zV9th7MzZa0OlAupcw0ebWtxyFw="/>
+        <field:display date="true" dateTimePattern="${piirivalvuriKontakt_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_PiirivalvuriKontakt_suletud" object="${piirivalvurikontakt}" z="ShCe1XIZVgIUWUiXou1hEbLNM44="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_PiirivalvuriKontakt_sulgeja" object="${piirivalvurikontakt}" z="vW/XR4TUYCScE2sqHJNENsT5EfI="/>
+        <field:display field="kontaktiLiik" id="s_ee_itcollege_team11_PiirivalvuriKontakt_kontaktiLiik" object="${piirivalvurikontakt}" z="XRVeRUew29TjbW+8JPdI5D0/XXk="/>
+        <field:display field="piirivalvur" id="s_ee_itcollege_team11_PiirivalvuriKontakt_piirivalvur" object="${piirivalvurikontakt}" z="OAzK8k8HcrubRPRv5LRuXB5T/Rg="/>
+    </page:show>
+</div>

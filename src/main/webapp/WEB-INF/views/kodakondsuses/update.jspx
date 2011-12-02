@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_Kodakondsus" idField="kodakondsusId" modelAttribute="kodakondsus" path="/kodakondsuses" versionField="Version" z="wYPiu7w1caZDS2xuyVrRfYu5Gzo=">
+        <field:datetime dateTimePattern="${kodakondsus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_Kodakondsus_alates" z="kp1JDDafa61sLRdUAih+cJswT0I="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_Kodakondsus_avaja" z="Dt4WoqLuFEJ0DULcaBw0nkXEXi0="/>
+        <field:datetime dateTimePattern="${kodakondsus_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_Kodakondsus_avatud" z="XHe9++ZIDTcYNi32027nmzfMjMA="/>
+        <field:input field="isikukood" id="c_ee_itcollege_team11_Kodakondsus_isikukood" z="oVEQL2siZNUmK0XwgceLuaM6two="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_Kodakondsus_kommentaar" z="LD4Dvy9ro1noAtXOEXwT8D6PXn0="/>
+        <field:datetime dateTimePattern="${kodakondsus_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_Kodakondsus_kuni" z="IF1CO8bhNXfpKTV6ffgxBOFaqX0="/>
+        <field:datetime dateTimePattern="${kodakondsus_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_Kodakondsus_muudetud" z="2DermTsAC0TwRa1aXIvoaplQoac="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_Kodakondsus_muutja" z="0rLKKLIDqbibFLt2Q6eGPXgzc2g="/>
+        <field:datetime dateTimePattern="${kodakondsus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Kodakondsus_suletud" z="koA5j+QV8T5qjuZOQO+LVR9i3cM="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_Kodakondsus_sulgeja" z="I5UCQSHjjtWIUBOcb7zCrCy22fM="/>
+        <field:select field="piiririkkuja" id="c_ee_itcollege_team11_Kodakondsus_piiririkkuja" itemValue="piiririkkujaId" items="${piiririkkujas}" path="/piiririkkujas" z="WH5kyNH2FSkQAtK4t0vnCTuEoMo="/>
+        <field:select field="riik" id="c_ee_itcollege_team11_Kodakondsus_riik" itemValue="riikId" items="${riiks}" path="/riiks" z="21ACkOPzzel+3BA2CPhC/O2FcJo="/>
+    </form:update>
+</div>

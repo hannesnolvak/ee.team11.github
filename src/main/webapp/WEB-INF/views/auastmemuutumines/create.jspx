@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_AuastmeMuutumine" modelAttribute="auastmeMuutumine" path="/auastmemuutumines" render="${empty dependencies}" z="UgiLkZuuPhaINZooeaMRxB1//7c=">
+        <field:datetime dateTimePattern="${auastmeMuutumine_alates_date_format}" field="alates" id="c_ee_itcollege_team11_AuastmeMuutumine_alates" z="+6bRmPKgMksu66zE3FD9uI3wd0U="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_AuastmeMuutumine_avaja" z="xJyowtk9TTQ0z5XPa0TNYb2XEr8="/>
+        <field:datetime dateTimePattern="${auastmeMuutumine_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_AuastmeMuutumine_avatud" z="QOJGbf+Q0rVWrScoDq/5qnGA5PQ="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_AuastmeMuutumine_kommentaar" z="QOGdAUJyo6jbe/Ou8Lkvcs0fpOU="/>
+        <field:datetime dateTimePattern="${auastmeMuutumine_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_AuastmeMuutumine_kuni" z="BYOycW0nS5ZNK+40Sap2u8o5YTw="/>
+        <field:datetime dateTimePattern="${auastmeMuutumine_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_AuastmeMuutumine_muudetud" z="Gj+3f61z8eTTgaa8ipqe/QI7rug="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_AuastmeMuutumine_muutja" z="DeMU3OUK6FZ8+Agsd6+1n3Q+8ek="/>
+        <field:datetime dateTimePattern="${auastmeMuutumine_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_AuastmeMuutumine_suletud" z="hY/yhlDjrtqJjqN2k59fmIiVd9k="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_AuastmeMuutumine_sulgeja" z="gPCAWG8uN645nazbvrUH32rBjJY="/>
+        <field:select field="auaste" id="c_ee_itcollege_team11_AuastmeMuutumine_auaste" itemValue="auasteId" items="${auastes}" path="/auastes" z="FuEtG0O3Hp4xzGoUPCDow/k7CMI="/>
+        <field:select field="piirivalvur" id="c_ee_itcollege_team11_AuastmeMuutumine_piirivalvur" itemValue="piirivalvurId" items="${piirivalvurs}" path="/piirivalvurs" z="y+TTrTwMPVcp0ikTonOf+aqu6g4="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_AuastmeMuutumine" render="${not empty dependencies}" z="Al8DyeHaHyacqeI+PquYgu+ybcI="/>
+</div>

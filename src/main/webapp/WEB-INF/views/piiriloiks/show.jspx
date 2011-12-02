@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_itcollege_team11_Piiriloik" object="${piiriloik}" path="/piiriloiks" z="xbytKz4dn9KU5fZRVCMR7mkj+n0=">
+        <field:display field="avaja" id="s_ee_itcollege_team11_Piiriloik_avaja" object="${piiriloik}" z="egzi+NTz5I+hGTK7girPAehsz1g="/>
+        <field:display date="true" dateTimePattern="${piiriloik_avatud_date_format}" field="avatud" id="s_ee_itcollege_team11_Piiriloik_avatud" object="${piiriloik}" z="iqbnO7VO8e4qnB8Cfj9lmIga+ao="/>
+        <field:display field="kood" id="s_ee_itcollege_team11_Piiriloik_kood" object="${piiriloik}" z="VHuY3o+nrOJBEMiygMPntJktK44="/>
+        <field:display date="true" dateTimePattern="${piiriloik_muudetud_date_format}" field="muudetud" id="s_ee_itcollege_team11_Piiriloik_muudetud" object="${piiriloik}" z="nuK7a6TNQcJsdEChbX+G/dH2UpI="/>
+        <field:display field="muutja" id="s_ee_itcollege_team11_Piiriloik_muutja" object="${piiriloik}" z="rqPahaNATYI/sVkXAOBbXsx9MYM="/>
+        <field:display field="nimetus" id="s_ee_itcollege_team11_Piiriloik_nimetus" object="${piiriloik}" z="bvg2paiGoY+ZRFRX1gYAu+jZmNw="/>
+        <field:display date="true" dateTimePattern="${piiriloik_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_Piiriloik_suletud" object="${piiriloik}" z="bC2W9SME3+twq5A150zo9eG4IPU="/>
+        <field:display field="sulgeja" id="s_ee_itcollege_team11_Piiriloik_sulgeja" object="${piiriloik}" z="YjCHnebWNd5mFhAxEygMJql+mdQ="/>
+    </page:show>
+</div>

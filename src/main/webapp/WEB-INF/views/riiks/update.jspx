@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_itcollege_team11_Riik" idField="riikId" modelAttribute="riik" path="/riiks" versionField="Version" z="BWCCoSYpXf7yV3xja1JXPlIHXh4=">
+        <field:input field="ansiKood" id="c_ee_itcollege_team11_Riik_ansiKood" z="6VLPLDINcLRNK7Z6fRxqt3ZaFoU="/>
+        <field:input field="avaja" id="c_ee_itcollege_team11_Riik_avaja" z="2xTGtI0vc9YzN+yzsJLO0G8xiqo="/>
+        <field:datetime dateTimePattern="${riik_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_Riik_avatud" z="VUzZBOywfpCOlGgsaJH0vB8PfaU="/>
+        <field:input field="isoKood" id="c_ee_itcollege_team11_Riik_isoKood" z="kdu8AlPWMhD398APSMZzIPPRSlI="/>
+        <field:input field="kommentaar" id="c_ee_itcollege_team11_Riik_kommentaar" z="8G/0/M0TyMVroVavfkLMUhJwLVc="/>
+        <field:datetime dateTimePattern="${riik_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_Riik_muudetud" z="dpxi0UWYNFiFEtsdtsZrPITG28g="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_Riik_muutja" z="GPQ7xA8XsujC6sjSvm4puDjQGQ0="/>
+        <field:datetime dateTimePattern="${riik_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_Riik_suletud" z="OgC+gT9k6kfJGTx27aQrEczW+tA="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_Riik_sulgeja" z="BBuc8ZS8NJN0e7ZtzMz/+oUN5DY="/>
+        <field:simple field="kodakondsuses" id="c_ee_itcollege_team11_Riik_kodakondsuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Kodakondsus" z="MO0rXLRSgjqScW0HlirUCYfY3sY="/>
+    </form:update>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_ee_itcollege_team11_IntsidendiLiik" modelAttribute="intsidendiLiik" path="/intsidendiliiks" render="${empty dependencies}" z="tB89q+BIev3/bvRXz00xtqYEHR8=">
+        <field:input field="avaja" id="c_ee_itcollege_team11_IntsidendiLiik_avaja" z="icefPPDLQDI44+jI3ZDbJDRwuC4="/>
+        <field:datetime dateTimePattern="${intsidendiLiik_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_IntsidendiLiik_avatud" z="wCPjiZWdgK7wKaO3IfMKCRbVHHY="/>
+        <field:input field="kood" id="c_ee_itcollege_team11_IntsidendiLiik_kood" z="HelsWbWOVYTJH69Zyz93RQDUmAw="/>
+        <field:datetime dateTimePattern="${intsidendiLiik_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_IntsidendiLiik_muudetud" z="xrX/I0h4VGFT+gWJBp8dFIR+z48="/>
+        <field:input field="muutja" id="c_ee_itcollege_team11_IntsidendiLiik_muutja" z="Ds1Un77VmsGCbvRpf6VNaQqgLI8="/>
+        <field:input field="nimetus" id="c_ee_itcollege_team11_IntsidendiLiik_nimetus" z="9YpUHXj8qWSU0dzgC/13LmyqGJw="/>
+        <field:datetime dateTimePattern="${intsidendiLiik_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_IntsidendiLiik_suletud" z="g6hIv/iVL4aiU3YMnstMNaO0Yvo="/>
+        <field:input field="sulgeja" id="c_ee_itcollege_team11_IntsidendiLiik_sulgeja" z="go/fUKrTuzFxITk2J1zUXYxkMG4="/>
+        <field:simple field="intsidents" id="c_ee_itcollege_team11_IntsidendiLiik_intsidents" messageCode="entity_reference_not_managed" messageCodeAttribute="Intsident" z="WyKrp2+QHg77OsVfCkab2doaeFg="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_IntsidendiLiik" render="${not empty dependencies}" z="Chd2BDNnGhvYTJx2uTLY66jt3pM="/>
+</div>

@@ -255,7 +255,7 @@ table th {
 	font-size: 0.9em;
 	text-align: left;
 	font-weight: bold;
-	color: #FFF;
+	color: #000;
 	background: #999;
 }
 
@@ -370,4 +370,18 @@ fieldset th {
 .flag {
 	height: 11px;
 	width: 16px;
+}
+
+.listTable {
+	border:1px solid #CCCCCC;
+}
+table.listTable th {
+	border:1px solid #CCCCCC;
+}
+table.layoutTable table.listTable td {
+	border: none;
+	border-bottom:1px solid #CCCCCC;
+}
+.layoutTable, table.layoutTable td {
+	border: none;
 }

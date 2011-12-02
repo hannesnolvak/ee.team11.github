@@ -85,13 +85,6 @@ privileged aspect VaeosaController_Roo_Controller {
         return "redirect:/vaeosas/" + encodeUrlPathSegment(vaeosa.getVaeosaIdId().toString(), httpServletRequest);
     }
     
-    @RequestMapping(value = "/{vaeosaIdId}", params = "form", method = RequestMethod.GET)
-    public String VaeosaController.updateForm(@PathVariable("vaeosaIdId") Long vaeosaIdId, Model uiModel) {
-        uiModel.addAttribute("vaeosa", Vaeosa.findVaeosa(vaeosaIdId));
-        addDateTimeFormatPatterns(uiModel);
-        return "vaeosas/update";
-    }
-    
     @RequestMapping(value = "/{vaeosaIdId}", method = RequestMethod.DELETE)
     public String VaeosaController.delete(@PathVariable("vaeosaIdId") Long vaeosaIdId, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         Vaeosa.findVaeosa(vaeosaIdId).remove();

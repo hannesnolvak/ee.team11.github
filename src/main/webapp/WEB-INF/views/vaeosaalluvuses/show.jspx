@@ -12,7 +12,9 @@
         <field:display field="muutja" id="s_ee_itcollege_team11_VaeosaAlluvus_muutja" object="${vaeosaalluvus}" z="6MAIcWYc2/OxqmOKlVjmNfg84gA="/>
         <field:display date="true" dateTimePattern="${vaeosaAlluvus_suletud_date_format}" field="suletud" id="s_ee_itcollege_team11_VaeosaAlluvus_suletud" object="${vaeosaalluvus}" z="tJROrKSH46DaPP6A+k83HvE6CT0="/>
         <field:display field="sulgeja" id="s_ee_itcollege_team11_VaeosaAlluvus_sulgeja" object="${vaeosaalluvus}" z="c4j8ERPdIo4teSj1kco6VgQjH/Y="/>
+        <!-- 
         <field:display field="vaeosa1" id="s_ee_itcollege_team11_VaeosaAlluvus_vaeosa1" object="${vaeosaalluvus}" z="xKhuSq3k2V+4VBl86UHzgtImEVA="/>
         <field:display field="vaeosa2" id="s_ee_itcollege_team11_VaeosaAlluvus_vaeosa2" object="${vaeosaalluvus}" z="t+8ziIWnw+IZesV/inC/WamGZWU="/>
+        -->
     </page:show>
 </div>

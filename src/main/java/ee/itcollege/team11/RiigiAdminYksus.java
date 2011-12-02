@@ -20,6 +20,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import projekt.web.AdminAlluvusController;
+
 
 /**
  * The persistent class for the RIIGI_ADMIN_YKSUS database table.
@@ -189,9 +191,84 @@ public class RiigiAdminYksus extends BaseEntity {
 		return this.adminAlluvuses1;
 	}
 
-	public void setAdminAlluvuses1(Set<AdminAlluvus> adminAlluvuses1) {
-		this.adminAlluvuses1 = adminAlluvuses1;
+	public void setAdminAlluvuses1(Set<RiigiAdminYksus> adminAlluvuses1) {
+
+		if(adminAlluvuses1 != null) {
+//			AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(this.riigiAdminYksusId);
+			for(RiigiAdminYksus yksus: adminAlluvuses1) {
+				yksus.getMuutja();
+//				a.setRiigiAdminYksus1(yksus);
+//				a.merge();
+//				this.setAlluvus(yksus);
+//				alluvus.setRiigiAdminYksus2(this);
+//				alluvus.getAlates();
+//				alluvus.uusAlluvus(this, alluvus);
+			}
+		}
+		/*
+		if(this.adminAlluvuses1 != null) {
+			for(AdminAlluvus alluvus: this.adminAlluvuses1) {
+				if(adminAlluvuses1 == null || !adminAlluvuses1.contains(alluvus)) {
+					alluvus.remove();
+				}
+			}
+		}
+		
+		
+		if(adminAlluvuses1 != null) {
+			for(AdminAlluvus alluvus: adminAlluvuses1)
+				alluvus.set;
+		}/**/
+//		this.adminAlluvuses1.add(adminAlluvuses1);
+//		this.adminAlluvuses1.
+		/*
+		adminAlluvuses1.
+		if(this.adminAlluvuses1 != null) {
+			for(AdminAlluvus alluvus: this.adminAlluvuses1) {
+				if(adminAlluvuses1.equals(alluvus)) {
+					alluvus.set
+				}
+			}
+		}
+		/**/
+//		this.adminAlluvuses1 = adminAlluvuses1;
 	}
+	
+	private void setAlluvus(RiigiAdminYksus yksus) {
+		AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(yksus.getRiigiAdminYksusId());
+		a.setRiigiAdminYksus1(yksus);
+		a.merge();
+		/*
+		if(this.adminAlluvuses1 != null) {
+			for(AdminAlluvus alluvus: this.adminAlluvuses1) {
+//				alluvus.setRiigiAdminYksus1(yksus);
+				alluvus.getAdminAlluvusId();
+			}
+		}
+//		AdminAlluvus alluvus = AdminAlluvus.findAdminAlluvus(this.getAdminAlluvuses1());
+		/**/
+	}
+
+	/*
+public void setBears(Collection<Bear> param) {
+	manageRelations(this.bears, param);
+	this.bears = param;
+}
+	
+private void manageRelations(Collection<Bear> oldBears, Collection<Bear> newBears) {
+	if(oldBears != null) {
+		for(Bear b: oldBears)
+			if(newBears == null || !newBears.contains(b))
+				b.setCage(null);
+	}
+	
+	if(newBears != null) {
+		for(Bear b: newBears)
+			b.setCage(this);
+	}
+}
+	 * 
+	 */
 	
 	public Set<AdminAlluvus> getAdminAlluvuses2() {
 		return this.adminAlluvuses2;

@@ -1,0 +1,2 @@
+USE team11;
+INSERT INTO RIIGI_ADMIN_YKSUSE_LIIK (riigi_admin_yksuse_lik_id, avaja, avatud, muutja, muudetud, suletud, kood, nimetus, alates, kuni) VALUES (1, "admin", NOW, "admin", NOW, "9999-12-31", "maakond", "Maakond", NOW, "9999-12-31");

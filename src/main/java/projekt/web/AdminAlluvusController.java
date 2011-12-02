@@ -10,6 +10,23 @@ import ee.itcollege.team11.AdminAlluvus;
 @RequestMapping("/adminalluvuses")
 @Controller
 public class AdminAlluvusController {
+	
+	public static AdminAlluvus getAdminYksusAlluvus(Long adminYksusId) {
+		String query = "SELECT a " +
+				"FROM AdminAlluvus a " +
+				"JOIN a.riigiAdminYksus1 AS y " +
+				"WHERE y.riigiAdminYksusId = " + adminYksusId + " " +
+				"ORDER BY y.riigiAdminYksusId DESC";
+		return AdminAlluvus.entityManager().createQuery(query, AdminAlluvus.class).getSingleResult();
+	}
+    /*
+    public AdminAlluvus get(Long adminAlluvusId) {
+        AdminAlluvus.findAdminAlluvus(adminAlluvusId).remove();
+        uiModel.asMap().clear();
+        uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
+        uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
+        return "redirect:/adminalluvuses";
+    }
     /*
     @RequestMapping(method = RequestMethod.PUT)
     public String AdminAlluvusController.update(@Valid AdminAlluvus adminAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {

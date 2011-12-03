@@ -26,8 +26,12 @@
                     <!--  
     				<field:select field="adminAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses1" itemLabel="riigiAdminYksus2.nimetus" itemValue="AdminAlluvusId" label="Allub" items="${adminalluvuses}" path="/riigiadminyksuse" />
                     <field:select field="adminAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses1" itemLabel="riigiAdminYksus2.nimetus" itemValue="adminAlluvusId" items="${saaballuda}" label="Allub" path="/adminalluvuses"/>
+    				
+    				<field:select field="adminAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses2" itemLabel="nimetus" itemValue="riigiAdminYksusId" items="${saaballuda}" label="Allub" path="/riigiadminyksuses"/>
     				-->
-                    <field:select field="adminAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksus_adminAlluvuses2" itemLabel="nimetus" itemValue="riigiAdminYksusId" items="${saaballuda}" label="Allub" path="/riigiadminyksuses"/>
+                    
+                    
+					<field:select field="allub" id="c_ee_itcollege_team11_RiigiAdminYksus_allub" itemLabel="nimetus" itemValue="riigiAdminYksusId" items="${saaballuda}" label="Allub" path="/riigiadminyksuses"/>
                     
                     <field:datetime dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" z="urc/i9bKi1jWCc7HlkBWDebendE="/>
                     <field:datetime dateTimePattern="${riigiAdminYksus_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_RiigiAdminYksus_kuni" z="wVj6BEDv9QHgQ3ER+DTyZ3zicYA="/>

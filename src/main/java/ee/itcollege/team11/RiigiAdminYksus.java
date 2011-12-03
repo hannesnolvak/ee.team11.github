@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -20,8 +21,6 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import projekt.web.AdminAlluvusController;
 
 
 /**
@@ -95,6 +94,11 @@ public class RiigiAdminYksus extends BaseEntity {
 	//bi-directional many-to-one association to Ruumiyksus
 	@OneToMany(mappedBy="riigiAdminYksus")
 	private Set<Ruumiyksus> ruumiyksuses;
+	
+
+	@ManyToOne
+	@JoinTable(name="ADMIN_ALLUVUS", joinColumns = {@JoinColumn(name="YLEMUS_YKSUS_ID")}, inverseJoinColumns = {@JoinColumn(name="RIIGI_ADMIN_YKSUS_ID")})
+	private RiigiAdminYksus allub;
 
     public RiigiAdminYksus() {
     }
@@ -260,6 +264,14 @@ public class RiigiAdminYksus extends BaseEntity {
 		} else if (!riigiAdminYksusId.equals(other.riigiAdminYksusId))
 			return false;
 		return true;
+	}
+	
+	public RiigiAdminYksus getAllub() {
+		return allub;
+	}
+	
+	public void setAllub(RiigiAdminYksus allub) {
+		this.allub = allub;
 	}
 	
 }

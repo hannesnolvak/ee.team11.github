@@ -3,11 +3,13 @@
 
 package ee.itcollege.team11;
 
+import ee.itcollege.team11.AdminAlluvus;
+import java.lang.Integer;
+import java.lang.Long;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
-
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect AdminAlluvus_Roo_Entity {

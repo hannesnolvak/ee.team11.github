@@ -33,8 +33,7 @@ import projekt.web.AdminAlluvusController;
 @RooEntity
 @EntityListeners({
 	LisatudListener.class,
-	MuudetudListener.class,
-//	SuletudListener.class
+	MuudetudListener.class
 })
 @Table(name="RIIGI_ADMIN_YKSUS")
 public class RiigiAdminYksus extends BaseEntity {
@@ -45,9 +44,6 @@ public class RiigiAdminYksus extends BaseEntity {
 	@Column(name="RIIGI_ADMIN_YKSUS_ID")
 	private Long riigiAdminYksusId;
 	
-	/*
-	private RiigiAdminYksus uusYksus;
-	/**/
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -200,111 +196,22 @@ public class RiigiAdminYksus extends BaseEntity {
 		this.adminAlluvuses1 = adminAlluvuses1;
 	}
 	
-//	public void setAdminAlluvuses1(RiigiAdminYksus yksus) {
-
-//		setUusYksus(yksus);
-//		this.uusYksus = yksus;
-//		if(adminAlluvuses1 != null) {
-//			AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(this.riigiAdminYksusId);
-//			for(RiigiAdminYksus yksus: adminAlluvuses1) {
-//				yksus.getMuutja();
-//				a.setRiigiAdminYksus1(yksus);
-//				a.merge();
-//				this.setAlluvus(yksus);
-//				alluvus.setRiigiAdminYksus2(this);
-//				alluvus.getAlates();
-//				alluvus.uusAlluvus(this, alluvus);
-//			}
-//		}
-		/*
-		if(this.adminAlluvuses1 != null) {
-			for(AdminAlluvus alluvus: this.adminAlluvuses1) {
-				if(adminAlluvuses1 == null || !adminAlluvuses1.contains(alluvus)) {
-					alluvus.remove();
-				}
-			}
-		}
-		
-		
-		if(adminAlluvuses1 != null) {
-			for(AdminAlluvus alluvus: adminAlluvuses1)
-				alluvus.set;
-		}/**/
-//		this.adminAlluvuses1.add(adminAlluvuses1);
-//		this.adminAlluvuses1.
-		/*
-		adminAlluvuses1.
-		if(this.adminAlluvuses1 != null) {
-			for(AdminAlluvus alluvus: this.adminAlluvuses1) {
-				if(adminAlluvuses1.equals(alluvus)) {
-					alluvus.set
-				}
-			}
-		}
-		/**/
-//		this.adminAlluvuses1 = adminAlluvuses1;
-//	}
-	
-	private void setAlluvus(RiigiAdminYksus yksus) {
-		this.getRiigiAdminYksusId();
-		AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(yksus.getRiigiAdminYksusId());
-		a.setRiigiAdminYksus1(yksus);
-		a.merge();
-		/*
-		if(this.adminAlluvuses1 != null) {
-			for(AdminAlluvus alluvus: this.adminAlluvuses1) {
-//				alluvus.setRiigiAdminYksus1(yksus);
-				alluvus.getAdminAlluvusId();
-			}
-		}
-//		AdminAlluvus alluvus = AdminAlluvus.findAdminAlluvus(this.getAdminAlluvuses1());
-		/**/
-	}
-
-	/*
-public void setBears(Collection<Bear> param) {
-	manageRelations(this.bears, param);
-	this.bears = param;
-}
-	
-private void manageRelations(Collection<Bear> oldBears, Collection<Bear> newBears) {
-	if(oldBears != null) {
-		for(Bear b: oldBears)
-			if(newBears == null || !newBears.contains(b))
-				b.setCage(null);
-	}
-	
-	if(newBears != null) {
-		for(Bear b: newBears)
-			b.setCage(this);
-	}
-}
-	 * 
-	 */
-	
 	public Set<AdminAlluvus> getAdminAlluvuses2() {
 		return this.adminAlluvuses2;
 	}
 
-	
 	public void setAdminAlluvuses2(Set<RiigiAdminYksus> yksused) {
 		
 		Set <AdminAlluvus> alluvused = new HashSet<AdminAlluvus>();
 		if(yksused != null) {
 			for(RiigiAdminYksus yksus: yksused) {
 				AdminAlluvus a = new AdminAlluvus();
-//				a.setRiigiAdminYksus1(this);
 				a.setRiigiAdminYksus2(yksus);
 				alluvused.add(a);
 			}
 		}
 		this.adminAlluvuses2 = alluvused;
 	}
-	/*
-	public void setAdminAlluvuses2(Set<AdminAlluvus> adminAlluvuses2) {
-		
-		this.adminAlluvuses2 = adminAlluvuses2;
-	}/**/
 	
 	public RiigiAdminYksuseLiik getRiigiAdminYksuseLiik() {
 		return this.riigiAdminYksuseLiik;
@@ -337,14 +244,22 @@ private void manageRelations(Collection<Bear> oldBears, Collection<Bear> newBear
 	public void setKommentaar(String kommentaar) {
 		this.kommentaar = kommentaar;
 	}
-	/*
-	public RiigiAdminYksus getUusYksus() {
-		return uusYksus;
-	}
 
-	public void setUusYksus(RiigiAdminYksus uusYksus) {
-		this.uusYksus = uusYksus;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RiigiAdminYksus other = (RiigiAdminYksus) obj;
+		if (riigiAdminYksusId == null) {
+			if (other.riigiAdminYksusId != null)
+				return false;
+		} else if (!riigiAdminYksusId.equals(other.riigiAdminYksusId))
+			return false;
+		return true;
 	}
-	/**/
 	
 }

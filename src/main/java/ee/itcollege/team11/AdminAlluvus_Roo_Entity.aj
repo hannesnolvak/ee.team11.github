@@ -3,14 +3,11 @@
 
 package ee.itcollege.team11;
 
-import ee.itcollege.team11.AdminAlluvus;
-import java.lang.Integer;
-import java.lang.Long;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
+
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect AdminAlluvus_Roo_Entity {
@@ -31,12 +28,6 @@ privileged aspect AdminAlluvus_Roo_Entity {
     }
     
     @Transactional
-    public void AdminAlluvus.persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.persist(this);
-    }
-    
-    @Transactional
     public void AdminAlluvus.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -48,31 +39,15 @@ privileged aspect AdminAlluvus_Roo_Entity {
         this.entityManager.clear();
     }
     
-    @Transactional
-    public AdminAlluvus AdminAlluvus.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        AdminAlluvus merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
-    }
-    
     public static final EntityManager AdminAlluvus.entityManager() {
         EntityManager em = new AdminAlluvus().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long AdminAlluvus.countAdminAlluvuses() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM AdminAlluvus o", Long.class).getSingleResult();
-    }
-    
     public static AdminAlluvus AdminAlluvus.findAdminAlluvus(Long adminAlluvusId) {
         if (adminAlluvusId == null) return null;
         return entityManager().find(AdminAlluvus.class, adminAlluvusId);
-    }
-    
-    public static List<AdminAlluvus> AdminAlluvus.findAdminAlluvusEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM AdminAlluvus o", AdminAlluvus.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

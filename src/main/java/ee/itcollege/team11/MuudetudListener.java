@@ -7,10 +7,10 @@ import javax.persistence.PreUpdate;
 
 public class MuudetudListener {
 	
-	@PrePersist
 	@PreUpdate
 	public void setMuudetud(final Updatable entity) {
 		entity.setMuudetud(new Date());
 		entity.setMuutja("Mina");
 	}
+	
 }

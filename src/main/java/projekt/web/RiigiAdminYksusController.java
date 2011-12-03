@@ -35,8 +35,8 @@ public class RiigiAdminYksusController {
 		String query = "SELECT a" +
 				" FROM AdminAlluvus a" +
 //				" JOIN a.riigiAdminYksus1 AS y" +
-				" WHERE a.alates >= :date" +
-					" AND (a.suletud IS NULL || a.suletud < :date)";
+				" WHERE a.alates <= :date" +
+					" AND (a.suletud IS NULL || a.suletud > :date)";
 		//alates
 		//suletud
 		return AdminAlluvus.entityManager().createQuery(query, AdminAlluvus.class).setParameter("date", kuupaev).getResultList();
@@ -55,26 +55,17 @@ public class RiigiAdminYksusController {
     @RequestMapping(method = RequestMethod.PUT)
     public String update(@Valid RiigiAdminYksus riigiAdminYksus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
 
+    	/**
+    	 * Kontrollime, kas sisestatav alluvus erineb praeguses ja vajadusel tekitame uue ning sulgeme vana
+    	 */
     	AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(riigiAdminYksus.getRiigiAdminYksusId());
-    	a.remove();
-    	/*
-    	a.setSuletud(new Date());
-    	a.setSulgeja("Mina");
-    	a.merge();
-    	/**/
-    	
     	if(riigiAdminYksus.getAdminAlluvuses2() != null) {
     		for(AdminAlluvus alluvus: riigiAdminYksus.getAdminAlluvuses2()) {
     			alluvus.setRiigiAdminYksus1(riigiAdminYksus);
     			alluvus.persist();
     		}
     	}
-    	/*
-    	AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(riigiAdminYksus.getRiigiAdminYksusId());
-    	a.getRiigiAdminYksus2().getNimetus();
-    	a.setRiigiAdminYksus2(riigiAdminYksus.getUusYksus());
-    	a.merge();
-    	/**/
+    	
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("riigiAdminYksus", riigiAdminYksus);
             addDateTimeFormatPatterns(uiModel);
@@ -95,7 +86,7 @@ public class RiigiAdminYksusController {
 				" JOIN y.riigiAdminYksuseLiik yl" +
 				" JOIN yl.riigiAdminYksuses y2" +
 				" WHERE o.riigiAdminYksusId = :yksusId" +
-					" AND (a.suletud < :date OR a.suletud IS NULL)";
+					" AND (a.suletud > :date OR a.suletud IS NULL)";
 		return RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList();
     }
     
@@ -106,7 +97,7 @@ public class RiigiAdminYksusController {
 				" JOIN o.adminAlluvuses2 a" +
 				" JOIN a.riigiAdminYksus1 AS y" +
 				" WHERE o.riigiAdminYksusId = :yksusId" +
-					" AND (a.suletud < :date OR a.suletud IS NULL)";
+					" AND (a.suletud > :date OR a.suletud IS NULL)";
 		return RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList();
     }
 }

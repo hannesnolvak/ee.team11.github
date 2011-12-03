@@ -20,6 +20,8 @@ import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.transaction.annotation.Transactional;
 
+import projekt.web.AdminAlluvusController;
+
 
 /**
  * The persistent class for the ADMIN_ALLUVUS database table.
@@ -30,8 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RooEntity
 @EntityListeners({
 	LisatudListener.class,
-	MuudetudListener.class,
-//	SuletudListener.class
+	MuudetudListener.class
 })
 @Table(name="ADMIN_ALLUVUS")
 public class AdminAlluvus extends BaseEntity {
@@ -176,22 +177,79 @@ public class AdminAlluvus extends BaseEntity {
 		this.riigiAdminYksus2 = riigiAdminYksus2;
 	}
 
-	public void uusAlluvus(RiigiAdminYksus yksus, AdminAlluvus vanaAlluvus) {
-//		AdminAlluvusController asd = new AdminAlluvusController();
-//		AdminAlluvus al = AdminAlluvus.findAdminAlluvus(adminAlluvusId);
-//		vanaAlluvus.setSuletud(new Date());
-//		vanaAlluvus.setSulgeja("Mina");
-		vanaAlluvus.setRiigiAdminYksus2(yksus);
-		vanaAlluvus.merge();
-		
-//		uusAlluvus.
-//		public String AdminAlluvusController.update(@Valid AdminAlluvus adminAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-	}
-
+	/**
+	 * Find all opened adminAlluvuses
+	 * @return List<AdminAlluvus>
+	 */
     public static List<AdminAlluvus> findAllAdminAlluvuses() {
-        return entityManager().createQuery("SELECT o FROM AdminAlluvus o WHERE o.suletud < :date", AdminAlluvus.class).setParameter("date", getDate()).getResultList();
+        return entityManager().createQuery("SELECT o FROM AdminAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", AdminAlluvus.class).setParameter("date", getDate()).getResultList();
     }
     
+    public static List<AdminAlluvus> findAdminAlluvusEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM AdminAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", AdminAlluvus.class).setParameter("date", getDate()).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
+    public static long countAdminAlluvuses() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM AdminAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", Long.class).setParameter("date", getDate()).getSingleResult();
+    }
+
+    /**
+     * Create adminAlluvus
+     * if adminAlluvus allready exists, then we do nothing
+     * @param riigiAdminYksusId
+     */
+    @Transactional
+    public void persist() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        
+        // try to find existing alluvus
+        AdminAlluvus a = findAdminAlluvusByYksuses(this);
+        if(a == null) {
+        	
+        	AdminAlluvus alluvus = findAdminAlluvusByYksus(this);
+        	if(alluvus != null) {
+            	// close old alluvus
+        		alluvus.remove();
+        	}
+        	
+            // create new alluvus
+        	this.entityManager.persist(this);
+        }
+        
+        this.setAdminAlluvusId(a.getAdminAlluvusId());
+    }
+    
+    @Transactional
+    public AdminAlluvus merge() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+
+        Long alluvusId = this.getAdminAlluvusId();
+        
+        AdminAlluvus alluvus = AdminAlluvus.findAdminAlluvus(alluvusId);
+        if(alluvus.getRiigiAdminYksus1().equals(this.getRiigiAdminYksus1()) && alluvus.getRiigiAdminYksus2().equals(this.getRiigiAdminYksus2())) {
+	        AdminAlluvus merged = this.entityManager.merge(this);
+	        this.entityManager.flush();
+	        return merged;
+        }
+        return null;
+        /*
+        this.setAdminAlluvusId(null);
+        this.persist();
+//        return this.merge();
+        
+//        this.entityManager.flush();
+        AdminAlluvus a = AdminAlluvus.findAdminAlluvus(alluvusId);
+        return a.merge();
+        
+        /*
+        this.entityManager.flush();
+        return AdminAlluvus.findAdminAlluvus(this.getAdminAlluvusId());
+        /**/
+    }
+
+	/**
+     * Try to close adminAlluvus if it exists
+     */
     @Transactional
     public void remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
@@ -205,10 +263,58 @@ public class AdminAlluvus extends BaseEntity {
         }
     }
     
+    /**
+     * Close adminAlluvus
+     */
     private void removeAlluvus() {
     	this.setSuletud(getDate());
     	this.setSulgeja("Mina");
     	this.entityManager.merge(this);
     }
+
+    /**
+     * Find adminAlluvus by riigiAdminYksus1 and riigiAdminYksus2
+     * @param adminAlluvus
+     * @return AdminAlluvus
+     */
+	private static AdminAlluvus findAdminAlluvusByYksuses(AdminAlluvus adminAlluvus) {
+		try {
+			String query = "SELECT o" +
+						" FROM AdminAlluvus o" +
+						" JOIN o.riigiAdminYksus1 y1" +
+						" JOIN o.riigiAdminYksus2 y2" +
+						" WHERE (o.suletud > :date OR o.suletud IS NULL)" +
+							" AND y1.riigiAdminYksusId = :yksusId1" +
+							" AND y2.riigiAdminYksusId = :yksusId2" +
+						" ORDER BY o.suletud DESC NULLS FIRST";
+			return entityManager().createQuery(query, AdminAlluvus.class)
+					.setParameter("date", getDate())
+					.setParameter("yksusId1", adminAlluvus.getRiigiAdminYksus1().getRiigiAdminYksusId())
+					.setParameter("yksusId2", adminAlluvus.getRiigiAdminYksus2().getRiigiAdminYksusId())
+					.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+    
+    private AdminAlluvus findAdminAlluvusByYksus(AdminAlluvus adminAlluvus) {
+		try {
+			String query = "SELECT o" +
+						" FROM AdminAlluvus o" +
+						" JOIN o.riigiAdminYksus1 y1" +
+						" JOIN o.riigiAdminYksus2 y2" +
+						" WHERE (o.suletud > :date OR o.suletud IS NULL)" +
+							" AND y1.riigiAdminYksusId = :yksusId1" +
+							" AND y2.riigiAdminYksusId != :yksusId2" +
+						" ORDER BY o.suletud DESC NULLS FIRST";
+			return entityManager().createQuery(query, AdminAlluvus.class)
+					.setParameter("date", getDate())
+					.setParameter("yksusId1", adminAlluvus.getRiigiAdminYksus1().getRiigiAdminYksusId())
+					.setParameter("yksusId2", adminAlluvus.getRiigiAdminYksus2().getRiigiAdminYksusId())
+					.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+	}
 	
 }

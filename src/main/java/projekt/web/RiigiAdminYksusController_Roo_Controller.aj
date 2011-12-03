@@ -70,18 +70,6 @@ privileged aspect RiigiAdminYksusController_Roo_Controller {
         return "riigiadminyksuses/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT)
-    public String RiigiAdminYksusController.update(@Valid RiigiAdminYksus riigiAdminYksus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("riigiAdminYksus", riigiAdminYksus);
-            addDateTimeFormatPatterns(uiModel);
-            return "riigiadminyksuses/update";
-        }
-        uiModel.asMap().clear();
-        riigiAdminYksus.merge();
-        return "redirect:/riigiadminyksuses/" + encodeUrlPathSegment(riigiAdminYksus.getRiigiAdminYksusId().toString(), httpServletRequest);
-    }
-    
     @RequestMapping(value = "/{riigiAdminYksusId}", method = RequestMethod.DELETE)
     public String RiigiAdminYksusController.delete(@PathVariable("riigiAdminYksusId") Long riigiAdminYksusId, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         RiigiAdminYksus.findRiigiAdminYksus(riigiAdminYksusId).remove();

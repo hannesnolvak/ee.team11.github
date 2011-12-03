@@ -9,8 +9,6 @@
             <table:column id="c_ee_itcollege_team11_RiigiAdminYksus_avaja" property="avaja" z="fsvTcyJpJNPqeTR7uL8uLYskb8s="/>
             <table:column date="true" dateTimePattern="${riigiAdminYksus_avatud_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_avatud" property="avatud" z="WQfQFXq+Bnvthj3hhEGZ+Wcdf8k="/>
             <table:column id="c_ee_itcollege_team11_RiigiAdminYksus_kood" property="kood" z="S+gSfJji04xwukyDbRWD7MMo3z0="/>
-            <table:column date="true" dateTimePattern="${riigiAdminYksus_kuni_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_kuni" property="kuni" z="PjxogbGb6hNy4o3UIEINZ6sjAFM="/>
-            <table:column date="true" dateTimePattern="${riigiAdminYksus_muudetud_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_muudetud" property="muudetud" z="+aXg2Orx+Wz8rhxHksRRLDac3BM="/>
         </table:table>
     </page:list>
 </div>

@@ -1,7 +1,7 @@
 package ee.itcollege.team11;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -174,5 +175,40 @@ public class AdminAlluvus extends BaseEntity {
 	public void setRiigiAdminYksus2(RiigiAdminYksus riigiAdminYksus2) {
 		this.riigiAdminYksus2 = riigiAdminYksus2;
 	}
+
+	public void uusAlluvus(RiigiAdminYksus yksus, AdminAlluvus vanaAlluvus) {
+//		AdminAlluvusController asd = new AdminAlluvusController();
+//		AdminAlluvus al = AdminAlluvus.findAdminAlluvus(adminAlluvusId);
+//		vanaAlluvus.setSuletud(new Date());
+//		vanaAlluvus.setSulgeja("Mina");
+		vanaAlluvus.setRiigiAdminYksus2(yksus);
+		vanaAlluvus.merge();
+		
+//		uusAlluvus.
+//		public String AdminAlluvusController.update(@Valid AdminAlluvus adminAlluvus, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+	}
+
+    public static List<AdminAlluvus> findAllAdminAlluvuses() {
+        return entityManager().createQuery("SELECT o FROM AdminAlluvus o WHERE o.suletud < :date", AdminAlluvus.class).setParameter("date", getDate()).getResultList();
+    }
+    
+    @Transactional
+    public void remove() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager.contains(this)) {
+//            this.entityManager.remove(this);
+        	this.removeAlluvus();
+        } else {
+            AdminAlluvus attached = AdminAlluvus.findAdminAlluvus(this.adminAlluvusId);
+            attached.removeAlluvus();
+//            this.entityManager.remove(attached);
+        }
+    }
+    
+    private void removeAlluvus() {
+    	this.setSuletud(getDate());
+    	this.setSulgeja("Mina");
+    	this.entityManager.merge(this);
+    }
 	
 }

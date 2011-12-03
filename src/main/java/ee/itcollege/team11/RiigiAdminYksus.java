@@ -1,6 +1,7 @@
 package ee.itcollege.team11;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -44,6 +45,9 @@ public class RiigiAdminYksus extends BaseEntity {
 	@Column(name="RIIGI_ADMIN_YKSUS_ID")
 	private Long riigiAdminYksusId;
 	
+	/*
+	private RiigiAdminYksus uusYksus;
+	/**/
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date alates;
@@ -191,20 +195,27 @@ public class RiigiAdminYksus extends BaseEntity {
 		return this.adminAlluvuses1;
 	}
 
-	public void setAdminAlluvuses1(Set<RiigiAdminYksus> adminAlluvuses1) {
+	public void setAdminAlluvuses1(Set<AdminAlluvus> adminAlluvuses1) {
+		
+		this.adminAlluvuses1 = adminAlluvuses1;
+	}
+	
+//	public void setAdminAlluvuses1(RiigiAdminYksus yksus) {
 
-		if(adminAlluvuses1 != null) {
+//		setUusYksus(yksus);
+//		this.uusYksus = yksus;
+//		if(adminAlluvuses1 != null) {
 //			AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(this.riigiAdminYksusId);
-			for(RiigiAdminYksus yksus: adminAlluvuses1) {
-				yksus.getMuutja();
+//			for(RiigiAdminYksus yksus: adminAlluvuses1) {
+//				yksus.getMuutja();
 //				a.setRiigiAdminYksus1(yksus);
 //				a.merge();
 //				this.setAlluvus(yksus);
 //				alluvus.setRiigiAdminYksus2(this);
 //				alluvus.getAlates();
 //				alluvus.uusAlluvus(this, alluvus);
-			}
-		}
+//			}
+//		}
 		/*
 		if(this.adminAlluvuses1 != null) {
 			for(AdminAlluvus alluvus: this.adminAlluvuses1) {
@@ -232,9 +243,10 @@ public class RiigiAdminYksus extends BaseEntity {
 		}
 		/**/
 //		this.adminAlluvuses1 = adminAlluvuses1;
-	}
+//	}
 	
 	private void setAlluvus(RiigiAdminYksus yksus) {
+		this.getRiigiAdminYksusId();
 		AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(yksus.getRiigiAdminYksusId());
 		a.setRiigiAdminYksus1(yksus);
 		a.merge();
@@ -274,9 +286,25 @@ private void manageRelations(Collection<Bear> oldBears, Collection<Bear> newBear
 		return this.adminAlluvuses2;
 	}
 
-	public void setAdminAlluvuses2(Set<AdminAlluvus> adminAlluvuses2) {
-		this.adminAlluvuses2 = adminAlluvuses2;
+	
+	public void setAdminAlluvuses2(Set<RiigiAdminYksus> yksused) {
+		
+		Set <AdminAlluvus> alluvused = new HashSet<AdminAlluvus>();
+		if(yksused != null) {
+			for(RiigiAdminYksus yksus: yksused) {
+				AdminAlluvus a = new AdminAlluvus();
+//				a.setRiigiAdminYksus1(this);
+				a.setRiigiAdminYksus2(yksus);
+				alluvused.add(a);
+			}
+		}
+		this.adminAlluvuses2 = alluvused;
 	}
+	/*
+	public void setAdminAlluvuses2(Set<AdminAlluvus> adminAlluvuses2) {
+		
+		this.adminAlluvuses2 = adminAlluvuses2;
+	}/**/
 	
 	public RiigiAdminYksuseLiik getRiigiAdminYksuseLiik() {
 		return this.riigiAdminYksuseLiik;
@@ -309,5 +337,14 @@ private void manageRelations(Collection<Bear> oldBears, Collection<Bear> newBear
 	public void setKommentaar(String kommentaar) {
 		this.kommentaar = kommentaar;
 	}
+	/*
+	public RiigiAdminYksus getUusYksus() {
+		return uusYksus;
+	}
+
+	public void setUusYksus(RiigiAdminYksus uusYksus) {
+		this.uusYksus = uusYksus;
+	}
+	/**/
 	
 }

@@ -16,5 +16,6 @@
         <!-- 
         <field:display field="riigiAdminYksuseLiik" id="s_ee_itcollege_team11_RiigiAdminYksus_riigiAdminYksuseLiik" object="${riigiadminyksus}" z="Z6/rAdzFO+53vthuE95egNsqiF8="/>
          -->
+        <field:display field="kommentaar" id="s_ee_itcollege_team11_RiigiAdminYksus_kommentaar" object="${riigiadminyksus}" z="V+SXVnJ/+ECQIBWJI5jBvJF9KkU="/>
     </page:show>
 </div>

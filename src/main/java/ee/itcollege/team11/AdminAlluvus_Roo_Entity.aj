@@ -37,17 +37,6 @@ privileged aspect AdminAlluvus_Roo_Entity {
     }
     
     @Transactional
-    public void AdminAlluvus.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            AdminAlluvus attached = AdminAlluvus.findAdminAlluvus(this.adminAlluvusId);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void AdminAlluvus.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -75,10 +64,6 @@ privileged aspect AdminAlluvus_Roo_Entity {
     
     public static long AdminAlluvus.countAdminAlluvuses() {
         return entityManager().createQuery("SELECT COUNT(o) FROM AdminAlluvus o", Long.class).getSingleResult();
-    }
-    
-    public static List<AdminAlluvus> AdminAlluvus.findAllAdminAlluvuses() {
-        return entityManager().createQuery("SELECT o FROM AdminAlluvus o", AdminAlluvus.class).getResultList();
     }
     
     public static AdminAlluvus AdminAlluvus.findAdminAlluvus(Long adminAlluvusId) {

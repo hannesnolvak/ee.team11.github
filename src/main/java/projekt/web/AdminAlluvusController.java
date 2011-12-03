@@ -1,5 +1,7 @@
 package projekt.web;
 
+import java.util.Date;
+
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +17,10 @@ public class AdminAlluvusController {
 		String query = "SELECT a " +
 				"FROM AdminAlluvus a " +
 				"JOIN a.riigiAdminYksus1 AS y " +
-				"WHERE y.riigiAdminYksusId = " + adminYksusId + " " +
+				"WHERE y.riigiAdminYksusId = :yksus " +
+				"AND (a.suletud < :date OR a.suletud IS NULL) " +
 				"ORDER BY y.riigiAdminYksusId DESC";
-		return AdminAlluvus.entityManager().createQuery(query, AdminAlluvus.class).getSingleResult();
+		return AdminAlluvus.entityManager().createQuery(query, AdminAlluvus.class).setParameter("yksus", adminYksusId).setParameter("date", new Date()).getSingleResult();
 	}
     /*
     public AdminAlluvus get(Long adminAlluvusId) {

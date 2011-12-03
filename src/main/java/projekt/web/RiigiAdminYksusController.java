@@ -1,7 +1,10 @@
 package projekt.web;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -58,7 +61,7 @@ public class RiigiAdminYksusController {
     	/**
     	 * Kontrollime, kas sisestatav alluvus erineb praeguses ja vajadusel tekitame uue ning sulgeme vana
     	 */
-    	AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(riigiAdminYksus.getRiigiAdminYksusId());
+//    	AdminAlluvus a = AdminAlluvusController.getAdminYksusAlluvus(riigiAdminYksus.getRiigiAdminYksusId());
     	if(riigiAdminYksus.getAdminAlluvuses2() != null) {
     		for(AdminAlluvus alluvus: riigiAdminYksus.getAdminAlluvuses2()) {
     			alluvus.setRiigiAdminYksus1(riigiAdminYksus);
@@ -77,7 +80,7 @@ public class RiigiAdminYksusController {
         return "redirect:/riigiadminyksuses/" + encodeUrlPathSegment(riigiAdminYksus.getRiigiAdminYksusId().toString(), httpServletRequest);
     }
 	
-    public Collection<RiigiAdminYksus> findRiigiAdminYksuseVoimalikudAlluvad(Long riigiAdminYksusId) {
+    public Collection<RiigiAdminYksus> findRiigiAdminYksuseVoimalikudAlluvad(final Long riigiAdminYksusId) {
 
 		String query = "SELECT y2" +
 				" FROM RiigiAdminYksus o" +
@@ -87,7 +90,21 @@ public class RiigiAdminYksusController {
 				" JOIN yl.riigiAdminYksuses y2" +
 				" WHERE o.riigiAdminYksusId = :yksusId" +
 					" AND (a.suletud > :date OR a.suletud IS NULL)";
-		return RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList();
+		List<RiigiAdminYksus> voimalikudAlluvad = RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList();
+		
+		Collections.sort(voimalikudAlluvad, new Comparator<RiigiAdminYksus>() {
+
+			@Override
+			public int compare(RiigiAdminYksus o1, RiigiAdminYksus o2) {
+				if(o1.getRiigiAdminYksusId() == riigiAdminYksusId) {
+					return -1;
+				}
+				return 0;
+			}
+			
+		});
+		
+		return voimalikudAlluvad;
     }
     
     public Collection<RiigiAdminYksus> findChildrens(Long riigiAdminYksusId) {

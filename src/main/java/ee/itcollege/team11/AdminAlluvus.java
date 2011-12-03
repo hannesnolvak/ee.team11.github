@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -204,6 +205,7 @@ public class AdminAlluvus extends BaseEntity {
         
         // try to find existing alluvus
         AdminAlluvus a = findAdminAlluvusByYksuses(this);
+        
         if(a == null) {
         	
         	AdminAlluvus alluvus = findAdminAlluvusByYksus(this);
@@ -214,9 +216,9 @@ public class AdminAlluvus extends BaseEntity {
         	
             // create new alluvus
         	this.entityManager.persist(this);
+        } else {
+        	this.setAdminAlluvusId(a.getAdminAlluvusId());
         }
-        
-        this.setAdminAlluvusId(a.getAdminAlluvusId());
     }
     
     @Transactional
@@ -231,20 +233,11 @@ public class AdminAlluvus extends BaseEntity {
 	        this.entityManager.flush();
 	        return merged;
         }
-        return null;
-        /*
         this.setAdminAlluvusId(null);
         this.persist();
-//        return this.merge();
         
-//        this.entityManager.flush();
-        AdminAlluvus a = AdminAlluvus.findAdminAlluvus(alluvusId);
-        return a.merge();
         
-        /*
-        this.entityManager.flush();
-        return AdminAlluvus.findAdminAlluvus(this.getAdminAlluvusId());
-        /**/
+        return this;
     }
 
 	/**
@@ -292,7 +285,7 @@ public class AdminAlluvus extends BaseEntity {
 					.setParameter("yksusId1", adminAlluvus.getRiigiAdminYksus1().getRiigiAdminYksusId())
 					.setParameter("yksusId2", adminAlluvus.getRiigiAdminYksus2().getRiigiAdminYksusId())
 					.getSingleResult();
-		} catch (Exception e) {
+		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
 	}
@@ -312,7 +305,7 @@ public class AdminAlluvus extends BaseEntity {
 					.setParameter("yksusId1", adminAlluvus.getRiigiAdminYksus1().getRiigiAdminYksusId())
 					.setParameter("yksusId2", adminAlluvus.getRiigiAdminYksus2().getRiigiAdminYksusId())
 					.getSingleResult();
-		} catch (Exception e) {
+		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
 	}

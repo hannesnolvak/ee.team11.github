@@ -80,7 +80,7 @@ public class RiigiAdminYksusController {
         return "redirect:/riigiadminyksuses/" + encodeUrlPathSegment(riigiAdminYksus.getRiigiAdminYksusId().toString(), httpServletRequest);
     }
 	
-    public Collection<RiigiAdminYksus> findRiigiAdminYksuseVoimalikudAlluvad(final Long riigiAdminYksusId) {
+    public Collection<RiigiAdminYksus> findRiigiAdminYksuseVoimalikudAlluvad(Long riigiAdminYksusId) {
 
 		String query = "SELECT y2" +
 				" FROM RiigiAdminYksus o" +
@@ -92,17 +92,20 @@ public class RiigiAdminYksusController {
 					" AND (a.suletud > :date OR a.suletud IS NULL)";
 		List<RiigiAdminYksus> voimalikudAlluvad = RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList();
 		
+		final long mingiNimi = riigiAdminYksusId;
 		Collections.sort(voimalikudAlluvad, new Comparator<RiigiAdminYksus>() {
 
 			@Override
 			public int compare(RiigiAdminYksus o1, RiigiAdminYksus o2) {
-				if(o1.getRiigiAdminYksusId() == riigiAdminYksusId) {
+				if(o1.getRiigiAdminYksusId() == mingiNimi) {
 					return -1;
+				} else if(o2.getRiigiAdminYksusId() == mingiNimi) {
+					return 1;
 				}
 				return 0;
 			}
 			
-		});
+		});/**/
 		
 		return voimalikudAlluvad;
     }

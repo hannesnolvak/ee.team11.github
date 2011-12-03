@@ -3,16 +3,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_ee_itcollege_team11_VaeosaAlluvus" idField="vaeosaAlluvusId" modelAttribute="vaeosaAlluvus" path="/vaeosaalluvuses" versionField="Version" z="rwRPZjmyicDBUasv+RYhPlIGHGc=">
-        <field:datetime dateTimePattern="${vaeosaAlluvus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_VaeosaAlluvus_alates" z="RkP0j3wmJiDU5EovWfe7bllLkjg="/>
-        <field:input field="avaja" id="c_ee_itcollege_team11_VaeosaAlluvus_avaja" z="d7mY86hMozQ+dk+F5UREPlyeTvA="/>
-        <field:datetime dateTimePattern="${vaeosaAlluvus_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_VaeosaAlluvus_avatud" z="YuWbnnM8uJX/Tf76HkYDh/+7Q0c="/>
+        <field:select field="vaeosa2" label="Ülemus" id="c_ee_itcollege_team11_VaeosaAlluvus_vaeosa2" itemLabel="nimetus" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="user-managed"/>
+        <field:select field="vaeosa1" label="Alluv" id="c_ee_itcollege_team11_VaeosaAlluvus_vaeosa1" itemLabel="nimetus" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="user-managed"/>
+     
         <field:input field="kommentaar" id="c_ee_itcollege_team11_VaeosaAlluvus_kommentaar" z="CLeUOW4XTHFT2z7GhI3wtdicNoI="/>
+       
+        <field:datetime dateTimePattern="${vaeosaAlluvus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_VaeosaAlluvus_alates" z="RkP0j3wmJiDU5EovWfe7bllLkjg="/>
         <field:datetime dateTimePattern="${vaeosaAlluvus_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_VaeosaAlluvus_kuni" z="Ti9y+XeOV/O4n9uTZdupEjcR8n8="/>
-        <field:datetime dateTimePattern="${vaeosaAlluvus_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_VaeosaAlluvus_muudetud" z="DEKMZoGFa/U59zkxqJTgga0IlaY="/>
-        <field:input field="muutja" id="c_ee_itcollege_team11_VaeosaAlluvus_muutja" z="ifckcR/kxSYmOn0az3rYJ8sUDEs="/>
-        <field:datetime dateTimePattern="${vaeosaAlluvus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_VaeosaAlluvus_suletud" z="oLylhjg5K6MB6L5ZjCWMBFz03UA="/>
-        <field:input field="sulgeja" id="c_ee_itcollege_team11_VaeosaAlluvus_sulgeja" z="HubTshJNukgGaU6F+t4Qd23qoPA="/>
-        <field:select field="vaeosa1" id="c_ee_itcollege_team11_VaeosaAlluvus_vaeosa1" itemLabel="nimetus" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="user-managed"/>
-        <field:select field="vaeosa2" id="c_ee_itcollege_team11_VaeosaAlluvus_vaeosa2" itemLabel="nimetus" itemValue="vaeosaIdId" items="${vaeosas}" path="/vaeosas" z="user-managed"/>
-    </form:update>
+     </form:update>
 </div>

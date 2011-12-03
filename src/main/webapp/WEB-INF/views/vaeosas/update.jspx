@@ -3,46 +3,51 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_ee_itcollege_team11_Vaeosa" idField="vaeosaIdId" modelAttribute="vaeosa" path="/vaeosas" versionField="Version" z="S3LCn5mZon5n6E4QoeeoqlISEvE=">
-        <field:input field="kood" id="c_ee_itcollege_team11_Vaeosa_kood" z="Fra+XkkzfjDQZma7SyyhwrQFkig="/>
-        <field:input field="nimetus" id="c_ee_itcollege_team11_Vaeosa_nimetus" z="w9iQAPZiPjUhhnjztx4xPU6UGyk="/>
-        <field:input field="kommentaar" id="c_ee_itcollege_team11_Vaeosa_kommentaar" z="ujesOQaf7R2UE74nls44p6JTG3U="/>
-        <field:select field="riigiAdminYksus" id="c_ee_itcollege_team11_Vaeosa_riigiAdminYksus" itemLabel="nimetus" itemValue="riigiAdminYksusId" items="${riigiadminyksuses}" label="Paikneb" path="/riigiadminyksuses" z="user-managed"/>
-        <!-- 
-        <field:select field="vaeosaAlluvuses1" id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses1" itemLabel="nimetus" itemValue="vaeosaIdId" items="${vaeosas}" label="Allub" path="/vaeosas"/>
-         -->
-        
-        <field:select field="vaeosaAlluvuses1" 
-                      id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses1" 
-                      itemLabel="vaeosa1.nimetus" 
-                      itemValue="vaeosaAlluvusId" 
-                      items="${vaeosaalluvuses}" 
-                      label="Allub" 
-                      path="/vaeosaalluvuses"/>
-        
-        <field:datetime dateTimePattern="${vaeosa_alates_date_format}" field="alates" id="c_ee_itcollege_team11_Vaeosa_alates" z="l2AFEhzj2PEn9dxZW9xffrfa74E="/>
-        <field:datetime dateTimePattern="${vaeosa_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_Vaeosa_kuni" z="k0+LFCyPLv3GyCJuhA65NJn7Zg0="/>
-        <table>
+        <table class="layoutTable">
             <tr>
-                <th>
-        			Alluvad
-        		</th>
-                <th/>
-            </tr>
-            <c:forEach items="${alluvadVaeosad}" var="av">
-                <tr>
-                    <td>
-        				${av.nimetus}
-        			</td>
-                    <td>
-                        <input id="eemalda" name="eemaldaNupp" type="submit" value="Eemalda"/>
-                    </td>
-                </tr>
-            </c:forEach>
-            <tr>
-                <td>...</td>
-                <td/>
+                <td width="60%">
+                    <field:input    field="kood" id="c_ee_itcollege_team11_Vaeosa_kood" z="Fra+XkkzfjDQZma7SyyhwrQFkig="/>
+                    <field:input    field="nimetus" id="c_ee_itcollege_team11_Vaeosa_nimetus" z="w9iQAPZiPjUhhnjztx4xPU6UGyk="/>
+                    <field:textarea field="kommentaar" id="c_ee_itcollege_team11_Vaeosa_kommentaar"/>
+                    <field:select   field="riigiAdminYksus" 
+                                    id="c_ee_itcollege_team11_Vaeosa_riigiAdminYksus" 
+                                    label="Paikneb" 
+                                    itemLabel="nimetus" 
+                                    itemValue="riigiAdminYksusId" 
+                                    items="${riigiadminyksuses}" 
+                                    path="/riigiadminyksuses" 
+                                    z="user-managed"/>
+                    
+                     <field:select 	field="vaeosaAlluvuses2" 
+                    	   			id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses2" 
+                      				itemLabel="nimetus" 
+                     				itemValue="vaeosaIdId" 
+                      				items="${vaeosas}" 
+                      				label="Allub" 
+                      				path="/vaeosaalluvuses"/>
+
+					<field:datetime field="alates" 	dateTimePattern="${vaeosa_alates_date_format}" id="c_ee_itcollege_team11_Vaeosa_alates" z="l2AFEhzj2PEn9dxZW9xffrfa74E="/>
+        			<field:datetime field="kuni" 	dateTimePattern="${vaeosa_kuni_date_format}"  id="c_ee_itcollege_team11_Vaeosa_kuni" z="k0+LFCyPLv3GyCJuhA65NJn7Zg0="/>
+                              				
+                </td>
+                <td valign="top">
+                	<table class="listTable">
+                		<tr><th colspan="2">Alluvad</th></tr>
+                		<c:forEach items="${alluvadVaeosad}" var="av">
+                			<tr>
+	                			<td>${av.nimetus}</td>
+	                			<td width="70px">
+	                				<input type="submit" onclick="document.location.href='/team11/vaeosas/${vaeosa.vaeosaIdId}'; return false;" value="Eemalda" />
+	                			</td>
+                			</tr>
+                		</c:forEach>
+                	</table>
+                	<br />
+                	<div style="float:right;"><input type="submit" onclick="document.location.href='/team11/vaeosas?form'; return false;" value="Lisa" /></div>
+                </td>
             </tr>
         </table>
+   
         <!-- siia j2rgi teeb roo paska -->
     </form:update>
 </div>

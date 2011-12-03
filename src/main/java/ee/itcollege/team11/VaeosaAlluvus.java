@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,12 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooEntity
 @Table(name="VAEOSA_ALLUVUS")
-public class VaeosaAlluvus implements Serializable {
+@EntityListeners({
+	LisatudListener.class,
+	MuudetudListener.class,
+//	SuletudListener.class
+})
+public class VaeosaAlluvus extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -170,6 +176,18 @@ public class VaeosaAlluvus implements Serializable {
 
 	public void setVaeosa2(Vaeosa vaeosa2) {
 		this.vaeosa2 = vaeosa2;
+	}
+
+	public static VaeosaAlluvus getVaeosaAlluvusYlemusSuheByVaeosa(Vaeosa vaeosa) {
+		for (VaeosaAlluvus va : VaeosaAlluvus.findAllVaeosaAlluvuses())
+		{
+			if (va.getVaeosa1().getKood().equals(vaeosa.getKood()))
+			{
+				return va;
+			}
+		}
+		 
+		return null;
 	}
 	
 }

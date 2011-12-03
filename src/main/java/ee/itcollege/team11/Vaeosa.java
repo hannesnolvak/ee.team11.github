@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +23,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import projekt.web.VaeosaAlluvusController;
+
 
 /**
  * The persistent class for the VAEOSA database table.
@@ -30,7 +33,12 @@ import org.springframework.roo.addon.tostring.RooToString;
 @Entity
 @RooToString
 @RooEntity
-public class Vaeosa implements Serializable {
+@EntityListeners({
+	LisatudListener.class,
+	MuudetudListener.class,
+//	SuletudListener.class
+})
+public class Vaeosa extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -95,7 +103,7 @@ public class Vaeosa implements Serializable {
 	//bi-directional many-to-one association to VaeosaAlluvus
 	@OneToMany(mappedBy="vaeosa1")
 	private Set<VaeosaAlluvus> vaeosaAlluvuses1;
-
+	
 	//bi-directional many-to-one association to VaeosaAlluvus
 	@OneToMany(mappedBy="vaeosa2")
 	private Set<VaeosaAlluvus> vaeosaAlluvuses2;
@@ -103,6 +111,8 @@ public class Vaeosa implements Serializable {
 	//bi-directional many-to-one association to Vahtkond
 	@OneToMany(mappedBy="vaeosa")
 	private Set<Vahtkond> vahtkonds;
+
+	//private Vaeosa ajutineVaeosa;
 
 	
 	
@@ -114,15 +124,15 @@ public class Vaeosa implements Serializable {
 	
 
 	
-	public static List<Vaeosa> findAlluvadVaeosadByVaeosa(Long vaeosaIdId) {
+	public static List<Vaeosa> findAlluvadVaeosadByVaeosaID(Long vaeosaIdId) {
 		Vaeosa vaeosa = Vaeosa.findVaeosa(vaeosaIdId);
 		List<Vaeosa> alluvadVaeosad = new ArrayList<Vaeosa>(); 
 		
 		for (VaeosaAlluvus va : VaeosaAlluvus.findAllVaeosaAlluvuses())
 		{
-			if (va.getVaeosa1() == vaeosa)
+			if (va.getVaeosa2() == vaeosa)
 			{
-				alluvadVaeosad.add(va.getVaeosa2());
+				alluvadVaeosad.add(va.getVaeosa1());
 			}
 			
 		}
@@ -260,58 +270,92 @@ public class Vaeosa implements Serializable {
 	}
 	
 	public Set<VaeosaAlluvus> getVaeosaAlluvuses1() {
-		return this.vaeosaAlluvuses1;
+		return this.vaeosaAlluvuses2;
 	}
 
-	public void setVaeosaAlluvuses1(Set<VaeosaAlluvus> vaeosaAlluvuses1) {
-		
-		if (vaeosaAlluvuses1 == null)
-		{
-			this.vaeosaAlluvuses1 = new HashSet<VaeosaAlluvus>();
-		} else
-		{
-			this.vaeosaAlluvuses1 = vaeosaAlluvuses1;
-		}
-
-		System.out.println("Salvestatakse v2eosa: " + this.getNimetus());
-		
-		for (VaeosaAlluvus va : this.vaeosaAlluvuses1) {
-	
-			va.getVaeosa1();
-			System.out.println("this.alluvses1 l2bi k2imine v2eosa1: " + va.getVaeosa1().getNimetus());
-			System.out.println("this.alluvses1 l2bi k2imine v2eosa2: " + va.getVaeosa2().getNimetus());
-			
-			if (va.getVaeosa1() != this)
-			{
-				System.out.println("v2eosa2 ei olnud this - ta seatakse selleks");
-
-				va.setVaeosa1(this);
-			}
-		}	
+	//kes on minu alluvad
+	public void setVaeosaAlluvuses1(Set<VaeosaAlluvus> vaAlluvad) {
+		this.vaeosaAlluvuses2 = vaAlluvad;
 	}
 	
 	public Set<VaeosaAlluvus> getVaeosaAlluvuses2() {
 		return this.vaeosaAlluvuses2;
 	}
 
-	public void setVaeosaAlluvuses2(Set<VaeosaAlluvus> vaeosaAlluvuses2) {
-		if (vaeosaAlluvuses2 == null)
+	
+	/*
+	public void setVaeosaAlluvuses2(Set<Vaeosa> ylemused) {
+	
+		if (ylemused != null)
+		{
+			for (Vaeosa vaeosa : ylemused) {
+	//			this.ajutineVaeosa = vaeosa;
+			}
+		}
+	}
+	*/
+
+	
+	
+	//kes on minu ylemused
+	public void setVaeosaAlluvuses2(Set<Vaeosa> ylemused) {
+		if (ylemused != null)
+		{
+			// Leia praegune suhe
+			VaeosaAlluvus ylemusSuhe = VaeosaAlluvus.getVaeosaAlluvusYlemusSuheByVaeosa(this);
+			if (ylemusSuhe == null) return;
+
+			// leia uus ylemus
+			for (Vaeosa uusYlemus : ylemused) {
+				// asenda ylemus va's
+				ylemusSuhe.setVaeosa2(uusYlemus);
+			}
+			
+			// salvesta suhe
+			Set <VaeosaAlluvus> ylemusSuhted = new HashSet<VaeosaAlluvus>();
+			ylemusSuhted.add(ylemusSuhe);
+			this.vaeosaAlluvuses2 = ylemusSuhted;
+		}
+	}
+
+	/*
+	//kes on minu ylemused
+	public void setVaeosaAlluvuses2(Set<VaeosaAlluvus> vaYlemused) {
+
+		if (vaYlemused == null)
 		{
 			this.vaeosaAlluvuses2 = new HashSet<VaeosaAlluvus>();
 		} else
 		{
-			this.vaeosaAlluvuses2 = vaeosaAlluvuses2;
+			this.vaeosaAlluvuses2 = vaYlemused;
 		}
-/*
-		for (VaeosaAlluvus v : this.vaeosaAlluvuses2) {
-			if (v.getVaeosa2() != this)
-			{
-				v.setVaeosa2(this);
-			}
-		}	
-*/		
-	}
+		
+
+		System.out.println("Salvestatakse v2eosa: " + this.getNimetus());
+		
+		
+		// leia 6ige vaeosa_alluvus tabeli kanne
+		for (VaeosaAlluvus va : this.vaeosaAlluvuses2) {
 	
+			if (va.getVaeosa1() != null)
+			{
+				System.out.println("this.alluvses2 l2bi k2imine v2eosa1 - alluv  : " + va.getVaeosa1().getNimetus());
+				System.out.println("this.alluvses2 l2bi k2imine v2eosa2 - ylemus : " + va.getVaeosa2().getNimetus());
+			}
+			
+			// leia kanne kus alluv olen mina, 
+			// selle kande teine pool on minu ylemus 
+			// tema tuleb 2ra vahetada
+			if (va.getVaeosa1() == this)
+			{
+				System.out.println("v2eosa1 ei olnud this - ta seatakse selleks");
+
+				// pane uus ylemus asemele - kuid kes ta on??
+				//va.setVaeosa2(uusYlemusKesHetkelPuuduOn);
+			}
+		}
+	}
+	*/
 	public Set<Vahtkond> getVahtkonds() {
 		return this.vahtkonds;
 	}
@@ -333,5 +377,12 @@ public class Vaeosa implements Serializable {
 	public void setKommentaar(String kommentaar) {
 		this.kommentaar = kommentaar;
 	}
-	
+
+
+
+	/*
+	public Vaeosa getAjutineVaeosa() {
+		return ajutineVaeosa;
+	}
+	*/
 }

@@ -73,17 +73,6 @@ privileged aspect VaeosaController_Roo_Controller {
         return "vaeosas/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT)
-    public String VaeosaController.update(@Valid Vaeosa vaeosa, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("vaeosa", vaeosa);
-            addDateTimeFormatPatterns(uiModel);
-            return "vaeosas/update";
-        }
-        uiModel.asMap().clear();
-        vaeosa.merge();
-        return "redirect:/vaeosas/" + encodeUrlPathSegment(vaeosa.getVaeosaIdId().toString(), httpServletRequest);
-    }
     
     @RequestMapping(value = "/{vaeosaIdId}", method = RequestMethod.DELETE)
     public String VaeosaController.delete(@PathVariable("vaeosaIdId") Long vaeosaIdId, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {

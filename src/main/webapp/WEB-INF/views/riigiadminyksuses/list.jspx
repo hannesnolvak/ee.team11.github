@@ -5,9 +5,7 @@
     <page:list id="pl_ee_itcollege_team11_RiigiAdminYksus" items="${riigiadminyksuses}" z="DVQbYF6ZtGHJHbAy+cB/Kr9ypFs=">
         <table:table data="${riigiadminyksuses}" id="l_ee_itcollege_team11_RiigiAdminYksus" path="/riigiadminyksuses" typeIdFieldName="riigiAdminYksusId" z="S7L7lOSQusZcgcJtOf9gt40q88w=">
         	<table:column id="c_ee_itcollege_team11_RiigiAdminYksus_nimetus" property="nimetus" />
-            <table:column date="true" dateTimePattern="${riigiAdminYksus_alates_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" property="alates" z="nKgE/rblDTvR79qv+Wm/Zej773Y="/>
             <table:column id="c_ee_itcollege_team11_RiigiAdminYksus_avaja" property="avaja" z="fsvTcyJpJNPqeTR7uL8uLYskb8s="/>
-            <table:column date="true" dateTimePattern="${riigiAdminYksus_avatud_date_format}" id="c_ee_itcollege_team11_RiigiAdminYksus_avatud" property="avatud" z="WQfQFXq+Bnvthj3hhEGZ+Wcdf8k="/>
             <table:column id="c_ee_itcollege_team11_RiigiAdminYksus_kood" property="kood" z="S+gSfJji04xwukyDbRWD7MMo3z0="/>
         </table:table>
     </page:list>

@@ -6,10 +6,8 @@
         <table:table data="${adminalluvuses}" id="l_ee_itcollege_team11_AdminAlluvus" path="/adminalluvuses" typeIdFieldName="adminAlluvusId" z="MDHi9akaWQ2Mbhyqr+qFAqKPz7Y=">
             <table:column id="c_ee_itcollege_team11_AdminAlluvus_alates" property="alates" z="OWuMgqQ+a/DGEWpO+sApgDtu6uA="/>
             <table:column id="c_ee_itcollege_team11_AdminAlluvus_avaja" property="avaja" z="q9zN8AsWSI1EYWYI4WQwl56lS4Y="/>
-            <table:column date="true" dateTimePattern="${adminAlluvus_avatud_date_format}" id="c_ee_itcollege_team11_AdminAlluvus_avatud" property="avatud" z="mEbiab3LwmLychj6RE4xuhYtlko="/>
             <table:column id="c_ee_itcollege_team11_AdminAlluvus_kommentaar" property="kommentaar" z="RgolMe5G/Q8Pp7WEuJZA92k5L/8="/>
             <table:column id="c_ee_itcollege_team11_AdminAlluvus_kuni" property="kuni" z="5fk51JbXl44OwwU18r6JYCbXRMk="/>
-            <table:column date="true" dateTimePattern="${adminAlluvus_muudetud_date_format}" id="c_ee_itcollege_team11_AdminAlluvus_muudetud" property="muudetud" z="R6nWqUV7KihMA6OpZ7cc1hDX4Q0="/>
         </table:table>
     </page:list>
 </div>

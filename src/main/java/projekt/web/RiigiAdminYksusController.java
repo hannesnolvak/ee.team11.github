@@ -1,10 +1,8 @@
 package projekt.web;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -81,33 +79,33 @@ public class RiigiAdminYksusController {
     }
 	
     public Collection<RiigiAdminYksus> findRiigiAdminYksuseVoimalikudAlluvad(Long riigiAdminYksusId) {
+    	
+    	Collection<RiigiAdminYksus> yksused = new ArrayList<RiigiAdminYksus>();
 
-		String query = "SELECT y2" +
+    	// hetkel aktiivne ylem
+		String queryYlem = "SELECT y" +
 				" FROM RiigiAdminYksus o" +
 				" JOIN o.adminAlluvuses1 a" +
 				" JOIN a.riigiAdminYksus2 AS y" +
-				" JOIN y.riigiAdminYksuseLiik yl" +
-				" JOIN yl.riigiAdminYksuses y2" +
 				" WHERE o.riigiAdminYksusId = :yksusId" +
-					" AND (a.suletud > :date OR a.suletud IS NULL)";
-		List<RiigiAdminYksus> voimalikudAlluvad = RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList();
+			       	" AND (a.suletud > :date OR a.suletud IS NULL)";
 		
-		final long mingiNimi = riigiAdminYksusId;
-		Collections.sort(voimalikudAlluvad, new Comparator<RiigiAdminYksus>() {
+		yksused.addAll(RiigiAdminYksus.entityManager().createQuery(queryYlem, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList());
+		
+		// k6ik ylej22nud v6imalikud ylemad
+		String query = "SELECT y" +
+				" FROM RiigiAdminYksus o" +
+				" JOIN o.riigiAdminYksuseLiik AS yl" +
+				" JOIN yl.voimalikAlluvuses1 AS va" +
+				" JOIN va.riigiAdminYksuseLiik2 AS yl1" +
+				" JOIN yl1.riigiAdminYksuses AS y" +
+				" WHERE o.riigiAdminYksusId = :yksusId" +
+		       		" AND (va.suletud > :date OR va.suletud IS NULL)" +
+		       		" AND y != (" + queryYlem + ")";
 
-			@Override
-			public int compare(RiigiAdminYksus o1, RiigiAdminYksus o2) {
-				if(o1.getRiigiAdminYksusId() == mingiNimi) {
-					return -1;
-				} else if(o2.getRiigiAdminYksusId() == mingiNimi) {
-					return 1;
-				}
-				return 0;
-			}
-			
-		});/**/
+		yksused.addAll(RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList());
 		
-		return voimalikudAlluvad;
+		return yksused;
     }
     
     public Collection<RiigiAdminYksus> findChildrens(Long riigiAdminYksusId) {

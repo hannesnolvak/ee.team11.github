@@ -37,17 +37,6 @@ privileged aspect RiigiAdminYksus_Roo_Entity {
     }
     
     @Transactional
-    public void RiigiAdminYksus.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            RiigiAdminYksus attached = RiigiAdminYksus.findRiigiAdminYksus(this.riigiAdminYksusId);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void RiigiAdminYksus.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();

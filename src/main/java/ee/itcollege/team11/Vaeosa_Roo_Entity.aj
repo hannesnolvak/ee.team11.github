@@ -37,17 +37,6 @@ privileged aspect Vaeosa_Roo_Entity {
     }
     
     @Transactional
-    public void Vaeosa.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            Vaeosa attached = Vaeosa.findVaeosa(this.vaeosaIdId);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void Vaeosa.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();

@@ -30,7 +30,7 @@
                 			<tr>
 	                			<td>${alluv.nimetus}</td>
 	                			<td width="70px">
-	                				<input type="submit" onclick="document.location.href='/team11/riigiadminyksuseliiks/${riigiAdminYksuseLiik.riigiAdminYksuseLikId}'; return false;" value="Eemalda" />
+	                				<input type="submit" onclick="document.location.href='/team11/riigiadminyksuseliiks/${riigiAdminYksuseLiik.riigiAdminYksuseLikId}/${alluv.riigiAdminYksuseLikId}?delete'; return false;" value="Eemalda" />
 	                			</td>
                 			</tr>
                 		</c:forEach>

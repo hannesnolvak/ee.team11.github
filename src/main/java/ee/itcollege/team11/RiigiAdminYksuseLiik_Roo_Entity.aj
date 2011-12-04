@@ -37,17 +37,6 @@ privileged aspect RiigiAdminYksuseLiik_Roo_Entity {
     }
     
     @Transactional
-    public void RiigiAdminYksuseLiik.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            RiigiAdminYksuseLiik attached = RiigiAdminYksuseLiik.findRiigiAdminYksuseLiik(this.riigiAdminYksuseLikId);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void RiigiAdminYksuseLiik.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();

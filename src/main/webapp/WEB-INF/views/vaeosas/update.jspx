@@ -45,7 +45,7 @@
                 			<tr>
 	                			<td>${av.nimetus}</td>
 	                			<td width="70px">
-	                				<input type="submit" onclick="document.location.href='/team11/vaeosas/${vaeosa.vaeosaIdId}'; return false;" value="Eemalda" />
+	                				<input type="submit" onclick="document.location.href='/team11/vaeosas/${vaeosa.vaeosaIdId}/${av.vaeosaIdId}?delete'; return false;" value="Eemalda" />
 	                			</td>
                 			</tr>
                 		</c:forEach>

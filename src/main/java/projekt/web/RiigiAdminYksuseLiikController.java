@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import ee.itcollege.team11.AdminAlluvus;
 import ee.itcollege.team11.RiigiAdminYksus;
 import ee.itcollege.team11.RiigiAdminYksuseLiik;
+import ee.itcollege.team11.Vaeosa;
 import ee.itcollege.team11.VoimalikAlluvus;
 
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
@@ -24,6 +25,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/riigiadminyksuseliiks")
 @Controller
 public class RiigiAdminYksuseLiikController {
+
+    @RequestMapping(value = "/{riigiAdminYksuseLikId}/{riigiAdminYksuseLikRemoveId}", params = "delete", method = RequestMethod.GET)
+    public String remove(@PathVariable("riigiAdminYksuseLikId") Long riigiAdminYksuseLikId, @PathVariable("riigiAdminYksuseLikRemoveId") Long riigiAdminYksuseLikRemoveId, Model uiModel) {
+    	RiigiAdminYksuseLiik.findRiigiAdminYksuseLiik(riigiAdminYksuseLikRemoveId).remove();
+        uiModel.asMap().clear();
+        return "redirect:/riigiadminyksuseliiks/" + riigiAdminYksuseLikId + "?form";
+    }
     
     @RequestMapping(method = RequestMethod.POST)
     public String create(@Valid RiigiAdminYksuseLiik riigiAdminYksuseLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {

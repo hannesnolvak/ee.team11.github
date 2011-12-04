@@ -22,12 +22,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RooWebScaffold(path = "vaeosas", formBackingObject = Vaeosa.class)
 @RequestMapping("/vaeosas")
 @Controller
 public class VaeosaController {
-	
+
+    @RequestMapping(value = "/{vaeosaId}/{vaeosaRemoveId}", params = "delete", method = RequestMethod.GET)
+    public String remove(@PathVariable("vaeosaId") Long vaeosaId, @PathVariable("vaeosaRemoveId") Long vaeosaRemoveId, Model uiModel) {
+    	Vaeosa.findVaeosa(vaeosaRemoveId).remove();
+        uiModel.asMap().clear();
+        return "redirect:/vaeosas/" + vaeosaId + "?form";
+    }
 	
     @RequestMapping(value = "/{vaeosaIdId}", params = "form", method = RequestMethod.GET)
     public String updateForm(@PathVariable("vaeosaIdId") Long vaeosaIdId, Model uiModel) {

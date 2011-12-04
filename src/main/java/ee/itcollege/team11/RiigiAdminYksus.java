@@ -22,6 +22,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -271,5 +272,28 @@ public class RiigiAdminYksus extends BaseEntity {
 			return false;
 		return true;
 	}
+
+	/**
+     * Try to close adminAlluvus if it exists
+     */
+    @Transactional
+    public void remove() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager.contains(this)) {
+        	this.removeAlluvus();
+        } else {
+        	RiigiAdminYksus attached = RiigiAdminYksus.findRiigiAdminYksus(this.riigiAdminYksusId);
+            attached.removeAlluvus();
+        }
+    }
+    
+    /**
+     * Close adminAlluvus
+     */
+    private void removeAlluvus() {
+    	this.setSuletud(getDate());
+    	this.setSulgeja(getLoggedUserName());
+    	this.entityManager.merge(this);
+    }
 	
 }

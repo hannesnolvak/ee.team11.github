@@ -31,9 +31,9 @@
                 		<tr><th colspan="2">Alluvad</th></tr>
                 		<c:forEach items="${alluvad}" var="alluv">
                 			<tr>
-	                			<td>${alluv.nimetus}</td>
+	                			<td>${alluv.nimetus} - ${alluv.suletud}</td>
 	                			<td width="70px">
-	                				<input type="submit" onclick="document.location.href='/team11/riigiadminyksuses/${riigiAdminYksus.riigiAdminYksusId}'; return false;" value="Eemalda" />
+	                				<input type="submit" onclick="document.location.href='/team11/riigiadminyksuses/${riigiAdminYksus.riigiAdminYksusId}/${alluv.riigiAdminYksusId}?delete'; return false;" value="Eemalda" />
 	                			</td>
                 			</tr>
                 		</c:forEach>

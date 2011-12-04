@@ -22,7 +22,7 @@
                     	   			id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses2" 
                       				itemLabel="nimetus" 
                      				itemValue="vaeosaIdId" 
-                      				items="${vaeosas}" 
+                      				items="${saaballuda}" 
                       				label="Allub" 
                       				path="/vaeosaalluvuses"/>
 

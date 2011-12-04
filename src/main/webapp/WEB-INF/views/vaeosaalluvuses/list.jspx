@@ -4,8 +4,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_ee_itcollege_team11_VaeosaAlluvus" items="${vaeosaalluvuses}" z="mICRjIoUCjPp9ooj2zZiE3YfFlE=">
         <table:table data="${vaeosaalluvuses}" id="l_ee_itcollege_team11_VaeosaAlluvus" path="/vaeosaalluvuses" typeIdFieldName="vaeosaAlluvusId" z="ieMdxDkQRLfhzprsSKhPtvKdzyg=">
+            <!-- <table:column id="c_ee_itcollege_team11_VaeosaAlluvus_vaeosa1" property="vaeosa1.nimetus"/>
+             -->        
             <table:column id="c_ee_itcollege_team11_VaeosaAlluvus_kommentaar" property="kommentaar" z="SRlJPlzVdCBgDQVPpBuSrUrzqnE="/>
-        
             <table:column date="true" dateTimePattern="${vaeosaAlluvus_alates_date_format}" id="c_ee_itcollege_team11_VaeosaAlluvus_alates" property="alates" z="TzwGDg270WB9nMfrhl1VJi64Gwk="/>
             <table:column date="true" dateTimePattern="${vaeosaAlluvus_kuni_date_format}" id="c_ee_itcollege_team11_VaeosaAlluvus_kuni" property="kuni" z="q4gNnbIU/LIWAgJe/2d1uto5Jr4="/>
             

@@ -30,22 +30,8 @@ privileged aspect VaeosaAlluvus_Roo_Entity {
         this.version = version;
     }
     
-    @Transactional
-    public void VaeosaAlluvus.persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.persist(this);
-    }
     
-    @Transactional
-    public void VaeosaAlluvus.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            VaeosaAlluvus attached = VaeosaAlluvus.findVaeosaAlluvus(this.vaeosaAlluvusId);
-            this.entityManager.remove(attached);
-        }
-    }
+
     
     @Transactional
     public void VaeosaAlluvus.flush() {
@@ -58,14 +44,7 @@ privileged aspect VaeosaAlluvus_Roo_Entity {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
-    
-    @Transactional
-    public VaeosaAlluvus VaeosaAlluvus.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        VaeosaAlluvus merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
-    }
+
     
     public static final EntityManager VaeosaAlluvus.entityManager() {
         EntityManager em = new VaeosaAlluvus().entityManager;
@@ -73,21 +52,5 @@ privileged aspect VaeosaAlluvus_Roo_Entity {
         return em;
     }
     
-    public static long VaeosaAlluvus.countVaeosaAlluvuses() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM VaeosaAlluvus o", Long.class).getSingleResult();
-    }
-    
-    public static List<VaeosaAlluvus> VaeosaAlluvus.findAllVaeosaAlluvuses() {
-        return entityManager().createQuery("SELECT o FROM VaeosaAlluvus o", VaeosaAlluvus.class).getResultList();
-    }
-    
-    public static VaeosaAlluvus VaeosaAlluvus.findVaeosaAlluvus(Long vaeosaAlluvusId) {
-        if (vaeosaAlluvusId == null) return null;
-        return entityManager().find(VaeosaAlluvus.class, vaeosaAlluvusId);
-    }
-    
-    public static List<VaeosaAlluvus> VaeosaAlluvus.findVaeosaAlluvusEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM VaeosaAlluvus o", VaeosaAlluvus.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
-    
+  
 }

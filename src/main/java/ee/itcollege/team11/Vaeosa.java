@@ -35,8 +35,7 @@ import projekt.web.VaeosaAlluvusController;
 @RooEntity
 @EntityListeners({
 	LisatudListener.class,
-	MuudetudListener.class,
-//	SuletudListener.class
+	MuudetudListener.class
 })
 public class Vaeosa extends BaseEntity {
 	private static final long serialVersionUID = 1L;
@@ -112,11 +111,7 @@ public class Vaeosa extends BaseEntity {
 	@OneToMany(mappedBy="vaeosa")
 	private Set<Vahtkond> vahtkonds;
 
-	//private Vaeosa ajutineVaeosa;
-
-	
-	
-	
+		
 	
     public Vaeosa() {
     }
@@ -282,80 +277,23 @@ public class Vaeosa extends BaseEntity {
 		return this.vaeosaAlluvuses2;
 	}
 
-	
-	/*
-	public void setVaeosaAlluvuses2(Set<Vaeosa> ylemused) {
-	
-		if (ylemused != null)
-		{
-			for (Vaeosa vaeosa : ylemused) {
-	//			this.ajutineVaeosa = vaeosa;
-			}
-		}
-	}
-	*/
-
-	
+		
 	
 	//kes on minu ylemused
 	public void setVaeosaAlluvuses2(Set<Vaeosa> ylemused) {
-		if (ylemused != null)
-		{
-			// Leia praegune suhe
-			VaeosaAlluvus ylemusSuhe = VaeosaAlluvus.getVaeosaAlluvusYlemusSuheByVaeosa(this);
-			if (ylemusSuhe == null) return;
-
-			// leia uus ylemus
-			for (Vaeosa uusYlemus : ylemused) {
-				// asenda ylemus va's
-				ylemusSuhe.setVaeosa2(uusYlemus);
+		Set <VaeosaAlluvus> alluvused = new HashSet<VaeosaAlluvus>();
+		if(ylemused != null) {
+			for(Vaeosa vaeosa: ylemused) {
+				VaeosaAlluvus va = new VaeosaAlluvus();
+				va.setVaeosa2(vaeosa);				
+				alluvused.add(va);
 			}
-			
-			// salvesta suhe
-			Set <VaeosaAlluvus> ylemusSuhted = new HashSet<VaeosaAlluvus>();
-			ylemusSuhted.add(ylemusSuhe);
-			this.vaeosaAlluvuses2 = ylemusSuhted;
 		}
+		this.vaeosaAlluvuses2 = alluvused;
 	}
 
-	/*
-	//kes on minu ylemused
-	public void setVaeosaAlluvuses2(Set<VaeosaAlluvus> vaYlemused) {
-
-		if (vaYlemused == null)
-		{
-			this.vaeosaAlluvuses2 = new HashSet<VaeosaAlluvus>();
-		} else
-		{
-			this.vaeosaAlluvuses2 = vaYlemused;
-		}
-		
-
-		System.out.println("Salvestatakse v2eosa: " + this.getNimetus());
-		
-		
-		// leia 6ige vaeosa_alluvus tabeli kanne
-		for (VaeosaAlluvus va : this.vaeosaAlluvuses2) {
 	
-			if (va.getVaeosa1() != null)
-			{
-				System.out.println("this.alluvses2 l2bi k2imine v2eosa1 - alluv  : " + va.getVaeosa1().getNimetus());
-				System.out.println("this.alluvses2 l2bi k2imine v2eosa2 - ylemus : " + va.getVaeosa2().getNimetus());
-			}
-			
-			// leia kanne kus alluv olen mina, 
-			// selle kande teine pool on minu ylemus 
-			// tema tuleb 2ra vahetada
-			if (va.getVaeosa1() == this)
-			{
-				System.out.println("v2eosa1 ei olnud this - ta seatakse selleks");
-
-				// pane uus ylemus asemele - kuid kes ta on??
-				//va.setVaeosa2(uusYlemusKesHetkelPuuduOn);
-			}
-		}
-	}
-	*/
+	
 	public Set<Vahtkond> getVahtkonds() {
 		return this.vahtkonds;
 	}
@@ -365,13 +303,9 @@ public class Vaeosa extends BaseEntity {
 	}
 
 
-
-
 	public String getKommentaar() {
 		return kommentaar;
 	}
-
-
 
 
 	public void setKommentaar(String kommentaar) {
@@ -379,10 +313,24 @@ public class Vaeosa extends BaseEntity {
 	}
 
 
-
-	/*
-	public Vaeosa getAjutineVaeosa() {
-		return ajutineVaeosa;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vaeosa other = (Vaeosa) obj;
+		if (vaeosaIdId == null) {
+			if (other.vaeosaIdId != null)
+				return false;
+		} else if (!vaeosaIdId.equals(other.vaeosaIdId))
+			return false;
+		return true;
 	}
-	*/
+	
+	
+	
+
 }

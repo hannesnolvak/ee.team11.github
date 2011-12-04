@@ -1,7 +1,7 @@
 package ee.itcollege.team11;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +15,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -30,8 +32,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @Table(name="VAEOSA_ALLUVUS")
 @EntityListeners({
 	LisatudListener.class,
-	MuudetudListener.class,
-//	SuletudListener.class
+	MuudetudListener.class
 })
 public class VaeosaAlluvus extends BaseEntity {
 	private static final long serialVersionUID = 1L;
@@ -190,4 +191,158 @@ public class VaeosaAlluvus extends BaseEntity {
 		return null;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+    /**
+     * Create adminAlluvus
+     * if adminAlluvus allready exists, then we do nothing
+     * @param riigiAdminYksusId
+     */
+    @Transactional
+    public void persist() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        
+        // try to find existing alluvus
+        VaeosaAlluvus a = findVaeosaAlluvusByVaeosaAlluvuses(this);
+        
+        if(a == null) {
+        	VaeosaAlluvus alluvus = findVaeosaAlluvusByVaeosaAlluvus(this);
+        	
+        	if(alluvus != null) {
+            	// close old alluvus
+        		alluvus.remove();
+        	}
+        	
+            // create new alluvus
+        	this.entityManager.persist(this);
+        } else {
+        	this.setVaeosaAlluvusId(a.getVaeosaAlluvusId());
+        }
+    }
+    
+
+    
+    @Transactional
+    public VaeosaAlluvus merge() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        
+        VaeosaAlluvus alluvus =  VaeosaAlluvus.findVaeosaAlluvus(this.vaeosaAlluvusId);
+
+        if(alluvus.getVaeosa1().equals(this.getVaeosa1()) && 
+           alluvus.getVaeosa2().equals(this.getVaeosa2())) {
+        	VaeosaAlluvus merged = this.entityManager.merge(this);
+            this.entityManager.flush();
+            return merged;
+        }
+        
+        this.setVaeosaAlluvusId(null);
+        this.persist();
+        
+        return this;
+    }
+    
+    
+       
+    
+    @Transactional
+    public void remove() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager.contains(this)) {
+        	this.removeAlluvus();
+
+        } else {
+            VaeosaAlluvus attached = VaeosaAlluvus.findVaeosaAlluvus(this.vaeosaAlluvusId);
+            attached.removeAlluvus();
+        }
+    }
+
+    
+    
+    /**
+     * Close adminAlluvus
+     */
+    private void removeAlluvus() {
+    	this.setSuletud(getDate());
+    	this.setSulgeja("Mina");
+    	this.entityManager.merge(this);
+    }
+    
+    
+    
+    
+	private VaeosaAlluvus findVaeosaAlluvusByVaeosaAlluvuses(
+			VaeosaAlluvus vaeosaAlluvus) {
+		try {
+			String query = "SELECT o" +
+						" FROM VaeosaAlluvus o" +
+						" JOIN o.vaeosa1 y1" +
+						" JOIN o.vaeosa2 y2" +
+						" WHERE (o.suletud > :date OR o.suletud IS NULL)" +
+							" AND y1.vaeosaIdId = :yksusId1" +
+							" AND y2.vaeosaIdId = :yksusId2" +
+						" ORDER BY o.suletud DESC NULLS FIRST";
+			return entityManager().createQuery(query, VaeosaAlluvus.class)
+					.setParameter("date", getDate())
+					.setParameter("yksusId1", vaeosaAlluvus.getVaeosa1().getVaeosaIdId())
+					.setParameter("yksusId2", vaeosaAlluvus.getVaeosa2().getVaeosaIdId())
+					.getSingleResult();
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+    
+
+	
+
+    
+    private VaeosaAlluvus findVaeosaAlluvusByVaeosaAlluvus(
+			VaeosaAlluvus vaeosaAlluvus) {
+    	
+    	
+    	
+		try {
+			String query = "SELECT o" +
+						" FROM VaeosaAlluvus o" +
+						" JOIN o.vaeosa1 y1" +
+						" JOIN o.vaeosa2 y2" +
+						" WHERE (o.suletud > :date OR o.suletud IS NULL)" +
+							" AND y1.vaeosaIdId = :yksusId1" +
+							" AND y2.vaeosaIdId != :yksusId2" +
+						" ORDER BY o.suletud DESC NULLS FIRST";
+			return entityManager().createQuery(query, VaeosaAlluvus.class)
+					.setParameter("date", getDate())
+					.setParameter("yksusId1", vaeosaAlluvus.getVaeosa1().getVaeosaIdId())
+					.setParameter("yksusId2", vaeosaAlluvus.getVaeosa2().getVaeosaIdId())
+					.getSingleResult();
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+	
+    
+    
+    
+    
+    public static long countVaeosaAlluvuses() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM VaeosaAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", Long.class).setParameter("date", getDate()).getSingleResult();
+    }
+    
+    public static List<VaeosaAlluvus> findAllVaeosaAlluvuses() {
+        return entityManager().createQuery("SELECT o FROM VaeosaAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", VaeosaAlluvus.class).setParameter("date", getDate()).getResultList();
+    }
+    
+    public static VaeosaAlluvus findVaeosaAlluvus(Long vaeosaAlluvusId) {
+        if (vaeosaAlluvusId == null) return null;
+        return entityManager().find(VaeosaAlluvus.class, vaeosaAlluvusId);
+    }
+    
+    public static List<VaeosaAlluvus> findVaeosaAlluvusEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM VaeosaAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", VaeosaAlluvus.class).setParameter("date", getDate()).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
 }

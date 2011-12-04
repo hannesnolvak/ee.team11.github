@@ -17,7 +17,7 @@
                                     items="${riigiadminyksuses}" 
                                     path="/riigiadminyksuses" 
                                     z="user-managed"/>
-                    
+                                        
                      <field:select 	field="vaeosaAlluvuses2" 
                     	   			id="c_ee_itcollege_team11_Vaeosa_vaeosaAlluvuses2" 
                       				itemLabel="nimetus" 
@@ -30,6 +30,7 @@
         			<field:datetime field="kuni" 	dateTimePattern="${vaeosa_kuni_date_format}"  id="c_ee_itcollege_team11_Vaeosa_kuni" z="k0+LFCyPLv3GyCJuhA65NJn7Zg0="/>
                               				
                 </td>
+                <!-- 
                 <td valign="top">
                 	<table class="listTable">
                 		<tr><th colspan="2">Alluvad</th></tr>
@@ -45,6 +46,7 @@
                 	<br />
                 	<div style="float:right;"><input type="submit" onclick="document.location.href='/team11/vaeosas?form'; return false;" value="Lisa" /></div>
                 </td>
+                 -->
             </tr>
         </table>
         </form:create>

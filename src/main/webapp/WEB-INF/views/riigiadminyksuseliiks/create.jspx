@@ -10,7 +10,9 @@
                     <field:input field="kood" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kood" z="BTXaI4zerCMf6UjdYUmmvCfiZak="/>
                     <field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_nimetus" z="fj/M4UtjQo3uR/vXxKD+4Cce/BE="/>
                     <field:textarea field="kommentaar" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kommentaar" />
+                    <!-- 
                     <field:select field="voimalikAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_voimalikAlluvuses2" itemLabel="nimetus" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" label="Allub" path="/riigiadminyksuseliiks"/>
+                     -->
                     <field:datetime dateTimePattern="${riigiAdminYksuseLiik_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_alates" z="19g8r3YM27vFfr3lukzh6olzUfc="/>
                     <field:datetime dateTimePattern="${riigiAdminYksuseLiik_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kuni" z="jbNfA9Tdv3bKFOd9mGch9fivYkU="/>
                 </td>

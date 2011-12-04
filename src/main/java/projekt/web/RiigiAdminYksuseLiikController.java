@@ -35,12 +35,13 @@ public class RiigiAdminYksuseLiikController {
     
     @RequestMapping(method = RequestMethod.POST)
     public String create(@Valid RiigiAdminYksuseLiik riigiAdminYksuseLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    	/*
     	if(riigiAdminYksuseLiik.getVoimalikAlluvuses2() != null) {
     		for(VoimalikAlluvus alluvus: riigiAdminYksuseLiik.getVoimalikAlluvuses2()) {
     			alluvus.setRiigiAdminYksuseLiik1(riigiAdminYksuseLiik);
     			alluvus.persist();
     		}
-    	}
+    	}/**/
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("riigiAdminYksuseLiik", riigiAdminYksuseLiik);
             addDateTimeFormatPatterns(uiModel);

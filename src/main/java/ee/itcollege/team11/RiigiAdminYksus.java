@@ -95,6 +95,12 @@ public class RiigiAdminYksus extends BaseEntity {
 	@OneToMany(mappedBy="riigiAdminYksus")
 	private Set<Ruumiyksus> ruumiyksuses;
 
+
+//	http://docs.oracle.com/javaee/5/api/javax/persistence/JoinColumns.html
+//	@ManyToOne
+//	@JoinTable(name="ADMIN_ALLUVUS", joinColumns = {@JoinColumn(name="YLEMUS_YKSUS_ID")}, inverseJoinColumns = {@JoinColumn(name="RIIGI_ADMIN_YKSUS_ID")})
+//	private RiigiAdminYksus allub;
+	
     public RiigiAdminYksus() {
     }
 

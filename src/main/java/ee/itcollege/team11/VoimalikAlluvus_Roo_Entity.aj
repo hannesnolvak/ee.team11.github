@@ -31,23 +31,6 @@ privileged aspect VoimalikAlluvus_Roo_Entity {
     }
     
     @Transactional
-    public void VoimalikAlluvus.persist() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        this.entityManager.persist(this);
-    }
-    
-    @Transactional
-    public void VoimalikAlluvus.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            VoimalikAlluvus attached = VoimalikAlluvus.findVoimalikAlluvus(this.voimalikAlluvusId);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void VoimalikAlluvus.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -59,35 +42,15 @@ privileged aspect VoimalikAlluvus_Roo_Entity {
         this.entityManager.clear();
     }
     
-    @Transactional
-    public VoimalikAlluvus VoimalikAlluvus.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        VoimalikAlluvus merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
-    }
-    
     public static final EntityManager VoimalikAlluvus.entityManager() {
         EntityManager em = new VoimalikAlluvus().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long VoimalikAlluvus.countVoimalikAlluvuses() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM VoimalikAlluvus o", Long.class).getSingleResult();
-    }
-    
-    public static List<VoimalikAlluvus> VoimalikAlluvus.findAllVoimalikAlluvuses() {
-        return entityManager().createQuery("SELECT o FROM VoimalikAlluvus o", VoimalikAlluvus.class).getResultList();
-    }
-    
     public static VoimalikAlluvus VoimalikAlluvus.findVoimalikAlluvus(Long voimalikAlluvusId) {
         if (voimalikAlluvusId == null) return null;
         return entityManager().find(VoimalikAlluvus.class, voimalikAlluvusId);
-    }
-    
-    public static List<VoimalikAlluvus> VoimalikAlluvus.findVoimalikAlluvusEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM VoimalikAlluvus o", VoimalikAlluvus.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

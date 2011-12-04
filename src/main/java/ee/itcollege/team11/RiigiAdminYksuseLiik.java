@@ -1,6 +1,7 @@
 package ee.itcollege.team11;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -45,6 +46,8 @@ public class RiigiAdminYksuseLiik extends BaseEntity {
 	private Date alates;
 
 	private String avaja;
+	
+	private String kommentaar;
 
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
@@ -107,6 +110,14 @@ public class RiigiAdminYksuseLiik extends BaseEntity {
 
 	public void setAvaja(String avaja) {
 		this.avaja = avaja;
+	}
+
+	public String getKommentaar() {
+		return kommentaar;
+	}
+
+	public void setKommentaar(String kommentaar) {
+		this.kommentaar = kommentaar;
 	}
 
 	public Date getAvatud() {
@@ -193,8 +204,34 @@ public class RiigiAdminYksuseLiik extends BaseEntity {
 		return this.voimalikAlluvuses2;
 	}
 
-	public void setVoimalikAlluvuses2(Set<VoimalikAlluvus> voimalikAlluvuses2) {
-		this.voimalikAlluvuses2 = voimalikAlluvuses2;
+	public void setVoimalikAlluvuses2(Set<RiigiAdminYksuseLiik> liigid) {
+		
+		Set <VoimalikAlluvus> alluvused = new HashSet<VoimalikAlluvus>();
+		if(liigid != null) {
+			for(RiigiAdminYksuseLiik liik: liigid) {
+				VoimalikAlluvus a = new VoimalikAlluvus();
+				a.setRiigiAdminYksuseLiik2(liik);
+				alluvused.add(a);
+			}
+		}
+		this.voimalikAlluvuses2 = alluvused;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RiigiAdminYksuseLiik other = (RiigiAdminYksuseLiik) obj;
+		if (riigiAdminYksuseLikId == null) {
+			if (other.riigiAdminYksuseLikId != null)
+				return false;
+		} else if (!riigiAdminYksuseLikId.equals(other.riigiAdminYksuseLikId))
+			return false;
+		return true;
 	}
 	
 }

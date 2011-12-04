@@ -236,7 +236,6 @@ public class AdminAlluvus extends BaseEntity {
         this.setAdminAlluvusId(null);
         this.persist();
         
-        
         return this;
     }
 
@@ -247,12 +246,10 @@ public class AdminAlluvus extends BaseEntity {
     public void remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
-//            this.entityManager.remove(this);
         	this.removeAlluvus();
         } else {
             AdminAlluvus attached = AdminAlluvus.findAdminAlluvus(this.adminAlluvusId);
             attached.removeAlluvus();
-//            this.entityManager.remove(attached);
         }
     }
     

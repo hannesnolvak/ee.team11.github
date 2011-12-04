@@ -3,17 +3,36 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ee_itcollege_team11_RiigiAdminYksuseLiik" modelAttribute="riigiAdminYksuseLiik" path="/riigiadminyksuseliiks" render="${empty dependencies}" z="aCOn104YA+B5hKsaLhh4ttC7S+k=">
-        <field:datetime dateTimePattern="${riigiAdminYksuseLiik_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_alates" z="19g8r3YM27vFfr3lukzh6olzUfc="/>
-        <field:input field="avaja" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_avaja" z="gx1Fg3epXFqb2CoRUb6vOcFbsf8="/>
-        <field:datetime dateTimePattern="${riigiAdminYksuseLiik_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_avatud" z="gnK6bxibG1Znwg26AybgoPgL7bE="/>
-        <field:input field="kood" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kood" z="BTXaI4zerCMf6UjdYUmmvCfiZak="/>
-        <field:datetime dateTimePattern="${riigiAdminYksuseLiik_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kuni" z="jbNfA9Tdv3bKFOd9mGch9fivYkU="/>
-        <field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_nimetus" z="fj/M4UtjQo3uR/vXxKD+4Cce/BE="/>
-        <field:datetime dateTimePattern="${riigiAdminYksuseLiik_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_suletud" z="gwy96i8NN2lf/bEYsdCiuNpK20E="/>
-        <field:input field="sulgeja" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_sulgeja" z="znJhYMz8MfkxObu6kmpMeB4HjpA="/>
-        <field:simple field="voimalikAlluvuses1" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_voimalikAlluvuses1" messageCode="entity_reference_not_managed" messageCodeAttribute="Voimalik Alluvus" z="PDuBtFiVXVptIVfRnPHjdIlWbSI="/>
-        <field:simple field="voimalikAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_voimalikAlluvuses2" messageCode="entity_reference_not_managed" messageCodeAttribute="Voimalik Alluvus" z="O7S/VMpdLzlIKGi0/qIL7C+Wfdc="/>
-        <field:simple field="riigiAdminYksuses" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_riigiAdminYksuses" messageCode="entity_reference_not_managed" messageCodeAttribute="Riigi Admin Yksus" z="FkvjIEg46lKh+DN2FQMYHkPC32k="/>
+    
+    	<table class="layoutTable">
+            <tr>
+                <td width="60%">
+                    <field:input field="kood" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kood" z="BTXaI4zerCMf6UjdYUmmvCfiZak="/>
+                    <field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_nimetus" z="fj/M4UtjQo3uR/vXxKD+4Cce/BE="/>
+                    <field:textarea field="kommentaar" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kommentaar" />
+                    <field:select field="voimalikAlluvuses2" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_voimalikAlluvuses2" itemLabel="nimetus" itemValue="riigiAdminYksuseLikId" items="${riigiadminyksuseliiks}" label="Allub" path="/riigiadminyksuseliiks"/>
+                    <field:datetime dateTimePattern="${riigiAdminYksuseLiik_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_alates" z="19g8r3YM27vFfr3lukzh6olzUfc="/>
+                    <field:datetime dateTimePattern="${riigiAdminYksuseLiik_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_RiigiAdminYksuseLiik_kuni" z="jbNfA9Tdv3bKFOd9mGch9fivYkU="/>
+                </td>
+                <!-- 
+                <td valign="top">
+                	<table class="listTable">
+                		<tr><th colspan="2">Alluvad</th></tr>
+                		<c:forEach items="${alluvad}" var="alluv">
+                			<tr>
+	                			<td>${alluv.nimetus}</td>
+	                			<td width="70px">
+	                				<input type="submit" onclick="document.location.href='/team11/riigiadminyksuseliiks/${riigiAdminYksuseLiik.riigiAdminYksuseLikId}'; return false;" value="Eemalda" />
+	                			</td>
+                			</tr>
+                		</c:forEach>
+                	</table>
+                	<br />
+                	<div style="float:right;"><input type="submit" onclick="document.location.href='/team11/riigiadminyksuseliiks?form'; return false;" value="Lisa" /></div>
+                </td>
+                 -->
+            </tr>
+        </table>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_itcollege_team11_RiigiAdminYksuseLiik" render="${not empty dependencies}" z="BGYzZr9W/cx46sZ5HOd2OOYo4lU="/>
 </div>

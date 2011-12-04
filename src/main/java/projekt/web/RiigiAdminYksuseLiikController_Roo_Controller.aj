@@ -27,18 +27,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
     
-    @RequestMapping(method = RequestMethod.POST)
-    public String RiigiAdminYksuseLiikController.create(@Valid RiigiAdminYksuseLiik riigiAdminYksuseLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("riigiAdminYksuseLiik", riigiAdminYksuseLiik);
-            addDateTimeFormatPatterns(uiModel);
-            return "riigiadminyksuseliiks/create";
-        }
-        uiModel.asMap().clear();
-        riigiAdminYksuseLiik.persist();
-        return "redirect:/riigiadminyksuseliiks/" + encodeUrlPathSegment(riigiAdminYksuseLiik.getRiigiAdminYksuseLikId().toString(), httpServletRequest);
-    }
-    
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String RiigiAdminYksuseLiikController.createForm(Model uiModel) {
         uiModel.addAttribute("riigiAdminYksuseLiik", new RiigiAdminYksuseLiik());
@@ -66,25 +54,6 @@ privileged aspect RiigiAdminYksuseLiikController_Roo_Controller {
         }
         addDateTimeFormatPatterns(uiModel);
         return "riigiadminyksuseliiks/list";
-    }
-    
-    @RequestMapping(method = RequestMethod.PUT)
-    public String RiigiAdminYksuseLiikController.update(@Valid RiigiAdminYksuseLiik riigiAdminYksuseLiik, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            uiModel.addAttribute("riigiAdminYksuseLiik", riigiAdminYksuseLiik);
-            addDateTimeFormatPatterns(uiModel);
-            return "riigiadminyksuseliiks/update";
-        }
-        uiModel.asMap().clear();
-        riigiAdminYksuseLiik.merge();
-        return "redirect:/riigiadminyksuseliiks/" + encodeUrlPathSegment(riigiAdminYksuseLiik.getRiigiAdminYksuseLikId().toString(), httpServletRequest);
-    }
-    
-    @RequestMapping(value = "/{riigiAdminYksuseLikId}", params = "form", method = RequestMethod.GET)
-    public String RiigiAdminYksuseLiikController.updateForm(@PathVariable("riigiAdminYksuseLikId") Long riigiAdminYksuseLikId, Model uiModel) {
-        uiModel.addAttribute("riigiAdminYksuseLiik", RiigiAdminYksuseLiik.findRiigiAdminYksuseLiik(riigiAdminYksuseLikId));
-        addDateTimeFormatPatterns(uiModel);
-        return "riigiadminyksuseliiks/update";
     }
     
     @RequestMapping(value = "/{riigiAdminYksuseLikId}", method = RequestMethod.DELETE)

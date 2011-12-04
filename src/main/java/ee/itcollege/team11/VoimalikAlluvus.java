@@ -2,6 +2,7 @@ package ee.itcollege.team11;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +16,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -151,6 +154,127 @@ public class VoimalikAlluvus extends BaseEntity {
 
 	public void setRiigiAdminYksuseLiik2(RiigiAdminYksuseLiik riigiAdminYksuseLiik2) {
 		this.riigiAdminYksuseLiik2 = riigiAdminYksuseLiik2;
+	}
+    
+    @Transactional
+    public void persist() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        
+        // try to find existing alluvus
+        VoimalikAlluvus a = findVoimalikAlluvusByLiiks(this);
+        
+        if(a == null) {
+        	
+        	VoimalikAlluvus alluvus = findVoimalikAlluvusByLiik(this);
+        	if(alluvus != null) {
+            	// close old alluvus
+        		alluvus.remove();
+        	}
+        	
+            // create new alluvus
+        	this.entityManager.persist(this);
+        } else {
+        	this.setVoimalikAlluvusId(a.getVoimalikAlluvusId());
+        }
+    }
+    
+    @Transactional
+    public void persistFlush() {
+    	this.persist();
+//    	this.entityManager.flush();
+    }
+    
+    @Transactional
+    public VoimalikAlluvus merge() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+    	
+    	VoimalikAlluvus alluvus = VoimalikAlluvus.findVoimalikAlluvus(this.getVoimalikAlluvusId());
+    	if(alluvus.getRiigiAdminYksuseLiik1().equals(this.getRiigiAdminYksuseLiik1()) && alluvus.getRiigiAdminYksuseLiik2().equals(this.getRiigiAdminYksuseLiik2())) {
+	        VoimalikAlluvus merged = this.entityManager.merge(this);
+	        this.entityManager.flush();
+	        return merged;
+    	}
+        this.setVoimalikAlluvusId(null);
+        this.persist();
+        
+        return this;
+    }
+    
+    @Transactional
+    public void remove() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager.contains(this)) {
+        	this.removeAlluvus();
+        } else {
+            VoimalikAlluvus attached = VoimalikAlluvus.findVoimalikAlluvus(this.voimalikAlluvusId);
+            attached.removeAlluvus();
+        }
+    }
+    
+    /**
+     * Close adminAlluvus
+     */
+    private void removeAlluvus() {
+    	this.setSuletud(getDate());
+    	this.setSulgeja("Mina");
+    	this.entityManager.merge(this);
+    }
+    
+    public static long countVoimalikAlluvuses() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM VoimalikAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", Long.class).setParameter("date", getDate()).getSingleResult();
+    }
+    
+    public static List<VoimalikAlluvus> findAllVoimalikAlluvuses() {
+        return entityManager().createQuery("SELECT o FROM VoimalikAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", VoimalikAlluvus.class).setParameter("date", getDate()).getResultList();
+    }
+    
+    public static List<VoimalikAlluvus> findVoimalikAlluvusEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM VoimalikAlluvus o WHERE o.suletud > :date OR o.suletud IS NULL", VoimalikAlluvus.class).setParameter("date", getDate()).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+
+    /**
+     * Find adminAlluvus by riigiAdminYksus1 and riigiAdminYksus2
+     * @param adminAlluvus
+     * @return AdminAlluvus
+     */
+	private static VoimalikAlluvus findVoimalikAlluvusByLiiks(VoimalikAlluvus voimalikAlluvus) {
+		try {
+			String query = "SELECT o" +
+						" FROM VoimalikAlluvus o" +
+						" JOIN o.riigiAdminYksuseLiik1 y1" +
+						" JOIN o.riigiAdminYksuseLiik2 y2" +
+						" WHERE (o.suletud > :date OR o.suletud IS NULL)" +
+							" AND y1.riigiAdminYksuseLikId = :yksusId1" +
+							" AND y2.riigiAdminYksuseLikId = :yksusId2" +
+						" ORDER BY o.suletud DESC NULLS FIRST";
+			return entityManager().createQuery(query, VoimalikAlluvus.class)
+					.setParameter("date", getDate())
+					.setParameter("yksusId1", voimalikAlluvus.getRiigiAdminYksuseLiik1().getRiigiAdminYksuseLikId())
+					.setParameter("yksusId2", voimalikAlluvus.getRiigiAdminYksuseLiik2().getRiigiAdminYksuseLikId())
+					.getSingleResult();
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+    
+    private VoimalikAlluvus findVoimalikAlluvusByLiik(VoimalikAlluvus voimalikAlluvus) {
+		try {
+			String query = "SELECT o" +
+					" FROM VoimalikAlluvus o" +
+					" JOIN o.riigiAdminYksuseLiik1 y1" +
+					" JOIN o.riigiAdminYksuseLiik2 y2" +
+					" WHERE (o.suletud > :date OR o.suletud IS NULL)" +
+						" AND y1.riigiAdminYksuseLikId = :yksusId1" +
+						" AND y2.riigiAdminYksuseLikId != :yksusId2" +
+					" ORDER BY o.suletud DESC NULLS FIRST";
+		return entityManager().createQuery(query, VoimalikAlluvus.class)
+				.setParameter("date", getDate())
+				.setParameter("yksusId1", voimalikAlluvus.getRiigiAdminYksuseLiik1().getRiigiAdminYksuseLikId())
+				.setParameter("yksusId2", voimalikAlluvus.getRiigiAdminYksuseLiik2().getRiigiAdminYksuseLikId())
+				.getSingleResult();
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 	
 }

@@ -62,21 +62,9 @@ privileged aspect RiigiAdminYksus_Roo_Entity {
         return em;
     }
     
-    public static long RiigiAdminYksus.countRiigiAdminYksuses() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM RiigiAdminYksus o", Long.class).getSingleResult();
-    }
-    
-    public static List<RiigiAdminYksus> RiigiAdminYksus.findAllRiigiAdminYksuses() {
-        return entityManager().createQuery("SELECT o FROM RiigiAdminYksus o", RiigiAdminYksus.class).getResultList();
-    }
-    
     public static RiigiAdminYksus RiigiAdminYksus.findRiigiAdminYksus(Long riigiAdminYksusId) {
         if (riigiAdminYksusId == null) return null;
         return entityManager().find(RiigiAdminYksus.class, riigiAdminYksusId);
-    }
-    
-    public static List<RiigiAdminYksus> RiigiAdminYksus.findRiigiAdminYksusEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM RiigiAdminYksus o", RiigiAdminYksus.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

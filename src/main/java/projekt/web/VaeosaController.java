@@ -10,6 +10,7 @@ import javax.validation.Valid;
 
 import ee.itcollege.team11.AdminAlluvus;
 import ee.itcollege.team11.RiigiAdminYksus;
+import ee.itcollege.team11.RiigiAdminYksuseLiik;
 import ee.itcollege.team11.Vaeosa;
 import ee.itcollege.team11.VaeosaAlluvus;
 
@@ -39,7 +40,7 @@ public class VaeosaController {
     @RequestMapping(value = "/{vaeosaIdId}", params = "form", method = RequestMethod.GET)
     public String updateForm(@PathVariable("vaeosaIdId") Long vaeosaIdId, Model uiModel) {
         uiModel.addAttribute("vaeosa", Vaeosa.findVaeosa(vaeosaIdId));
-        uiModel.addAttribute("alluvadVaeosad", Vaeosa.findAlluvadVaeosadByVaeosaID(vaeosaIdId));
+        uiModel.addAttribute("alluvadVaeosad", findChildrens(vaeosaIdId));
         uiModel.addAttribute("saaballuda", findAllVaeosasButMe(vaeosaIdId));
 
         
@@ -50,6 +51,18 @@ public class VaeosaController {
     }
     
     
+	private Collection<Vaeosa> findChildrens(Long vaeosaIdId) {
+
+		String query = "SELECT v" +
+						" FROM Vaeosa l" +
+						" JOIN l.vaeosaAlluvuses2 va" +
+						" JOIN va.vaeosa1 v" +
+						" WHERE l.vaeosaIdId = :vaeosaId" +
+							" AND (va.suletud > :date OR va.suletud IS NULL)" +
+							" AND (v.suletud > :date OR v.suletud IS NULL)";
+		return Vaeosa.entityManager().createQuery(query, Vaeosa.class).setParameter("vaeosaId", vaeosaIdId).setParameter("date", new Date()).getResultList();
+	}
+
 	@RequestMapping(method = RequestMethod.PUT)
     public String update(@Valid Vaeosa vaeosa, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
     	/**
@@ -101,22 +114,14 @@ public class VaeosaController {
 
 	public Vaeosa getBossVaeosaByVaeosaId(Long myId)
     {
-		/*
-		 VaeosaAlluvus va = VaeosaAlluvusController.getVaeosaAlluvusYlemusSuheByVaeosaID(myId);
-		 
-		if (va != null){
-			return va.getVaeosa2();
-		}
-		return null;
-		
-		*/
     	try {    	
 			String queryYlem =  "SELECT boss " +
 								"FROM   Vaeosa              AS me " +
 								"JOIN   me.vaeosaAlluvuses1 AS meBoss " +
 								"JOIN   meBoss.vaeosa2      AS boss " +
 								"WHERE  me.vaeosaIdId = :myId " + 
-							    "  AND  (meBoss.suletud > :date OR meBoss.suletud IS NULL)";
+							    "  AND  (meBoss.suletud > :date OR meBoss.suletud IS NULL)" +
+							    "  AND  (boss.suletud > :date OR boss.suletud IS NULL)";
 							    
 			return Vaeosa.entityManager()
 			             .createQuery(queryYlem, Vaeosa.class)

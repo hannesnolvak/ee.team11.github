@@ -89,7 +89,8 @@ public class RiigiAdminYksusController {
 							" JOIN o.adminAlluvuses1 a" +
 							" JOIN a.riigiAdminYksus2 AS y" +
 							" WHERE o.riigiAdminYksusId = :yksusId" +
-						       	" AND (a.suletud > :date OR a.suletud IS NULL)";
+						       	" AND (a.suletud > :date OR a.suletud IS NULL)" +
+						       	" AND (y.suletud > :date OR y.suletud IS NULL)";
 		
 		Collection<RiigiAdminYksus> yksused1 = RiigiAdminYksus.entityManager().createQuery(queryYlem, RiigiAdminYksus.class).setParameter("yksusId", riigiAdminYksusId).setParameter("date", new Date()).getResultList();
 		
@@ -101,7 +102,8 @@ public class RiigiAdminYksusController {
 						" JOIN va.riigiAdminYksuseLiik2 AS yl1" +
 						" JOIN yl1.riigiAdminYksuses AS y" +
 						" WHERE o.riigiAdminYksusId = :yksusId" +
-				       		" AND (va.suletud > :date OR va.suletud IS NULL)";
+				       		" AND (va.suletud > :date OR va.suletud IS NULL)" +
+				       		" AND (y.suletud > :date OR y.suletud IS NULL)";
 		if(yksused1.size() > 0) {
 			yksused.addAll(yksused1);
 			query += " AND y != (" + queryYlem + ")";
@@ -119,11 +121,11 @@ public class RiigiAdminYksusController {
 						" JOIN o.adminAlluvuses2 a" +
 						" JOIN a.riigiAdminYksus1 AS y" +
 						" WHERE o.riigiAdminYksusId = :yksusId" +
-							" AND (a.suletud > :date OR a.suletud IS NULL)";
-		Collection<RiigiAdminYksus> asd = RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class)
+							" AND (a.suletud > :date OR a.suletud IS NULL)" +
+							" AND (y.suletud > :date OR y.suletud IS NULL)";
+		return RiigiAdminYksus.entityManager().createQuery(query, RiigiAdminYksus.class)
 																		.setParameter("yksusId", riigiAdminYksusId)
 																		.setParameter("date", new Date())
 																		.getResultList();
-		return asd;
     }
 }

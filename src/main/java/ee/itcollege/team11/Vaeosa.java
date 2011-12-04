@@ -118,30 +118,9 @@ public class Vaeosa extends BaseEntity {
 	@OneToMany(mappedBy="vaeosa")
 	private Set<Vahtkond> vahtkonds;
 
-		
-	
+
     public Vaeosa() {
     }
-
-	
-
-	
-	public static List<Vaeosa> findAlluvadVaeosadByVaeosaID(Long vaeosaIdId) {
-		Vaeosa vaeosa = Vaeosa.findVaeosa(vaeosaIdId);
-		List<Vaeosa> alluvadVaeosad = new ArrayList<Vaeosa>(); 
-		
-		for (VaeosaAlluvus va : VaeosaAlluvus.findAllVaeosaAlluvuses())
-		{
-			if (va.getVaeosa2() == vaeosa)
-			{
-				alluvadVaeosad.add(va.getVaeosa1());
-			}
-			
-		}
-		return alluvadVaeosad;
-    }
-	
-	
     
     public Long getVaeosaIdId() {
 		return this.vaeosaIdId;

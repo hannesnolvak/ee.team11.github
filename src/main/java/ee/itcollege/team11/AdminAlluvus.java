@@ -258,7 +258,7 @@ public class AdminAlluvus extends BaseEntity {
      */
     private void removeAlluvus() {
     	this.setSuletud(getDate());
-    	this.setSulgeja("Mina");
+    	this.setSulgeja(getLoggedUserName());
     	this.entityManager.merge(this);
     }
 

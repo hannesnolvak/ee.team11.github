@@ -94,30 +94,33 @@ public class VaeosaController {
 
 	public Vaeosa getBossVaeosaByVaeosaId(Long myId)
     {
-		VaeosaAlluvus va = VaeosaAlluvusController.getVaeosaAlluvusYlemusSuheByVaeosaID(myId);
+		/*
+		 VaeosaAlluvus va = VaeosaAlluvusController.getVaeosaAlluvusYlemusSuheByVaeosaID(myId);
+		 
 		if (va != null){
 			return va.getVaeosa2();
 		}
 		return null;
 		
-		/*
+		*/
     	try {    	
 			String queryYlem =  "SELECT boss " +
 								"FROM   Vaeosa              AS me " +
-								"JOIN   me.vaeosaAlluvuses2 AS meBoss " +
+								"JOIN   me.vaeosaAlluvuses1 AS meBoss " +
 								"JOIN   meBoss.vaeosa2      AS boss " +
-								"WHERE  me.vaeosaIdId = :myId "; 
-							    //"  AND  (meBoss.suletud > :date OR meBoss.suletud IS NULL)";
+								"WHERE  me.vaeosaIdId = :myId " + 
+							    "  AND  (meBoss.suletud > :date OR meBoss.suletud IS NULL)";
+							    
 			return Vaeosa.entityManager()
 			             .createQuery(queryYlem, Vaeosa.class)
 			             .setParameter("myId", myId)
-			             //.setParameter("date", new Date())
+			             .setParameter("date", new Date())
 			             .getSingleResult();		
     	} catch (EmptyResultDataAccessException e)
     	{
     		return null;
     	}
-    	*/
+    	
     }
 
 	

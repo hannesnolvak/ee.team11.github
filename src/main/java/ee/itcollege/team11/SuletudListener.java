@@ -9,6 +9,6 @@ public class SuletudListener {
 	@PreRemove
 	public void setSuletud(final Deletable entity) {
 		entity.setSuletud(new Date());
-		entity.setSulgeja("Mina");
+		entity.setSulgeja(BaseEntity.getLoggedUserName());
 	}
 }

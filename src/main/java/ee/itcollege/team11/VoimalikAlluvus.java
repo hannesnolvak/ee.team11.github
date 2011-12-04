@@ -1,6 +1,5 @@
 package ee.itcollege.team11;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -216,7 +215,7 @@ public class VoimalikAlluvus extends BaseEntity {
      */
     private void removeAlluvus() {
     	this.setSuletud(getDate());
-    	this.setSulgeja("Mina");
+    	this.setSulgeja(getLoggedUserName());
     	this.entityManager.merge(this);
     }
     

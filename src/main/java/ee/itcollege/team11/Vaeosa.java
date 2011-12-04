@@ -18,7 +18,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -42,7 +44,7 @@ public class Vaeosa extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="VAEOSA_ID_ID")
+	@Column(name="VAEOSA_ID_ID")	
 	private Long vaeosaIdId;
 
 	@DateTimeFormat(style="M-")
@@ -55,6 +57,8 @@ public class Vaeosa extends BaseEntity {
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
+	@NotNull
+	@NotEmpty
 	private String kood;
 
 	@DateTimeFormat(style="M-")
@@ -67,6 +71,8 @@ public class Vaeosa extends BaseEntity {
 
 	private String muutja;
 
+	@NotNull
+	@NotEmpty
 	private String nimetus;
 
 	@DateTimeFormat(style="M-")

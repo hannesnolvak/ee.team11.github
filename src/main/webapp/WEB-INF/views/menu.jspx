@@ -2,7 +2,43 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+    <menu:menu id="_menu">
+    	<menu:category id="c_aruanne" z="">
+            <menu:item id="i_aruanne_list" messageCode="global_menu_new" url="/aruanne" z=""/>
+        </menu:category>
+        
+         <menu:category id="c_vaeosa" z="UjcvY5sFG0mXjkNoVhTf6XRReXA=">
+            <menu:item id="i_vaeosa_new" messageCode="global_menu_new" url="/vaeosas?form" z="FAVHgwavmIl9dgzX+VpD/UnJl6o="/>
+            <menu:item id="i_vaeosa_list" messageCode="global_menu_list" url="/vaeosas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xmlNM27KfbjGn72iRw7P1QBf3Ww="/>
+        </menu:category>
+        
+    	<menu:category id="c_vaeosaalluvus" z="xXbRL0p+DeBAdgNM1ZgZ+XSQXCE=">
+            <menu:item id="i_vaeosaalluvus_new" messageCode="global_menu_new" url="/vaeosaalluvuses?form" z="f90cjpOZfbDUyx+sRtXKxf/POPs="/>
+            <menu:item id="i_vaeosaalluvus_list" messageCode="global_menu_list" url="/vaeosaalluvuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="S6Zklcfi9bWO9jpRJH0v8Ngh3cE="/>
+        </menu:category>
+    	
+        <menu:category id="c_riigiadminyksuseliik" z="ys4i6NyCzvs6D8b1UPprrx6Pqb0=">
+            <menu:item id="i_riigiadminyksuseliik_new" messageCode="global_menu_new" url="/riigiadminyksuseliiks?form" z="Z9mBPeH04+JcPrMWRsPwR3/KoTI="/>
+            <menu:item id="i_riigiadminyksuseliik_list" messageCode="global_menu_list" url="/riigiadminyksuseliiks?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Ql4kfRaFULULl8Bu2tOAiFCH4f4="/>
+        </menu:category>
+        
+        <menu:category id="c_riigiadminyksus" z="Xh+Jz/k6o0XHyZ9TyunTePaS0VY=">
+            <menu:item id="i_riigiadminyksus_new" messageCode="global_menu_new" url="/riigiadminyksuses?form" z="phO0+0cCzNfEn5v/B5eSbPUJVk4="/>
+            <menu:item id="i_riigiadminyksus_list" messageCode="global_menu_list" url="/riigiadminyksuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="VHX4fjBp0C3PelUZ96rFZXzDv6E="/>
+        </menu:category>
+        
+        <menu:category id="c_adminalluvus" z="2Gg2rOq8ESkQ4i6VcSGECPtofyk=">
+            <menu:item id="i_adminalluvus_new" messageCode="global_menu_new" url="/adminalluvuses?form" z="29oUMXt2u3CTG4JXPR+d0eAPgRI="/>
+            <menu:item id="i_adminalluvus_list" messageCode="global_menu_list" url="/adminalluvuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZqQrAy2+QALNMFXen68dB5aQirA="/>
+        </menu:category>
+
+        <menu:category id="c_voimalikalluvus" z="r5XQQ/SseYtujf4UL5+WWKox5F0=">
+            <menu:item id="i_voimalikalluvus_new" messageCode="global_menu_new" url="/voimalikalluvuses?form" z="C5Qz4NTJKwUKUZNmNw6aC6EW9mI="/>
+            <menu:item id="i_voimalikalluvus_list" messageCode="global_menu_list" url="/voimalikalluvuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="QZ4v1MmnglCCZE+d9/NA4c7txZo="/>
+        </menu:category>        
+                
+        <!-- 
+         
         <menu:category id="c_piirivalvur" z="sGXZ4GwwZtbGylRvbUXZI4kvKZs=">
             <menu:item id="i_piirivalvur_new" messageCode="global_menu_new" url="/piirivalvurs?form" z="HRvdB2pvoLqTAPhuPDRzOsT/HpE="/>
             <menu:item id="i_piirivalvur_list" messageCode="global_menu_list" url="/piirivalvurs?page=1&amp;size=${empty param.size ? 10 : param.size}" z="sy0TKZS9L9wBaTTNXcAXixPtYHw="/>
@@ -11,10 +47,7 @@
             <menu:item id="i_auastmemuutumine_new" messageCode="global_menu_new" url="/auastmemuutumines?form" z="WfpFSNVPsbMZ5D5jYexV11IlCDA="/>
             <menu:item id="i_auastmemuutumine_list" messageCode="global_menu_list" url="/auastmemuutumines?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Cjgwu+2Jo/r9GKI+5XJ9d+4WHu0="/>
         </menu:category>
-        <menu:category id="c_vaeosaalluvus" z="xXbRL0p+DeBAdgNM1ZgZ+XSQXCE=">
-            <menu:item id="i_vaeosaalluvus_new" messageCode="global_menu_new" url="/vaeosaalluvuses?form" z="f90cjpOZfbDUyx+sRtXKxf/POPs="/>
-            <menu:item id="i_vaeosaalluvus_list" messageCode="global_menu_list" url="/vaeosaalluvuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="S6Zklcfi9bWO9jpRJH0v8Ngh3cE="/>
-        </menu:category>
+    
         <menu:category id="c_ametpiiripunkti" z="1cdm1TuX6ADCyFHUAm1ZlNhy+9Y=">
             <menu:item id="i_ametpiiripunkti_new" messageCode="global_menu_new" url="/ametpiiripunktis?form" z="I/Lmbn3QO7fj+qnUslghcgDlREI="/>
             <menu:item id="i_ametpiiripunkti_list" messageCode="global_menu_list" url="/ametpiiripunktis?page=1&amp;size=${empty param.size ? 10 : param.size}" z="BZf6XVtPaLMStz61OcUH8IspFXs="/>
@@ -58,10 +91,6 @@
         <menu:category id="c_ametvaeosa" z="d4Q8kqF158LZJsKa9/BEMdMQF2Y=">
             <menu:item id="i_ametvaeosa_new" messageCode="global_menu_new" url="/ametvaeosas?form" z="lTsKhoQg0q3mVaJerH5biU5O4D0="/>
             <menu:item id="i_ametvaeosa_list" messageCode="global_menu_list" url="/ametvaeosas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="55zEP657QkA45Fx00PThhXoQu5U="/>
-        </menu:category>
-        <menu:category id="c_adminalluvus" z="2Gg2rOq8ESkQ4i6VcSGECPtofyk=">
-            <menu:item id="i_adminalluvus_new" messageCode="global_menu_new" url="/adminalluvuses?form" z="29oUMXt2u3CTG4JXPR+d0eAPgRI="/>
-            <menu:item id="i_adminalluvus_list" messageCode="global_menu_list" url="/adminalluvuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZqQrAy2+QALNMFXen68dB5aQirA="/>
         </menu:category>
         <menu:category id="c_objektiliik" z="cz4ML3SCzZ/wAuIeULqSWn24Bmk=">
             <menu:item id="i_objektiliik_new" messageCode="global_menu_new" url="/objektiliiks?form" z="DfzQALxnTaVr/kABoi60nAp3DUg="/>
@@ -127,14 +156,6 @@
             <menu:item id="i_riik_new" messageCode="global_menu_new" url="/riiks?form" z="Osrc4MHDGnzI9KsezJA/j2RcsM4="/>
             <menu:item id="i_riik_list" messageCode="global_menu_list" url="/riiks?page=1&amp;size=${empty param.size ? 10 : param.size}" z="dnLLIm4aMreomSiFZOHLQa12gFE="/>
         </menu:category>
-        <menu:category id="c_riigiadminyksuseliik" z="ys4i6NyCzvs6D8b1UPprrx6Pqb0=">
-            <menu:item id="i_riigiadminyksuseliik_new" messageCode="global_menu_new" url="/riigiadminyksuseliiks?form" z="Z9mBPeH04+JcPrMWRsPwR3/KoTI="/>
-            <menu:item id="i_riigiadminyksuseliik_list" messageCode="global_menu_list" url="/riigiadminyksuseliiks?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Ql4kfRaFULULl8Bu2tOAiFCH4f4="/>
-        </menu:category>
-        <menu:category id="c_voimalikalluvus" z="r5XQQ/SseYtujf4UL5+WWKox5F0=">
-            <menu:item id="i_voimalikalluvus_new" messageCode="global_menu_new" url="/voimalikalluvuses?form" z="C5Qz4NTJKwUKUZNmNw6aC6EW9mI="/>
-            <menu:item id="i_voimalikalluvus_list" messageCode="global_menu_list" url="/voimalikalluvuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="QZ4v1MmnglCCZE+d9/NA4c7txZo="/>
-        </menu:category>
         <menu:category id="c_piirivalvurintsidendi" z="/OoHwRXEYkNw5eNlg6EqcydZTJs=">
             <menu:item id="i_piirivalvurintsidendi_new" messageCode="global_menu_new" url="/piirivalvurintsidendis?form" z="O/HW3VCwpHs6cOgs4Lc5I8myLxc="/>
             <menu:item id="i_piirivalvurintsidendi_list" messageCode="global_menu_list" url="/piirivalvurintsidendis?page=1&amp;size=${empty param.size ? 10 : param.size}" z="fr2/ZTxR2KkC1YqPqlJZVxVwwe8="/>
@@ -146,10 +167,6 @@
         <menu:category id="c_ruumiyksus" z="0M2fqYLsYkhzDy6kbt2adFhDxZQ=">
             <menu:item id="i_ruumiyksus_new" messageCode="global_menu_new" url="/ruumiyksuses?form" z="vsJMr2RxNRIRO0KUMkiQmqazO2k="/>
             <menu:item id="i_ruumiyksus_list" messageCode="global_menu_list" url="/ruumiyksuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="iT1dxrRs+dmtDClpX+SEDL2CwVg="/>
-        </menu:category>
-        <menu:category id="c_riigiadminyksus" z="Xh+Jz/k6o0XHyZ9TyunTePaS0VY=">
-            <menu:item id="i_riigiadminyksus_new" messageCode="global_menu_new" url="/riigiadminyksuses?form" z="phO0+0cCzNfEn5v/B5eSbPUJVk4="/>
-            <menu:item id="i_riigiadminyksus_list" messageCode="global_menu_list" url="/riigiadminyksuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="VHX4fjBp0C3PelUZ96rFZXzDv6E="/>
         </menu:category>
         <menu:category id="c_piirivalvurvodikohal" z="KAvK/KkZfGchSID4urlH10j5E+s=">
             <menu:item id="i_piirivalvurvodikohal_new" messageCode="global_menu_new" url="/piirivalvurvodikohals?form" z="CKydwAHffEY7suYmrf5OZsPGIu0="/>
@@ -163,10 +180,7 @@
             <menu:item id="i_orgyksus_new" messageCode="global_menu_new" url="/orgyksuses?form" z="l+4ji1tlrGBCHqldzlu7C7G2vj4="/>
             <menu:item id="i_orgyksus_list" messageCode="global_menu_list" url="/orgyksuses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="XPTg128fGnpWKLmswzWFiHjXdJ4="/>
         </menu:category>
-        <menu:category id="c_vaeosa" z="UjcvY5sFG0mXjkNoVhTf6XRReXA=">
-            <menu:item id="i_vaeosa_new" messageCode="global_menu_new" url="/vaeosas?form" z="FAVHgwavmIl9dgzX+VpD/UnJl6o="/>
-            <menu:item id="i_vaeosa_list" messageCode="global_menu_list" url="/vaeosas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="xmlNM27KfbjGn72iRw7P1QBf3Ww="/>
-        </menu:category>
+
         <menu:category id="c_objektiseadusintsidendi" z="PUib9xrqN6005ODH5885IAwYRYM=">
             <menu:item id="i_objektiseadusintsidendi_new" messageCode="global_menu_new" url="/objektiseadusintsidendis?form" z="byprTUdNqnUEQTGRz5+gPJy3HXs="/>
             <menu:item id="i_objektiseadusintsidendi_list" messageCode="global_menu_list" url="/objektiseadusintsidendis?page=1&amp;size=${empty param.size ? 10 : param.size}" z="0/BvquHfSAyw54qH2dYYZvbBVKc="/>
@@ -191,5 +205,7 @@
             <menu:item id="i_ruumiyksuseliik_new" messageCode="global_menu_new" url="/ruumiyksuseliiks?form" z="iRc5s8GmN3ZEWUkr2LGQP84/rzo="/>
             <menu:item id="i_ruumiyksuseliik_list" messageCode="global_menu_list" url="/ruumiyksuseliiks?page=1&amp;size=${empty param.size ? 10 : param.size}" z="9DEE+Lqe6WlFbHMU2uLblvvb3YU="/>
         </menu:category>
+      
+        -->  
     </menu:menu>
 </div>

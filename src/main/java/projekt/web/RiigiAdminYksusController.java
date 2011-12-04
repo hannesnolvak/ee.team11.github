@@ -23,14 +23,26 @@ import ee.itcollege.team11.RiigiAdminYksus;
 @Controller
 public class RiigiAdminYksusController {
 
-    @RequestMapping(params = "raport", method = RequestMethod.GET)
-    public String raport(@PathVariable("kuupaev") Long kuupaev, Model uiModel) {
+
+
+    @RequestMapping(value = "/{kuupaev}", params = "raport", method = RequestMethod.GET)
+    public String raportKuupaevaga(@PathVariable("kuupaev") Long kuupaev, Model uiModel) {
     	Date date = new Date(kuupaev);
     	uiModel.addAttribute("otsinguTulemus", findSearchResult((date == null ? date : null)));
     	
         addDateTimeFormatPatterns(uiModel);
         return "riigiadminyksuses/raport";
     }
+    
+    @RequestMapping(params = "raport", method = RequestMethod.GET)
+    public String raport(Model uiModel) {
+    	Date date = null;
+    	uiModel.addAttribute("otsinguTulemus", findSearchResult((date == null ? date : null)));
+    	
+        addDateTimeFormatPatterns(uiModel);
+        return "riigiadminyksuses/raport";
+    }
+	
     
     public Collection<AdminAlluvus> findSearchResult(Date kuupaev) {
 		String query = "SELECT a" +

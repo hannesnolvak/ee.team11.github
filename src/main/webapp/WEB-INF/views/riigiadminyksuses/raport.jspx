@@ -8,7 +8,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:raport id="pl_ee_itcollege_team11_RiigiAdminYksus" items="${riigiadminyksuses}">
-    
+    LOLL KOLL
+    <!-- 
        	<c:forEach items="${otsinguTulemus}" var="tulem">
        		<table>
        			<tr>
@@ -16,6 +17,7 @@
        			</tr>
        		</table>
        	</c:forEach>
+       	 -->
        	
     </page:raport>
 </div>

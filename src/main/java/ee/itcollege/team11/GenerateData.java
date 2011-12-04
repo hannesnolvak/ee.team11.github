@@ -1,6 +1,7 @@
 package ee.itcollege.team11;
 
 
+import java.io.EOFException;
 import java.util.Date;
 import java.util.List;
 
@@ -63,17 +64,17 @@ public class GenerateData {
 			d.setKuni(endOfYear);
 			d.persist();
 			
-			/*
+			
 			VoimalikAlluvus va1 = new VoimalikAlluvus();
 			va1.setRiigiAdminYksuseLiik2(a);
-			va1.setRiigiAdminYksuseLiik2(b);
-			va1.persistFlush();
+			va1.setRiigiAdminYksuseLiik1(b);
+			va1.persist();
 			
 			VoimalikAlluvus va2 = new VoimalikAlluvus();
 			va2.setRiigiAdminYksuseLiik2(d);
-			va2.setRiigiAdminYksuseLiik2(c);
-			va2.persistFlush();
-			*/
+			va2.setRiigiAdminYksuseLiik1(c);
+			va2.persist();
+			
 		}
 	}
 	
@@ -122,6 +123,23 @@ public class GenerateData {
 			e.setKuni(endOfYear);
 			e.persist();
 			
+			
+			
+			AdminAlluvus a1 = new AdminAlluvus();			
+			a1.setRiigiAdminYksus2(a);
+			a1.setRiigiAdminYksus1(b);
+			a1.persist();
+			
+			AdminAlluvus a2 = new AdminAlluvus();			
+			a2.setRiigiAdminYksus2(d);
+			a2.setRiigiAdminYksus1(c);
+			a2.persist();
+			
+			AdminAlluvus a3 = new AdminAlluvus();			
+			a3.setRiigiAdminYksus2(d);
+			a3.setRiigiAdminYksus1(e);
+			a3.persist();
+					
 		}
 	
 	
@@ -151,11 +169,14 @@ public class GenerateData {
 		List<Vaeosa> vaeosas = Vaeosa.findAllVaeosas();
 		if (vaeosas == null || vaeosas.size() == 0)
 		{
+			RiigiAdminYksus koht = RiigiAdminYksus.findRiigiAdminYksus((long) 1);
+			
 			Vaeosa v1 = new Vaeosa();
 			v1.setAlates(startOfYear);
 			v1.setKuni(startOfYear);
 			v1.setKood("KKJP");
 			v1.setNimetus("Kükametsa Üksikjalaväepataljon");
+			v1.setRiigiAdminYksus(koht);
 			v1.persist();
 			
 			Vaeosa v2 = new Vaeosa();
@@ -163,6 +184,7 @@ public class GenerateData {
 			v2.setKuni(startOfYear);
 			v2.setKood("KR1");
 			v2.setNimetus("Kükametsa Rühm 1");
+			v2.setRiigiAdminYksus(koht);
 			v2.persist();
 			
 			Vaeosa v3 = new Vaeosa();
@@ -170,6 +192,7 @@ public class GenerateData {
 			v3.setKuni(startOfYear);
 			v3.setKood("KR2");
 			v3.setNimetus("Kükametsa Rühm 2");
+			v3.setRiigiAdminYksus(koht);
 			v3.persist();
 			
 			
@@ -178,6 +201,7 @@ public class GenerateData {
 			v4.setKuni(startOfYear);
 			v4.setKood("TJP");
 			v4.setNimetus("Tartu Üksikjalaväepataljon");
+			v4.setRiigiAdminYksus(koht);
 			v4.persist();
 			
 			Vaeosa v5 = new Vaeosa();
@@ -185,6 +209,7 @@ public class GenerateData {
 			v5.setKuni(startOfYear);
 			v5.setKood("TR1");
 			v5.setNimetus("Tartu Rühm1");
+			v5.setRiigiAdminYksus(koht);
 			v5.persist();
 			
 			Vaeosa v6 = new Vaeosa();
@@ -192,37 +217,38 @@ public class GenerateData {
 			v6.setKuni(startOfYear);
 			v6.setKood("TR1");
 			v6.setNimetus("Tartu Rühm2");
+			v6.setRiigiAdminYksus(koht);
 			v6.persist();		
 			
-/*			
+			
 			VaeosaAlluvus va1 = new VaeosaAlluvus();
 			va1.setAlates(startOfYear);
 			va1.setKuni(endOfYear);
 			va1.setVaeosa2(v1);
-			va1.setVaeosa2(v2);
+			va1.setVaeosa1(v2);
 			va1.persist();
 			
 			VaeosaAlluvus va2 = new VaeosaAlluvus();
 			va2.setAlates(startOfYear);
 			va2.setKuni(endOfYear);
 			va2.setVaeosa2(v1);
-			va2.setVaeosa2(v3);
+			va2.setVaeosa1(v3);
 			va2.persist();
 			
 			VaeosaAlluvus va3 = new VaeosaAlluvus();
 			va3.setAlates(startOfYear);
 			va3.setKuni(endOfYear);
 			va3.setVaeosa2(v4);
-			va3.setVaeosa2(v5);
+			va3.setVaeosa1(v5);
 			va3.persist();
 			
 			VaeosaAlluvus va4 = new VaeosaAlluvus();
 			va4.setAlates(startOfYear);
 			va4.setKuni(endOfYear);
 			va4.setVaeosa2(v4);
-			va4.setVaeosa2(v5);
+			va4.setVaeosa1(v5);
 			va4.persist();
-*/			
+			
 			
 		}
 		

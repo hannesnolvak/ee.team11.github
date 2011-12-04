@@ -3,42 +3,94 @@
      xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" 
      xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" 
      xmlns:jsp="http://java.sun.com/JSP/Page" 
-     xmlns:spring="http://www.springframework.org/tags" 
+     xmlns:spring="http://www.springframework.org/tags"
      version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-	<form action="" method="POST">
+    
+    <form action="" method="POST">
+    <!--
+    <form:update id="fu_ee_itcollege_team11_aruanne" modelAttribute="aruanne" path="/aruanne" versionField="Version"> 
+	
+	 -->
 	
 	
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" style="border:none;">
 		<tr>
-			<th>Kuupäev<br />
-			<!--     <field:datetime dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" z="urc/i9bKi1jWCc7HlkBWDebendE="/>
-			 -->
-				<field:datetime dateTimePattern="dd-MM-yyyy" field="kp" id="c_ee_itcollege_team11_aruanne_kp" required="true" z=""/></th>
-			<th>Liik<br />
+			<th style="border:none;">
+				<!--     <field:datetime dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" z="urc/i9bKi1jWCc7HlkBWDebendE="/>
+				<field:datetime dateTimePattern="dd.MM.yyyy" field="kp" id="c_ee_itcollege_team11_aruanne_kp" required="true" />
+			 	-->
+			 	<input type="text" name="kp" value="${kp}" />
+				<!-- 
+				<script type="text/javascript">dojo.require('dijit.form.DateTextBox');</script>
+				<div id="__id">
+					<label for="_kp_id">Kuupäev:</label>
+					<div wairole="presentation" id="widget__kp_id" class="dijit dijitReset dijitInlineTable dijitLeft dijitTextBox dijitDateTextBox" role="presentation" widgetid="_kp_id">
+						<div class="dijitReset dijitValidationContainer">
+							<input type="text" wairole="presentation" readonly="" tabindex="-1" value="Χ " class="dijitReset dijitInputField dijitValidationIcon dijitValidationInner" role="presentation" />
+						</div>
+						<div class="dijitReset dijitInputField dijitInputContainer">
+							<input type="text" autocomplete="off" dojoattachpoint="textbox,focusNode" class="dijitReset dijitInputInner" aria-valuenow="" aria-invalid="true" id="_kp_id" tabindex="0" aria-required="true" value="${kp}" />
+							<input type="hidden" value="" />
+						</div>
+					</div>
+					<br />
+					<script type="text/javascript">
+        				Spring.addDecoration(new Spring.ElementDecoration(
+       						{
+       							elementId : '_kp_id',
+       							widgetType : 'dijit.form.DateTextBox',
+       							widgetAttrs : {
+       								promptMessage: 'Enter Kuup&amp;auml;ev (required)',
+       								invalidMessage: 'Please enter valid Kuup&amp;auml;ev',
+       								required: true,
+       								constraints: {
+       									datePattern : 'dd.MM.yyyy',
+       									required : true
+       								},
+       								datePattern : 'dd.MM.yyyy'
+       							}
+       						}
+        				));
+        			</script>
+        		</div>
+        		 -->
+			</th>
+			<th width="150px" style="border:none;">
+				<label for="liikSelect">Liik</label>
 				<select name="liik">
-				<c:forEach items="${liigid}" var="liik">
-					<option value="${liik.riigiAdminYksuseLikId}" label="${liik.nimetus}" />
-				</c:forEach>
+					<c:forEach items="${liigid}" var="liik">
+						<c:if test="${liikId == liik.riigiAdminYksuseLikId}">
+							<option value="${liik.riigiAdminYksuseLikId}" selected="selected">${liik.nimetus}</option>
+						</c:if>
+						
+						<c:if test="${liikId != liik.riigiAdminYksuseLikId}">
+							<option value="${liik.riigiAdminYksuseLikId}">${liik.nimetus}</option>
+						</c:if>
+						
+					</c:forEach>
 				</select>
 			</th>
-			<th><input type="submit" value="Värskenda!" /></th>
+			<th style="border:none;"><input type="submit" value="Värskenda!" /></th>
 		</tr>
 	</table>
 	</form>
-
-
+	<!--
+	</form:update> 
+	
+	 -->
     <c:set var="viimaneYlem" value="false" />
     
 	<c:forEach items="${suhted}" var="suhe">
 		<c:if test="${suhe.riigiAdminYksus2 != viimaneYlem}">
-			<div>
+			<br />
+			<div class="dijitTitlePaneTitle">
 				${suhe.riigiAdminYksus2.nimetus}
 			</div>
 			
 		</c:if>
-		<div>
+		<div class="aruanneRow">
 				${suhe.riigiAdminYksus1.nimetus}
 		</div>
 		

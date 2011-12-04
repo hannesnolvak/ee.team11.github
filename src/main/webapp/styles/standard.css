@@ -385,3 +385,9 @@ table.layoutTable table.listTable td {
 .layoutTable, table.layoutTable td {
 	border: none;
 }
+
+.aruanneRow {
+	border:1px solid #CCCCCC;
+	border-top: none;
+	padding: 3px;
+}

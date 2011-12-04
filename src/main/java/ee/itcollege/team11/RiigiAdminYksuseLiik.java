@@ -2,6 +2,7 @@ package ee.itcollege.team11;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -259,6 +260,18 @@ public class RiigiAdminYksuseLiik extends BaseEntity {
     	this.setSuletud(getDate());
     	this.setSulgeja(getLoggedUserName());
     	this.entityManager.merge(this);
+    }
+    
+    public static long countRiigiAdminYksuseLiiks() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM RiigiAdminYksuseLiik o WHERE o.suletud > :date OR o.suletud IS NULL", Long.class).setParameter("date", getDate()).getSingleResult();
+    }
+    
+    public static List<RiigiAdminYksuseLiik> findAllRiigiAdminYksuseLiiks() {
+        return entityManager().createQuery("SELECT o FROM RiigiAdminYksuseLiik o WHERE o.suletud > :date OR o.suletud IS NULL", RiigiAdminYksuseLiik.class).setParameter("date", getDate()).getResultList();
+    }
+    
+    public static List<RiigiAdminYksuseLiik> findRiigiAdminYksuseLiikEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM RiigiAdminYksuseLiik o WHERE o.suletud > :date OR o.suletud IS NULL", RiigiAdminYksuseLiik.class).setParameter("date", getDate()).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
 	
 }

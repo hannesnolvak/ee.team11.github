@@ -1,6 +1,7 @@
 package projekt.web;
 
-import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -11,17 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import ee.itcollege.team11.AdminAlluvus;
 import ee.itcollege.team11.RiigiAdminYksus;
 import ee.itcollege.team11.RiigiAdminYksuseLiik;
-import ee.itcollege.team11.Vaeosa;
 
 @Controller
 @RequestMapping("/aruanne")
@@ -31,20 +28,51 @@ public class AruandeController {
 	@RequestMapping("/aruanne")
 	public String vaata(
 			@RequestParam(value = "liik", required = false) Long liikId,
-			@RequestParam(value = "kp", required = false) Date kp,
+			@RequestParam(value = "kp", required = false) String kp,
 			ModelMap model, HttpServletRequest request,
 			HttpServletResponse response) {
 
-		model.addAttribute("liik", liikId);
-		model.addAttribute("kp", kp == null ? "11-11-2011" : kp);
+//		if(kp == null) kp = new Date();
+//		Date kp = new Date(kuupaev);
+		
+		Date kupaevp = new Date();
+		/*
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		if(kp != null) {
+			try {
+				kupaevp = (Date)formatter.parse(kp);
+			} catch (ParseException e) {
+				kupaevp = new Date();
+			}
+		} else {
+			kupaevp = new Date();
+		} 
+		/*
+		Date kupaevp;
+		if(kp != null) {
+			kupaevp = new Date(kp);
+		} else {
+			kupaevp = new Date();
+		}/**/
 		
 		
-        Date date = new Date(); //TODO - ei kasuta p2ris kuup2eva
+		model.addAttribute("liikId", liikId);
+//		model.addAttribute("kp", kp == null ? "11-11-2011" : kp);
+
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy");
+//		model.addAttribute("kp", format.format(kupaevp));
+		model.addAttribute("kp", kp);
+		/**/
+		model.addAttribute("kp", kupaevp);
+		
+		
+//        Date date = new Date(); //TODO - ei kasuta p2ris kuup2eva
         
 //		RiigiAdminYksuseLiik liik = RiigiAdminYksuseLiik.findRiigiAdminYksuseLiik(getLiikId(liikId));
-		
-		model.addAttribute("liigid", RiigiAdminYksuseLiik.findAllRiigiAdminYksuseLiiks());
-		Collection<AdminAlluvus> units = getAdminAlluvusesByTypeAndDate(liikId, date);
+        List<RiigiAdminYksuseLiik> liiks = RiigiAdminYksuseLiik.findAllRiigiAdminYksuseLiiks();
+		model.addAttribute("liigid", liiks);
+		Collection<AdminAlluvus> units = getAdminAlluvusesByTypeAndDate(liikId, kupaevp);
 		model.addAttribute("suhted", units);
 
 		return "aruanne/index";

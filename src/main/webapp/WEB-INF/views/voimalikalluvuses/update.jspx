@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:form="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:springForm="http://www.springframework.org/tags/form"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_ee_itcollege_team11_VoimalikAlluvus" idField="voimalikAlluvusId" modelAttribute="voimalikAlluvus" path="/voimalikalluvuses" versionField="Version" z="qs8W7vRAT8hAu+AV1QYce+yAIS8=">
-        <field:input field="avaja" id="c_ee_itcollege_team11_VoimalikAlluvus_avaja" z="y0E+yD3T2+BKDLmkePk3JYyWsQY="/>
-        <field:datetime dateTimePattern="${voimalikAlluvus_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_VoimalikAlluvus_avatud" z="P9qdtjibinW50zNSTFFjr8c7uAI="/>
         <field:input field="kommentaar" id="c_ee_itcollege_team11_VoimalikAlluvus_kommentaar" z="jXvbYRUgnxpkKuy9z9snHZ0719k="/>
-        <field:datetime dateTimePattern="${voimalikAlluvus_muudetud_date_format}" field="muudetud" id="c_ee_itcollege_team11_VoimalikAlluvus_muudetud" z="l+F6XRt+zGs13fIPukpPuzA/HoQ="/>
-        <field:input field="muutja" id="c_ee_itcollege_team11_VoimalikAlluvus_muutja" z="wHgG2M/i1JaN4+Gva4vX48rhbn0="/>
-        <field:datetime dateTimePattern="${voimalikAlluvus_suletud_date_format}" field="suletud" id="c_ee_itcollege_team11_VoimalikAlluvus_suletud" z="JX6CUKBJtnFacQFZg1RKXq+wvwA="/>
-        <field:input field="sulgeja" id="c_ee_itcollege_team11_VoimalikAlluvus_sulgeja" z="ZmV7w0Si4W1r9GRnHB5zo9yqpLA="/>
         <field:select field="riigiAdminYksuseLiik1" id="c_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik1" itemValue="riigiAdminYksuseLikId" itemLabel="nimetus" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" />
         <field:select field="riigiAdminYksuseLiik2" id="c_ee_itcollege_team11_VoimalikAlluvus_riigiAdminYksuseLiik2" itemValue="riigiAdminYksuseLikId" itemLabel="nimetus" items="${riigiadminyksuseliiks}" path="/riigiadminyksuseliiks" />
+        
+        <springForm:hidden path="avaja" />
+        <springForm:hidden path="avatud" />
+        <springForm:hidden path="sulgeja" />
+        <springForm:hidden path="suletud" />
     </form:update>
 </div>

@@ -4,8 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_ee_itcollege_team11_RiigiAdminYksus" modelAttribute="riigiAdminYksus" path="/riigiadminyksuses" render="${empty dependencies}" z="d6ABn6ITL/e42HWjehU1cplqF1M=">
         <field:datetime dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" z="urc/i9bKi1jWCc7HlkBWDebendE="/>
-        <field:input field="avaja" id="c_ee_itcollege_team11_RiigiAdminYksus_avaja" z="16iQavaEWq1JFXu3YhzsyAD1Lu0="/>
-        <field:datetime dateTimePattern="${riigiAdminYksus_avatud_date_format}" field="avatud" id="c_ee_itcollege_team11_RiigiAdminYksus_avatud" z="X8Aw/aIF5S+jh6D6+6BY6ntUYFE="/>
         <field:input field="kood" id="c_ee_itcollege_team11_RiigiAdminYksus_kood" z="8IOrXyWAoRr2W6BB2HErfwdEaqI="/>
         <field:datetime dateTimePattern="${riigiAdminYksus_kuni_date_format}" field="kuni" id="c_ee_itcollege_team11_RiigiAdminYksus_kuni" z="wVj6BEDv9QHgQ3ER+DTyZ3zicYA="/>
         <field:input field="nimetus" id="c_ee_itcollege_team11_RiigiAdminYksus_nimetus" z="nhPxFtXM7Bq4ZZRbOJj6k2meItc="/>

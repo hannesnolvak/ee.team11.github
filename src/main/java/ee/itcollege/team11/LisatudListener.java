@@ -12,6 +12,7 @@ public class LisatudListener {
 		entity.setAvatud(new Date());
 		entity.setMuudetud(new Date());
 		entity.setMuutja("Mina");
+		entity.setSuletud(new Date(253402207200000L)); //9999-12-31
 	}
 	
 }

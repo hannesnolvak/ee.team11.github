@@ -8,5 +8,6 @@ public interface Creatable {
 	void setAvatud(final Date date);
 	void setMuudetud(final Date date);
 	void setMuutja(final String name);
+	void setSuletud(final Date date);
 	
 }

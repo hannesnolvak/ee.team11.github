@@ -67,4 +67,5 @@
         <property name="persistenceUnitName" value="persistenceUnit"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <bean class="ee.itcollege.team11.GenerateData" />
 </beans>

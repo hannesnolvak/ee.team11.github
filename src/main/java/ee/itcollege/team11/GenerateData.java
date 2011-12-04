@@ -62,6 +62,18 @@ public class GenerateData {
 			d.setAlates(startOfYear);
 			d.setKuni(endOfYear);
 			d.persist();
+			
+			/*
+			VoimalikAlluvus va1 = new VoimalikAlluvus();
+			va1.setRiigiAdminYksuseLiik2(a);
+			va1.setRiigiAdminYksuseLiik2(b);
+			va1.persistFlush();
+			
+			VoimalikAlluvus va2 = new VoimalikAlluvus();
+			va2.setRiigiAdminYksuseLiik2(d);
+			va2.setRiigiAdminYksuseLiik2(c);
+			va2.persistFlush();
+			*/
 		}
 	}
 	

@@ -69,6 +69,7 @@ public class AruandeController {
 		} else {
 			try {
 				model.addAttribute("kp", format.format(format.parse(kp)));
+				kupaevp = format.parse(kp);
 			} catch (ParseException e) {
 
 			}

@@ -60,11 +60,19 @@ public class AruandeController {
 //		model.addAttribute("kp", kp == null ? "11-11-2011" : kp);
 
 		
-		SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 //		model.addAttribute("kp", format.format(kupaevp));
 		model.addAttribute("kp", kp);
 		/**/
-		model.addAttribute("kp", kupaevp);
+		if (kp == null) {
+			model.addAttribute("kp", format.format(kupaevp));
+		} else {
+			try {
+				model.addAttribute("kp", format.format(format.parse(kp)));
+			} catch (ParseException e) {
+
+			}
+		}
 		
 		
 //        Date date = new Date(); //TODO - ei kasuta p2ris kuup2eva

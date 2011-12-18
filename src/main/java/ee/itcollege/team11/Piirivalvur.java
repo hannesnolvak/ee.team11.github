@@ -62,7 +62,7 @@ public class Piirivalvur implements Serializable {
 	private String muutja;
 
 	@NotNull
-    @Size(min=2, max=20)
+    @Size(min=2, max=21)
 	private String perekonnanimi;
 
 	@NotNull

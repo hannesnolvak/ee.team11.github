@@ -335,5 +335,10 @@ public class Vaeosa extends BaseEntity {
     	this.setSulgeja(getLoggedUserName());
     	this.entityManager.merge(this);
     }
+    
+    public static List<Vaeosa> findVaeosaEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM Vaeosa o WHERE suletud > CURDATE()", Vaeosa.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }
+    
 
 }

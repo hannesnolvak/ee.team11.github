@@ -75,8 +75,5 @@ privileged aspect Vaeosa_Roo_Entity {
         return entityManager().find(Vaeosa.class, vaeosaIdId);
     }
     
-    public static List<Vaeosa> Vaeosa.findVaeosaEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Vaeosa o", Vaeosa.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }
     
 }

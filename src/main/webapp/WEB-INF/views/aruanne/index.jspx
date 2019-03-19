@@ -21,7 +21,22 @@
 				<!--     <field:datetime dateTimePattern="${riigiAdminYksus_alates_date_format}" field="alates" id="c_ee_itcollege_team11_RiigiAdminYksus_alates" z="urc/i9bKi1jWCc7HlkBWDebendE="/>
 				<field:datetime dateTimePattern="dd.MM.yyyy" field="kp" id="c_ee_itcollege_team11_aruanne_kp" required="true" />
 			 	-->
-			 	<input type="text" name="kp" value="${kp}" />
+			 	<input type="text" name="kp" id="kp" value="${kp}" />
+			 	<script type="text/javascript">
+		        	Spring.addDecoration(
+		        			new Spring.ElementDecoration({
+		        				elementId : 'kp', 
+		        				widgetType : 'dijit.form.DateTextBox', 
+		        				widgetAttrs : {
+		        					required: false, 
+		        					constraints: {
+		        						datePattern : 'yyyy-MM-dd', 
+		        						required : false
+		        					}, datePattern : 'yyyy-MM-dd'
+		        				}
+		        		})
+		        	);
+        		</script>
 				<!-- 
 				<script type="text/javascript">dojo.require('dijit.form.DateTextBox');</script>
 				<div id="__id">

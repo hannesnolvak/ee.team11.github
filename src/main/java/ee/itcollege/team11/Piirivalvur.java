@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
@@ -33,33 +35,52 @@ public class Piirivalvur implements Serializable {
 	@Column(name="PIIRIVALVUR_ID")
 	private Long piirivalvurId;
 
+	@NotNull
+    @Size(min=2, max=20)
 	private String avaja;
 
+	@NotNull
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date avatud;
 
+	@NotNull
+    @Size(min=2, max=20)
 	private String eesnimed;
 
+	@NotNull
+    @Size(min=2, max=11)
 	private String isikukood;
 
+	@NotNull
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date muudetud;
 
+	@NotNull
+    @Size(min=2, max=20)
 	private String muutja;
 
+	@NotNull
+    @Size(min=2, max=21)
 	private String perekonnanimi;
 
+	@NotNull
+    @Size(min=2, max=20)
 	@Column(name="SODURI_KOOD")
 	private String soduriKood;
 
+	@NotNull
+    @Size(min=1, max=20)
 	private String sugu;
 
+	@NotNull
 	@DateTimeFormat(style="M-")
     @Temporal( TemporalType.DATE)
 	private Date suletud;
 
+	@NotNull
+    @Size(min=2, max=20)
 	private String sulgeja;
 
 	//bi-directional many-to-one association to AuastmeMuutumine
